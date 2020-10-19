@@ -22,7 +22,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: FDSEKG
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: PINM24R5NCT3U4m9Dd8aV85NBoGrDtE9NGuWA3IjmpHF3MBgX3NFDCyfNiV/cVNoRhPS3Sy3WAeVc7fhhK6i+fFV7cL70jAVDQqg1DSGwZbUsFsCka23Rig6bdTjsCQKZWZLGvY6mOunYbHEi7SmnpBcJB+1V11P2TplcaXqDnw55atdBBBo6fvE/7Lht8dLXpbmfGmVEJNXP6SJgIZkwEfaeVj1LbZeIK2vrJ7L1cQ1OmEZDpZimkwuuufMDpLB2JE577u8NLHyc3T2VQPmSSgs+SYxxnDU0VczMszX9O6mfmVNe0kzRIiZ7ktZqGzkon2oEtcaJ6xt3pK/0ZTBNJ9o2//pTmgg98I+Wq7QZh8Qi9y1fGqItl3OOR7kmmAz1P1tZoHu52cYO3N+RunNDSd+V8ShEnOLFaIljQD5EIqrkzpo8r/O6Dr1hrxdUfNWVJO6O7Rd54FfySVhMJkjTLN7d3RLkkTu3smeLCUmVdGDNiePciGF2rR3kianSwoM84Q+5bJTJAyafSPg7x+CdhJVSb73YiBsMT8F204Bl5dM+U6c+tuibxxPZtSGcdYXn+ow9JRGSbI+BqMO/Nw054bdQb7y8qjdT5t54o4mQAtRUH+pfM9wUSR4DwxAB88ZW2uG1ATRaKEa9VE8JdiOpSFFT/NbeidWuXNWoW2FQPw=
   on:
     tags: true
     repo: FudanSELab/funcverbnet
