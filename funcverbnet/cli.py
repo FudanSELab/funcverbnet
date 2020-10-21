@@ -7,7 +7,7 @@ import click
 def main(args=None):
     """Console script for funcverbnet."""
     click.echo(
-        "FuncVerbNet, Provides a knowledge system constructed from functionality categories, verbs, and "
+        "FuncVerbNet provides a knowledge system constructed from functionality categories, verbs, and "
         "phrase patterns, as well as functionality for fine-grained analysis of functionality descriptions "
         "based on this knowledge system."
         )
