@@ -29,7 +29,7 @@ def test_content(response):
 
 def test_find_cate_by_name():
     net = FuncVerbNet()
-    print(net.find_cate_by_name())
+    print(net.find_cate_by_name("stop"))
 
 
 def test_get_category_number():
@@ -135,6 +135,16 @@ def test_find_role_definition_by_id():
 def test_find_role_name_by_id():
     net = FuncVerbNet()
     print(net.find_role_name_by_id(5))
+
+
+def test_find_cates_by_pattern():
+    net = FuncVerbNet()
+    print(net.find_cates_by_pattern("V {patient}"))
+
+
+def test_find_cates_by_verb():
+    net = FuncVerbNet()
+    print(net.find_cates_by_verb("stop"))
 
 
 def test_command_line_interface():

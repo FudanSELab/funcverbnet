@@ -249,6 +249,22 @@ class FuncVerbNet:
         role = self.find_role_by_id(role_id)
         return role.name
 
+    def find_cates_by_pattern(self, pattern):
+        cates = []
+        for cate in self.cate_list:
+            for p in cate.included_pattern:
+                if p == pattern:
+                    cates.append(cate)
+        return cates
+
+    def find_cates_by_verb(self, verb):
+        cates = []
+        for cate in self.cate_list:
+            for v in cate.included_verb:
+                if v == verb:
+                    cates.append(cate)
+        return cates
+
 
 if __name__ == '__main__':
     net = FuncVerbNet()
