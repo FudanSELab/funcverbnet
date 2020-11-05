@@ -32,9 +32,9 @@ def test_find_cate_by_name():
     print(net.find_cate_by_name())
 
 
-def test_get_category_number():
-    net = FuncVerbNet()
-    print(net.get_category_number())
+# def test_get_category_number():
+#     net = FuncVerbNet()
+#     print(net.get_category_number())
 
 
 def test_command_line_interface():

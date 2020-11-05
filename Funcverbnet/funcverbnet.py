@@ -149,7 +149,7 @@ class FuncVerbNet:
         cate_number = -1
         for cate in self.cate_list:
             cate_number += 1
-        print(cate_number)
+        # print(cate_number)
         return cate_number
 
     def get_included_verb_number_by_cateid(self, cateid):
@@ -168,8 +168,18 @@ class FuncVerbNet:
             pattern_num += 1
         return pattern_num
 
-    # def get_role_number(self):
-    #
+    def get_role_number(self):
+        role_num = 0
+        for role in self.role_list:
+            role_num += 1
+        return role_num
+
+    def get_verb_number(self):
+        verb_num = 0
+        for verb in self.verb_list:
+            verb_num += 1
+        return verb_num
+
     def find_verb_by_id(self, verb_id):
         for verb in self.verb_list:
             if verb.id == verb_id:
