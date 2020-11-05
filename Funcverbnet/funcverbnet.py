@@ -180,6 +180,12 @@ class FuncVerbNet:
             verb_num += 1
         return verb_num
 
+    def get_pattern_number(self):
+        pattern_number = 0
+        for pattern in self.pattern_list:
+            pattern_number += 1
+            return pattern_number
+
     def find_verb_by_id(self, verb_id):
         for verb in self.verb_list:
             if verb.id == verb_id:
@@ -203,6 +209,26 @@ class FuncVerbNet:
             if pattern.name == p_name:
                 return pattern
         return None
+
+    def find_role_by_id(self, role_id):
+        for role in self.role_list:
+            if role.id == role_id:
+                return role
+        return None
+
+    def find_role_by_name(self, role_name):
+        for role in self.role_list:
+            if role.name == role_name:
+                return role
+        return None
+
+    def find_role_definition_by_name(self, role_name):
+        role = self.find_role_by_name(role_name)
+        return role.definition
+
+    def find_role_definition_by_id(self, role_id):
+        role = self.find_role_by_id(role_id)
+        return role.definition
 
 
 if __name__ == '__main__':
