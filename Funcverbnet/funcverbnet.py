@@ -33,7 +33,6 @@ class FuncVerbNet:
         # category_data_path = "./data/functionality_category.json"
         with open(category_data_path, 'r', encoding='utf-8') as category_data_file:
             category_data = json.load(category_data_file)
-        print(category_data)
         for cate in category_data:
             name = cate['name']
             id = cate['id']
@@ -54,7 +53,6 @@ class FuncVerbNet:
     def init_verb_list(self, verb_data_path=os.path.join(root_path, "data/verb.json")):
         with open(verb_data_path, 'r', encoding='utf-8') as verb_file:
             verb_data = json.load(verb_file)
-        print(verb_data)
         for verb in range(0, len(verb_data)):
             id = verb_data[verb]['id']
             name = verb_data[verb]['name']
@@ -135,6 +133,65 @@ class FuncVerbNet:
                 # print(j)
                 if pattern == included_pattern:
                     return cate
+        return None
+
+    def find_all_verb_by_cate(self, cate_id):
+        for cate in self.cate_list:
+            if cate.id == cate_id:
+                return cate.included_verb
+
+    def find_all_pattern_by_cate(self, cate_id):
+        for cate in self.cate_list:
+            if cate.id == cate_id:
+                return cate.included_pattern
+
+    def get_category_number(self):
+        cate_number = -1
+        for cate in self.cate_list:
+            cate_number += 1
+        print(cate_number)
+        return cate_number
+
+    def get_included_verb_number_by_cateid(self, cateid):
+        cate = self.find_cate_by_id(cateid)
+        verbs = self.find_all_verb_by_cate(cate)
+        verb_num = 0
+        for verb in verbs:
+            verb_num += 1
+        return verb_num
+
+    def get_included_pattern_number_by_cateid(self, cateid):
+        cate = self.find_cate_by_id(cateid)
+        patterns = self.find_all_verb_by_cate(cate)
+        pattern_num = 0
+        for verb in patterns:
+            pattern_num += 1
+        return pattern_num
+
+    # def get_role_number(self):
+    #
+    def find_verb_by_id(self, verb_id):
+        for verb in self.verb_list:
+            if verb.id == verb_id:
+                return verb
+        return None
+
+    def find_verb_by_name(self, v_name):
+        for verb in self.verb_list:
+            if verb.name == v_name:
+                return verb
+        return None
+
+    def find_pattern_by_id(self, p_id):
+        for pattern in self.pattern_list:
+            if pattern.id == p_id:
+                return pattern
+        return None
+
+    def find_pattern_by_name(self, p_name):
+        for pattern in self.pattern_list:
+            if pattern.name == p_name:
+                return pattern
         return None
 
 

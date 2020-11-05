@@ -11,6 +11,7 @@
 @Description: This file define the basic model class for FuncVerbNet.
 """
 
+
 # TODO: define all the property of all those FuncCategory based on the OWL we define.
 
 
@@ -50,6 +51,12 @@ class FuncCategory:
         return self.representative_verb
         pass
 
+    def get_all_verbs(self):
+        return self.included_verb
+
+    def get_included_pattern(self):
+        return self.included_pattern
+
 
 class FuncVerb:
     def __init__(self, id, qualified_name, description, example, create_time, version):
@@ -63,6 +70,9 @@ class FuncVerb:
 
     def __str__(self):
         return "<FuncVerb>" + self.id
+
+    def get_funcverb_example(self):
+        return self.example
 
 
 class Verb:
@@ -89,6 +99,9 @@ class FuncPattern:
     def __str__(self):
         return "<FuncPattern>" + self.id
 
+    def get_funcpattern_example(self):
+        return self.example
+
 
 class PhasePattern:
     def __init__(self, id, syntax, example, description, create_time, version):
@@ -103,6 +116,9 @@ class PhasePattern:
     def __str__(self):
         return "<PhasePattern>" + self.id
 
+    def get_phrase_pattern_example(self):
+        return self.example
+
 
 class Role:
     def __init__(self, id, name, definition, create_time, version):
@@ -112,6 +128,9 @@ class Role:
         self.create_time = create_time
         self.version = version
         pass
+
+    def get_role_definition(self):
+        return self.definition
 
     def __str__(self):
         return "<Role>" + self.id

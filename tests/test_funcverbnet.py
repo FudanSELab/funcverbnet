@@ -8,6 +8,7 @@ from click.testing import CliRunner
 
 from Funcverbnet import funcverbnet
 from Funcverbnet import cli
+from Funcverbnet.funcverbnet import FuncVerbNet
 
 
 @pytest.fixture
@@ -24,6 +25,16 @@ def test_content(response):
     """Sample pytest test function with the pytest fixture as an argument."""
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
+
+
+def test_find_cate_by_name():
+    net = FuncVerbNet()
+    print(net.find_cate_by_name())
+
+
+def test_get_category_number():
+    net = FuncVerbNet()
+    print(net.get_category_number())
 
 
 def test_command_line_interface():
