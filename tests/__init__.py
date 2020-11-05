@@ -1,1 +1,1 @@
-"""Unit test package for Funcverbnet."""
+"""Unit test package for funcverbnet."""

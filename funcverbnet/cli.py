@@ -1,11 +1,11 @@
-"""Console script for Funcverbnet."""
+"""Console script for funcverbnet."""
 import sys
 import click
 
 
 @click.command()
 def main(args=None):
-    """Console script for Funcverbnet."""
+    """Console script for funcverbnet."""
     click.echo(
         "FuncVerbNet provides a knowledge system constructed from functionality categories, verbs, and "
         "phrase patterns, as well as functionality for fine-grained analysis of functionality descriptions "

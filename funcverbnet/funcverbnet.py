@@ -2,14 +2,15 @@
 import json
 import os
 
-from Funcverbnet.model import *
+from funcverbnet.model import *
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
 
 
 class FuncVerbNet:
 
-    def __init__(self, category_data_path=os.path.join(root_path, "data/functionality_category.json"),
+    def __init__(self, semantic_role_path=os.path.join(root_path, "data/semantic_role.json"),
+                 category_data_path=os.path.join(root_path, "data/functionality_category.json"),
                  verb_data_path=os.path.join(root_path, "data/verb.json"),
                  pattern_data_path=os.path.join(root_path, "data/phrase_pattern.json"),
                  f_pattern_data_path=os.path.join(root_path, "data/f_pattern.json"),
@@ -21,6 +22,7 @@ class FuncVerbNet:
         self.f_verb_list = []
         self.f_pattern_list = []
         self.pattern_list = []
+        self.init_role_list(semantic_role_path)
         self.init_cate_list(category_data_path)
         self.init_verb_list(verb_data_path)
         self.init_pattern_list(pattern_data_path)
@@ -73,9 +75,9 @@ class FuncVerbNet:
             description = pattern_data[pattern]['description']
             create_time = pattern_data[pattern]['create_time']
             version = pattern_data[pattern]['version']
-
             new_pattern = PhasePattern(id, syntax, example, description, create_time, version)
             self.pattern_list.append(new_pattern)
+
         pass
 
     def init_f_pattern_list(self, f_pattern_data_path=os.path.join(root_path, "data/f_pattern.json")):
@@ -105,6 +107,19 @@ class FuncVerbNet:
             version = f_verb_data[f_verb]['version']
             new_f_verbs = FuncVerb(id, qualified_name, description, example, create_time, version)
             self.f_verb_list.append(new_f_verbs)
+        pass
+
+    def init_role_list(self, semantic_role_path=os.path.join(root_path, "data/semantic_role.json")):
+        with open(semantic_role_path, 'r', encoding='utf-8') as semantic_role_file:
+            semantic_role_data = json.load(semantic_role_file)
+        for semantic_role in range(0, len(semantic_role_data)):
+            id = semantic_role_data[semantic_role]['id']
+            name = semantic_role_data[semantic_role]['name']
+            definition = semantic_role_data[semantic_role]['definition']
+            create_time = semantic_role_data[semantic_role]['create_time']
+            version = semantic_role_data[semantic_role]['version']
+            new_semantic_role = Role(id, name, definition, create_time, version)
+            self.role_list.append(new_semantic_role)
         pass
 
     def find_cate_by_name(self, name):
@@ -154,7 +169,7 @@ class FuncVerbNet:
 
     def get_included_verb_number_by_cateid(self, cateid):
         cate = self.find_cate_by_id(cateid)
-        verbs = self.find_all_verb_by_cate(cate)
+        verbs = self.find_all_verb_by_cate(cate.id)
         verb_num = 0
         for verb in verbs:
             verb_num += 1
@@ -162,7 +177,7 @@ class FuncVerbNet:
 
     def get_included_pattern_number_by_cateid(self, cateid):
         cate = self.find_cate_by_id(cateid)
-        patterns = self.find_all_verb_by_cate(cate)
+        patterns = self.find_all_pattern_by_cate(cate.id)
         pattern_num = 0
         for verb in patterns:
             pattern_num += 1
@@ -184,7 +199,7 @@ class FuncVerbNet:
         pattern_number = 0
         for pattern in self.pattern_list:
             pattern_number += 1
-            return pattern_number
+        return pattern_number
 
     def find_verb_by_id(self, verb_id):
         for verb in self.verb_list:
@@ -204,9 +219,9 @@ class FuncVerbNet:
                 return pattern
         return None
 
-    def find_pattern_by_name(self, p_name):
+    def find_pattern_by_syntax(self, p_syntax):
         for pattern in self.pattern_list:
-            if pattern.name == p_name:
+            if pattern.syntax == p_syntax:
                 return pattern
         return None
 
@@ -229,6 +244,10 @@ class FuncVerbNet:
     def find_role_definition_by_id(self, role_id):
         role = self.find_role_by_id(role_id)
         return role.definition
+
+    def find_role_name_by_id(self, role_id):
+        role = self.find_role_by_id(role_id)
+        return role.name
 
 
 if __name__ == '__main__':

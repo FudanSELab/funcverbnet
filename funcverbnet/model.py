@@ -69,7 +69,7 @@ class FuncVerb:
         pass
 
     def __str__(self):
-        return "<FuncVerb>" + self.id
+        return "<FuncVerb>" + str(self.id)
 
     def get_funcverb_example(self):
         return self.example
@@ -84,7 +84,7 @@ class Verb:
         self.version = version
 
     def __str__(self):
-        return "<Verb>" + self.id
+        return "<Verb>" + str(self.id)
 
 
 class FuncPattern:
@@ -97,7 +97,7 @@ class FuncPattern:
         self.version = version
 
     def __str__(self):
-        return "<FuncPattern>" + self.id
+        return "<FuncPattern>" + str(self.id)
 
     def get_funcpattern_example(self):
         return self.example
@@ -114,7 +114,7 @@ class PhasePattern:
         pass
 
     def __str__(self):
-        return "<PhasePattern>" + self.id
+        return "<PhasePattern>" + str(self.id)
 
     def get_phrase_pattern_example(self):
         return self.example
@@ -133,4 +133,4 @@ class Role:
         return self.definition
 
     def __str__(self):
-        return "<Role>" + self.id
+        return "<Role>" + str(self.id)
