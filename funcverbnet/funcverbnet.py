@@ -150,12 +150,12 @@ class FuncVerbNet:
                     return cate
         return None
 
-    def find_all_verb_by_cate(self, cate_id):
+    def find_all_verb_by_cate_id(self, cate_id):
         for cate in self.cate_list:
             if cate.id == cate_id:
                 return cate.included_verb
 
-    def find_all_pattern_by_cate(self, cate_id):
+    def find_all_pattern_by_cate_id(self, cate_id):
         for cate in self.cate_list:
             if cate.id == cate_id:
                 return cate.included_pattern
@@ -265,7 +265,7 @@ class FuncVerbNet:
                     cates.append(cate)
         return cates
 
-    def find_cates_with_two_verbs(self,verb1,verb2):
+    def find_cates_with_two_verbs(self, verb1, verb2):
         cates = []
         cates1 = self.find_cates_by_verb(verb1)
         cates2 = self.find_cates_by_verb(verb2)
@@ -278,6 +278,28 @@ class FuncVerbNet:
             return cates
         else:
             return None
+
+    def find_common_verbs_by_cates(self, cate1, cate2):
+        verbs1 = self.find_all_verb_by_cate_id(cate1)
+        verbs2 = self.find_all_verb_by_cate_id(cate2)
+        common_verbs = []
+        for verb1 in verbs1:
+            for verb2 in verbs2:
+                if verb1 == verb2:
+                    common_verbs.append(verb1)
+                continue
+        return common_verbs
+
+    def find_common_patterns_by_cates(self, cate1, cate2):
+        patterns1 = self.find_all_pattern_by_cate_id(cate1)
+        patterns2 = self.find_all_pattern_by_cate_id(cate2)
+        common_patterns = []
+        for pattern1 in patterns1:
+            for pattern2 in patterns2:
+                if pattern1 == pattern2:
+                    common_patterns.append(pattern1)
+                continue
+        return common_patterns
 
 
 if __name__ == '__main__':

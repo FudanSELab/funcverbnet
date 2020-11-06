@@ -52,14 +52,14 @@ def test_find_cate_by_pattern():
     print(net.find_cate_by_pattern("V {patient} about {topic}"))
 
 
-def test_find_all_verb_by_cate():
+def test_find_all_verb_by_cate_id():
     net = FuncVerbNet()
-    print(net.find_all_verb_by_cate(3))
+    print(net.find_all_verb_by_cate_id(3))
 
 
-def test_find_all_pattern_by_cate():
+def test_find_all_pattern_by_cate_id():
     net = FuncVerbNet()
-    print(net.find_all_pattern_by_cate(3))
+    print(net.find_all_pattern_by_cate_id(3))
 
 
 def test_get_category_number():
@@ -149,7 +149,17 @@ def test_find_cates_by_verb():
 
 def test_find_cates_with_two_verbs():
     net = FuncVerbNet()
-    print(net.find_cates_with_two_verbs("end","stop"))
+    print(net.find_cates_with_two_verbs("end", "stop"))
+
+
+def test_find_common_verbs_by_cates():
+    net = FuncVerbNet()
+    print(net.find_common_verbs_by_cates(1, 18))
+
+
+def test_find_common_patterns_by_cates():
+    net = FuncVerbNet()
+    print(net.find_common_patterns_by_cates(1, 18))
 
 
 def test_command_line_interface():
