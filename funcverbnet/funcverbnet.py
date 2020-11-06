@@ -265,6 +265,20 @@ class FuncVerbNet:
                     cates.append(cate)
         return cates
 
+    def find_cates_with_two_verbs(self,verb1,verb2):
+        cates = []
+        cates1 = self.find_cates_by_verb(verb1)
+        cates2 = self.find_cates_by_verb(verb2)
+        for cate1 in cates1:
+            for cate2 in cates2:
+                if cate1.id == cate2.id:
+                    cates.append(cate1)
+                continue
+        if cates is not None:
+            return cates
+        else:
+            return None
+
 
 if __name__ == '__main__':
     net = FuncVerbNet()

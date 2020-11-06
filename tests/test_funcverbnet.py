@@ -144,7 +144,12 @@ def test_find_cates_by_pattern():
 
 def test_find_cates_by_verb():
     net = FuncVerbNet()
-    print(net.find_cates_by_verb("stop"))
+    print(net.find_cates_by_verb("end"))
+
+
+def test_find_cates_with_two_verbs():
+    net = FuncVerbNet()
+    print(net.find_cates_with_two_verbs("end","stop"))
 
 
 def test_command_line_interface():

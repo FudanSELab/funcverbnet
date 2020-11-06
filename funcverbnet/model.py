@@ -47,15 +47,59 @@ class FuncCategory:
         # }
         return "<FuncCategory>" + str(self.id)
 
-    def get_representative_verb(self):
+    def __eq__(self, other):
+        if self.__dict__ == other.__dict__:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash("<FuncCategory>" + self.id)
+
+    def __repr__(self):
+        return "{id:" + str(
+            self.id) + ", name:" + self.name + ", create_time:" + self.create_time + ", definition:" + self.definition + ", description:" + self.description + ", modified_time:" + self.modified_time + ", representative_verb:" + self.representative_verb + ", included_verb:" + str(
+            self.included_verb) + ", included_pattern:" + str(
+            self.included_pattern) + ", version:" + self.version + ", example:" + self.example + "}"
+
+    def get_funcCategory_id(self):
+        return self.id
+        pass
+
+    def get_funcCategory_name(self):
+        return self.name
+        pass
+
+    def get_funccategory_create_time(self):
+        return self.create_time
+        pass
+
+    def get_funccategory_definition(self):
+        return self.definition
+        pass
+
+    def get_funccategory_description(self):
+        return self.description
+        pass
+
+    def get_funccategory_modified_time(self):
+        return self.modified_time
+
+    def get_funccategory_representative_verb(self):
         return self.representative_verb
         pass
 
-    def get_all_verbs(self):
+    def get_funccategory_included_verb(self):
         return self.included_verb
 
-    def get_included_pattern(self):
+    def get_funccategory_all_verbs(self):
+        return self.included_verb
+
+    def get_funccategory_included_pattern(self):
         return self.included_pattern
+
+    def get_funccategory_version(self):
+        return self.version
 
 
 class FuncVerb:
@@ -71,8 +115,36 @@ class FuncVerb:
     def __str__(self):
         return "<FuncVerb>" + str(self.id)
 
+    def __eq__(self, other):
+        if self.__dict__ == other.__dict__:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash("<FuncVerb>" + self.id)
+
+    def __repr__(self):
+        return "{id:" + str(
+            self.id) + ", qualified_name:" + self.qualified_name + ", description:" + self.description + ", example:" + self.example + ", create_time:" + self.create_time + ", version:" + self.version + "} "
+
+    def get_funcverb_id(self):
+        return self.id
+
+    def get_funcverb_qualified_name(self):
+        return self.qualified_name
+
+    def get_funcverb_description(self):
+        return self.description
+
     def get_funcverb_example(self):
         return self.example
+
+    def get_funcverb_create_time(self):
+        return self.create_time
+
+    def get_funcverb_version(self):
+        return self.version
 
 
 class Verb:
@@ -85,6 +157,34 @@ class Verb:
 
     def __str__(self):
         return "<Verb>" + str(self.id)
+
+    def __eq__(self, other):
+        if self.__dict__ == other.__dict__:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash("<Verb>" + self.id)
+
+    def __repr__(self):
+        return "{id:" + str(
+            self.id) + ", name:" + self.name + ", description:" + self.description + ", create_time:" + self.create_time + ", version:" + self.version + "} "
+
+    def get_verb_id(self):
+        return self.id
+
+    def get_verb_name(self):
+        return self.name
+
+    def get_verb_description(self):
+        return self.description
+
+    def get_verb_create_time(self):
+        return self.create_time
+
+    def get_verb_version(self):
+        return self.version
 
 
 class FuncPattern:
@@ -99,8 +199,36 @@ class FuncPattern:
     def __str__(self):
         return "<FuncPattern>" + str(self.id)
 
+    def __eq__(self, other):
+        if self.__dict__ == other.__dict__:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash("<FuncPattern>" + self.id)
+
+    def __repr__(self):
+        return "{id:" + str(
+            self.id) + ", qualified_name:" + self.qualified_name + ", description:" + self.description + ", example:" + self.example + ", create_time:" + self.create_time + ", version:" + self.version + "} "
+
+    def get_funcpattern_id(self):
+        return self.id
+
+    def get_funcpattern_qualified_name(self):
+        return self.qualified_name
+
     def get_funcpattern_example(self):
         return self.example
+
+    def get_funcpattern_description(self):
+        return self.description
+
+    def get_funcpattern_create_time(self):
+        return self.create_time
+
+    def get_funcpattern_version(self):
+        return self.version
 
 
 class PhasePattern:
@@ -116,8 +244,37 @@ class PhasePattern:
     def __str__(self):
         return "<PhasePattern>" + str(self.id)
 
+    def __eq__(self, other):
+        if self.__dict__ == other.__dict__:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash("<PhasePattern>" + self.id)
+
+    def __repr__(self):
+        return "{id:" + str(
+            self.id) + ", syntax:" + self.syntax + ", description:" + self.description + ", example:" + self.example + \
+               ", create_time:" + self.create_time + ", version:" + self.version + "} "
+
+    def get_phrase_pattern_id(self):
+        return self.id
+
+    def get_phrase_pattern_syntax(self):
+        return self.syntax
+
     def get_phrase_pattern_example(self):
         return self.example
+
+    def get_phrase_pattern_description(self):
+        return self.description
+
+    def get_phrase_pattern_create_time(self):
+        return self.create_time
+
+    def get_phrase_pattern_version(self):
+        return self.version
 
 
 class Role:
@@ -129,8 +286,34 @@ class Role:
         self.version = version
         pass
 
+    def __str__(self):
+        return "<Role>" + str(self.id)
+
+    def __eq__(self, other):
+        if self.__dict__ == other.__dict__:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash("<Role>" + self.id)
+
+    def __repr__(self):
+        return "{id:" + str(
+            self.id) + ", name:" + self.name + ", definition:" + self.definition + \
+               ", create_time:" + self.create_time + ", version:" + self.version + "} "
+
+    def get_role_id(self):
+        return self.id
+
+    def get_role_name(self):
+        return self.name
+
     def get_role_definition(self):
         return self.definition
 
-    def __str__(self):
-        return "<Role>" + str(self.id)
+    def get_role_create_time(self):
+        return self.create_time
+
+    def get_role_version(self):
+        return self.version
