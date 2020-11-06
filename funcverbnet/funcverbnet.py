@@ -169,7 +169,7 @@ class FuncVerbNet:
 
     def get_included_verb_number_by_cateid(self, cateid):
         cate = self.find_cate_by_id(cateid)
-        verbs = self.find_all_verb_by_cate(cate.id)
+        verbs = self.find_all_verb_by_cate_id(cate.id)
         verb_num = 0
         for verb in verbs:
             verb_num += 1
@@ -177,7 +177,7 @@ class FuncVerbNet:
 
     def get_included_pattern_number_by_cateid(self, cateid):
         cate = self.find_cate_by_id(cateid)
-        patterns = self.find_all_pattern_by_cate(cate.id)
+        patterns = self.find_all_pattern_by_cate_id(cate.id)
         pattern_num = 0
         for verb in patterns:
             pattern_num += 1
