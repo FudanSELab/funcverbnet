@@ -188,11 +188,12 @@ class Verb:
 
 
 class FuncPattern:
-    def __init__(self, id, qualified_name, example, description, create_time, version):
+    def __init__(self, id, qualified_name, example, description, included_roles, create_time, version):
         self.id = id
         self.qualified_name = qualified_name
         self.example = example
         self.description = description
+        self.included_roles = included_roles
         self.create_time = create_time
         self.version = version
 
@@ -232,11 +233,12 @@ class FuncPattern:
 
 
 class PhasePattern:
-    def __init__(self, id, syntax, example, description, create_time, version):
+    def __init__(self, id, syntax, example, description,included_roles, create_time, version):
         self.id = id
         self.syntax = syntax
         self.example = example
         self.description = description
+        self.included_roles = included_roles
         self.create_time = create_time
         self.version = version
         pass

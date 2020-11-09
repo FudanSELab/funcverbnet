@@ -52,6 +52,31 @@ def test_find_cate_by_pattern():
     print(net.find_cate_by_pattern("V {patient} about {topic}"))
 
 
+def test_find_patterns_by_role_id():
+    net = FuncVerbNet()
+    print(net.find_patterns_by_role_id(3))
+
+
+def test_find_patterns_by_role_name():
+    net = FuncVerbNet()
+    print(net.find_patterns_by_role_name("goal"))
+
+
+def test_find_patterns_with_two_roles_name():
+    net = FuncVerbNet()
+    print(net.find_patterns_with_two_roles_name("location", "patient"))
+
+
+def test_find_patterns_with_two_roles_id():
+    net = FuncVerbNet()
+    print(net.find_patterns_with_two_roles_id(2, 3))
+
+
+def test_find_common_roles_by_pattern_id():
+    net = FuncVerbNet()
+    print(net.find_common_roles_by_pattern_id(1, 3))
+
+
 def test_find_all_verb_by_cate_id():
     net = FuncVerbNet()
     print(net.find_all_verb_by_cate_id(3))
@@ -60,6 +85,16 @@ def test_find_all_verb_by_cate_id():
 def test_find_all_pattern_by_cate_id():
     net = FuncVerbNet()
     print(net.find_all_pattern_by_cate_id(3))
+
+
+def test_get_included_roles_number_by_pattern_id():
+    net = FuncVerbNet()
+    print(net.get_included_roles_number_by_pattern_id(3))
+
+
+def test_find_included_roles_by_pattern_id():
+    net = FuncVerbNet()
+    print(net.find_included_roles_by_pattern_id(3))
 
 
 def test_get_category_number():

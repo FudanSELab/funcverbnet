@@ -73,9 +73,10 @@ class FuncVerbNet:
             syntax = pattern_data[pattern]['syntax']
             example = pattern_data[pattern]['example']
             description = pattern_data[pattern]['description']
+            included_roles = pattern_data[pattern]['included_roles']
             create_time = pattern_data[pattern]['create_time']
             version = pattern_data[pattern]['version']
-            new_pattern = PhasePattern(id, syntax, example, description, create_time, version)
+            new_pattern = PhasePattern(id, syntax, example, description, included_roles, create_time, version)
             self.pattern_list.append(new_pattern)
 
         pass
@@ -88,10 +89,11 @@ class FuncVerbNet:
             qualified_name = f_pattern_data[f_pattern]['qualified_name']
             example = f_pattern_data[f_pattern]['example']
             description = f_pattern_data[f_pattern]['description']
+            included_roles = f_pattern_data[f_pattern]['included_roles']
             create_time = f_pattern_data[f_pattern]['create_time']
             version = f_pattern_data[f_pattern]['version']
 
-            new_f_pattern = FuncPattern(id, qualified_name, example, description, create_time, version)
+            new_f_pattern = FuncPattern(id, qualified_name, example, description, included_roles, create_time, version)
             self.f_pattern_list.append(new_f_pattern)
         pass
 
@@ -160,6 +162,11 @@ class FuncVerbNet:
             if cate.id == cate_id:
                 return cate.included_pattern
 
+    def find_included_roles_by_pattern_id(self, p_id):
+        for pattern in self.pattern_list:
+            if pattern.id == p_id:
+                return pattern.included_roles
+
     def get_category_number(self):
         cate_number = -1
         for cate in self.cate_list:
@@ -174,6 +181,14 @@ class FuncVerbNet:
         for verb in verbs:
             verb_num += 1
         return verb_num
+
+    def get_included_roles_number_by_pattern_id(self, p_id):
+        pattern = self.find_pattern_by_id(p_id)
+        roles = self.find_included_roles_by_pattern_id(pattern.id)
+        role_num = 0
+        for verb in roles:
+            role_num += 1
+        return role_num
 
     def get_included_pattern_number_by_cateid(self, cateid):
         cate = self.find_cate_by_id(cateid)
@@ -265,6 +280,45 @@ class FuncVerbNet:
                     cates.append(cate)
         return cates
 
+    def find_patterns_by_role_id(self, r_id):
+        r_name = self.find_role_name_by_id(r_id)
+        patterns = []
+        for pattern in self.pattern_list:
+            for role in pattern.included_roles:
+                if role == r_name:
+                    patterns.append(pattern)
+        return patterns
+
+    def find_patterns_by_role_name(self, r_name):
+        patterns = []
+        for pattern in self.pattern_list:
+            for role in pattern.included_roles:
+                if role == r_name:
+                    patterns.append(pattern)
+        return patterns
+
+    def find_patterns_with_two_roles_id(self, roles1_id, roles2_id):
+        patterns = []
+        pattern1 = self.find_patterns_by_role_id(roles1_id)
+        pattern2 = self.find_patterns_by_role_id(roles2_id)
+        for p1 in pattern1:
+            for p2 in pattern2:
+                if p1 == p2:
+                    patterns.append(p1)
+                    continue
+        return patterns
+
+    def find_patterns_with_two_roles_name(self, roles1_name, roles2_name):
+        patterns = []
+        pattern1 = self.find_patterns_by_role_name(roles1_name)
+        pattern2 = self.find_patterns_by_role_name(roles2_name)
+        for p1 in pattern1:
+            for p2 in pattern2:
+                if p1 == p2:
+                    patterns.append(p1)
+                    continue
+        return patterns
+
     def find_cates_with_two_verbs(self, verb1, verb2):
         cates = []
         cates1 = self.find_cates_by_verb(verb1)
@@ -300,6 +354,17 @@ class FuncVerbNet:
                     common_patterns.append(pattern1)
                 continue
         return common_patterns
+
+    def find_common_roles_by_pattern_id(self, p_id1, p_id2):
+        roles1 = self.find_included_roles_by_pattern_id(p_id1)
+        roles2 = self.find_included_roles_by_pattern_id(p_id2)
+        common_roles = []
+        for role1 in roles1:
+            for role2 in roles2:
+                if role1 == role2:
+                    common_roles.append(role1)
+                continue
+        return common_roles
 
 
 if __name__ == '__main__':
