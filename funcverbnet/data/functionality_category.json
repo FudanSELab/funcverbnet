@@ -1,0 +1,2275 @@
+[
+    {
+                    "id": -1,
+                    "name": "not a function",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "not a function",
+                    "included_verb": [
+                              "not a function"
+                    ],
+                    "included_pattern": [],
+                    "version": "1.0",
+                    "example": ""
+          },
+          {
+                    "id": 1,
+                    "name": "stop",
+                    "create_time": "2020-10-29 14:47:33",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "stop",
+                    "included_verb": [
+                              "stop",
+                              "quit",
+                              "terminate",
+                              "interrupt",
+                              "end",
+                              "crash",
+                              "intercept",
+                              "abort",
+                              "disconnect",
+                              "shutdown",
+                              "pause",
+                              "finalize",
+                              "freeze",
+                              "block"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_ING",
+                              "V {patient} if/when S",
+                              "V {patient} by S_ING",
+                              "V {patient} for S_ING",
+                              "V from {source}",
+                              "V {patient} from {source}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} in/on/at {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Stops dispatching events using this EventQueue."
+          },
+          {
+                    "id": 2,
+                    "name": "write",
+                    "create_time": "2020-10-29 14:47:33",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "write",
+                    "included_verb": [
+                              "write",
+                              "record",
+                              "log",
+                              "print",
+                              "output"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V that S",
+                              "V to {goal}",
+                              "V {patient} about {topic}",
+                              "V {patient} from {source}",
+                              "V {patient} with {instrument}",
+                              "V {patient} at/on/in {location}",
+                              "V {patient} as/to/into/onto {goal}",
+                              "V {patient} from {source} for {beneficiary}",
+                              "V {patient} as/into/to {goal} via {instrument}",
+                              "V {patient} from {source} as/to/into/onto {goal}",
+                              "V {patient} as/into/to {goal} at/in/on {location}",
+                              "V {patient} as/to/into/onto {goal} for {beneficiary}",
+                              "V {patient} from {source} for {beneficiary} to {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Write a line of text to the output."
+          },
+          {
+                    "id": 3,
+                    "name": "postpone",
+                    "create_time": "2020-10-29 14:47:33",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "postpone",
+                    "included_verb": [
+                              "delay",
+                              "defer",
+                              "postpone"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} on {theme}"
+                    ],
+                    "version": "1.0",
+                    "example": "Postpone the entering Fragment transition until startPostponedEnterTransition() or executePendingTransactions() has been called."
+          },
+          {
+                    "id": 4,
+                    "name": "sort",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "sort",
+                    "included_verb": [
+                              "sort"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} into {product}"
+                    ],
+                    "version": "1.0",
+                    "example": "Sorts the specified range of the array into ascending numerical order."
+          },
+          {
+                    "id": 5,
+                    "name": "draw",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "draw",
+                    "included_verb": [
+                              "draw",
+                              "render",
+                              "paint",
+                              "redraw",
+                              "repaint"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} if S",
+                              "V to {goal}",
+                              "V {patient} by S_ING",
+                              "V in {location}",
+                              "V {patient} within {time}",
+                              "V {patient} with {instrument}",
+                              "V {patient} into/to/as {goal}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} at/on/in {location}",
+                              "V {patient} for {beneficiary} with {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "Draw the specified Rect using the specified paint."
+          },
+          {
+                    "id": 6,
+                    "name": "sample",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "sample",
+                    "included_verb": [
+                              "collect",
+                              "recycle",
+                              "sample"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Samples the gesture spatially by rendering the gesture into a 2D grayscale bitmap."
+          },
+          {
+                    "id": 7,
+                    "name": "request",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "request",
+                    "included_verb": [
+                              "request",
+                              "ask",
+                              "give",
+                              "allow"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_INF",
+                              "V {patient} if S",
+                              "V {patient} S_INF",
+                              "V that/whether/if S",
+                              "V {patient} from {source}",
+                              "V {patient} for {beneficiary}",
+                              "V for {beneficiary} S_INF",
+                              "V {patient} at {location} from {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Requests a copy of the pixels from a Window to be copied into a provided Bitmap."
+          },
+          {
+                    "id": 8,
+                    "name": "visit",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "visit",
+                    "included_verb": [
+                              "visit",
+                              "rescan",
+                              "scan",
+                              "walk",
+                              "iterate",
+                              "access"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V to {theme}",
+                              "V {patient} by S_ING",
+                              "V {patient} as {goal}",
+                              "V over {patient}",
+                              "V {patient} in {location}",
+                              "V through {instrument} in {location}",
+                              "V {patient} through {instrument} in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Visits a double value in an annotation."
+          },
+          {
+                    "id": 9,
+                    "name": "play",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "play",
+                    "included_verb": [
+                              "play"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} in/at {location}",
+                              "V {patient} with {instrument} in/at {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Play an item with a specific id in the play queue."
+          },
+          {
+                    "id": 10,
+                    "name": "call",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "call",
+                    "included_verb": [
+                              "call",
+                              "invoke",
+                              "tell",
+                              "indicate",
+                              "occur",
+                              "perform",
+                              "prompt",
+                              "notify"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V by {agent}",
+                              "V after S",
+                              "V when S",
+                              "V from {source} when S"
+                    ],
+                    "version": "1.0",
+                    "example": "This method gets called when a bound property is changed."
+          },
+          {
+                    "id": 11,
+                    "name": "assert",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "assert",
+                    "included_verb": [
+                              "assert"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V that S"
+                    ],
+                    "version": "1.0",
+                    "example": "Asserts that map is not empty."
+          },
+          {
+                    "id": 12,
+                    "name": "simulate",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "simulate",
+                    "included_verb": [
+                              "simulate"
+                    ],
+                    "included_pattern": [
+                              "V S_ING"
+                    ],
+                    "version": "1.0",
+                    "example": "Simulate touching the center of a view and releasing quickly (before the tap timeout)."
+          },
+          {
+                    "id": 13,
+                    "name": "parse",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "parse",
+                    "included_verb": [
+                              "parse",
+                              "resolve",
+                              "unwrap",
+                              "analyze",
+                              "uncompress",
+                              "decode",
+                              "flatten",
+                              "unmarshal"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} by S_ING",
+                              "V {patient} at/on {location}",
+                              "V {patient} as/to/into {goal}",
+                              "V {patient} from/against/out of {source}",
+                              "V {patient} for {beneficiary} as {goal}",
+                              "V {patient} from/against/out of {source} as/to/into {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Parse the given XML file as a header description, adding each parsed Header into the target list."
+          },
+          {
+                    "id": 14,
+                    "name": "export",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "export",
+                    "included_verb": [
+                              "export"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} to {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Export the activatable remote object to the RMI runtime to make the object available to receive incoming calls."
+          },
+          {
+                    "id": 15,
+                    "name": "finish",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "finish",
+                    "included_verb": [
+                              "finish",
+                              "complete",
+                              "finalize",
+                              "complement"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_ING",
+                              "V {patient} by S_ING",
+                              "V {patient} in/at/on {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Finishes a multiple-part encryption or decryption operation, depending on how this cipher was initialized."
+          },
+          {
+                    "id": 16,
+                    "name": "create",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "create",
+                    "included_verb": [
+                              "create",
+                              "build",
+                              "produce",
+                              "construct",
+                              "generate",
+                              "establish",
+                              "make",
+                              "obtain",
+                              "reconstitute",
+                              "compose",
+                              "instantiate",
+                              "implement",
+                              "get",
+                              "retrieve",
+                              "return",
+                              "install",
+                              "set up"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} by S_ING",
+                              "V {patient} for S_ING",
+                              "V from {material}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} in/on/within/at {location}",
+                              "V {patient} from/with/by/over/out of {material}",
+                              "V {patient} from {source} with {instrument}",
+                              "V {material} into/to/as/onto {product}",
+                              "V {patient} for {beneficiary} with {material}",
+                              "V {patient} for {beneficiary} from/with/by/over/out of {material}",
+                              "V {patient} from/with/by/over/out of {material} in/on/within {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Create an RFCOMM BluetoothSocket socket ready to start an insecure outgoing connection to this remote device using SDP lookup of uuid."
+          },
+          {
+                    "id": 17,
+                    "name": "inflate",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "inflate",
+                    "included_verb": [
+                              "inflate",
+                              "extend"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} from {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Inflates the given XML resource and adds the preference hierarchy to the current preference hierarchy."
+          },
+          {
+                    "id": 18,
+                    "name": "close",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "close",
+                    "included_verb": [
+                              "close",
+                              "end",
+                              "release",
+                              "free",
+                              "finish",
+                              "dismiss",
+                              "deactivate",
+                              "disable",
+                              "turn off"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_ING",
+                              "V {patient} if S",
+                              "V in {location}",
+                              "V {patient} about {topic}",
+                              "V {patient} to {co-patient}",
+                              "V {patient} with {attribute}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} on/in/within {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Closes this object."
+          },
+          {
+                    "id": 19,
+                    "name": "intersect",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "intersect",
+                    "included_verb": [
+                              "intersect"
+                    ],
+                    "included_pattern": [
+                              "V {patient} with {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Intersect the current clip with the specified rectangle, which is expressed in local coordinates."
+          },
+          {
+                    "id": 20,
+                    "name": "send",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "send",
+                    "included_verb": [
+                              "send",
+                              "pass",
+                              "give",
+                              "dispatch",
+                              "post",
+                              "issue",
+                              "propagate",
+                              "forward",
+                              "broadcast",
+                              "transmit",
+                              "emit",
+                              "notify",
+                              "signal"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V that S",
+                              "V {patient} that S",
+                              "V {patient} by S_ING",
+                              "V {patient} to {goal}",
+                              "V {patient} from {source}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} down/on {location}",
+                              "V {patient} through {instrument}",
+                              "V {patient} to {goal} by S_ING",
+                              "V {patient} from {source} to {goal}",
+                              "V {patient} to {goal} in/on {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Higher-level method for sending both the down and up key events for a particular character key code."
+          },
+          {
+                    "id": 21,
+                    "name": "match",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "match",
+                    "included_verb": [
+                              "match"
+                    ],
+                    "included_pattern": [
+                              "V against {co-patient}",
+                              "V {patient} against/with {co-patient}",
+                              "V {patient} at/in {location} against/with {co-patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Match this filter against an Intent's action."
+          },
+          {
+                    "id": 22,
+                    "name": "handle",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "handle",
+                    "included_verb": [
+                              "handle",
+                              "process"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} by S_ING",
+                              "V {patient} for S_ING",
+                              "V {patient} from {source}",
+                              "V {patient} by {instrument}",
+                              "V {patient} on/in {location}",
+                              "V {source} as/into {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Handles the componentHidden event by invoking the componentHidden methods on listener-a and listener-b."
+          },
+          {
+                    "id": 23,
+                    "name": "allocate",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "allocate",
+                    "included_verb": [
+                              "allocate",
+                              "reallocate"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} with {theme} for {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Allocate an array to store items of the type appropriate (which is determined by the subclass)."
+          },
+          {
+                    "id": 24,
+                    "name": "pin",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "pin",
+                    "included_verb": [
+                              "pin"
+                    ],
+                    "included_pattern": [
+                              "V {patient} at/on {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Pins a contact at a provided position, or unpins a contact."
+          },
+          {
+                    "id": 25,
+                    "name": "format",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "format",
+                    "included_verb": [
+                              "format",
+                              "return"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} from {source}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} to/into/in {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Creates a MessageFormat with the given pattern and uses it to format the given arguments."
+          },
+          {
+                    "id": 26,
+                    "name": "publish",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "publish",
+                    "included_verb": [
+                              "publish"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} to {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Publish the changes in preferences upward to the parent view."
+          },
+          {
+                    "id": 27,
+                    "name": "normalize",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "normalize",
+                    "included_verb": [
+                              "normalize"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Normalize a sequence of char values."
+          },
+          {
+                    "id": 28,
+                    "name": "import",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "import",
+                    "included_verb": [
+                              "import"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Imports the specified parameters and decodes them according to the primary decoding format for parameters."
+          },
+          {
+                    "id": 29,
+                    "name": "make",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "make",
+                    "included_verb": [
+                              "make",
+                              "cause",
+                              "instruct"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} ADJ",
+                              "V {patient} ADJ by S_ING",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} at {location} ADJ",
+                              "V {patient} in/at/on {location}",
+                              "V {patient} with/by {instrument}",
+                              "V {patient} ADJ for {beneficiary}",
+                              "V {patient} from {source} to {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Makes a set from a multicharacter string."
+          },
+          {
+                    "id": 30,
+                    "name": "clear",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "clear",
+                    "included_verb": [
+                              "clear",
+                              "clean",
+                              "remove",
+                              "empty"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} by S_ING",
+                              "V {patient} from {source}",
+                              "V {patient} in {location}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} about {topic} from {source}",
+                              "V {patient} by {instrument} from {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Tells this WebView to clear its internal back/forward list."
+          },
+          {
+                    "id": 31,
+                    "name": "hide",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "hide",
+                    "included_verb": [
+                              "hide",
+                              "collapse"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} in/from {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Hide the overflow items from the associated menu."
+          },
+          {
+                    "id": 32,
+                    "name": "convert",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "convert",
+                    "included_verb": [
+                              "convert",
+                              "change",
+                              "transfer",
+                              "map",
+                              "turn",
+                              "transform",
+                              "reconvert",
+                              "move",
+                              "adapt",
+                              "translate",
+                              "force",
+                              "cast",
+                              "return"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V to {goal}",
+                              "V {goal} from {source}",
+                              "V {patient} by {instrument}",
+                              "V {patient} in/at {location}",
+                              "V {source} to/as/into {goal}",
+                              "V {source} to/as/into {goal} by S_ING",
+                              "V {patient} as/into/to {goal} from {source}",
+                              "V {source} to/as/into {goal} by/with {instrument}",
+                              "V {source} to/as/into {goal} in/at {location}",
+                              "V {source} to/as/into {goal} for {beneficiary}",
+                              "V {patient} from {source} to/as/into {goal} in/at {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Gets a value and converts it to an Integer."
+          },
+          {
+                    "id": 33,
+                    "name": "wait",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "wait",
+                    "included_verb": [
+                              "wait",
+                              "await",
+                              "sleep"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V for {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed."
+          },
+          {
+                    "id": 34,
+                    "name": "perform",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "perform",
+                    "included_verb": [
+                              "perform",
+                              "execute",
+                              "run",
+                              "call",
+                              "invoke",
+                              "enforce",
+                              "fire",
+                              "trigger",
+                              "indicate",
+                              "occur"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V when/that S",
+                              "V {patient} when/that S",
+                              "V {patient} by S_ING",
+                              "V {patient} over {theme}",
+                              "V {patient} from {source}",
+                              "V {patient} around {topic}",
+                              "V {patient} to {co-patient}",
+                              "V {patient} on/in {location}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} as/to {goal} on/in {location}",
+                              "V {patient} on/in {location} with {instrument}",
+                              "V {patient} on/in {location} for {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Performs an action when method ForkJoinTask.completeExceptionally(Throwable) is invoked or method compute() throws an exception, and this task has not already otherwise completed normally."
+          },
+          {
+                    "id": 35,
+                    "name": "connect",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "connect",
+                    "included_verb": [
+                              "connect",
+                              "associate",
+                              "join",
+                              "combine",
+                              "concatenate",
+                              "merge",
+                              "concat",
+                              "add",
+                              "group"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V to {theme}",
+                              "V {patient} to/into {goal}",
+                              "V {patient} with {instrument}",
+                              "V {patient} within {location}",
+                              "V {patient} in {location} into {goal}",
+                              "V {patient} to/into {goal} on/in {location}",
+                              "V {patient} to/into {goal} for {beneficiary}",
+                              "V {patient} to/into {goal} with {instrument}",
+                              "V {patient} with {instrument} on/in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Connects this piped output stream to a receiver."
+          },
+          {
+                    "id": 36,
+                    "name": "display",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "display",
+                    "included_verb": [
+                              "display",
+                              "show",
+                              "present",
+                              "bring"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {source} to/as {goal}",
+                              "V {patient} from {source}",
+                              "V {patient} with {co-theme}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} at/on/in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "A convenience method that displays a printing dialog, and then prints this JTable in mode PrintMode.FIT_WIDTH, with no header or footer text."
+          },
+          {
+                    "id": 37,
+                    "name": "validate",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "validate",
+                    "included_verb": [
+                              "validate",
+                              "authenticate",
+                              "revalidate"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} with {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "Validates and parses an argument name or argument number string."
+          },
+          {
+                    "id": 38,
+                    "name": "compute",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "compute",
+                    "included_verb": [
+                              "compute",
+                              "calculate",
+                              "determine",
+                              "evaluate",
+                              "solve",
+                              "scale",
+                              "measure",
+                              "recalculate",
+                              "multiply",
+                              "count",
+                              "figure",
+                              "subtract",
+                              "increase",
+                              "estimate",
+                              "return",
+                              "increment"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V whether S",
+                              "V by {instrument}",
+                              "V {patient} in {location}",
+                              "V {patient} into/to {goal}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} for {beneficiary} by S_ING",
+                              "V {patient} from/within/on/between/with {source}",
+                              "V {patient} for {beneficiary} as/into/to {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Computes the week number according to ISO 8601."
+          },
+          {
+                    "id": 39,
+                    "name": "synchronize ",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "synchronize ",
+                    "included_verb": [
+                              "synchronize "
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Synchronizes two or more lines."
+          },
+          {
+                    "id": 40,
+                    "name": "split",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "split",
+                    "included_verb": [
+                              "split",
+                              "break",
+                              "divide"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} on {co-patient}",
+                              "V {material} into/to {product}",
+                              "V {patient} on {co-patient} at {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Splits this string around matches of the given regular expression."
+          },
+          {
+                    "id": 41,
+                    "name": "destroy",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "destroy",
+                    "included_verb": [
+                              "destroy",
+                              "tear"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V down {patient}",
+                              "V {patient} in/at {location}",
+                              "V down {patient} for {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Destroys the named context and removes it from the namespace."
+          },
+          {
+                    "id": 42,
+                    "name": "touch",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "touch",
+                    "included_verb": [
+                              "touch",
+                              "press"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Simulate touching the center of a view and releasing."
+          },
+          {
+                    "id": 43,
+                    "name": "choose",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "choose",
+                    "included_verb": [
+                              "choose",
+                              "select"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} from {source}",
+                              "V {patient} at/in {location}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} as {goal} at/in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Choose an alias to authenticate the server side of a secure socket given the public key type and the list of certificate issuer authorities recognized by the peer (if any)."
+          },
+          {
+                    "id": 44,
+                    "name": "read",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "read",
+                    "included_verb": [
+                              "read",
+                              "load",
+                              "reload"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V in {theme}",
+                              "V into {goal}",
+                              "V from {source}",
+                              "V {patient} from {source}",
+                              "V {patient} to/into/as {goal}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary}",
+                              "V in {theme} from {source}",
+                              "V from {source} into {goal}",
+                              "V {patient} in/on/at/out of {location}",
+                              "V {patient} from {source} for S_ING",
+                              "V {patient} from {source} at {location}",
+                              "V {patient} from {source} for {beneficiary}",
+                              "V {patient} for {beneficiary} with {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "Reads b.length bytes from the stream, and stores them into b starting at index 0."
+          },
+          {
+                    "id": 45,
+                    "name": "respond",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "respond",
+                    "included_verb": [
+                              "respond"
+                    ],
+                    "included_pattern": [
+                              "V to {goal}",
+                              "V to {co-theme} for {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Responds to the beginning of a scaling gesture."
+          },
+          {
+                    "id": 46,
+                    "name": "restore",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "restore",
+                    "included_verb": [
+                              "restore",
+                              "recover",
+                              "resume"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_ING",
+                              "V {patient} by S_ING",
+                              "V {patient} from {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Maximizes and restores this internal frame."
+          },
+          {
+                    "id": 47,
+                    "name": "open",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "open",
+                    "included_verb": [
+                              "open",
+                              "turn on"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} for S_ING",
+                              "V {patient} on {location}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for/to {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Opens or creates a file, returning a seekable byte channel to access the file."
+          },
+          {
+                    "id": 48,
+                    "name": "list",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "list",
+                    "included_verb": [
+                              "list",
+                              "enumerate"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} on/in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Lists all the alias names of this keystore."
+          },
+          {
+                    "id": 49,
+                    "name": "provide",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "provide",
+                    "included_verb": [
+                              "provide",
+                              "give",
+                              "supply"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} that S",
+                              "V {patient} to/as {goal}",
+                              "V {patient} about {theme}",
+                              "V {patient} from {source}",
+                              "V for {beneficiary}",
+                              "V {patient} for {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Provides a way to determine the next visually represented model location that one might place a caret."
+          },
+          {
+                    "id": 50,
+                    "name": "redo",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "redo",
+                    "included_verb": [
+                              "redo"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} from {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Redoes all changes from the index of the next edit to edit, updating the index of the next edit appropriately."
+          },
+          {
+                    "id": 51,
+                    "name": "flash",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "flash",
+                    "included_verb": [
+                              "flash"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Flash the screen during a violation."
+          },
+          {
+                    "id": 52,
+                    "name": "lock",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "lock",
+                    "included_verb": [
+                              "lock"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Locks the Wi-Fi radio on until release() is called."
+          },
+          {
+                    "id": 53,
+                    "name": "flip",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "flip",
+                    "included_verb": [
+                              "flip",
+                              "rotate",
+                              "permute",
+                              "swap",
+                              "transpose",
+                              "reverse",
+                              "shuffle"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V to {goal}",
+                              "V {patient} by {instrument}",
+                              "V {patient} at/in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Flips to the next card of the specified container."
+          },
+          {
+                    "id": 54,
+                    "name": "return",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "return",
+                    "included_verb": [
+                              "return",
+                              "get",
+                              "obtain",
+                              "fetch",
+                              "acquire",
+                              "determine",
+                              "take",
+                              "capture",
+                              "retrieve",
+                              "describe",
+                              "provide",
+                              "represent",
+                              "reclaim",
+                              "receive",
+                              "claim",
+                              "extract"
+                    ],
+                    "included_pattern": [
+                              "V S",
+                              "V {patient}",
+                              "V {patient} if S",
+                              "V to {goal}",
+                              "V {patient} for S_ING",
+                              "V in {location}",
+                              "V {patient} as/to {goal}",
+                              "V why/where/whether S",
+                              "V {patient} about {theme}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} from/over {source}",
+                              "V {patient} with/via/by {instrument}",
+                              "V {patient} at/in/on/within {location}",
+                              "V {patient} as/to {goal} from {source}",
+                              "V {patient} for {beneficiary} at {time}",
+                              "V {patient} as/to {goal} for {beneficiary}",
+                              "V {patient} from/over {source} to/as {goal}",
+                              "V {patient} for {beneficiary} with {instrument}",
+                              "V {patient} from/over {source} for {beneficiary}",
+                              "V {patient} from/over {source} with {instrument}",
+                              "V {patient} as/to {goal} at/in/on/within {location}",
+                              "V {patient} for {beneficiary} at/in/on/within {location}",
+                              "V {patient} from/over {source} at/in/on/within {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Returns a new PermissionCollection object for storing FilePermission objects."
+          },
+          {
+                    "id": 55,
+                    "name": "filter",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "filter",
+                    "included_verb": [
+                              "filter"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} by {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "Filter devices by raw advertisement data, as obtained by getBytes()"
+          },
+          {
+                    "id": 56,
+                    "name": "initialize",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "initialize",
+                    "included_verb": [
+                              "initialize",
+                              "reinitialize",
+                              "prepare",
+                              "refresh",
+                              "reset",
+                              "initiate",
+                              "reposition"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} by S_ING",
+                              "V {patient} as/to/for {goal}",
+                              "V {patient} from {source}",
+                              "V {patient} with {instrument}",
+                              "V {patient} in/on/at {location}",
+                              "V {patient} by/with {instrument}",
+                              "V {patient} as/to/for {goal} from {source}",
+                              "V {patient} with {instrument} about {theme}",
+                              "V {patient} as/to/for {goal} in/on/at {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Initialize the Command with the verb it is requested to handle and the DataHandler that describes the data it will operate on."
+          },
+          {
+                    "id": 57,
+                    "name": "update",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "update",
+                    "included_verb": [
+                              "update",
+                              "modify",
+                              "fill",
+                              "edit",
+                              "change",
+                              "rename",
+                              "populate",
+                              "adjust",
+                              "flush",
+                              "trim",
+                              "adapt",
+                              "reconcile",
+                              "resize"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V whether S",
+                              "V to {goal}",
+                              "V {patient} by S_ING",
+                              "V {patient} to {goal}",
+                              "V {patient} as {theme}",
+                              "V {patient} from {source}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} in/within {location}",
+                              "V {patient} with {instrument} in {location}",
+                              "V {patient} with {instrument} from {source}",
+                              "V {patient} for {beneficiary} in {location}",
+                              "V {patient} with {instrument} for {beneficiary}",
+                              "V {patient} with {instrument} from {source} to {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Invokes the update method on each UI handled by this object."
+          },
+          {
+                    "id": 58,
+                    "name": "store",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "store",
+                    "included_verb": [
+                              "store",
+                              "save",
+                              "dump",
+                              "retain",
+                              "cache",
+                              "stash",
+                              "serialize",
+                              "deserialize",
+                              "persist"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} if S",
+                              "V {patient} from {source}",
+                              "V {patient} into/to {goal}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} around/in {location}",
+                              "V {patient} for {beneficiary} into/to {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Stores the x,y origin of this component into \\return value\\\" rv and return rv.\""
+          },
+          {
+                    "id": 59,
+                    "name": "package",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "package",
+                    "included_verb": [
+                              "package",
+                              "encode",
+                              "marshal",
+                              "synthesize",
+                              "wrap",
+                              "compress",
+                              "pack",
+                              "compact",
+                              "encrypt",
+                              "escape"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_INF",
+                              "V {material}",
+                              "V {material} in {location}",
+                              "V {material} into/as/to {product}",
+                              "V {material} in {location} into/as/to {product}",
+                              "V {patient} from {material} to/as/into {product}"
+                    ],
+                    "version": "1.0",
+                    "example": "Used to package this object into a Parcel."
+          },
+          {
+                    "id": 60,
+                    "name": "cut",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "cut",
+                    "included_verb": [
+                              "cut"
+                    ],
+                    "included_pattern": [
+                              "V {patient} into {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Cuts the text between two indices into the system clipboard."
+          },
+          {
+                    "id": 61,
+                    "name": "append",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "append",
+                    "included_verb": [
+                              "append",
+                              "put",
+                              "add",
+                              "insert",
+                              "push",
+                              "interpolate",
+                              "place",
+                              "install",
+                              "register",
+                              "queue",
+                              "register",
+                              "enqueue"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_INF",
+                              "V {patient} S_INF",
+                              "V {patient} from {source}",
+                              "V for {beneficiary}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} by S_ING",
+                              "V {patient} in/on/at {location}",
+                              "V {patient} with/by {instrument}",
+                              "V {patient} between {co-patient}",
+                              "V {patient} in/to/into/onto/as {goal}",
+                              "V {patient} to {co-theme} into {goal}",
+                              "V {patient} from {source} on {location}",
+                              "V {patient} in {location} to/into {goal}",
+                              "V {patient} for {beneficiary} in {location}",
+                              "V {patient} in/to/into/onto/as {goal} by S_ING",
+                              "V {patient} from {source} in/to/into/onto {goal}",
+                              "V {patient} for {beneficiary} by/with {instrument}",
+                              "V {patient} in/on/at {location} into/as/onto/to {goal}",
+                              "V {patient} in/to/into/onto/as {goal} for {beneficiary}",
+                              "V {patient} with/by {instrument} into/as/onto/to {goal}",
+                              "V {patient} for {beneficiary} in/to/into/onto/as {goal}",
+                              "V {patient} in/to/into/onto/as {goal} at/in/on {location}",
+                              "V {patient} in/to/into/onto/as {goal} by/with {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "Appends the specified element to the end of this list (optional operation)."
+          },
+          {
+                    "id": 62,
+                    "name": "query",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "query",
+                    "included_verb": [
+                              "query",
+                              "find",
+                              "locate",
+                              "determine",
+                              "retrieve",
+                              "visit",
+                              "look",
+                              "search",
+                              "discover",
+                              "seek",
+                              "look up"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V if/whether S",
+                              "V to) {patient}",
+                              "V out) if S",
+                              "V for {theme}",
+                              "V {patient} for {theme}",
+                              "V {patient} from {source}",
+                              "V {patient} about {topic}",
+                              "V {patient} from {source}",
+                              "V {patient} on/in/at {location}",
+                              "V {patient} by/with {instrument}",
+                              "V for {theme} in {location}",
+                              "V {patient} as {goal} from {source}",
+                              "V {patient} as {goal} in {location}",
+                              "V {patient} in {location} for {theme}",
+                              "V {patient} on/in/at {location} by/with {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "A query for LocalDate returning null if not found."
+          },
+          {
+                    "id": 63,
+                    "name": "enter",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "enter",
+                    "included_verb": [
+                              "enter"
+                    ],
+                    "included_pattern": [
+                              "V {patient} on {co-patient}",
+                              "V {patient} between {attribute}"
+                    ],
+                    "version": "1.0",
+                    "example": "This operation enters an association between the specified Object Id and the specified servant in the Active Object Map."
+          },
+          {
+                    "id": 64,
+                    "name": "delegate",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "delegate",
+                    "included_verb": [
+                              "delegate"
+                    ],
+                    "included_pattern": [
+                              "V {patient} to {co-theme}"
+                    ],
+                    "version": "1.0",
+                    "example": "Delegates its functionality to the LayerUI.updateUI(JLayer) method, if LayerUI is set."
+          },
+          {
+                    "id": 65,
+                    "name": "test",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "test",
+                    "included_verb": [
+                              "test",
+                              "tell",
+                              "determine",
+                              "check",
+                              "retrieve",
+                              "ascertain",
+                              "return",
+                              "control",
+                              "indicate",
+                              "query",
+                              "report",
+                              "validate",
+                              "get",
+                              "invalidate",
+                              "verify",
+                              "find",
+                              "identify",
+                              "track",
+                              "detect",
+                              "decide"
+                    ],
+                    "included_pattern": [
+                              "V S",
+                              "V {patient}",
+                              "V for {theme}",
+                              "V {patient} if/whether S",
+                              "V {patient} for {theme}",
+                              "V {patient} in {location}",
+                              "V whether/if/that/when S",
+                              "V for {theme} between/on {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Tests for equality between the specified object and this timestamp."
+          },
+          {
+                    "id": 66,
+                    "name": "relayout",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "relayout",
+                    "included_verb": [
+                              "relayout",
+                              "layout",
+                              "lay out"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Messaged to relayout the JSplitPane based on the preferred size of the children components."
+          },
+          {
+                    "id": 67,
+                    "name": "redirect",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "redirect",
+                    "included_verb": [
+                              "redirect",
+                              "jump",
+                              "skip",
+                              "fling",
+                              "go",
+                              "navigate"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} to {goal}",
+                              "V {patient} from {source}",
+                              "V {patient} in {location}",
+                              "V over/to {patient}",
+                              "V from {source} to {goal}",
+                              "V {patient} to {goal} in {location}",
+                              "V over {patient} from {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Redirect clicks to the IME for handling there."
+          },
+          {
+                    "id": 68,
+                    "name": "remove",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "remove",
+                    "included_verb": [
+                              "remove",
+                              "exclude",
+                              "reduce",
+                              "delete",
+                              "pop",
+                              "uninstall",
+                              "detach",
+                              "decrement",
+                              "revoke",
+                              "dequeue",
+                              "abandon",
+                              "discard",
+                              "peek"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} if S",
+                              "V at {location}",
+                              "V from {source}",
+                              "V {patient} as/to {goal}",
+                              "V {patient} from {source}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} at/in/on {location}",
+                              "V {patient} from {source} at {location}",
+                              "V {patient} with {instrument} from {source}",
+                              "V {patient} for {beneficiary} at {location}",
+                              "V {patient} from {source} for {beneficiary}",
+                              "V {patient} at/in/on {location} from {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Removes all cancelled tasks from this timer's task queue."
+          },
+          {
+                    "id": 69,
+                    "name": "report",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "report",
+                    "included_verb": [
+                              "report",
+                              "notify",
+                              "tell",
+                              "indicate",
+                              "prompt"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V that S",
+                              "V {patient} S_INF",
+                              "V {patient} to {goal}",
+                              "V from {source}",
+                              "V {patient} to {co-theme}",
+                              "V {patient} about {topic}",
+                              "V {patient} in {location}",
+                              "V {patient} that/when/whether S",
+                              "V {patient} for {beneficiary}",
+                              "V to {co-theme} that S",
+                              "V {patient} for {beneficiary} in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Reports whether or not this DropTarget is currently active (ready to accept drops)."
+          },
+          {
+                    "id": 70,
+                    "name": "apply",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "apply",
+                    "included_verb": [
+                              "apply",
+                              "reapply",
+                              "accept",
+                              "re-apply"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} to/on/over {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Invoke the kernel and apply the lookup to each cell of ain and copy to aout."
+          },
+          {
+                    "id": 71,
+                    "name": "ensure",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "ensure",
+                    "included_verb": [
+                              "confirm",
+                              "ensure",
+                              "determine"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V that S",
+                              "V {patient} for {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Ensures that the list view has been created before Activity restores all of the view states."
+          },
+          {
+                    "id": 72,
+                    "name": "negate",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "negate",
+                    "included_verb": [
+                              "negate"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Negate the point's coordinates"
+          },
+          {
+                    "id": 73,
+                    "name": "replace",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "replace",
+                    "included_verb": [
+                              "replace"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} if S",
+                              "V {patient} in {location}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary} with {instrument}",
+                              "V {patient} with {instrument} at/in/on {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Causes this character sequence to be replaced by the reverse of the sequence."
+          },
+          {
+                    "id": 74,
+                    "name": "compare",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "compare",
+                    "included_verb": [
+                              "compare",
+                              "return"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} if S",
+                              "V {patient} for {theme}",
+                              "V {patient} against/with/to {co-patient}",
+                              "V {patient} for {theme} against/with/to {co-patient}",
+                              "V {patient} against/with/to {co-patient} in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Compares the specified object with this set for equality."
+          },
+          {
+                    "id": 75,
+                    "name": "move",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "move",
+                    "included_verb": [
+                              "move",
+                              "scroll",
+                              "offset",
+                              "advance"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V to {goal}",
+                              "V {patient} by S_ING",
+                              "V {patient} from {source}",
+                              "V up/down {patient}",
+                              "V {patient} to/down {goal}",
+                              "V {patient} by {instrument}",
+                              "V {patient} over {duration}",
+                              "V {patient} in/within {location}",
+                              "V {patient} to {goal} by S_ING",
+                              "V {patient} from {source} to/down {goal}"
+                    ],
+                    "version": "1.0",
+                    "example": "Moves one or more rows from the inclusive range start to end to the to position in the model."
+          },
+          {
+                    "id": 76,
+                    "name": "commit",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "commit",
+                    "included_verb": [
+                              "commit",
+                              "submit"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} to {theme}",
+                              "V {patient} for {co-patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Called by the input method to commit content such as a PNG image to the editor."
+          },
+          {
+                    "id": 77,
+                    "name": "set",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "set",
+                    "included_verb": [
+                              "set",
+                              "control",
+                              "describe",
+                              "define",
+                              "specify",
+                              "tell",
+                              "give",
+                              "assign",
+                              "determine",
+                              "indicate",
+                              "configure",
+                              "schedule",
+                              "declare",
+                              "reassign",
+                              "clamp",
+                              "put",
+                              "designate"
+                    ],
+                    "included_pattern": [
+                              "V S",
+                              "V {patient}",
+                              "V {patient} S_INF",
+                              "V {patient} when S",
+                              "V to {goal}",
+                              "V {patient} by S_ING",
+                              "V {patient} if/whether S",
+                              "V {patient} for S_ING",
+                              "V {patient} about {topic}",
+                              "V for {beneficiary}",
+                              "V on/in/at {location}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} as/to/into {goal}",
+                              "V {patient} between {attribute}",
+                              "V if/whether/that/when/where S",
+                              "V {patient} with/from {instrument}",
+                              "V {patient} on/in/at/within {location}",
+                              "V {patient} as/to {goal} for {beneficiary}",
+                              "V {patient} for {beneficiary} as/to {goal}",
+                              "V {patient} with {instrument} about {topic}",
+                              "V {patient} with/from {instrument} as/to {goal}",
+                              "V {patient} for {beneficiary} on/in/at {location}",
+                              "V {patient} as/to/into {goal} on/in/at {location}",
+                              "V {patient} for {beneficiary} with/from {instrument}",
+                              "V {patient} on/in/at {location} with/from {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "Set the dst integer Rect by rounding \\out\\\" this rectangle"
+          },
+          {
+                    "id": 78,
+                    "name": "start",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "start",
+                    "included_verb": [
+                              "start",
+                              "wake",
+                              "launch",
+                              "happen",
+                              "begin",
+                              "enable",
+                              "re-enable"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V S_ING",
+                              "V {patient} to {goal}",
+                              "V {patient} about {topic}",
+                              "V {patient} from {source}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} within {co-patient}",
+                              "V {patient} in/on/into {co-patient}",
+                              "V {patient} to {goal} from {source}",
+                              "V {patient} for {beneficiary} with {instrument}"
+                    ],
+                    "version": "1.0",
+                    "example": "A test started."
+          },
+          {
+                    "id": 79,
+                    "name": "bind",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "bind",
+                    "included_verb": [
+                              "bind",
+                              "attach",
+                              "rebind",
+                              "reattach"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} for S_ING",
+                              "V {patient} in {location}",
+                              "V {patient} to {co-patient}",
+                              "V {patient} in {instrument}",
+                              "V {patient} to {co-patient} for {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Bind an existing view to the data pointed to by cursor"
+          },
+          {
+                    "id": 80,
+                    "name": "copy",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "copy",
+                    "included_verb": [
+                              "copy",
+                              "clone"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} to/into {goal}",
+                              "V to/into {goal} in {location}",
+                              "V from/at {source} to/into {goal}",
+                              "V to/into {goal} in/at {location}",
+                              "V {patient} in/at {location} into/to {goal}",
+                              "V {patient} to/into {goal} from/at {source}",
+                              "V {patient} for {beneficiary} to/into {goal}",
+                              "V {patient} for {beneficiary} from/at {source}"
+                    ],
+                    "version": "1.0",
+                    "example": "Copy an array of RS objects to the Allocation."
+          },
+          {
+                    "id": 81,
+                    "name": "mark",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "mark",
+                    "included_verb": [
+                              "mark"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} as S_ING",
+                              "V in {patient}",
+                              "V {patient} as {goal}",
+                              "V {patient} in {location}"
+                    ],
+                    "version": "1.0",
+                    "example": "Mark the area defined by the rect (l,t,r,b) as needing to be drawn."
+          },
+          {
+                    "id": 82,
+                    "name": "speak",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "speak",
+                    "included_verb": [
+                              "speak"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Speaks the text using the specified queuing strategy and speech parameters, the text may be spanned with TtsSpans."
+          },
+          {
+                    "id": 83,
+                    "name": "cumulate",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "cumulate",
+                    "included_verb": [
+                              "cumulate",
+                              "sum"
+                    ],
+                    "included_pattern": [],
+                    "version": "1.0",
+                    "example": "Cumulates, in parallel, each element of the given array in place, using the supplied function."
+          },
+          {
+                    "id": 84,
+                    "name": "span",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "span",
+                    "included_verb": [
+                              "span"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Span a string using this UnicodeSet."
+          },
+          {
+                    "id": 85,
+                    "name": "cancel",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "cancel",
+                    "included_verb": [
+                              "cancel",
+                              "deregister",
+                              "undo",
+                              "deny",
+                              "unset",
+                              "unschedule",
+                              "unregister",
+                              "unbind",
+                              "uninitialize",
+                              "unload",
+                              "deselect",
+                              "unlock",
+                              "unblock"
+                    ],
+                    "included_pattern": [
+                              "V {patient}",
+                              "V {patient} from {source}",
+                              "V {patient} in/on {location}",
+                              "V {patient} with {instrument}",
+                              "V {patient} for {beneficiary}",
+                              "V {patient} from {source} to {goal}",
+                              "V {patient} as {goal} for {beneficiary}"
+                    ],
+                    "version": "1.0",
+                    "example": "Cancels the speech recognition."
+          },
+          {
+                    "id": 86,
+                    "name": "compile",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "compile",
+                    "included_verb": [
+                              "compile"
+                    ],
+                    "included_pattern": [
+                              "V {patient} for {beneficiary}",
+                              "V {patient} in/into {product} with {material}"
+                    ],
+                    "version": "1.0",
+                    "example": "Compiles the script (source read from Reader) for later execution."
+          },
+          {
+                    "id": 87,
+                    "name": "tune",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "tune",
+                    "included_verb": [
+                              "tune"
+                    ],
+                    "included_pattern": [
+                              "V to {theme}",
+                              "V to {theme} for {co-patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "Tunes to a given channel for TV program recording."
+          },
+          {
+                    "id": 88,
+                    "name": "toggle",
+                    "create_time": "2020-10-29 14:47:34",
+                    "definition": "null",
+                    "description": "null",
+                    "modified_time": "",
+                    "representative_verb": "toggle",
+                    "included_verb": [
+                              "toggle"
+                    ],
+                    "included_pattern": [
+                              "V {patient}"
+                    ],
+                    "version": "1.0",
+                    "example": "This method toggles the input method window display."
+          }
+]
