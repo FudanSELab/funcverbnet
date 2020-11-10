@@ -242,6 +242,13 @@ def test_is_valid_f_pattern():
     assert net.is_valid_f_pattern("V {patient} from {source}") == True
 
 
+def test_is_role_included_in_pattern():
+    net = FuncVerbNet()
+    assert net.is_role_included_in_pattern("patient") is True
+    assert net.is_role_included_in_pattern("topic") is True
+    assert net.is_role_included_in_pattern("word") is False
+
+
 def test_command_line_interface():
     """Test the CLI."""
     runner = CliRunner()

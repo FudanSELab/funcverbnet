@@ -179,6 +179,19 @@ class FuncVerbNet:
                 return True
         return False
 
+    def is_role_included_in_pattern(self, role_name):
+        if self.is_valid_role_name(role_name):
+            roles = []
+            for pattern in self.pattern_list:
+                for r in self.find_included_roles_by_pattern_id(pattern.id):
+                    roles.append(r)
+            for role in roles:
+                if role == role_name:
+                    return True
+            return False
+        else:
+            return False
+
     def find_cate_by_name(self, name):
         for cate in self.cate_list:
             if cate.name == name:
