@@ -10,3 +10,7 @@ History
 ------------------
 * [add] add basic data and methods
 
+0.1.2 (2020-11-10)
+------------------
+* [add] add basic data and methods
+
