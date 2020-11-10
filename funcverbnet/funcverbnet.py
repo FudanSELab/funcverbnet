@@ -124,6 +124,61 @@ class FuncVerbNet:
             self.role_list.append(new_semantic_role)
         pass
 
+    def is_valid_verb(self, verb):
+        for v in self.verb_list:
+            if v.name == verb:
+                return True
+        return False
+
+    def is_valid_category_id(self, category_id):
+        if len(self.cate_list) >= category_id >= 0:
+            return True
+        return False
+
+    def is_valid_pattern_name(self, pattern_name):
+        for pattern in self.pattern_list:
+            if pattern.syntax == pattern_name:
+                return True
+        return False
+
+    def is_valid_pattern_id(self, p_id):
+        for pattern in self.pattern_list:
+            if pattern.id == p_id:
+                return True
+        return False
+
+    def is_valid_role_name(self, role_name):
+        for role in self.role_list:
+            if role.name == role_name:
+                return True
+        return False
+
+    def is_valid_role_id(self, role_id):
+        for role in self.role_list:
+            if role.id == role_id:
+                return True
+        return False
+
+    def is_valid_f_verb(self, f_verb):
+        verbs = []
+        for cate in self.cate_list:
+            for v in self.find_all_verb_by_cate_id(cate.id):
+                verbs.append(v)
+        for verb in verbs:
+            if verb == f_verb:
+                return True
+        return False
+
+    def is_valid_f_pattern(self, f_pattern):
+        patterns = []
+        for cate in self.cate_list:
+            for p in self.find_all_pattern_by_cate_id(cate.id):
+                patterns.append(p)
+        for pattern in patterns:
+            if pattern == f_pattern:
+                return True
+        return False
+
     def find_cate_by_name(self, name):
         for cate in self.cate_list:
             if cate.name == name:
@@ -153,19 +208,28 @@ class FuncVerbNet:
         return None
 
     def find_all_verb_by_cate_id(self, cate_id):
-        for cate in self.cate_list:
-            if cate.id == cate_id:
-                return cate.included_verb
+        if self.is_valid_category_id(cate_id) is True:
+            for cate in self.cate_list:
+                if cate.id == cate_id:
+                    return cate.included_verb
+        else:
+            return None
 
     def find_all_pattern_by_cate_id(self, cate_id):
-        for cate in self.cate_list:
-            if cate.id == cate_id:
-                return cate.included_pattern
+        if self.is_valid_category_id(cate_id) is True:
+            for cate in self.cate_list:
+                if cate.id == cate_id:
+                    return cate.included_pattern
+        else:
+            return None
 
     def find_included_roles_by_pattern_id(self, p_id):
-        for pattern in self.pattern_list:
-            if pattern.id == p_id:
-                return pattern.included_roles
+        if self.is_valid_pattern_id(p_id) is True:
+            for pattern in self.pattern_list:
+                if pattern.id == p_id:
+                    return pattern.included_roles
+        else:
+            return None
 
     def get_category_number(self):
         cate_number = -1
@@ -175,28 +239,37 @@ class FuncVerbNet:
         return cate_number
 
     def get_included_verb_number_by_cateid(self, cateid):
-        cate = self.find_cate_by_id(cateid)
-        verbs = self.find_all_verb_by_cate_id(cate.id)
-        verb_num = 0
-        for verb in verbs:
-            verb_num += 1
-        return verb_num
+        if self.is_valid_category_id(cateid):
+            cate = self.find_cate_by_id(cateid)
+            verbs = self.find_all_verb_by_cate_id(cate.id)
+            verb_num = 0
+            for verb in verbs:
+                verb_num += 1
+            return verb_num
+        else:
+            return None
 
     def get_included_roles_number_by_pattern_id(self, p_id):
-        pattern = self.find_pattern_by_id(p_id)
-        roles = self.find_included_roles_by_pattern_id(pattern.id)
-        role_num = 0
-        for verb in roles:
-            role_num += 1
-        return role_num
+        if self.is_valid_pattern_id(p_id):
+            pattern = self.find_pattern_by_id(p_id)
+            roles = self.find_included_roles_by_pattern_id(pattern.id)
+            role_num = 0
+            for verb in roles:
+                role_num += 1
+            return role_num
+        else:
+            return None
 
     def get_included_pattern_number_by_cateid(self, cateid):
-        cate = self.find_cate_by_id(cateid)
-        patterns = self.find_all_pattern_by_cate_id(cate.id)
-        pattern_num = 0
-        for verb in patterns:
-            pattern_num += 1
-        return pattern_num
+        if self.is_valid_category_id(cateid):
+            cate = self.find_cate_by_id(cateid)
+            patterns = self.find_all_pattern_by_cate_id(cate.id)
+            pattern_num = 0
+            for verb in patterns:
+                pattern_num += 1
+            return pattern_num
+        else:
+            return None
 
     def get_role_number(self):
         role_num = 0
@@ -253,118 +326,157 @@ class FuncVerbNet:
         return None
 
     def find_role_definition_by_name(self, role_name):
-        role = self.find_role_by_name(role_name)
-        return role.definition
+        if self.is_valid_role_name(role_name):
+            role = self.find_role_by_name(role_name)
+            return role.definition
+        else:
+            return None
 
     def find_role_definition_by_id(self, role_id):
-        role = self.find_role_by_id(role_id)
-        return role.definition
+        if self.is_valid_role_id(role_id):
+            role = self.find_role_by_id(role_id)
+            return role.definition
+        else:
+            return None
 
     def find_role_name_by_id(self, role_id):
-        role = self.find_role_by_id(role_id)
-        return role.name
+        if self.is_valid_role_id(role_id):
+            role = self.find_role_by_id(role_id)
+            return role.name
+        else:
+            return None
 
     def find_cates_by_pattern(self, pattern):
-        cates = []
-        for cate in self.cate_list:
-            for p in cate.included_pattern:
-                if p == pattern:
-                    cates.append(cate)
-        return cates
-
-    def find_cates_by_verb(self, verb):
-        cates = []
-        for cate in self.cate_list:
-            for v in cate.included_verb:
-                if v == verb:
-                    cates.append(cate)
-        return cates
-
-    def find_patterns_by_role_id(self, r_id):
-        r_name = self.find_role_name_by_id(r_id)
-        patterns = []
-        for pattern in self.pattern_list:
-            for role in pattern.included_roles:
-                if role == r_name:
-                    patterns.append(pattern)
-        return patterns
-
-    def find_patterns_by_role_name(self, r_name):
-        patterns = []
-        for pattern in self.pattern_list:
-            for role in pattern.included_roles:
-                if role == r_name:
-                    patterns.append(pattern)
-        return patterns
-
-    def find_patterns_with_two_roles_id(self, roles1_id, roles2_id):
-        patterns = []
-        pattern1 = self.find_patterns_by_role_id(roles1_id)
-        pattern2 = self.find_patterns_by_role_id(roles2_id)
-        for p1 in pattern1:
-            for p2 in pattern2:
-                if p1 == p2:
-                    patterns.append(p1)
-                    continue
-        return patterns
-
-    def find_patterns_with_two_roles_name(self, roles1_name, roles2_name):
-        patterns = []
-        pattern1 = self.find_patterns_by_role_name(roles1_name)
-        pattern2 = self.find_patterns_by_role_name(roles2_name)
-        for p1 in pattern1:
-            for p2 in pattern2:
-                if p1 == p2:
-                    patterns.append(p1)
-                    continue
-        return patterns
-
-    def find_cates_with_two_verbs(self, verb1, verb2):
-        cates = []
-        cates1 = self.find_cates_by_verb(verb1)
-        cates2 = self.find_cates_by_verb(verb2)
-        for cate1 in cates1:
-            for cate2 in cates2:
-                if cate1.id == cate2.id:
-                    cates.append(cate1)
-                continue
-        if cates is not None:
+        if self.is_valid_pattern_name(pattern):
+            cates = []
+            for cate in self.cate_list:
+                for p in cate.included_pattern:
+                    if p == pattern:
+                        cates.append(cate)
             return cates
         else:
             return None
 
+    def find_cates_by_verb(self, verb):
+        if self.is_valid_verb(verb):
+            cates = []
+            for cate in self.cate_list:
+                for v in cate.included_verb:
+                    if v == verb:
+                        cates.append(cate)
+            return cates
+        else:
+            return None
+
+    def find_patterns_by_role_id(self, r_id):
+        if self.is_valid_role_id(r_id):
+            r_name = self.find_role_name_by_id(r_id)
+            patterns = []
+            for pattern in self.pattern_list:
+                for role in pattern.included_roles:
+                    if role == r_name:
+                        patterns.append(pattern)
+            return patterns
+        else:
+            return None
+
+    def find_patterns_by_role_name(self, r_name):
+        if self.is_valid_role_name(r_name):
+            patterns = []
+            for pattern in self.pattern_list:
+                for role in pattern.included_roles:
+                    if role == r_name:
+                        patterns.append(pattern)
+            return patterns
+        else:
+            return None
+
+    def find_patterns_with_two_roles_id(self, role1_id, role2_id):
+        if self.is_valid_role_id(role1_id) and self.is_valid_role_id(role2_id) is True:
+            patterns = []
+            pattern1 = self.find_patterns_by_role_id(role1_id)
+            pattern2 = self.find_patterns_by_role_id(role2_id)
+            for p1 in pattern1:
+                for p2 in pattern2:
+                    if p1 == p2:
+                        patterns.append(p1)
+                        continue
+            return patterns
+        else:
+            return None
+
+    def find_patterns_with_two_roles_name(self, role1_name, role2_name):
+        if self.is_valid_role_name(role1_name) and self.is_valid_role_name(role2_name) is True:
+            patterns = []
+            pattern1 = self.find_patterns_by_role_name(role1_name)
+            pattern2 = self.find_patterns_by_role_name(role2_name)
+            for p1 in pattern1:
+                for p2 in pattern2:
+                    if p1 == p2:
+                        patterns.append(p1)
+                        continue
+            return patterns
+        else:
+            return None
+
+    def find_cates_with_two_verbs(self, verb1, verb2):
+        if self.is_valid_verb(verb1) and self.is_valid_verb(verb2) is True:
+            cates = []
+            cates1 = self.find_cates_by_verb(verb1)
+            cates2 = self.find_cates_by_verb(verb2)
+            for cate1 in cates1:
+                for cate2 in cates2:
+                    if cate1.id == cate2.id:
+                        cates.append(cate1)
+                    continue
+            if cates is not None:
+                return cates
+            else:
+                return None
+        else:
+            return None
+
     def find_common_verbs_by_cates(self, cate1, cate2):
-        verbs1 = self.find_all_verb_by_cate_id(cate1)
-        verbs2 = self.find_all_verb_by_cate_id(cate2)
-        common_verbs = []
-        for verb1 in verbs1:
-            for verb2 in verbs2:
-                if verb1 == verb2:
-                    common_verbs.append(verb1)
-                continue
-        return common_verbs
+        if self.is_valid_category_id(cate1) and self.is_valid_category_id(cate2) is True:
+            verbs1 = self.find_all_verb_by_cate_id(cate1)
+            verbs2 = self.find_all_verb_by_cate_id(cate2)
+            common_verbs = []
+            for verb1 in verbs1:
+                for verb2 in verbs2:
+                    if verb1 == verb2:
+                        common_verbs.append(verb1)
+                    continue
+            return common_verbs
+        else:
+            return None
 
     def find_common_patterns_by_cates(self, cate1, cate2):
-        patterns1 = self.find_all_pattern_by_cate_id(cate1)
-        patterns2 = self.find_all_pattern_by_cate_id(cate2)
-        common_patterns = []
-        for pattern1 in patterns1:
-            for pattern2 in patterns2:
-                if pattern1 == pattern2:
-                    common_patterns.append(pattern1)
-                continue
-        return common_patterns
+        if self.is_valid_category_id(cate1) and self.is_valid_category_id(cate2):
+            patterns1 = self.find_all_pattern_by_cate_id(cate1)
+            patterns2 = self.find_all_pattern_by_cate_id(cate2)
+            common_patterns = []
+            for pattern1 in patterns1:
+                for pattern2 in patterns2:
+                    if pattern1 == pattern2:
+                        common_patterns.append(pattern1)
+                    continue
+            return common_patterns
+        else:
+            return None
 
     def find_common_roles_by_pattern_id(self, p_id1, p_id2):
-        roles1 = self.find_included_roles_by_pattern_id(p_id1)
-        roles2 = self.find_included_roles_by_pattern_id(p_id2)
-        common_roles = []
-        for role1 in roles1:
-            for role2 in roles2:
-                if role1 == role2:
-                    common_roles.append(role1)
-                continue
-        return common_roles
+        if self.is_valid_pattern_id(p_id1) and self.is_valid_pattern_id(p_id2) is True:
+            roles1 = self.find_included_roles_by_pattern_id(p_id1)
+            roles2 = self.find_included_roles_by_pattern_id(p_id2)
+            common_roles = []
+            for role1 in roles1:
+                for role2 in roles2:
+                    if role1 == role2:
+                        common_roles.append(role1)
+                    continue
+            return common_roles
+        else:
+            return None
 
 
 if __name__ == '__main__':

@@ -69,12 +69,15 @@ def test_find_patterns_with_two_roles_name():
 
 def test_find_patterns_with_two_roles_id():
     net = FuncVerbNet()
-    print(net.find_patterns_with_two_roles_id(2, 3))
+    print(net.find_patterns_with_two_roles_id(5, 3))
+    assert net.find_patterns_with_two_roles_id(-8, 3) is None
+    assert net.find_patterns_with_two_roles_id(-8, -3) is None
 
 
 def test_find_common_roles_by_pattern_id():
     net = FuncVerbNet()
     print(net.find_common_roles_by_pattern_id(1, 3))
+    assert net.find_common_roles_by_pattern_id(-6, 2) is None
 
 
 def test_find_all_verb_by_cate_id():
@@ -84,17 +87,18 @@ def test_find_all_verb_by_cate_id():
 
 def test_find_all_pattern_by_cate_id():
     net = FuncVerbNet()
-    print(net.find_all_pattern_by_cate_id(3))
+    print(net.find_all_pattern_by_cate_id(233))
 
 
 def test_get_included_roles_number_by_pattern_id():
     net = FuncVerbNet()
-    print(net.get_included_roles_number_by_pattern_id(3))
+    print(net.get_included_roles_number_by_pattern_id(233))
 
 
 def test_find_included_roles_by_pattern_id():
     net = FuncVerbNet()
     print(net.find_included_roles_by_pattern_id(3))
+    print(net.find_included_roles_by_pattern_id(-2))
 
 
 def test_get_category_number():
@@ -109,7 +113,8 @@ def test_get_included_verb_number_by_cateid():
 
 def test_get_included_pattern_number_by_cateid():
     net = FuncVerbNet()
-    print(net.get_included_pattern_number_by_cateid(4))
+    assert net.get_included_pattern_number_by_cateid(333) is None
+    assert net.get_included_pattern_number_by_cateid(3) == 2
 
 
 def test_get_role_number():
@@ -129,7 +134,8 @@ def test_get_pattern_number():
 
 def test_find_verb_by_id():
     net = FuncVerbNet()
-    print(net.find_verb_by_id(3))
+    print(net.find_verb_by_id(-6))
+    print(net.find_verb_by_id(2))
 
 
 def test_find_verb_by_name():
@@ -180,6 +186,7 @@ def test_find_cates_by_pattern():
 def test_find_cates_by_verb():
     net = FuncVerbNet()
     print(net.find_cates_by_verb("end"))
+    assert net.find_cates_by_verb("hello") is None
 
 
 def test_find_cates_with_two_verbs():
@@ -190,11 +197,49 @@ def test_find_cates_with_two_verbs():
 def test_find_common_verbs_by_cates():
     net = FuncVerbNet()
     print(net.find_common_verbs_by_cates(1, 18))
+    print(net.find_common_verbs_by_cates(-6, 18))
 
 
 def test_find_common_patterns_by_cates():
     net = FuncVerbNet()
     print(net.find_common_patterns_by_cates(1, 18))
+    assert net.find_common_patterns_by_cates(-2, -6) is None
+    print(net.find_common_patterns_by_cates(-2, 2))
+
+
+def test_is_valid_verb():
+    net = FuncVerbNet()
+    assert net.is_vaild_verb("admin") == False
+    # print(net.is_vaild_verb("admin"))
+
+
+def test_is_valid_category_id():
+    net = FuncVerbNet()
+    assert net.is_vaild_category_id(105) == False
+
+
+def test_is_valid_pattern_name():
+    net = FuncVerbNet()
+    assert net.is_valid_pattern_name("V {patient} if/when S") == True
+    assert net.is_valid_pattern_name("Vs {patient}") == False
+
+
+def test_is_valid_role_name():
+    net = FuncVerbNet()
+    assert net.is_valid_role_name("patient") == True
+    assert net.is_valid_role_name("hello") == False
+
+
+def test_is_invalid_f_verb():
+    net = FuncVerbNet()
+    assert net.is_valid_f_verb("location") == False
+    assert net.is_valid_f_verb("log") == True
+
+
+def test_is_valid_f_pattern():
+    net = FuncVerbNet()
+    assert net.is_valid_f_pattern("V {jaj}") == False
+    assert net.is_valid_f_pattern("V {patient} from {source}") == True
 
 
 def test_command_line_interface():
