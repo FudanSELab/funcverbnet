@@ -162,8 +162,9 @@ class FuncVerbNet:
     def is_valid_f_verb(self, f_verb):
         verbs = []
         for cate in self.cate_list:
-            for v in self.find_all_verb_by_cate_id(cate.id):
-                verbs.append(v)
+            if self.find_all_verb_by_cate_id(cate.id) is not None:
+                for v in self.find_all_verb_by_cate_id(cate.id):
+                    verbs.append(v)
         for verb in verbs:
             if verb == f_verb:
                 return True
@@ -172,8 +173,9 @@ class FuncVerbNet:
     def is_valid_f_pattern(self, f_pattern):
         patterns = []
         for cate in self.cate_list:
-            for p in self.find_all_pattern_by_cate_id(cate.id):
-                patterns.append(p)
+            if self.find_all_pattern_by_cate_id(cate.id) is not None:
+                for p in self.find_all_pattern_by_cate_id(cate.id):
+                    patterns.append(p)
         for pattern in patterns:
             if pattern == f_pattern:
                 return True

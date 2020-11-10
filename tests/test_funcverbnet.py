@@ -209,13 +209,13 @@ def test_find_common_patterns_by_cates():
 
 def test_is_valid_verb():
     net = FuncVerbNet()
-    assert net.is_vaild_verb("admin") == False
-    # print(net.is_vaild_verb("admin"))
+    assert net.is_valid_verb("admin") == False
+    # print(net.is_valid_verb("admin"))
 
 
 def test_is_valid_category_id():
     net = FuncVerbNet()
-    assert net.is_vaild_category_id(105) == False
+    assert net.is_valid_category_id(105) == False
 
 
 def test_is_valid_pattern_name():
@@ -230,7 +230,7 @@ def test_is_valid_role_name():
     assert net.is_valid_role_name("hello") == False
 
 
-def test_is_invalid_f_verb():
+def test_is_valid_f_verb():
     net = FuncVerbNet()
     assert net.is_valid_f_verb("location") == False
     assert net.is_valid_f_verb("log") == True
