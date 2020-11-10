@@ -88,12 +88,12 @@
           },
           {
                     "id": 3,
-                    "name": "delay",
+                    "name": "postpone",
                     "create_time": "2020-10-29 14:47:33",
                     "definition": "null",
                     "description": "null",
                     "modified_time": "",
-                    "representative_verb": "delay",
+                    "representative_verb": "postpone",
                     "included_verb": [
                               "delay",
                               "defer",
@@ -104,7 +104,7 @@
                               "V {patient} on {theme}"
                     ],
                     "version": "1.0",
-                    "example": ""
+                    "example": "Postpone the entering Fragment transition until startPostponedEnterTransition() or executePendingTransactions() has been called."
           },
           {
                     "id": 4,
@@ -157,12 +157,12 @@
           },
           {
                     "id": 6,
-                    "name": "collect",
+                    "name": "sample",
                     "create_time": "2020-10-29 14:47:34",
                     "definition": "null",
                     "description": "null",
                     "modified_time": "",
-                    "representative_verb": "collect",
+                    "representative_verb": "sample",
                     "included_verb": [
                               "collect",
                               "recycle",
@@ -172,7 +172,7 @@
                               "V {patient}"
                     ],
                     "version": "1.0",
-                    "example": ""
+                    "example": "Samples the gesture spatially by rendering the gesture into a 2D grayscale bitmap."
           },
           {
                     "id": 7,
@@ -1841,12 +1841,12 @@
           },
           {
                     "id": 71,
-                    "name": "confirm",
+                    "name": "ensure",
                     "create_time": "2020-10-29 14:47:34",
                     "definition": "null",
                     "description": "null",
                     "modified_time": "",
-                    "representative_verb": "confirm",
+                    "representative_verb": "ensure",
                     "included_verb": [
                               "confirm",
                               "ensure",
@@ -1858,7 +1858,7 @@
                               "V {patient} for {beneficiary}"
                     ],
                     "version": "1.0",
-                    "example": ""
+                    "example": "Ensures that the list view has been created before Activity restores all of the view states."
           },
           {
                     "id": 72,
