@@ -151,7 +151,7 @@ class FuncVerbNet:
             return False
 
     def is_valid_pattern_name(self, pattern_name):
-        if str.isalpha(pattern_name) is True:
+        if isinstance(pattern_name, str):
             for pattern in self.pattern_list:
                 if pattern.syntax == pattern_name:
                     return True
@@ -201,7 +201,7 @@ class FuncVerbNet:
             return False
 
     def is_valid_f_pattern(self, f_pattern):
-        if str.isalpha(f_pattern) is True:
+        if isinstance(f_pattern, str):
             patterns = []
             for cate in self.cate_list:
                 if self.find_all_pattern_by_cate_id(cate.id) is not None:
