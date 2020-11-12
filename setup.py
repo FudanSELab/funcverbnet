@@ -44,10 +44,14 @@ setup(
     keywords='funcverbnet',
     name='funcverbnet',
     packages=find_packages(include=['funcverbnet', 'funcverbnet.*']),
+    package_data={
+        # If any package contains *.json files, include them:
+        '': ['*.json', ".zip"],
+    },
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/FudanSELab/funcverbnet',
-    version='0.1.2',
+    version='0.1.3',
     zip_safe=False,
 )

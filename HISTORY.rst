@@ -14,3 +14,6 @@ History
 ------------------
 * [add] add basic data and methods
 
+0.1.3 (2020-11-12)
+------------------
+* [modify] modify the problem of JSON data upload
