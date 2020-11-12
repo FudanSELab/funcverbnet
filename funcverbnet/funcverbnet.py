@@ -1,20 +1,29 @@
 """Main module."""
 import json
 import os
+from pathlib import Path
 
-from funcverbnet.model import *
+# from funcverbnet.model import *
+from funcverbnet.model import FuncCategory, Verb, PhasePattern, FuncPattern, FuncVerb, Role
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
+path = Path(root_path)
+SEMANTIC_ROLE_PATH = str(path / "data" / "semantic_role.json")
+CATEGORY_DATA_PATH = str(path / "data" / "functionality_category.json")
+VERB_DATA_PATH = str(path / "data" / "verb.json")
+PATTERN_DATA_PATH = str(path / "data" / "phrase_pattern.json")
+F_PATTERN_DATA_PATH = str(path / "data" / "f_pattern.json")
+F_VERB_DATA_PATH = str(path / "data" / "f_verb.json")
 
 
 class FuncVerbNet:
 
-    def __init__(self, semantic_role_path=os.path.join(root_path, "data/semantic_role.json"),
-                 category_data_path=os.path.join(root_path, "data/functionality_category.json"),
-                 verb_data_path=os.path.join(root_path, "data/verb.json"),
-                 pattern_data_path=os.path.join(root_path, "data/phrase_pattern.json"),
-                 f_pattern_data_path=os.path.join(root_path, "data/f_pattern.json"),
-                 f_verb_data_path=os.path.join(root_path, "data/f_verb.json")):
+    def __init__(self, semantic_role_path=SEMANTIC_ROLE_PATH,
+                 category_data_path=CATEGORY_DATA_PATH,
+                 verb_data_path=VERB_DATA_PATH,
+                 pattern_data_path=PATTERN_DATA_PATH,
+                 f_pattern_data_path=F_PATTERN_DATA_PATH,
+                 f_verb_data_path=F_VERB_DATA_PATH):
         ## todo: load all the data from json.
         self.role_list = []
         self.cate_list = []
@@ -31,7 +40,7 @@ class FuncVerbNet:
 
         pass
 
-    def init_cate_list(self, category_data_path=os.path.join(root_path, "data/functionality_category.json")):
+    def init_cate_list(self, category_data_path=CATEGORY_DATA_PATH):
         # category_data_path = "./data/functionality_category.json"
         with open(category_data_path, 'r', encoding='utf-8') as category_data_file:
             category_data = json.load(category_data_file)
@@ -52,7 +61,7 @@ class FuncVerbNet:
                                      representative_verb, included_verb, included_pattern, version, example)
             self.cate_list.append(new_cates)
 
-    def init_verb_list(self, verb_data_path=os.path.join(root_path, "data/verb.json")):
+    def init_verb_list(self, verb_data_path=VERB_DATA_PATH):
         with open(verb_data_path, 'r', encoding='utf-8') as verb_file:
             verb_data = json.load(verb_file)
         for verb in range(0, len(verb_data)):
@@ -65,7 +74,7 @@ class FuncVerbNet:
             self.verb_list.append(new_verbs)
             pass
 
-    def init_pattern_list(self, pattern_data_path=os.path.join(root_path, "data/phrase_pattern.json")):
+    def init_pattern_list(self, pattern_data_path=PATTERN_DATA_PATH):
         with open(pattern_data_path, 'r', encoding='utf-8') as pattern_file:
             pattern_data = json.load(pattern_file)
         for pattern in range(0, len(pattern_data)):
@@ -81,7 +90,7 @@ class FuncVerbNet:
 
         pass
 
-    def init_f_pattern_list(self, f_pattern_data_path=os.path.join(root_path, "data/f_pattern.json")):
+    def init_f_pattern_list(self, f_pattern_data_path=F_PATTERN_DATA_PATH):
         with open(f_pattern_data_path, 'r', encoding='utf-8') as f_pattern_file:
             f_pattern_data = json.load(f_pattern_file)
         for f_pattern in range(0, len(f_pattern_data)):
@@ -97,7 +106,7 @@ class FuncVerbNet:
             self.f_pattern_list.append(new_f_pattern)
         pass
 
-    def init_f_verb_list(self, f_verb_data_path=os.path.join(root_path, "data/f_verb.json")):
+    def init_f_verb_list(self, f_verb_data_path=F_VERB_DATA_PATH):
         with open(f_verb_data_path, 'r', encoding='utf-8') as f_verb_file:
             f_verb_data = json.load(f_verb_file)
         for f_verb in range(0, len(f_verb_data)):
@@ -111,7 +120,7 @@ class FuncVerbNet:
             self.f_verb_list.append(new_f_verbs)
         pass
 
-    def init_role_list(self, semantic_role_path=os.path.join(root_path, "data/semantic_role.json")):
+    def init_role_list(self, semantic_role_path=SEMANTIC_ROLE_PATH):
         with open(semantic_role_path, 'r', encoding='utf-8') as semantic_role_file:
             semantic_role_data = json.load(semantic_role_file)
         for semantic_role in range(0, len(semantic_role_data)):
@@ -125,61 +134,85 @@ class FuncVerbNet:
         pass
 
     def is_valid_verb(self, verb):
-        for v in self.verb_list:
-            if v.name == verb:
-                return True
-        return False
+        if str.isalpha(verb) is True:
+            for v in self.verb_list:
+                if v.name == verb:
+                    return True
+            return False
+        else:
+            return False
 
     def is_valid_category_id(self, category_id):
-        if len(self.cate_list) >= category_id >= 0:
-            return True
-        return False
+        if isinstance(category_id, int):
+            if len(self.cate_list) >= category_id >= 0:
+                return True
+            return False
+        else:
+            return False
 
     def is_valid_pattern_name(self, pattern_name):
-        for pattern in self.pattern_list:
-            if pattern.syntax == pattern_name:
-                return True
-        return False
+        if str.isalpha(pattern_name) is True:
+            for pattern in self.pattern_list:
+                if pattern.syntax == pattern_name:
+                    return True
+            return False
+        else:
+            return False
 
     def is_valid_pattern_id(self, p_id):
-        for pattern in self.pattern_list:
-            if pattern.id == p_id:
-                return True
-        return False
+        if isinstance(p_id, int):
+            for pattern in self.pattern_list:
+                if pattern.id == p_id:
+                    return True
+            return False
+        else:
+            return False
 
     def is_valid_role_name(self, role_name):
-        for role in self.role_list:
-            if role.name == role_name:
-                return True
-        return False
+        if str.isalpha(role_name) is True:
+            for role in self.role_list:
+                if role.name == role_name:
+                    return True
+            return False
+        else:
+            return False
 
     def is_valid_role_id(self, role_id):
-        for role in self.role_list:
-            if role.id == role_id:
-                return True
-        return False
+        if isinstance(role_id, int):
+            for role in self.role_list:
+                if role.id == role_id:
+                    return True
+            return False
+        else:
+            return False
 
     def is_valid_f_verb(self, f_verb):
-        verbs = []
-        for cate in self.cate_list:
-            if self.find_all_verb_by_cate_id(cate.id) is not None:
-                for v in self.find_all_verb_by_cate_id(cate.id):
-                    verbs.append(v)
-        for verb in verbs:
-            if verb == f_verb:
-                return True
-        return False
+        if str.isalpha(f_verb) is True:
+            verbs = []
+            for cate in self.cate_list:
+                if self.find_all_verb_by_cate_id(cate.id) is not None:
+                    for v in self.find_all_verb_by_cate_id(cate.id):
+                        verbs.append(v)
+            for verb in verbs:
+                if verb == f_verb:
+                    return True
+            return False
+        else:
+            return False
 
     def is_valid_f_pattern(self, f_pattern):
-        patterns = []
-        for cate in self.cate_list:
-            if self.find_all_pattern_by_cate_id(cate.id) is not None:
-                for p in self.find_all_pattern_by_cate_id(cate.id):
-                    patterns.append(p)
-        for pattern in patterns:
-            if pattern == f_pattern:
-                return True
-        return False
+        if str.isalpha(f_pattern) is True:
+            patterns = []
+            for cate in self.cate_list:
+                if self.find_all_pattern_by_cate_id(cate.id) is not None:
+                    for p in self.find_all_pattern_by_cate_id(cate.id):
+                        patterns.append(p)
+            for pattern in patterns:
+                if pattern == f_pattern:
+                    return True
+            return False
+        else:
+            return False
 
     def is_role_included_in_pattern(self, role_name):
         if self.is_valid_role_name(role_name):
@@ -243,6 +276,20 @@ class FuncVerbNet:
             for pattern in self.pattern_list:
                 if pattern.id == p_id:
                     return pattern.included_roles
+        else:
+            return None
+
+    def find_all_roles_by_cate_id(self, cate_id):
+        if self.is_valid_category_id(cate_id) is True:
+            role_list = []
+            patterns = self.find_all_pattern_by_cate_id(cate_id)
+            for pattern_name in patterns:
+                pattern = self.find_pattern_by_syntax(pattern_name)
+                roles = self.find_included_roles_by_pattern_id(pattern.id)
+                for role in roles:
+                    role_list.append(role)
+            result = list(set(role_list))
+            return result
         else:
             return None
 
@@ -492,13 +539,3 @@ class FuncVerbNet:
             return common_roles
         else:
             return None
-
-
-if __name__ == '__main__':
-    net = FuncVerbNet()
-    f2 = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
-
-    print(net.find_cate_by_name('stop'))
-    # print(net.find_cate_by_verb('cancel'))
-    # print(net.cates[1].name)
-    # print(net.verbs[1].id)

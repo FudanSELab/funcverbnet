@@ -41,13 +41,14 @@ setup(
     license="BSD license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
+    package_data={
+            # If any package contains *.json files, include them:
+            '': ['*.json', ".zip"],
+        },
     keywords='funcverbnet',
     name='funcverbnet',
     packages=find_packages(include=['funcverbnet', 'funcverbnet.*']),
-    package_data={
-        # If any package contains *.json files, include them:
-        '': ['*.json', ".zip"],
-    },
+
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
