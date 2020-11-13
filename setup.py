@@ -40,6 +40,7 @@ setup(
     install_requires=requirements,
     license="BSD license",
     long_description=readme + '\n\n' + history,
+    packages=find_packages(include=['funcverbnet', 'funcverbnet.*']),
     include_package_data=True,
     package_data={
             # If any package contains *.json files, include them:
@@ -47,12 +48,11 @@ setup(
         },
     keywords='funcverbnet',
     name='funcverbnet',
-    packages=find_packages(include=['funcverbnet', 'funcverbnet.*']),
 
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/FudanSELab/funcverbnet',
-    version='0.1.4',
+    version='0.1.5',
     zip_safe=False,
 )
