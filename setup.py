@@ -44,7 +44,7 @@ setup(
     # include_package_data=True,
     package_data={
             # If any package contains *.json files, include them:
-            '': ['*.json', ".zip"],
+            'funcverbnet': ['data/*.json', "data/*.zip"],
         },
     keywords='funcverbnet',
     name='funcverbnet',
