@@ -29,7 +29,7 @@ def test_content(response):
 
 def test_find_cate_by_name():
     net = FuncVerbNet()
-    print(net.find_cate_by_name("stop"))
+    print(net.find_cate_by_name(1))
 
 
 def test_get_category_number():
@@ -83,6 +83,7 @@ def test_find_common_roles_by_pattern_id():
 def test_find_all_verb_by_cate_id():
     net = FuncVerbNet()
     print(net.find_all_verb_by_cate_id(3))
+    print(net.find_all_verb_by_cate_id("hhh"))
 
 
 def test_find_all_pattern_by_cate_id():
@@ -247,6 +248,11 @@ def test_is_role_included_in_pattern():
     assert net.is_role_included_in_pattern("patient") is True
     assert net.is_role_included_in_pattern("topic") is True
     assert net.is_role_included_in_pattern("word") is False
+
+
+def test_find_all_roles_by_cate_id():
+    net = FuncVerbNet()
+    print(net.find_all_roles_by_cate_id(3))
 
 
 def test_command_line_interface():
