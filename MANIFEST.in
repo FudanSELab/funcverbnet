@@ -3,12 +3,8 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.rst
-include ./funcverbnet/data/f_pattern.json
-include ./funcverbnet/data/f_verb.json
-include ./funcverbnet/data/functionality_category.json
-include ./funcverbnet/data/phrase_pattern.json
-include ./funcverbnet/data/semantic_role.json
-include ./funcverbnet/data/verb.json
+
+recursive-include funcverbnet data/*.json
 
 recursive-include tests *
 recursive-exclude * __pycache__
