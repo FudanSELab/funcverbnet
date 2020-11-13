@@ -41,7 +41,7 @@ setup(
     license="BSD license",
     long_description=readme + '\n\n' + history,
     packages=find_packages(include=['funcverbnet', 'funcverbnet.*']),
-    include_package_data=True,
+    # include_package_data=True,
     package_data={
             # If any package contains *.json files, include them:
             '': ['*.json', ".zip"],
