@@ -154,6 +154,11 @@ def test_find_verb_by_name():
     print(net.find_verb_by_name("stop"))
 
 
+def test_find_f_verb_by_name():
+    net = FuncVerbNet()
+    print(net.find_f_verb_by_name("stop"))
+
+
 def test_find_pattern_by_id():
     net = FuncVerbNet()
     print(net.find_pattern_by_id(3))

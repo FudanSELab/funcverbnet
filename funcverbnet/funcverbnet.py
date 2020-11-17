@@ -112,11 +112,12 @@ class FuncVerbNet:
         for f_verb in range(0, len(f_verb_data)):
             id = f_verb_data[f_verb]['id']
             qualified_name = f_verb_data[f_verb]['qualified_name']
+            name = f_verb_data[f_verb]['name']
             description = f_verb_data[f_verb]['description']
             example = f_verb_data[f_verb]['example']
             create_time = f_verb_data[f_verb]['create_time']
             version = f_verb_data[f_verb]['version']
-            new_f_verbs = FuncVerb(id, qualified_name, description, example, create_time, version)
+            new_f_verbs = FuncVerb(id, qualified_name, name,description, example, create_time, version)
             self.f_verb_list.append(new_f_verbs)
         pass
 
@@ -395,6 +396,18 @@ class FuncVerbNet:
     def find_verb_by_name(self, v_name):
         for verb in self.verb_list:
             if verb.name == v_name:
+                return verb
+        return None
+
+    def find_f_verb_by_name(self, v_name):
+        for verb in self.f_verb_list:
+            if verb.name == v_name:
+                return verb
+        return None
+
+    def find_f_verb_by_id(self, v_id):
+        for verb in self.f_verb_list:
+            if verb.id == v_id:
                 return verb
         return None
 
