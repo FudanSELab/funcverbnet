@@ -112,11 +112,12 @@ class FuncVerbNet:
         for f_verb in range(0, len(f_verb_data)):
             id = f_verb_data[f_verb]['id']
             qualified_name = f_verb_data[f_verb]['qualified_name']
+            name = f_verb_data[f_verb]['name']
             description = f_verb_data[f_verb]['description']
             example = f_verb_data[f_verb]['example']
             create_time = f_verb_data[f_verb]['create_time']
             version = f_verb_data[f_verb]['version']
-            new_f_verbs = FuncVerb(id, qualified_name, description, example, create_time, version)
+            new_f_verbs = FuncVerb(id, qualified_name, name,description, example, create_time, version)
             self.f_verb_list.append(new_f_verbs)
         pass
 
@@ -190,8 +191,8 @@ class FuncVerbNet:
         if str.isalpha(f_verb) is True:
             verbs = []
             for cate in self.cate_list:
-                if self.find_all_verb_by_cate_id(cate.id) is not None:
-                    for v in self.find_all_verb_by_cate_id(cate.id):
+                if self.find_all_verb_name_by_cate_id(cate.id) is not None:
+                    for v in self.find_all_verb_name_by_cate_id(cate.id):
                         verbs.append(v)
             for verb in verbs:
                 if verb == f_verb:
@@ -204,8 +205,8 @@ class FuncVerbNet:
         if isinstance(f_pattern, str):
             patterns = []
             for cate in self.cate_list:
-                if self.find_all_pattern_by_cate_id(cate.id) is not None:
-                    for p in self.find_all_pattern_by_cate_id(cate.id):
+                if self.find_all_pattern_name_by_cate_id(cate.id) is not None:
+                    for p in self.find_all_pattern_name_by_cate_id(cate.id):
                         patterns.append(p)
             for pattern in patterns:
                 if pattern == f_pattern:
@@ -247,6 +248,12 @@ class FuncVerbNet:
                 return cate
         return None
 
+    def find_role_by_name(self, r_name):
+        for role in self.role_list:
+            if role.name == r_name:
+                return role
+        return None
+
     def find_cate_by_pattern(self, included_pattern):
         for cate in self.cate_list:
             for pattern in cate.included_pattern:
@@ -257,6 +264,18 @@ class FuncVerbNet:
 
     def find_all_verb_by_cate_id(self, cate_id):
         if self.is_valid_category_id(cate_id) is True:
+            verbs = []
+            for cate in self.cate_list:
+                if cate.id == cate_id:
+                    included_verb = cate.included_verb
+            for verb in included_verb:
+                verbs.append(self.find_verb_by_name(verb))
+            return verbs
+        else:
+            return None
+
+    def find_all_verb_name_by_cate_id(self, cate_id):
+        if self.is_valid_category_id(cate_id) is True:
             for cate in self.cate_list:
                 if cate.id == cate_id:
                     return cate.included_verb
@@ -264,6 +283,18 @@ class FuncVerbNet:
             return None
 
     def find_all_pattern_by_cate_id(self, cate_id):
+        if self.is_valid_category_id(cate_id) is True:
+            patterns = []
+            for cate in self.cate_list:
+                if cate.id == cate_id:
+                    included_pattern = cate.included_pattern
+            for p_syntax in included_pattern:
+                patterns.append(self.find_pattern_by_syntax(p_syntax))
+            return patterns
+        else:
+            return None
+
+    def find_all_pattern_name_by_cate_id(self, cate_id):
         if self.is_valid_category_id(cate_id) is True:
             for cate in self.cate_list:
                 if cate.id == cate_id:
@@ -282,13 +313,18 @@ class FuncVerbNet:
     def find_all_roles_by_cate_id(self, cate_id):
         if self.is_valid_category_id(cate_id) is True:
             role_list = []
-            patterns = self.find_all_pattern_by_cate_id(cate_id)
+            result = []
+            patterns = self.find_all_pattern_name_by_cate_id(cate_id)
             for pattern_name in patterns:
                 pattern = self.find_pattern_by_syntax(pattern_name)
                 roles = self.find_included_roles_by_pattern_id(pattern.id)
                 for role in roles:
                     role_list.append(role)
-            result = list(set(role_list))
+            role_name = list(set(role_list))
+            for role in role_name:
+                a_role = self.find_role_by_name(role)
+                result.append(a_role)
+            # print(role_name)
             return result
         else:
             return None
@@ -303,7 +339,7 @@ class FuncVerbNet:
     def get_included_verb_number_by_cateid(self, cateid):
         if self.is_valid_category_id(cateid):
             cate = self.find_cate_by_id(cateid)
-            verbs = self.find_all_verb_by_cate_id(cate.id)
+            verbs = self.find_all_verb_name_by_cate_id(cate.id)
             verb_num = 0
             for verb in verbs:
                 verb_num += 1
@@ -325,7 +361,7 @@ class FuncVerbNet:
     def get_included_pattern_number_by_cateid(self, cateid):
         if self.is_valid_category_id(cateid):
             cate = self.find_cate_by_id(cateid)
-            patterns = self.find_all_pattern_by_cate_id(cate.id)
+            patterns = self.find_all_pattern_name_by_cate_id(cate.id)
             pattern_num = 0
             for verb in patterns:
                 pattern_num += 1
@@ -360,6 +396,18 @@ class FuncVerbNet:
     def find_verb_by_name(self, v_name):
         for verb in self.verb_list:
             if verb.name == v_name:
+                return verb
+        return None
+
+    def find_f_verb_by_name(self, v_name):
+        for verb in self.f_verb_list:
+            if verb.name == v_name:
+                return verb
+        return None
+
+    def find_f_verb_by_id(self, v_id):
+        for verb in self.f_verb_list:
+            if verb.id == v_id:
                 return verb
         return None
 
@@ -500,8 +548,8 @@ class FuncVerbNet:
 
     def find_common_verbs_by_cates(self, cate1, cate2):
         if self.is_valid_category_id(cate1) and self.is_valid_category_id(cate2) is True:
-            verbs1 = self.find_all_verb_by_cate_id(cate1)
-            verbs2 = self.find_all_verb_by_cate_id(cate2)
+            verbs1 = self.find_all_verb_name_by_cate_id(cate1)
+            verbs2 = self.find_all_verb_name_by_cate_id(cate2)
             common_verbs = []
             for verb1 in verbs1:
                 for verb2 in verbs2:
@@ -514,8 +562,8 @@ class FuncVerbNet:
 
     def find_common_patterns_by_cates(self, cate1, cate2):
         if self.is_valid_category_id(cate1) and self.is_valid_category_id(cate2):
-            patterns1 = self.find_all_pattern_by_cate_id(cate1)
-            patterns2 = self.find_all_pattern_by_cate_id(cate2)
+            patterns1 = self.find_all_pattern_name_by_cate_id(cate1)
+            patterns2 = self.find_all_pattern_name_by_cate_id(cate2)
             common_patterns = []
             for pattern1 in patterns1:
                 for pattern2 in patterns2:

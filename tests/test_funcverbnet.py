@@ -47,6 +47,11 @@ def test_find_cate_by_id():
     print(net.find_cate_by_id(10))
 
 
+def test_find_role_by_name():
+    net = FuncVerbNet()
+    print(net.find_role_by_name('patient'))
+
+
 def test_find_cate_by_pattern():
     net = FuncVerbNet()
     print(net.find_cate_by_pattern("V {patient} about {topic}"))
@@ -88,7 +93,12 @@ def test_find_all_verb_by_cate_id():
 
 def test_find_all_pattern_by_cate_id():
     net = FuncVerbNet()
-    print(net.find_all_pattern_by_cate_id(233))
+    print(net.find_all_pattern_by_cate_id(3))
+
+
+def test_find_all_pattern_name_by_cate_id():
+    net = FuncVerbNet()
+    print(net.find_all_pattern_name_by_cate_id(3))
 
 
 def test_get_included_roles_number_by_pattern_id():
@@ -142,6 +152,11 @@ def test_find_verb_by_id():
 def test_find_verb_by_name():
     net = FuncVerbNet()
     print(net.find_verb_by_name("stop"))
+
+
+def test_find_f_verb_by_name():
+    net = FuncVerbNet()
+    print(net.find_f_verb_by_name("stop"))
 
 
 def test_find_pattern_by_id():
@@ -252,7 +267,7 @@ def test_is_role_included_in_pattern():
 
 def test_find_all_roles_by_cate_id():
     net = FuncVerbNet()
-    print(net.find_all_roles_by_cate_id(3))
+    print(net.find_all_roles_by_cate_id(2))
 
 
 def test_command_line_interface():

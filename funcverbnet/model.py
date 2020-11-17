@@ -103,9 +103,10 @@ class FuncCategory:
 
 
 class FuncVerb:
-    def __init__(self, id, qualified_name, description, example, create_time, version):
+    def __init__(self, id, qualified_name,name, description, example, create_time, version):
         self.id = id
         self.qualified_name = qualified_name
+        self.name = name
         self.description = description
         self.example = example
         self.create_time = create_time
@@ -126,13 +127,16 @@ class FuncVerb:
 
     def __repr__(self):
         return "{id:" + str(
-            self.id) + ", qualified_name:" + self.qualified_name + ", description:" + self.description + ", example:" + self.example + ", create_time:" + self.create_time + ", version:" + self.version + "} "
+            self.id) + ", qualified_name:" + self.qualified_name + ", name:" + self.name + ", description:" + self.description + ", example:" + self.example + ", create_time:" + self.create_time + ", version:" + self.version + "} "
 
     def get_funcverb_id(self):
         return self.id
 
     def get_funcverb_qualified_name(self):
         return self.qualified_name
+
+    def get_funcverb_name(self):
+        return self.name
 
     def get_funcverb_description(self):
         return self.description
