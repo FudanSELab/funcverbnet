@@ -103,7 +103,7 @@ class FuncCategory:
 
 
 class FuncVerb:
-    def __init__(self, id, qualified_name,name, description, example, create_time, version):
+    def __init__(self, id, qualified_name, name, description, example, create_time, version):
         self.id = id
         self.qualified_name = qualified_name
         self.name = name
@@ -237,7 +237,7 @@ class FuncPattern:
 
 
 class PhasePattern:
-    def __init__(self, id, syntax, example, description,included_roles, create_time, version):
+    def __init__(self, id, syntax, example, description, included_roles, create_time, version):
         self.id = id
         self.syntax = syntax
         self.example = example
@@ -322,4 +322,42 @@ class Role:
         return self.create_time
 
     def get_role_version(self):
+        return self.version
+
+
+class Sentence:
+    def __init__(self, single_description, category, create_time, version):
+        self.single_description = single_description
+        self.category = category
+        self.create_time = create_time
+        self.version = version
+        pass
+
+    def __str__(self):
+        return "<Sentence>" + str(self.single_description)
+
+    def __eq__(self, other):
+        if self.__dict__ == other.__dict__:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash("<Sentence>" + self.single_description)
+
+    def __repr__(self):
+        return "{single_description:" + str(
+            self.single_description) + ", category:" + self.category + \
+               ", create_time:" + self.create_time + ", version:" + self.version + "} "
+
+    def get_sentence_single_description(self):
+        return self.single_description
+
+    def get_sentence_category(self):
+        return self.category
+
+    def get_sentence_create_time(self):
+        return self.create_time
+
+    def get_sentence_version(self):
         return self.version

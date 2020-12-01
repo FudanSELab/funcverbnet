@@ -64,7 +64,7 @@ def test_find_patterns_by_role_id():
 
 def test_find_patterns_by_role_name():
     net = FuncVerbNet()
-    print(net.find_patterns_by_role_name("goal"))
+    print(net.find_patterns_by_role_name("patient"))
 
 
 def test_find_patterns_with_two_roles_name():
@@ -267,7 +267,22 @@ def test_is_role_included_in_pattern():
 
 def test_find_all_roles_by_cate_id():
     net = FuncVerbNet()
-    print(net.find_all_roles_by_cate_id(2))
+    print(net.find_all_roles_by_cate_id(5))
+
+
+def test_find_cates_by_role():
+    net = FuncVerbNet()
+    print(net.find_cates_by_role("patient"))
+
+
+def test_get_sentences():
+    net = FuncVerbNet()
+    print(net.get_sentences())
+
+
+def test_find_sentences_by_category():
+    net = FuncVerbNet()
+    print(net.find_sentences_by_category(1))
 
 
 def test_command_line_interface():

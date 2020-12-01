@@ -1,10 +1,13 @@
 """Main module."""
+import csv
 import json
 import os
+import time
 from pathlib import Path
+import pandas as pd
 
 # from funcverbnet.model import *
-from funcverbnet.model import FuncCategory, Verb, PhasePattern, FuncPattern, FuncVerb, Role
+from funcverbnet.model import FuncCategory, Verb, PhasePattern, FuncPattern, FuncVerb, Role, Sentence
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
 path = Path(root_path)
@@ -14,6 +17,7 @@ VERB_DATA_PATH = str(path / "data" / "verb.json")
 PATTERN_DATA_PATH = str(path / "data" / "phrase_pattern.json")
 F_PATTERN_DATA_PATH = str(path / "data" / "f_pattern.json")
 F_VERB_DATA_PATH = str(path / "data" / "f_verb.json")
+SENTENCES_DATA_PATH = str(path / "data" / "sentences_with_annotation.csv")
 
 
 class FuncVerbNet:
@@ -23,7 +27,7 @@ class FuncVerbNet:
                  verb_data_path=VERB_DATA_PATH,
                  pattern_data_path=PATTERN_DATA_PATH,
                  f_pattern_data_path=F_PATTERN_DATA_PATH,
-                 f_verb_data_path=F_VERB_DATA_PATH):
+                 f_verb_data_path=F_VERB_DATA_PATH, sentences_data_path=SENTENCES_DATA_PATH):
         ## todo: load all the data from json.
         self.role_list = []
         self.cate_list = []
@@ -31,19 +35,21 @@ class FuncVerbNet:
         self.f_verb_list = []
         self.f_pattern_list = []
         self.pattern_list = []
+        self.sentences = []
         self.init_role_list(semantic_role_path)
         self.init_cate_list(category_data_path)
         self.init_verb_list(verb_data_path)
         self.init_pattern_list(pattern_data_path)
         self.init_f_pattern_list(f_pattern_data_path)
         self.init_f_verb_list(f_verb_data_path)
+        self.init_sentences(sentences_data_path)
 
         pass
 
     def init_cate_list(self, category_data_path=CATEGORY_DATA_PATH):
         # category_data_path = "./data/functionality_category.json"
         with open(category_data_path, 'r', encoding='utf-8') as category_data_file:
-            category_data = json.load(category_data_file)
+            category_data = json.load(category_data_file)  # json.load()用于从json文件中读取数据
         for cate in category_data:
             name = cate['name']
             id = cate['id']
@@ -117,7 +123,7 @@ class FuncVerbNet:
             example = f_verb_data[f_verb]['example']
             create_time = f_verb_data[f_verb]['create_time']
             version = f_verb_data[f_verb]['version']
-            new_f_verbs = FuncVerb(id, qualified_name, name,description, example, create_time, version)
+            new_f_verbs = FuncVerb(id, qualified_name, name, description, example, create_time, version)
             self.f_verb_list.append(new_f_verbs)
         pass
 
@@ -133,6 +139,25 @@ class FuncVerbNet:
             new_semantic_role = Role(id, name, definition, create_time, version)
             self.role_list.append(new_semantic_role)
         pass
+
+    def init_sentences(self, sentences_data_path=SENTENCES_DATA_PATH):
+        # with open(sentences_data_path,'r',encoding='utf-8') as sentence_file:
+        #     sentences_data = csv.reader(sentence_file)
+        #     sentences_data_list = list(sentences_data)
+        #     for sentence in sentences_data_list:
+        #         print(sentence)
+        #         single_description=sentences_data_list[3]
+        df = pd.read_csv(sentences_data_path, header=0)
+        for i in range(len(df)):
+            single_description = str(df['single_description'][i])
+            category = str(df['final_annotation_type'][i])
+            create_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+            version = '1.0'
+            new_sentence = Sentence(single_description, category, create_time, version)
+            self.sentences.append(new_sentence)
+
+    def get_sentences(self):
+        return self.sentences
 
     def is_valid_verb(self, verb):
         if str.isalpha(verb) is True:
@@ -252,7 +277,7 @@ class FuncVerbNet:
         for role in self.role_list:
             if role.name == r_name:
                 return role
-        return None
+        # return None
 
     def find_cate_by_pattern(self, included_pattern):
         for cate in self.cate_list:
@@ -324,7 +349,6 @@ class FuncVerbNet:
             for role in role_name:
                 a_role = self.find_role_by_name(role)
                 result.append(a_role)
-            # print(role_name)
             return result
         else:
             return None
@@ -546,6 +570,22 @@ class FuncVerbNet:
         else:
             return None
 
+    def find_cates_by_role(self, role_name):
+        if self.is_valid_role_name(role_name):
+            patterns = self.find_patterns_by_role_name(role_name)
+            result = []
+            categories = []
+            for pattern in patterns:
+                cates = self.find_cate_by_pattern(pattern.syntax)
+                result.append(cates)
+            for cate in result:
+                if cate not in categories:
+                    print(cate)
+                    categories.append(cate)
+            return categories
+        else:
+            return None
+
     def find_common_verbs_by_cates(self, cate1, cate2):
         if self.is_valid_category_id(cate1) and self.is_valid_category_id(cate2) is True:
             verbs1 = self.find_all_verb_name_by_cate_id(cate1)
@@ -587,3 +627,18 @@ class FuncVerbNet:
             return common_roles
         else:
             return None
+
+    def find_sentences_by_category(self, category_id):
+        if self.is_valid_category_id(category_id):
+            sentences = []
+            for sentence in self.sentences:
+                # print(sentence.category)
+                # print(category_id)
+                if int(sentence.category) == category_id:
+                    # print(sentence.category)
+                    sentences.append(sentence)
+
+            return sentences
+        else:
+            return None
+
