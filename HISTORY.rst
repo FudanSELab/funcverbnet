@@ -21,3 +21,7 @@ History
 0.1.3 (2020-11-17)
 ------------------
 * [modify] modify some methods and f_verb.json
+
+0.1.4 (2020-12-1)
+------------------
+* [add] add sentences
