@@ -10,7 +10,8 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', ]
+requirements = ['Click>=7.0',
+                'pandas', ]
 
 setup_requirements = ['pytest-runner', ]
 
@@ -53,6 +54,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/FudanSELab/funcverbnet',
-    version='0.1.9',
+    version='0.1.10',
     zip_safe=False,
 )
