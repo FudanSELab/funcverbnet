@@ -6,7 +6,6 @@ import time
 from pathlib import Path
 import pandas as pd
 
-# from funcverbnet.model import *
 from funcverbnet.model import FuncCategory, Verb, PhasePattern, FuncPattern, FuncVerb, Role, Sentence
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
