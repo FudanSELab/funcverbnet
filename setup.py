@@ -44,9 +44,9 @@ setup(
     packages=find_packages(include=['funcverbnet', 'funcverbnet.*']),
     # include_package_data=True,
     package_data={
-            # If any package contains *.json files, include them:
-            'funcverbnet': ['data/*.json', "data/*.zip"],
-        },
+        # If any package contains *.json files, include them:
+        'funcverbnet': ['data/*.json', "data/*.zip", "data/*.csv"],
+    },
     keywords='funcverbnet',
     name='funcverbnet',
 
