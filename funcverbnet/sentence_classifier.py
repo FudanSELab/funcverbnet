@@ -15,7 +15,7 @@ class FastTextClassifierForScenario:
         self.classifier = None
         self.train_data_path = DATA_PATH
         self.test_data_path = TEST_DATA_PATH
-        self.model_path = str(path / 'sentence_classification.model')
+        self.model_path = str(path / "model" / "sentence_classification.model")
         self.load_model()
 
     def load_model(self, ):
@@ -64,8 +64,8 @@ class FastTextClassifierForScenario:
         try:
             label = self.classifier.predict(sentence)
             probability = label[1][0]
-            if len(str(label[0][0]))>10:
-                label = str(label[0][0][9])+str(label[0][0][10])
+            if len(str(label[0][0])) > 10:
+                label = str(label[0][0][9]) + str(label[0][0][10])
             else:
                 label = str(label[0][0][9])
             # if label == "1":
