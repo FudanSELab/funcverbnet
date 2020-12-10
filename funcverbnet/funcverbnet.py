@@ -7,6 +7,7 @@ from pathlib import Path
 import pandas as pd
 
 from funcverbnet.model import FuncCategory, Verb, PhasePattern, FuncPattern, FuncVerb, Role, Sentence
+from funcverbnet.sentence_classifier import FastTextClassifierForScenario
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
 path = Path(root_path)
@@ -238,6 +239,9 @@ class FuncVerbNet:
             return False
         else:
             return False
+
+    # def is_invalid_function_sentence(self):
+    #
 
     def is_role_included_in_pattern(self, role_name):
         if self.is_valid_role_name(role_name):
@@ -640,4 +644,12 @@ class FuncVerbNet:
             return sentences
         else:
             return None
+
+    def find_category_by_any_sentence(self,sentence):
+        classifier = FastTextClassifierForScenario()
+        classifier.train_model()
+        result = classifier.predict(sentence)
+        return result
+
+
 
