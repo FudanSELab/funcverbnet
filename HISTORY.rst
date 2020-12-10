@@ -37,3 +37,15 @@ History
 0.1.10 (2020-12-1)
 ------------------
 * [add] add package_data
+
+0.1.10 (2020-12-1)
+------------------
+* [add] add package_data
+
+0.1.11 (2020-12-1)
+------------------
+* [add] add package_data
+
+0.1.12 (2020-12-10)
+------------------
+* [add] add sentence classification

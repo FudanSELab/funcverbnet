@@ -282,7 +282,13 @@ def test_get_sentences():
 
 def test_find_sentences_by_category():
     net = FuncVerbNet()
-    print(net.find_sentences_by_category(1))
+    print(net.find_sentences_by_category(0))
+
+
+def test_find_category_by_any_sentence():
+    net = FuncVerbNet()
+    assert  net.find_category_by_any_sentence('Request an informative description of the key status for the session.') == 6
+    # print(net.find_category_by_any_sentence('Request an informative description of the key status for the session.'))
 
 
 def test_command_line_interface():
