@@ -47,9 +47,9 @@ History
 * [add] add package_data
 
 0.1.12 (2020-12-10)
-------------------
+-------------------
 * [add] add sentence classification
 
 0.1.13 (2020-12-10)
-------------------
+-------------------
 * [update] update model path
