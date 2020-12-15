@@ -6,7 +6,7 @@ from fasttext import FastText
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
 path = Path(root_path)
-DATA_PATH = str(path / "data" / "train.csv")
+DATA_PATH = str(path / "data" / "upadte_train_data.csv")
 TEST_DATA_PATH = str(path / "data" / "test_data.csv")
 
 
@@ -17,6 +17,7 @@ class FastTextClassifierForScenario:
         self.test_data_path = TEST_DATA_PATH
         self.model_path = str(path / "model" / "sentence_classification.model")
         self.load_model()
+        # self.train_model()
 
     def load_model(self, ):
         """
@@ -173,7 +174,9 @@ if __name__ == "__main__":
     classifier_1 = FastTextClassifierForScenario()
     classifier_1.train_model()
     print(classifier_1.predict(
-        "Prepares the player for playback, synchronously.     "))
+        "Determines this file dialog's filename filter."))
+    print(classifier_1.predict(
+        "how are"))
     # train_set_test = classifier_1.cal_experiment_indexes(classifier_1.train_data_path, "train_data")
     # test_set_test = classifier_1.cal_experiment_indexes(classifier_1.test_data_path, "test_data")
     # save_list.append({

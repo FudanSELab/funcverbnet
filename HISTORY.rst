@@ -47,9 +47,33 @@ History
 * [add] add package_data
 
 0.1.12 (2020-12-10)
-------------------
+-------------------
 * [add] add sentence classification
 
 0.1.13 (2020-12-10)
-------------------
+-------------------
 * [update] update model path
+
+0.1.14 (2020-12-12)
+-------------------
+* [modify] modify error
+
+0.1.15 (2020-12-15)
+-------------------
+* [error] modify error
+
+0.1.16 (2020-12-15)
+-------------------
+* [error] modify error
+
+0.1.17 (2020-12-15)
+-------------------
+* [update] update train data
+
+0.1.18 (2020-12-15)
+-------------------
+* [update] update train data
+
+0.1.18 (2020-12-15)
+-------------------
+* [update] update python version
