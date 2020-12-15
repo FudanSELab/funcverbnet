@@ -53,3 +53,7 @@ History
 0.1.13 (2020-12-10)
 -------------------
 * [update] update model path
+
+0.1.13 (2020-12-15)
+-------------------
+* [update] update train data
