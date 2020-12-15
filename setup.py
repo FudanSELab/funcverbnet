@@ -11,7 +11,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = ['Click>=7.0',
-                'pandas', ]
+                'pandas', 'fasttext~=0.9.2',]
 
 setup_requirements = ['pytest-runner', ]
 
@@ -54,6 +54,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/FudanSELab/funcverbnet',
-    version='0.1.14',
+    version='0.1.17',
     zip_safe=False,
 )

@@ -647,7 +647,7 @@ class FuncVerbNet:
 
     def find_category_by_any_sentence(self,sentence):
         classifier = FastTextClassifierForScenario()
-        classifier.train_model()
+        # classifier.train_model()
         result = classifier.predict(sentence)
         return result
 

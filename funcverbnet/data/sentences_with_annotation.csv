@@ -10,7 +10,7 @@ id,api_entity_with_single_des_id,qualified_name,single_description,final_annotat
 12514,46481,android.os.StrictMode.VmPolicy.Builder.penaltyDeathOnCleartextNetwork(),Crashes the whole process when cleartext network traffic is detected.,0,crash
 13441,46480,android.os.StrictMode.VmPolicy.Builder.penaltyDeath(),Crashes the whole process on violation.,0,crash
 7466,44178,android.media.browse.MediaBrowser.disconnect(),Disconnects from the media browser service.,0,disconnect
-7468,36549,android.bluetooth.BluetoothGattServer.cancelConnection(android.bluetooth.BluetoothDevice),"Disconnects an established connection, or cancels a connection attempt currently in progress.",0,disconnect
+7468,36549,android.bluetooth.BluetoothGattServer. cancelConnection(android.bluetooth.BluetoothDevice),"Disconnects an established connection, or cancels a connection attempt currently in progress.",0,disconnect
 7469,37358,android.content.ContextWrapper.unbindService(android.content.ServiceConnection),Disconnect from an application service.,0,disconnect
 7470,49757,android.test.mock.MockContext.unbindService(android.content.ServiceConnection),Disconnect from an application service.,0,disconnect
 7473,9807,java.nio.channels.DatagramChannel.disconnect(),Disconnects this channel's socket.,0,disconnect

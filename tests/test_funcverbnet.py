@@ -39,7 +39,7 @@ def test_get_category_number():
 
 def test_find_cate_by_verb():
     net = FuncVerbNet()
-    print(net.find_cate_by_verb('print'))
+    print(net.find_cate_by_verb('filter'))
 
 
 def test_find_cate_by_id():
@@ -287,7 +287,7 @@ def test_find_sentences_by_category():
 
 def test_find_category_by_any_sentence():
     net = FuncVerbNet()
-    print(net.find_category_by_any_sentence('Request an informative description of the key status for the session.'))
+    print(net.find_category_by_any_sentence('Initializes the internal state of this CertPathChecker.'))
     # print(net.find_category_by_any_sentence('Request an informative description of the key status for the session.'))
 
 
