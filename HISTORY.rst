@@ -73,3 +73,7 @@ History
 0.1.18 (2020-12-15)
 -------------------
 * [update] update train data
+
+0.1.18 (2020-12-15)
+-------------------
+* [update] update python version
