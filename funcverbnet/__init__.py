@@ -2,4 +2,4 @@
 
 __author__ = """Software Engineering Laboratory of Fudan University"""
 __email__ = 'lmwtclmwtc@outlook.com'
-__version__ = '0.1.18'
+__version__ = '0.1.19'
