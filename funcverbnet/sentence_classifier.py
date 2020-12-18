@@ -6,11 +6,11 @@ from fasttext import FastText
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
 path = Path(root_path)
-DATA_PATH = str(path / "data" / "upadte_train_data.csv")
+DATA_PATH = str(path / "data" / "final_train_data.csv")
 TEST_DATA_PATH = str(path / "data" / "test_data.csv")
 
 
-class FastTextClassifierForScenario:
+class FuncSentenceClassifier:
     def __init__(self):
         self.classifier = None
         self.train_data_path = DATA_PATH
@@ -171,12 +171,12 @@ if __name__ == "__main__":
     # for scenario_type in range(1, SCENARIO_NUM + 1):
     #     scenario_type_text = ScenarioType.scenario_id_2_text[scenario_type]
     #     print(scenario_type_text, "#" * 10)
-    classifier_1 = FastTextClassifierForScenario()
+    classifier_1 = FuncSentenceClassifier()
     classifier_1.train_model()
     print(classifier_1.predict(
         "Determines this file dialog's filename filter."))
     print(classifier_1.predict(
-        "how are"))
+        "Processes hierarchy event occurring on the JLayer or any of its subcomponents."))
     # train_set_test = classifier_1.cal_experiment_indexes(classifier_1.train_data_path, "train_data")
     # test_set_test = classifier_1.cal_experiment_indexes(classifier_1.test_data_path, "test_data")
     # save_list.append({
