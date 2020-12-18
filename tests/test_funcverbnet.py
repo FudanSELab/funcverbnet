@@ -287,7 +287,7 @@ def test_find_sentences_by_category():
 
 def test_find_category_by_any_sentence():
     net = FuncVerbNet()
-    print(net.find_category_by_any_sentence('Initializes the internal state of this CertPathChecker.'))
+    print(net.find_category_by_any_sentence('how are you'))
     # print(net.find_category_by_any_sentence('Request an informative description of the key status for the session.'))
 
 
