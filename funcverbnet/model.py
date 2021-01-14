@@ -60,7 +60,7 @@ class FuncCategory:
 
     def __repr__(self):
         return "{id:" + str(
-            self.id) + ", name:" + self.name + ", create_time:" + self.create_time + ", definition:" + self.definition + ", description:" + self.description + ", modified_time:" + self.modified_time + ", representative_verb:" + self.representative_verb + ", antisense_category:"+self.antisense_category+", antisense_category_id:"+self.antisense_category_id+", included_verb:" + str(
+            self.id) + ", name:" + self.name + ", create_time:" + self.create_time + ", definition:" + self.definition + ", description:" + self.description + ", modified_time:" + self.modified_time + ", representative_verb:" + self.representative_verb + ", antisense_category:"+ str(self.antisense_category)+", antisense_category_id:" + str(self.antisense_category_id)+", included_verb:" + str(
             self.included_verb) + ", included_pattern:" + str(
             self.included_pattern) + ", version:" + self.version + ", example:" + self.example + "}"
 

@@ -86,6 +86,10 @@ History
 -------------------
 * [add] add train data
 
-0.1.20 (2021-1-14)
+0.2.0 (2021-1-14)
 -------------------
 * [add] add the methods of antisense verbs
+
+0.2.1 (2021-1-14)
+-------------------
+* [update] modify error
