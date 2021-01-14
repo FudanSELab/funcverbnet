@@ -18,31 +18,35 @@ History
 ------------------
 * [modify] modify the problem of JSON data upload
 
-0.1.3 (2020-11-17)
+0.1.4 (2020-11-17)
 ------------------
 * [modify] modify some methods and f_verb.json
 
-0.1.4 (2020-12-1)
-------------------
-* [add] add sentences
-
 0.1.5 (2020-12-1)
 ------------------
-* [add] add dependency
+* [add] add sentences
 
 0.1.6 (2020-12-1)
 ------------------
 * [add] add dependency
 
-0.1.10 (2020-12-1)
+0.1.7 (2020-12-1)
+------------------
+* [add] add dependency
+
+0.1.8 (2020-12-1)
 ------------------
 * [add] add package_data
 
-0.1.10 (2020-12-1)
+0.1.9 (2020-12-3)
 ------------------
 * [add] add package_data
 
-0.1.11 (2020-12-1)
+0.1.10 (2020-12-3)
+------------------
+* [add] add package_data
+
+0.1.11 (2020-12-3)
 ------------------
 * [add] add package_data
 
@@ -72,12 +76,20 @@ History
 
 0.1.18 (2020-12-15)
 -------------------
-* [update] update train data
-
-0.1.18 (2020-12-15)
--------------------
 * [update] update python version
 
-0.1.18 (2020-12-18)
+0.1.19 (2020-12-18)
 -------------------
 * [add] add train data
+
+0.1.20 (2020-12-18)
+-------------------
+* [add] add train data
+
+0.2.0 (2021-1-14)
+-------------------
+* [add] add the methods of antisense verbs
+
+0.2.1 (2021-1-14)
+-------------------
+* [update] modify error

@@ -16,7 +16,7 @@
 
 
 class FuncCategory:
-    def __init__(self, id, name, create_time, definition, description, modified_time, representative_verb,
+    def __init__(self, id, name, create_time, definition, description, modified_time, representative_verb,antisense_category, antisense_category_id,
                  included_verb, included_pattern, version, example):
         self.id = id
         self.name = name
@@ -25,6 +25,8 @@ class FuncCategory:
         self.description = description
         self.modified_time = modified_time
         self.representative_verb = representative_verb
+        self.antisense_category = antisense_category
+        self.antisense_category_id = antisense_category_id
         self.included_verb = included_verb
         self.included_pattern = included_pattern
         self.version = version
@@ -58,7 +60,7 @@ class FuncCategory:
 
     def __repr__(self):
         return "{id:" + str(
-            self.id) + ", name:" + self.name + ", create_time:" + self.create_time + ", definition:" + self.definition + ", description:" + self.description + ", modified_time:" + self.modified_time + ", representative_verb:" + self.representative_verb + ", included_verb:" + str(
+            self.id) + ", name:" + self.name + ", create_time:" + self.create_time + ", definition:" + self.definition + ", description:" + self.description + ", modified_time:" + self.modified_time + ", representative_verb:" + self.representative_verb + ", antisense_category:"+ str(self.antisense_category)+", antisense_category_id:" + str(self.antisense_category_id)+", included_verb:" + str(
             self.included_verb) + ", included_pattern:" + str(
             self.included_pattern) + ", version:" + self.version + ", example:" + self.example + "}"
 
