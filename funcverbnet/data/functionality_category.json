@@ -1,5 +1,5 @@
 [
-    {
+  {
                     "id": -1,
                     "name": "not a function",
                     "create_time": "2020-10-29 14:47:34",
@@ -7,6 +7,8 @@
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "not a function",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "not a function"
                     ],
@@ -18,10 +20,12 @@
                     "id": 1,
                     "name": "stop",
                     "create_time": "2020-10-29 14:47:33",
-                    "definition": "null",
+                    "definition": "Stop something, example:Stop a playback stream.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "stop",
+                    "antisense_category": ["play","perform","start"],
+                    "antisense_category_id": [9,34,78],
                     "included_verb": [
                               "stop",
                               "quit",
@@ -56,10 +60,12 @@
                     "id": 2,
                     "name": "write",
                     "create_time": "2020-10-29 14:47:33",
-                    "definition": "null",
+                    "definition": "Write A to B, and A can be data, B can be console. Example:Writes a line separator.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "write",
+                    "antisense_category": ["visit","read","return","update","enter"],
+                    "antisense_category_id": [8,44,54,57,63],
                     "included_verb": [
                               "write",
                               "record",
@@ -88,12 +94,14 @@
           },
           {
                     "id": 3,
-                    "name": "postpone",
+                    "name": "delay",
                     "create_time": "2020-10-29 14:47:33",
-                    "definition": "null",
+                    "definition": "Put off something, example:Postpone the entering Fragment transition until startPostponedEnterTransition() or executePendingTransactions() has been called.",
                     "description": "null",
                     "modified_time": "",
-                    "representative_verb": "postpone",
+                    "representative_verb": "delay",
+                    "antisense_category": ["start"],
+                    "antisense_category_id": [78],
                     "included_verb": [
                               "delay",
                               "defer",
@@ -104,16 +112,18 @@
                               "V {patient} on {theme}"
                     ],
                     "version": "1.0",
-                    "example": "Postpone the entering Fragment transition until startPostponedEnterTransition() or executePendingTransactions() has been called."
+                    "example": ""
           },
           {
                     "id": 4,
                     "name": "sort",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Sort or sort A by B, example:Sorts the specified range of the array into ascending order.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "sort",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "sort"
                     ],
@@ -128,10 +138,12 @@
                     "id": 5,
                     "name": "draw",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Draw something, example:Draw the specified Rect using the specified paint.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "draw",
+                    "antisense_category": ["read"],
+                    "antisense_category_id": [44],
                     "included_verb": [
                               "draw",
                               "render",
@@ -157,12 +169,14 @@
           },
           {
                     "id": 6,
-                    "name": "sample",
+                    "name": "collect",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Collect something, example:Recycle the MotionEvent, to be re-used by a later caller.",
                     "description": "null",
                     "modified_time": "",
-                    "representative_verb": "sample",
+                    "representative_verb": "collect",
+                    "antisense_category": ["release","allocate"],
+                    "antisense_category_id": [18,23],
                     "included_verb": [
                               "collect",
                               "recycle",
@@ -172,16 +186,18 @@
                               "V {patient}"
                     ],
                     "version": "1.0",
-                    "example": "Samples the gesture spatially by rendering the gesture into a 2D grayscale bitmap."
+                    "example": ""
           },
           {
                     "id": 7,
                     "name": "request",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "request something, example:Request to query for what extended commands the session supports.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "request",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "request",
                               "ask",
@@ -206,10 +222,12 @@
                     "id": 8,
                     "name": "visit",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Scan something, example:Scans the next token of the input as a BigDecimal.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "visit",
+                    "antisense_category": ["write"],
+                    "antisense_category_id": [2],
                     "included_verb": [
                               "visit",
                               "rescan",
@@ -235,10 +253,12 @@
                     "id": 9,
                     "name": "play",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Play something, example:Plays the ringtone.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "play",
+                    "antisense_category": ["stop"],
+                    "antisense_category_id": [1],
                     "included_verb": [
                               "play"
                     ],
@@ -254,10 +274,12 @@
                     "id": 10,
                     "name": "call",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "tell something, example:Tells whether this stream is ready to be read.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "call",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "call",
                               "invoke",
@@ -282,10 +304,12 @@
                     "id": 11,
                     "name": "assert",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Assert something, example:Assert the specified group's integrity.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "assert",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "assert"
                     ],
@@ -300,10 +324,12 @@
                     "id": 12,
                     "name": "simulate",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "simulate something, example:Simulate touching a view and dragging it to a specified location.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "simulate",
+                    "antisense_category":[],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "simulate"
                     ],
@@ -317,10 +343,12 @@
                     "id": 13,
                     "name": "parse",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "analyze something, example:Parse and decode a mailto scheme string.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "parse",
+                    "antisense_category": ["encode"],
+                    "antisense_category_id":[59],
                     "included_verb": [
                               "parse",
                               "resolve",
@@ -347,10 +375,12 @@
                     "id": 14,
                     "name": "export",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Export something, example:Export the activatable remote object to the RMI runtime.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "export",
+                    "antisense_category": ["import"],
+                    "antisense_category_id":[28],
                     "included_verb": [
                               "export"
                     ],
@@ -365,16 +395,18 @@
                     "id": 15,
                     "name": "finish",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Finish something, example:Finalizes the hashCode method",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "finish",
+                    "antisense_category": ["start"],
+                    "antisense_category_id":[78],
                     "included_verb": [
-                              "finish",
-                              "complete",
-                              "finalize",
-                              "complement"
-                    ],
+                                      "finish",
+                                      "complete",
+                                      "finalize",
+                                      "complement"
+                            ],
                     "included_pattern": [
                               "V {patient}",
                               "V S_ING",
@@ -388,10 +420,12 @@
                     "id": 16,
                     "name": "create",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Create something, example:Creates an object that encapsulates the current execution environment.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "create",
+                    "antisense_category": ["clear"],
+                    "antisense_category_id": [30],
                     "included_verb": [
                               "create",
                               "build",
@@ -432,10 +466,12 @@
                     "id": 17,
                     "name": "inflate",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Inflate something, example:Inflate a view from an XML resource.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "inflate",
+                    "antisense_category": ["reduce"],
+                    "antisense_category_id": [68],
                     "included_verb": [
                               "inflate",
                               "extend"
@@ -451,10 +487,12 @@
                     "id": 18,
                     "name": "close",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Close something, example:Closes this selector.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "close",
+                    "antisense_category": ["open","collect","lock"],
+                    "antisense_category_id": [47,6,52],
                     "included_verb": [
                               "close",
                               "end",
@@ -478,18 +516,20 @@
                               "V {patient} on/in/within {location}"
                     ],
                     "version": "1.0",
-                    "example": "Closes this object."
+                    "example": "Close this object and release any resources associated with it."
           },
           {
                     "id": 19,
                     "name": "intersect",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Something intersect, example:Intersect the current clip with the specified path.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "intersect",
+                    "antisense_category": ["split"],
+                    "antisense_category_id": [40],
                     "included_verb": [
-                              "intersect"
+                                      "intersect"
                     ],
                     "included_pattern": [
                               "V {patient} with {patient}"
@@ -501,10 +541,12 @@
                     "id": 20,
                     "name": "send",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Send something, example:Send a key press to the listener.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "send",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "send",
                               "pass",
@@ -541,10 +583,12 @@
                     "id": 21,
                     "name": "match",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Match something, example:Match this filter against an Intent's action.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "match",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "match"
                     ],
@@ -560,10 +604,12 @@
                     "id": 22,
                     "name": "handle",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Handle something, example:Handles the request for sending an AccessibilityEvent given the event type.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "handle",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "handle",
                               "process"
@@ -584,10 +630,12 @@
                     "id": 23,
                     "name": "allocate",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Allocate something, example:Allocates a new direct byte buffer.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "allocate",
+                    "antisense_category": ["collect"],
+                    "antisense_category_id": [6],
                     "included_verb": [
                               "allocate",
                               "reallocate"
@@ -604,10 +652,12 @@
                     "id": 24,
                     "name": "pin",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Pin something, example:Pin shortcuts on a package.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "pin",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "pin"
                     ],
@@ -621,10 +671,12 @@
                     "id": 25,
                     "name": "format",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Format something, example:Formats the specified phoneNumber to the RFC3966 representation.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "format",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "format",
                               "return"
@@ -643,10 +695,12 @@
                     "id": 26,
                     "name": "publish",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Publish something, example:Publish the list of shortcuts.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "publish",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "publish"
                     ],
@@ -661,10 +715,12 @@
                     "id": 27,
                     "name": "normalize",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Normalize something, example:Normalize a sequence of char values.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "normalize",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "normalize"
                     ],
@@ -678,10 +734,12 @@
                     "id": 28,
                     "name": "import",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Import something, example:Imports all of the preferences represented by the XML document on the specified input stream.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "import",
+                    "antisense_category": ["export"],
+                    "antisense_category_id":[14],
                     "included_verb": [
                               "import"
                     ],
@@ -695,10 +753,12 @@
                     "id": 29,
                     "name": "make",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Make something, example:Instructs this RemoteConnection to disconnect.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "make",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "make",
                               "cause",
@@ -722,10 +782,12 @@
                     "id": 30,
                     "name": "clear",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "clear something, example:Clear all registered service discovery requests.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "clear",
+                    "antisense_category": ["create","store","respond"],
+                    "antisense_category_id": [16,58,45],
                     "included_verb": [
                               "clear",
                               "clean",
@@ -748,10 +810,12 @@
                     "id": 31,
                     "name": "hide",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Hide something, example:Collapse a group in the grouped list view.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "hide",
+                    "antisense_category": ["display"],
+                    "antisense_category_id": [36],
                     "included_verb": [
                               "hide",
                               "collapse"
@@ -767,10 +831,12 @@
                     "id": 32,
                     "name": "convert",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Change something, example:Transfers the element to a waiting consumer immediately, if possible.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "convert",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "convert",
                               "change",
@@ -807,10 +873,12 @@
                     "id": 33,
                     "name": "wait",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Wait something, example:Waits for the result of a queue(ByteBuffer) operation.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "wait",
+                    "antisense_category": ["start"],
+                    "antisense_category_id": [78],
                     "included_verb": [
                               "wait",
                               "await",
@@ -827,10 +895,12 @@
                     "id": 34,
                     "name": "perform",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Run something, example:Execute a particular menu item.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "perform",
+                    "antisense_category": ["stop"],
+                    "antisense_category_id": [1],
                     "included_verb": [
                               "perform",
                               "execute",
@@ -866,10 +936,12 @@
                     "id": 35,
                     "name": "connect",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Connect something, example:Combines this date-time with a time-zone to create a ZonedDateTime.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "connect",
+                    "antisense_category": ["split"],
+                    "antisense_category_id": [40],
                     "included_verb": [
                               "connect",
                               "associate",
@@ -900,10 +972,12 @@
                     "id": 36,
                     "name": "display",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Show something, example:Display the content view in a popup window at the specified location.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "display",
+                    "antisense_category": ["hide"],
+                    "antisense_category_id": [31],
                     "included_verb": [
                               "display",
                               "show",
@@ -925,10 +999,12 @@
                     "id": 37,
                     "name": "validate",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Validate something, example:Validates the object.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "validate",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "validate",
                               "authenticate",
@@ -945,10 +1021,12 @@
                     "id": 38,
                     "name": "compute",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Compute something, example:Compute hash code for this VMID.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "compute",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "compute",
                               "calculate",
@@ -985,10 +1063,12 @@
                     "id": 39,
                     "name": "synchronize ",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Synchronize something, example:Synchronizes two or more lines.",
                     "description": "null",
                     "modified_time": "",
-                    "representative_verb": "synchronize ",
+                    "representative_verb": "synchronize",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "synchronize "
                     ],
@@ -1002,10 +1082,12 @@
                     "id": 40,
                     "name": "split",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Divide something, example:Breaks this view on the given axis at the given length.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "split",
+                    "antisense_category": ["intersect","connect","package","bind"],
+                    "antisense_category_id": [19,35,59,79],
                     "included_verb": [
                               "split",
                               "break",
@@ -1024,10 +1106,12 @@
                     "id": 41,
                     "name": "destroy",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Tear down something, example:Tears down the environment for the test fixture.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "destroy",
+                    "antisense_category": ["restore"],
+                    "antisense_category_id": [46],
                     "included_verb": [
                               "destroy",
                               "tear"
@@ -1045,10 +1129,12 @@
                     "id": 42,
                     "name": "touch",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Touch something, example:Presses one or more mouse buttons.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "touch",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "touch",
                               "press"
@@ -1063,10 +1149,12 @@
                     "id": 43,
                     "name": "choose",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Select something, example:Choose a configuration from the list.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "choose",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "choose",
                               "select"
@@ -1085,10 +1173,16 @@
                     "id": 44,
                     "name": "read",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Read something, example:Loads the custom label set by user in settings.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "read",
+                    "antisense_category": [
+                              "write",
+                              "draw",
+                              "cancel"
+                    ],
+                    "antisense_category_id": [2,5,85],
                     "included_verb": [
                               "read",
                               "load",
@@ -1118,10 +1212,12 @@
                     "id": 45,
                     "name": "respond",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Respond something, example:Responds to the beginning of a scaling gesture.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "respond",
+                    "antisense_category": ["clear"],
+                    "antisense_category_id": [30],
                     "included_verb": [
                               "respond"
                     ],
@@ -1130,16 +1226,18 @@
                               "V to {co-theme} for {goal}"
                     ],
                     "version": "1.0",
-                    "example": "Responds to the beginning of a scaling gesture."
+                    "example": "Responds to a request for a TopDownLeftRight (TDLR) ordered resend of the pixel data from an ImageConsumer."
           },
           {
                     "id": 46,
                     "name": "restore",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Restore something, example:Restore the calling application from backup.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "restore",
+                    "antisense_category": ["destroy"],
+                    "antisense_category_id": [41],
                     "included_verb": [
                               "restore",
                               "recover",
@@ -1158,10 +1256,12 @@
                     "id": 47,
                     "name": "open",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Open something, example:Open a file.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "open",
+                    "antisense_category": ["close"],
+                    "antisense_category_id": [18],
                     "included_verb": [
                               "open",
                               "turn on"
@@ -1180,10 +1280,12 @@
                     "id": 48,
                     "name": "list",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "List something, example:Lists all the locales that are supported.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "list",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "list",
                               "enumerate"
@@ -1199,10 +1301,12 @@
                     "id": 49,
                     "name": "provide",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Give something, example:Provides for the clone operation.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "provide",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "provide",
                               "give",
@@ -1224,10 +1328,12 @@
                     "id": 50,
                     "name": "redo",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Redo something, example:Redoes the appropriate edits.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "redo",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "redo"
                     ],
@@ -1242,10 +1348,12 @@
                     "id": 51,
                     "name": "flash",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Flash something, example:Flash the screen during a violation.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "flash",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "flash"
                     ],
@@ -1259,10 +1367,12 @@
                     "id": 52,
                     "name": "lock",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Lock something, example:Locks the SlidingDrawer so that touch events are ignores.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "lock",
+                    "antisense_category": ["release"],
+                    "antisense_category_id": [18],
                     "included_verb": [
                               "lock"
                     ],
@@ -1276,10 +1386,12 @@
                     "id": 53,
                     "name": "flip",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Turn something over, example:Flips to the next card of the specified container.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "flip",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "flip",
                               "rotate",
@@ -1302,10 +1414,12 @@
                     "id": 54,
                     "name": "return",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Get something, example:Obtains the timing resolution for this sequence.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "return",
+                    "antisense_category": ["write"],
+                    "antisense_category_id": [2],
                     "included_verb": [
                               "return",
                               "get",
@@ -1356,10 +1470,12 @@
                     "id": 55,
                     "name": "filter",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Filter something, example:Filter an end element event.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "filter",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "filter"
                     ],
@@ -1374,10 +1490,12 @@
                     "id": 56,
                     "name": "initialize",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Prepare something, example:Initializes this cipher with a key and a set of algorithm parameters.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "initialize",
+                    "antisense_category": [],
+                    "antisense_category_id": [],
                     "included_verb": [
                               "initialize",
                               "reinitialize",
@@ -1400,16 +1518,18 @@
                               "V {patient} as/to/for {goal} in/on/at {location}"
                     ],
                     "version": "1.0",
-                    "example": "Initialize the Command with the verb it is requested to handle and the DataHandler that describes the data it will operate on."
+                    "example": "Prepares the player for playback, synchronously."
           },
           {
                     "id": 57,
                     "name": "update",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Modify something, example:Update the buffer metadata information.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "update",
+                    "antisense_category": ["write"],
+                    "antisense_category_id": [2],
                     "included_verb": [
                               "update",
                               "modify",
@@ -1449,10 +1569,12 @@
                     "id": 58,
                     "name": "store",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Save something, example:Store a color to use whenever this Icon is drawn.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "store",
+                    "antisense_category": ["clear"],
+                    "antisense_category_id": [30],
                     "included_verb": [
                               "store",
                               "save",
@@ -1474,16 +1596,18 @@
                               "V {patient} for {beneficiary} into/to {goal}"
                     ],
                     "version": "1.0",
-                    "example": "Stores the x,y origin of this component into \\return value\\\" rv and return rv.\""
+                    "example": "Save this MLet's contents to the given ObjectOutput."
           },
           {
                     "id": 59,
                     "name": "package",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Pack something, example:Used to package this object into a Parcel.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "package",
+                    "antisense_category": ["parse","split"],
+                    "antisense_category_id":[40],
                     "included_verb": [
                               "package",
                               "encode",
@@ -1512,10 +1636,12 @@
                     "id": 60,
                     "name": "cut",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Cut something to someplace, example:Cuts the text between two indices into the system clipboard.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "cut",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "cut"
                     ],
@@ -1529,10 +1655,12 @@
                     "id": 61,
                     "name": "append",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Add something, example:Appends a new separator at the end of the menu.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "append",
+                    "antisense_category": ["remove"],
+                    "antisense_category_id":[68],
                     "included_verb": [
                               "append",
                               "put",
@@ -1580,10 +1708,12 @@
                     "id": 62,
                     "name": "query",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Find something, example:Seeks to specified time position.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "query",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "query",
                               "find",
@@ -1622,10 +1752,12 @@
                     "id": 63,
                     "name": "enter",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Something enter something, example:This operation enters an association between the specified Object Id and the specified servant in the Active Object Map.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "enter",
+                    "antisense_category": ["output"],
+                    "antisense_category_id":[2],
                     "included_verb": [
                               "enter"
                     ],
@@ -1640,10 +1772,12 @@
                     "id": 64,
                     "name": "delegate",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Delegate something, example:Delegates its functionality to the LayerUI.updateUI(JLayer) method, if LayerUI is set.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "delegate",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "delegate"
                     ],
@@ -1657,10 +1791,12 @@
                     "id": 65,
                     "name": "test",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Test something, example:Check for state of setFitsSystemWindows(boolean).",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "test",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "test",
                               "tell",
@@ -1700,10 +1836,12 @@
                     "id": 66,
                     "name": "relayout",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Layout something,example:Lays out the slider.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "relayout",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "relayout",
                               "layout",
@@ -1719,10 +1857,12 @@
                     "id": 67,
                     "name": "redirect",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Go to someplace, example:Goes to the history item that is the number of steps away from the current item.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "redirect",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "redirect",
                               "jump",
@@ -1748,10 +1888,12 @@
                     "id": 68,
                     "name": "remove",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Remove something, example:Removes a callback previously added.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "remove",
+                    "antisense_category": ["inflate","append"],
+                    "antisense_category_id": [17,61],
                     "included_verb": [
                               "remove",
                               "exclude",
@@ -1790,10 +1932,12 @@
                     "id": 69,
                     "name": "report",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Tell something, example:Notifies the end of the animation.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "report",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "report",
                               "notify",
@@ -1822,10 +1966,12 @@
                     "id": 70,
                     "name": "apply",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Apply something, example:Applies the given attributes to paragraphs.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "apply",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "apply",
                               "reapply",
@@ -1841,12 +1987,14 @@
           },
           {
                     "id": 71,
-                    "name": "ensure",
+                    "name": "confirm",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Ensure something, example:Ensures that all buffered data is written to the underlying Writer and flushes that writer.",
                     "description": "null",
                     "modified_time": "",
-                    "representative_verb": "ensure",
+                    "representative_verb": "confirm",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "confirm",
                               "ensure",
@@ -1858,16 +2006,18 @@
                               "V {patient} for {beneficiary}"
                     ],
                     "version": "1.0",
-                    "example": "Ensures that the list view has been created before Activity restores all of the view states."
+                    "example": ""
           },
           {
                     "id": 72,
                     "name": "negate",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Negate something, example:Negate the point's coordinates",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "negate",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "negate"
                     ],
@@ -1881,10 +2031,12 @@
                     "id": 73,
                     "name": "replace",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Replace something, example:Replaces a substring of this object with the given text.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "replace",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "replace"
                     ],
@@ -1903,10 +2055,12 @@
                     "id": 74,
                     "name": "compare",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Compare something, example:Compares the specified object with this set for equality.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "compare",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "compare",
                               "return"
@@ -1926,10 +2080,12 @@
                     "id": 75,
                     "name": "move",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Move something, example:Offset this view's horizontal location by the specified amount of pixels.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "move",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "move",
                               "scroll",
@@ -1956,10 +2112,12 @@
                     "id": 76,
                     "name": "commit",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Commit something, example:Commit text to the text box and set the new cursor position.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "commit",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "commit",
                               "submit"
@@ -1976,10 +2134,12 @@
                     "id": 77,
                     "name": "set",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Set something, example:Assigns the specified short value to each element of the specified array of shorts.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "set",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "set",
                               "control",
@@ -2033,10 +2193,18 @@
                     "id": 78,
                     "name": "start",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Start something, example:Begins encoding a new array.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "start",
+                    "antisense_category": [
+                              "stop",
+                              "delay",
+                              "finish",
+                              "wait",
+                              "cancel"
+                    ],
+                    "antisense_category_id":[1,3,15,33,85],
                     "included_verb": [
                               "start",
                               "wake",
@@ -2066,10 +2234,12 @@
                     "id": 79,
                     "name": "bind",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Add something, example:Bind an existing view to the data pointed to by cursor.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "bind",
+                    "antisense_category": ["split"],
+                    "antisense_category_id":[40],
                     "included_verb": [
                               "bind",
                               "attach",
@@ -2091,10 +2261,12 @@
                     "id": 80,
                     "name": "copy",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Copy something, example:Clones this ACL entry.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "copy",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "copy",
                               "clone"
@@ -2117,10 +2289,12 @@
                     "id": 81,
                     "name": "mark",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Mark something, example:Mark the area defined by dirty as needing to be drawn.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "mark",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "mark"
                     ],
@@ -2138,10 +2312,12 @@
                     "id": 82,
                     "name": "speak",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Speak something, example:Speaks the text using the specified queuing strategy and speech parameters, the text may be spanned with TtsSpans.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "speak",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "speak"
                     ],
@@ -2155,10 +2331,12 @@
                     "id": 83,
                     "name": "cumulate",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "cumulate or sum something, example:Cumulates, in parallel, each element of the given array in place, using the supplied function.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "cumulate",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "cumulate",
                               "sum"
@@ -2171,10 +2349,12 @@
                     "id": 84,
                     "name": "span",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Span something, example:Span a string using this UnicodeSet.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "span",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "span"
                     ],
@@ -2188,10 +2368,12 @@
                     "id": 85,
                     "name": "cancel",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Cancel something, example:Unload Sound effects.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "cancel",
+                    "antisense_category": ["start","load"],
+                    "antisense_category_id":[78,44],
                     "included_verb": [
                               "cancel",
                               "deregister",
@@ -2223,10 +2405,12 @@
                     "id": 86,
                     "name": "compile",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Compile something, example:Compiles the given regular expression into a pattern with the given flags.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "compile",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "compile"
                     ],
@@ -2241,10 +2425,12 @@
                     "id": 87,
                     "name": "tune",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Tune to a place, example:Tunes to a given channel.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "tune",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "tune"
                     ],
@@ -2259,10 +2445,12 @@
                     "id": 88,
                     "name": "toggle",
                     "create_time": "2020-10-29 14:47:34",
-                    "definition": "null",
+                    "definition": "Toggle something, example:Toggles the Underline attribute.",
                     "description": "null",
                     "modified_time": "",
                     "representative_verb": "toggle",
+                    "antisense_category": [],
+                    "antisense_category_id":[],
                     "included_verb": [
                               "toggle"
                     ],

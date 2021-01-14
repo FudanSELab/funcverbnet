@@ -58,13 +58,15 @@ class FuncVerbNet:
             description = cate['description']
             modified_time = cate['modified_time']
             representative_verb = cate['representative_verb']
+            antisense_category = cate['antisense_category']
+            antisense_category_id = cate['antisense_category_id']
             included_verb = cate['included_verb']
             included_pattern = cate['included_pattern']
             version = cate['version']
             example = cate['example']
 
             new_cates = FuncCategory(id, name, create_time, definition, description, modified_time,
-                                     representative_verb, included_verb, included_pattern, version, example)
+                                     representative_verb,antisense_category,antisense_category_id, included_verb, included_pattern, version, example)
             self.cate_list.append(new_cates)
 
     def init_verb_list(self, verb_data_path=VERB_DATA_PATH):
@@ -651,5 +653,72 @@ class FuncVerbNet:
         result = classifier.predict(sentence)
         return result
 
+    def find_antisense_category_by_category(self,category_id):
+        if self.is_valid_category_id(category_id):
+            for cate in self.cate_list:
+                if cate.id == category_id:
+                    return cate.antisense_category
+        else:
+            return []
 
+    def find_antisense_category_id_by_category(self,category_id):
+        if self.is_valid_category_id(category_id):
+            for cate in self.cate_list:
+                if cate.id == category_id:
+                    return cate.antisense_category_id
+        else:
+            return []
 
+    def find_antisense_category_by_verb(self,verb):
+        if self.is_valid_verb(verb):
+            result = []
+            category = self.find_cates_by_verb(verb)
+            for cate in category:
+                antisense_cate = self.find_antisense_category_by_category(cate.id)
+                for cate in antisense_cate:
+                    result.append(cate)
+            result = list(set(result))
+            return result
+        else:
+            return []
+
+    def find_antisense_category_id_by_verb(self, verb):
+        if self.is_valid_verb(verb):
+            result = []
+            category = self.find_cates_by_verb(verb)
+            for cate in category:
+                antisense_cate_id = self.find_antisense_category_id_by_category(cate.id)
+                for cate_id in antisense_cate_id:
+                    result.append(cate_id)
+            result = list(set(result))
+            return result
+        else:
+            return []
+
+    def find_antisense_verbs_by_verb(self, verb):
+        if self.is_valid_verb(verb):
+            result = []
+            category_id = self.find_antisense_category_id_by_verb(verb)
+            for cate_id in category_id:
+                antisense_verbs = self.find_all_verb_name_by_cate_id(cate_id)
+                for verb in antisense_verbs:
+                    result.append(verb)
+            result = list(set(result))
+            return result
+        else:
+            return []
+
+    def find_similar_verbs_by_verb(self,verb):
+        if self.is_valid_verb(verb):
+            verbs = []
+            category = self.find_cates_by_verb(verb)
+            if category is None:
+                return []
+            for cate in category:
+                included_verb = self.find_all_verb_name_by_cate_id(cate.id)
+                for v in included_verb:
+                    verbs.append(v)
+            verbs = list(set(verbs))
+            return verbs
+        else:
+            return []

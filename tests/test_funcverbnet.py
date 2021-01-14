@@ -291,6 +291,36 @@ def test_find_category_by_any_sentence():
     # print(net.find_category_by_any_sentence('Request an informative description of the key status for the session.'))
 
 
+def test_find_antisense_category_by_category():
+    net = FuncVerbNet()
+    print(net.find_antisense_category_by_category(1))
+
+
+def test_find_antisense_category_id_by_category():
+    net = FuncVerbNet()
+    print(net.find_antisense_category_id_by_category(1))
+
+
+def test_find_antisense_category_by_verb():
+    net = FuncVerbNet()
+    print(net.find_antisense_category_by_verb("stop"))
+
+
+def test_find_antisense_category_id_by_verb():
+    net = FuncVerbNet()
+    print(net.find_antisense_category_by_verb("stop"))
+
+
+def test_find_antisense_verbs_by_verb():
+    net = FuncVerbNet()
+    print(net.find_antisense_verbs_by_verb("stop"))
+
+
+def test_find_similar_verbs_by_verb():
+    net = FuncVerbNet()
+    print(net.find_similar_verbs_by_verb("write"))
+
+
 def test_command_line_interface():
     """Test the CLI."""
     runner = CliRunner()
