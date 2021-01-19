@@ -43,7 +43,11 @@ class FuncVerbNet:
         self.init_f_pattern_list(f_pattern_data_path)
         self.init_f_verb_list(f_verb_data_path)
         self.init_sentences(sentences_data_path)
-
+        self.similar_verb_cache = {}
+        self.cate_verb_cache = {}
+        self.find_cate_by_verb_cache = {}
+        self.antisense_verb_cache = {}
+        self.antisense_category_cache = {}
         pass
 
     def init_cate_list(self, category_data_path=CATEGORY_DATA_PATH):
@@ -697,28 +701,47 @@ class FuncVerbNet:
 
     def find_antisense_verbs_by_verb(self, verb):
         if self.is_valid_verb(verb):
-            result = []
-            category_id = self.find_antisense_category_id_by_verb(verb)
-            for cate_id in category_id:
-                antisense_verbs = self.find_all_verb_name_by_cate_id(cate_id)
-                for verb in antisense_verbs:
-                    result.append(verb)
-            result = list(set(result))
-            return result
+            if verb in self.antisense_verb_cache.keys():
+                return self.antisense_verb_cache[verb]
+            else:
+                result = []
+                if verb in self.antisense_category_cache:
+                    category_id = self.antisense_category_cache[verb]
+                else:
+                    category_id = self.find_antisense_category_id_by_verb(verb)
+                for cate_id in category_id:
+                    if cate_id in self.cate_verb_cache.keys():
+                        antisense_verbs = self.cate_verb_cache[cate_id]
+                    else:
+                        antisense_verbs = self.find_all_verb_name_by_cate_id(cate_id)
+                    for verb in antisense_verbs:
+                        result.append(verb)
+                result = list(set(result))
+                return result
         else:
             return []
 
     def find_similar_verbs_by_verb(self,verb):
         if self.is_valid_verb(verb):
+            if verb in self.similar_verb_cache.keys():
+                return self.similar_verb_cache[verb]
             verbs = []
-            category = self.find_cates_by_verb(verb)
+            if verb in self.find_cate_by_verb_cache.keys():
+                category = self.find_cate_by_verb_cache[verb]
+            else:
+                category = self.find_cates_by_verb(verb)
+                self.find_cate_by_verb_cache[verb] = category
             if category is None:
                 return []
             for cate in category:
-                included_verb = self.find_all_verb_name_by_cate_id(cate.id)
+                if cate.id in self.cate_verb_cache.keys():
+                    included_verb = self.cate_verb_cache[cate.id]
+                else:
+                    included_verb = self.find_all_verb_name_by_cate_id(cate.id)
                 for v in included_verb:
                     verbs.append(v)
             verbs = list(set(verbs))
-            return verbs
+            self.similar_verb_cache[verb] = verbs
+            return self.similar_verb_cache[verb]
         else:
             return []
