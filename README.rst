@@ -35,6 +35,7 @@ Citation
 Please cite the following paper if you used this in your works!
 
 :duref:`ref <literal-blocks>`::
+
 @inproceedings{DBLP:conf/sigsoft/Xie0LTXZZ20,
   author    = {Wenkai Xie and
                Xin Peng and
