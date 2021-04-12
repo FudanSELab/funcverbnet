@@ -36,26 +36,26 @@ Please cite the following paper if you used this in your works!
 
 :duref:`ref <literal-blocks>`::
 
-@inproceedings{DBLP:conf/sigsoft/Xie0LTXZZ20,
-  author    = {Wenkai Xie and
-               Xin Peng and
-               Mingwei Liu and
-               Christoph Treude and
-               Zhenchang Xing and
-               Xiaoxin Zhang and
-               Wenyun Zhao},
-  editor    = {Prem Devanbu and
-               Myra B. Cohen and
-               Thomas Zimmermann},
-  title     = {{API} method recommendation via explicit matching of functionality
-               verb phrases},
-  booktitle = {{ESEC/FSE} '20: 28th {ACM} Joint European Software Engineering Conference
-               and Symposium on the Foundations of Software Engineering, Virtual
-               Event, USA, November 8-13, 2020},
-  pages     = {1015--1026},
-  publisher = {{ACM}},
-  year      = {2020},
-}
+    @inproceedings{DBLP:conf/sigsoft/Xie0LTXZZ20,
+      author    = {Wenkai Xie and
+                   Xin Peng and
+                   Mingwei Liu and
+                   Christoph Treude and
+                   Zhenchang Xing and
+                   Xiaoxin Zhang and
+                   Wenyun Zhao},
+      editor    = {Prem Devanbu and
+                   Myra B. Cohen and
+                   Thomas Zimmermann},
+      title     = {{API} method recommendation via explicit matching of functionality
+                   verb phrases},
+      booktitle = {{ESEC/FSE} '20: 28th {ACM} Joint European Software Engineering Conference
+                   and Symposium on the Foundations of Software Engineering, Virtual
+                   Event, USA, November 8-13, 2020},
+      pages     = {1015--1026},
+      publisher = {{ACM}},
+      year      = {2020},
+    }
 
 
 Credits
