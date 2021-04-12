@@ -31,7 +31,8 @@ Features
 1. Obtain all functionality categories, functionality verbs and phase patters.
 2. Given a functionality description sentence, identify its functionality category, functionality verbs and phase patters.
 
-Citation
+* Citation
+
 Please cite the following paper if you used this in your works!
 
 ::
