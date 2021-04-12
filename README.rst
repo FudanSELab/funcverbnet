@@ -34,7 +34,7 @@ Features
 Citation
 Please cite the following paper if you used this in your works!
 
-```
+``
 @inproceedings{DBLP:conf/sigsoft/Xie0LTXZZ20,
   author    = {Wenkai Xie and
                Xin Peng and
@@ -55,7 +55,7 @@ Please cite the following paper if you used this in your works!
   publisher = {{ACM}},
   year      = {2020},
 }
-```
+``
 
 Credits
 -------
