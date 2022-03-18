@@ -2,17 +2,15 @@ import pandas as pd
 from sklearn.metrics import f1_score
 
 # 转换为FastText需要的格式
-train_df = pd.read_csv('./data/sentences_with_annotation.csv')
+train_df = pd.read_csv('data_handler/data/sentences_with_annotation.csv')
 print(train_df)
 print(type(train_df['final_annotation_type'].astype(str)))
 
-train_df1 = pd.read_csv('./data/Annotated_data.csv')
+train_df1 = pd.read_csv('data_handler/data/Annotated_data.csv')
 
 print('-----------')
 train_df1['label_ft'] = '__label__' + '-1'
 train_df1[['text', 'label_ft']].to_csv('./data/add_train_data.csv', index=None, header=None, sep='\t')
-
-
 
 # train_df['final_annotation_type'] = train_df['final_annotation_type'].replace(54, -1)
 # criteria = train_df['final_annotation_type'] == -1
@@ -30,15 +28,16 @@ print(train_df)
 
 train_df['label_ft'] = '__label__' + train_df['final_annotation_type'].astype(str)
 train_df[['single_description', 'label_ft']].to_csv('./data/final_train_data.csv', index=None, header=None, sep='\t')
-train_df[['single_description', 'label_ft']].iloc[-500:].to_csv('./data/test_data.csv', index=None, header=None, sep='\t')
+train_df[['single_description', 'label_ft']].iloc[-500:].to_csv('./data/test_data.csv', index=None, header=None,
+                                                                sep='\t')
 
-
-#合并两个训练数据
+# 合并两个训练数据
 # df_1 = pd.read_csv('./data/update_train_data.csv',error_bad_lines=False)
 # df_2 = pd.read_csv('./data/add_train_data.csv')
 # pd.concat([df_1,df_2]).to_csv('./data/final_train_data.csv', index=None, header=None, sep='\t')
 
 import fasttext
+
 model = fasttext.train_supervised('./data/final_train_data.csv', lr=1, wordNgrams=2,
                                   verbose=2, minCount=1, epoch=25, loss="hs")
 

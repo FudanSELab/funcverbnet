@@ -6,9 +6,8 @@ import pytest
 
 from click.testing import CliRunner
 
-from funcverbnet import funcverbnet
 from funcverbnet import cli
-from funcverbnet.funcverbnet import FuncVerbNet
+from funcverbnet.data_handler.funcverb import FuncVerbNet
 
 
 @pytest.fixture
@@ -17,14 +16,16 @@ def response():
 
     See more at: http://doc.pytest.org/en/latest/fixture.html
     """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+    import requests
+    return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
 
 
 def test_content(response):
     """Sample pytest test function with the pytest fixture as an argument."""
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
+    net = FuncVerbNet()
+    print(net.cate_list)
 
 
 def test_find_cate_by_name():
@@ -44,12 +45,12 @@ def test_find_cate_by_verb():
 
 def test_find_cate_by_id():
     net = FuncVerbNet()
-    print(net.find_cate_by_id(10))
+    print(net.find_cate_by_id(1).name)
 
 
 def test_find_role_by_name():
     net = FuncVerbNet()
-    print(net.find_role_by_name('patient'))
+    print(net.find_role_by_name('source'))
 
 
 def test_find_cate_by_pattern():
@@ -112,11 +113,6 @@ def test_find_included_roles_by_pattern_id():
     print(net.find_included_roles_by_pattern_id(-2))
 
 
-def test_get_category_number():
-    net = FuncVerbNet()
-    print(net.get_category_number())
-
-
 def test_get_included_verb_number_by_cateid():
     net = FuncVerbNet()
     print(net.get_included_verb_number_by_cateid(3))
@@ -172,11 +168,6 @@ def test_find_pattern_by_syntax():
 def test_find_role_by_id():
     net = FuncVerbNet()
     print(net.find_role_by_id(5))
-
-
-def test_find_role_by_name():
-    net = FuncVerbNet()
-    print(net.find_role_by_name("patient"))
 
 
 def test_find_role_definition_by_name():

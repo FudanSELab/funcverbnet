@@ -70,8 +70,13 @@ class FuncVerbNet:
             example = cate['example']
 
             new_cates = FuncCategory(id, name, create_time, definition, description, modified_time,
-                                     representative_verb,antisense_category,antisense_category_id, included_verb, included_pattern, version, example)
+                                     representative_verb, antisense_category, antisense_category_id, included_verb,
+                                     included_pattern, version, example)
             self.cate_list.append(new_cates)
+
+    def iterate_category_set(self):
+        for cate in self.cate_list[1:]:
+            yield cate.id, cate.included_verb
 
     def init_verb_list(self, verb_data_path=VERB_DATA_PATH):
         with open(verb_data_path, 'r', encoding='utf-8') as verb_file:
@@ -651,13 +656,13 @@ class FuncVerbNet:
         else:
             return None
 
-    def find_category_by_any_sentence(self,sentence):
+    def find_category_by_any_sentence(self, sentence):
         classifier = FuncSentenceClassifier()
         # classifier.train_model()
         result = classifier.predict(sentence)
         return result
 
-    def find_antisense_category_by_category(self,category_id):
+    def find_antisense_category_by_category(self, category_id):
         if self.is_valid_category_id(category_id):
             for cate in self.cate_list:
                 if cate.id == category_id:
@@ -665,7 +670,7 @@ class FuncVerbNet:
         else:
             return []
 
-    def find_antisense_category_id_by_category(self,category_id):
+    def find_antisense_category_id_by_category(self, category_id):
         if self.is_valid_category_id(category_id):
             for cate in self.cate_list:
                 if cate.id == category_id:
@@ -673,7 +678,7 @@ class FuncVerbNet:
         else:
             return []
 
-    def find_antisense_category_by_verb(self,verb):
+    def find_antisense_category_by_verb(self, verb):
         if self.is_valid_verb(verb):
             result = []
             category = self.find_cates_by_verb(verb)
@@ -721,7 +726,7 @@ class FuncVerbNet:
         else:
             return []
 
-    def find_similar_verbs_by_verb(self,verb):
+    def find_similar_verbs_by_verb(self, verb):
         if self.is_valid_verb(verb):
             if verb in self.similar_verb_cache.keys():
                 return self.similar_verb_cache[verb]
