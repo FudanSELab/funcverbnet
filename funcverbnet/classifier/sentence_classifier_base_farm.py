@@ -20,6 +20,8 @@ from farm.modeling.adaptive_model import AdaptiveModel
 from farm.train import Trainer
 from farm.infer import Inferencer
 from farm.utils import set_all_seeds, MLFlowLogger, initialize_device_settings
+from sklearn.metrics import matthews_corrcoef, f1_score
+from farm.evaluation.metrics import simple_accuracy, register_metrics
 
 from funcverbnet.classifier.utils import train_data_dir, save_model_dir
 from funcverbnet.utils import save_logs
@@ -28,8 +30,8 @@ from funcverbnet.utils import save_logs
 class SentenceClassifier:
     set_all_seeds(seed=42)
 
-    n_epochs = 1
-    batch_size = 32
+    n_epochs = 25
+    batch_size = 16
 
     evaluate_every = 500
     pretrained_model_name = 'bert-base-uncased'
@@ -38,7 +40,22 @@ class SentenceClassifier:
     # [-1, 1, 2, ..., 88]
     num_labels = 89
     label_list = ['__label__-1'] + ['__label__' + str(_) for _ in range(1, num_labels)]
-    metric = 'acc'
+
+    @staticmethod
+    def my_metrics(preds, labels):
+        acc = simple_accuracy(preds, labels).get("acc")
+        f1_macro = f1_score(y_true=labels, y_pred=preds, average="macro")
+        f1_micro = f1_score(y_true=labels, y_pred=preds, average="micro")
+        mcc = matthews_corrcoef(labels, preds)
+        return {
+            "acc": acc,
+            "f1_macro": f1_macro,
+            "f1_micro": f1_micro,
+            "mcc": mcc
+        }
+
+    register_metrics('metric', my_metrics)
+    metric = 'metric'
 
     ml_logger = MLFlowLogger(tracking_uri=save_logs(pretrained_model_name))
 
