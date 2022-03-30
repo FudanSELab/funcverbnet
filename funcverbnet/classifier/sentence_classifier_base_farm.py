@@ -21,23 +21,19 @@ from farm.train import Trainer
 from farm.infer import Inferencer
 from farm.utils import set_all_seeds, MLFlowLogger, initialize_device_settings
 
-from utils import train_data_dir, save_model_dir
-from funcverbnet.utils import save_logs, LogsUtil
-
-import os
+from funcverbnet.classifier.utils import train_data_dir, save_model_dir
+from funcverbnet.utils import save_logs
 
 
 class SentenceClassifier:
     set_all_seeds(seed=42)
-    device, n_gpu = initialize_device_settings(use_cuda=True)
+
     n_epochs = 1
     batch_size = 32
 
     evaluate_every = 500
     pretrained_model_name = 'bert-base-uncased'
     do_lower_case = True
-
-    langauge_model = LanguageModel.load(pretrained_model_name)
 
     # [-1, 1, 2, ..., 88]
     num_labels = 89
@@ -47,6 +43,7 @@ class SentenceClassifier:
     ml_logger = MLFlowLogger(tracking_uri=save_logs(pretrained_model_name))
 
     def __init__(self):
+        self.device, self.n_gpu = initialize_device_settings(use_cuda=True)
         self.data_dir = train_data_dir()
         self.save_dir = save_model_dir("sentence_classifier_base_farm_" + self.pretrained_model_name)
 
@@ -78,10 +75,11 @@ class SentenceClassifier:
             batch_size=self.batch_size
         )
 
+        langauge_model = LanguageModel.load(self.pretrained_model_name)
         prediction_head = MultiLabelTextClassificationHead(num_labels=self.num_labels)
 
         model = AdaptiveModel(
-            language_model=self.langauge_model,
+            language_model=langauge_model,
             prediction_heads=[prediction_head],
             embeds_dropout_prob=0.1,
             lm_output_types=['per_sequence'],
@@ -118,11 +116,3 @@ class SentenceClassifier:
             "text": sentence
         }])
         print(result)
-
-
-if __name__ == '__main__':
-    cuda_visible = input('CUDA_VISIBLE: ')
-    os.environ['CUDA_VISIBLE_DEVICES'] = cuda_visible
-    LogsUtil()
-    sentence_classifier = SentenceClassifier()
-    sentence_classifier.train()
