@@ -1,0 +1,4 @@
+artifact_location: /Users/duyi/Projects/PythonProjects/funcverbnet/funcverbnet/logs/mlruns_bert-base-uncased_2022033016/1
+experiment_id: '1'
+lifecycle_stage: active
+name: training with bert-base-uncased

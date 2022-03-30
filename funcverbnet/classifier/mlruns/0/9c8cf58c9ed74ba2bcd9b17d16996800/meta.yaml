@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/duyi/Projects/PythonProjects/funcverbnet/funcverbnet/classifier/mlruns/0/9c8cf58c9ed74ba2bcd9b17d16996800/artifacts
+end_time: 1648626854986
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 9c8cf58c9ed74ba2bcd9b17d16996800
+run_uuid: 9c8cf58c9ed74ba2bcd9b17d16996800
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1648626850736
+status: 3
+tags: []
+user_id: duyi

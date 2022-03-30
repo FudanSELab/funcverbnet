@@ -19,11 +19,11 @@ ROOT_PATH = Path(os.path.abspath(os.path.dirname(__file__)))
 
 
 def train_data_dir():
-    return str(ROOT_PATH / "data")
+    return str(ROOT_PATH / 'data')
 
 
 def save_model_dir(model_dir: str):
-    return str(ROOT_PATH / "model" / model_dir)
+    return str(ROOT_PATH / 'model' / model_dir)
 
 
 if __name__ == '__main__':

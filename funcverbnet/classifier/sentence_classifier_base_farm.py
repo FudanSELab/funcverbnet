@@ -19,9 +19,12 @@ from farm.modeling.prediction_head import MultiLabelTextClassificationHead
 from farm.modeling.adaptive_model import AdaptiveModel
 from farm.train import Trainer
 from farm.infer import Inferencer
-from farm.utils import set_all_seeds, initialize_device_settings
+from farm.utils import set_all_seeds, MLFlowLogger, initialize_device_settings
 
 from utils import train_data_dir, save_model_dir
+from funcverbnet.utils import save_logs, LogsUtil
+
+import os
 
 
 class SentenceClassifier:
@@ -41,11 +44,17 @@ class SentenceClassifier:
     label_list = ['__label__-1'] + ['__label__' + str(_) for _ in range(1, num_labels)]
     metric = 'acc'
 
+    ml_logger = MLFlowLogger(tracking_uri=save_logs(pretrained_model_name))
+
     def __init__(self):
         self.data_dir = train_data_dir()
         self.save_dir = save_model_dir("sentence_classifier_base_farm_" + self.pretrained_model_name)
 
     def train(self):
+        self.ml_logger.init_experiment(
+            experiment_name=f'training with {self.pretrained_model_name}'
+        )
+
         tokenizer = Tokenizer.load(
             pretrained_model_name_or_path=self.pretrained_model_name,
             do_lower_case=self.do_lower_case)
@@ -112,5 +121,8 @@ class SentenceClassifier:
 
 
 if __name__ == '__main__':
+    cuda_visible = input('CUDA_VISIBLE: ')
+    os.environ['CUDA_VISIBLE_DEVICES'] = cuda_visible
+    LogsUtil()
     sentence_classifier = SentenceClassifier()
     sentence_classifier.train()
