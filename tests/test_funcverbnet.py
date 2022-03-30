@@ -7,7 +7,7 @@ import pytest
 from click.testing import CliRunner
 
 from funcverbnet import cli
-from funcverbnet.data_handler.funcverb import FuncVerbNet
+from funcverbnet.nodes.funcverbnet import FuncVerbNet
 
 
 @pytest.fixture

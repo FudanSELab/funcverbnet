@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "name": "duration",
+        "definition": "Length or extent of time.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 2,
+        "name": "location",
+        "definition": "Place that is concrete.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 3,
+        "name": "goal",
+        "definition": "Place that is the end point of an action and exists independently of the event.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 4,
+        "name": "source",
+        "definition": "Place that is the starting point of action;exists independently of the event.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 5,
+        "name": "patient",
+        "definition": "Undergoer in an event that experiences a change of state, location or condition,that is causally involved or directly affected by other participants, and exists independently of the event.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 6,
+        "name": "instrument",
+        "definition": "Undergoer in an event that is manipulated by an agent,and with which an intentional act is performed; it exists independently of the event.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 7,
+        "name": "beneficiary",
+        "definition": "Undergoer in a state or an event that is(potentially) advantaged or disadvantaged by the event or state. ",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 8,
+        "name": "attribute",
+        "definition": "Undergoer that is a property of an entity or entities,as opposed to the entity itself.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 9,
+        "name": "theme",
+        "definition": "Undergoer that is central to an event or state that does not have control over the way the event occurs, is not structurally changed by the event,and/or is characterized as being in a certain position or condition throughout the state.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 10,
+        "name": "material",
+        "definition": "Patient that exists at the starting point of action(inheritance from Source), which is transformed through the event into a new entity;concrete or abstract.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 11,
+        "name": "topic",
+        "definition": "Theme characterized by information content transferred to another participant (specific to events of com-munication).",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    },
+    {
+        "id": 12,
+        "name": "product",
+        "definition": "Result that is a concrete object.",
+        "create_time": "2020-10-28 19:28:11",
+        "version": "1.0"
+    }
+]
