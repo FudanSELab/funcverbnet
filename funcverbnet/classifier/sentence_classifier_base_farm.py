@@ -34,28 +34,27 @@ class SentenceClassifier:
     batch_size = 16
 
     evaluate_every = 500
-    pretrained_model_name = 'bert-base-uncased'
-    do_lower_case = True
+    pretrained_model_name = 'bert-base-cased'
+    do_lower_case = False
 
     # [-1, 1, 2, ..., 88]
     num_labels = 89
     label_list = ['__label__-1'] + ['__label__' + str(_) for _ in range(1, num_labels)]
 
-    @staticmethod
-    def my_metrics(preds, labels):
-        acc = simple_accuracy(preds, labels).get("acc")
-        f1_macro = f1_score(y_true=labels, y_pred=preds, average="macro")
-        f1_micro = f1_score(y_true=labels, y_pred=preds, average="micro")
-        mcc = matthews_corrcoef(labels, preds)
-        return {
-            "acc": acc,
-            "f1_macro": f1_macro,
-            "f1_micro": f1_micro,
-            "mcc": mcc
-        }
+    # def my_metrics(preds, labels):
+    #     acc = simple_accuracy(preds, labels).get("acc")
+    #     f1_macro = f1_score(y_true=labels, y_pred=preds, average="macro")
+    #     f1_micro = f1_score(y_true=labels, y_pred=preds, average="micro")
+    #     mcc = matthews_corrcoef(labels, preds)
+    #     return {
+    #         "acc": acc,
+    #         "f1_macro": f1_macro,
+    #         "f1_micro": f1_micro,
+    #         "mcc": mcc
+    #     }
+    # register_metrics('metric', my_metrics)
 
-    register_metrics('metric', my_metrics)
-    metric = 'metric'
+    metric = 'acc'
 
     ml_logger = MLFlowLogger(tracking_uri=save_logs(pretrained_model_name))
 
@@ -127,9 +126,19 @@ class SentenceClassifier:
         model.save(self.save_dir)
         processor.save(self.save_dir)
 
+    # def predict(self, sentence):
+    #     model = Inferencer.load(self.save_dir)
+    #     result = model.inference_from_dicts(dicts=[{
+    #         "text": sentence
+    #     }])
+    #     print(result)
+
     def predict(self, sentence):
-        model = Inferencer.load(self.save_dir)
-        result = model.inference_from_dicts(dicts=[{
-            "text": sentence
-        }])
-        print(result)
+        infer = Inferencer.load(self.save_dir)
+        prediction = infer.inference_from_dicts(dicts=[{"text": sentence}])
+        # assert isinstance(prediction[0]["predictions"][0]["probability"], np.float32)
+        prediction_dict = {
+            'label': prediction[0]['predictions'][0]['label'],
+            'probability': prediction[0]["predictions"][0]["probability"][0]
+        }
+        return prediction_dict

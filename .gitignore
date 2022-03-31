@@ -108,3 +108,4 @@ ENV/
 .DS_Store
 
 funcverbnet/logs
+funcverbnet/classifier/model
