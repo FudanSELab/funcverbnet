@@ -144,7 +144,7 @@ class TemplateExtractor:
         sentence_structure = []
         if not f_category_incl_verbs:
             return sentence_structure
-        # print(self.list_token_with_pos(doc))
+        print(self.list_token_with_pos(doc))
         root: Token = [token for token in doc if token.head == token][0]
         if not root:
             return sentence_structure
@@ -576,7 +576,7 @@ if __name__ == '__main__':
     # text = "End the scope of a prefix-URI mapping."
     # text = "How can I send an email by Java application using Gmail, Yahoo?"
     # text = "How can I send an SMTP message from Java"
-    text = "open or create a file and write in file"
+    # text = "open or create a file and write in file"
     # text = "Version of onCreateView(String, Context, AttributeSet) that also supplies the parent that the view created view will be placed in."
     # text = 'Stops an action event and using this EventQueue.'
     # text = "Prints a long and then terminate the line"
@@ -590,7 +590,7 @@ if __name__ == '__main__':
     # text = "This is called whenever the current window attributes change."
     # text = "Notifies this component that it now has a parent component."
     # text = "disables file access within Service Workers, see setAllowFileAccess(boolean)."
-    # text = "Stops dispatching events using this EventQueue."
+    text = "Stops dispatching events using this EventQueue."
     temp = template_extractor.generate_sentence_template(text)
     print(temp)
     # with open(read_data("sentences.csv"), 'r') as f:

@@ -64,15 +64,10 @@ class FuncSentenceClassifier:
         """
         try:
             label = self.classifier.predict(sentence)
-            probability = label[1][0]
             if len(str(label[0][0])) > 10:
                 label = str(label[0][0][9]) + str(label[0][0][10])
             else:
                 label = str(label[0][0][9])
-            # if label == "1":
-            #     return (sentence, probability)
-            print(int(label), probability)
-            # return label
             return int(label)
         except Exception as e:
             print(e, sentence)

@@ -17,4 +17,4 @@ if __name__ == '__main__':
     # cuda_visible = input('CUDA_VISIBLE: ')
     # os.environ['CUDA_VISIBLE_DEVICES'] = cuda_visible
     sentence_classifier = SentenceClassifier()
-    sentence_classifier.evaluate('test_data.csv')
+    sentence_classifier.evaluate('test.csv')
