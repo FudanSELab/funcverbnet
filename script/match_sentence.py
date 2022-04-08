@@ -36,17 +36,18 @@ if __name__ == '__main__':
                         'functionality': mapped_template
                     })
                     count += 1
-            except CustomError as ce:
-                logger.info(ce, item[1])
-            except Exception as e:
-                logger.info(e)
-            if count % 5000 == 0:
+                if count % 5000 != 0:
+                    continue
                 tag = int(count / 5000)
                 with open(load_tmp(f'method_desc_functionality_{tag}.json'), 'w') as json_f:
                     json.dump(data, json_f)
                 data = []
-        if data:
-            tag = int(count / 5000) + 1
-            with open(load_tmp(f'method_desc_functionality_{tag}.json'), 'w') as json_f:
-                json.dump(data, json_f)
+            except CustomError as ce:
+                logger.info(ce, item[1])
+            except Exception as e:
+                logger.info(e)
+    if count % 5000 != 0:
+        tag = int(count / 5000) + 1
+        with open(load_tmp(f'method_desc_functionality_{tag}.json'), 'w') as json_f:
+            json.dump(data, json_f)
     print(count)

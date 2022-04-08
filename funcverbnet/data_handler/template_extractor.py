@@ -14,8 +14,8 @@ import spacy
 from spacy.tokens import Doc, Token
 from spacy import displacy
 import textdistance
-import pandas as pd
 from nltk.tree import Tree
+import pandas as pd
 
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
 from funcverbnet.utils import load_pdata, load_tmp, CustomError
@@ -69,7 +69,10 @@ class TemplateExtractor:
         if not sentence:
             return None
         while '(' in sentence and ')' in sentence:
-            l_bracket, r_bracket = sentence.find('('), sentence.find(')')
+            l_bracket = sentence.find('(')
+            r_bracket = sentence.find(')', l_bracket)
+            if r_bracket == -1:
+                break
             l_bracket += sentence[l_bracket + 1: r_bracket].rfind('(') + 1
             sentence = sentence.replace(sentence[l_bracket: r_bracket + 1], '')
         return sentence
@@ -673,14 +676,14 @@ if __name__ == '__main__':
     # text = "Explicitly set the analyzer to use. Defaults to use explicit mapping config for the field"
     # temp = template_extractor.generate_sentence_template(text)
     # print(temp)
-    with open(load_tmp("error.csv"), 'r') as f:
-        df = pd.read_csv(f)
-    for i, text in enumerate(df['full_description'][1:]):
-        try:
-            temp = template_extractor.generate_sentence_template(text)
-            # print(temp['template'], temp['tokens_pos_list'])
-            if len(temp['template'].split(SPLIT_STR)) != len(temp['tokens_pos_list']):
-                print(text, temp['template'], temp['tokens_pos_list'])
-        except Exception as e:
-            # print(df['id'][i], text)
-            print(e, e.__class__.__name__)
+    # with open(load_tmp("error.csv"), 'r') as f:
+    #     df = pd.read_csv(f)
+    # for i, text in enumerate(df['full_description'][1:]):
+    #     try:
+    #         temp = template_extractor.generate_sentence_template(text)
+    #         # print(temp['template'], temp['tokens_pos_list'])
+    #         if len(temp['template'].split(SPLIT_STR)) != len(temp['tokens_pos_list']):
+    #             print(text, temp['template'], temp['tokens_pos_list'])
+    #     except Exception as e:
+    #         # print(df['id'][i], text)
+    #         print(e, e.__class__.__name__)

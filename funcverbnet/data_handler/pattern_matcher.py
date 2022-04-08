@@ -299,6 +299,7 @@ class PatternMatcher:
         )
         mapped_template = {
             'category': category.name,
+            'pattern': Pattern.deprocess_pattern(aligned_pattern.pattern),
             'core_verb': template['core_verb'],
             'roles': []
         }
