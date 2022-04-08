@@ -16,7 +16,7 @@ import json
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
 from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
 from funcverbnet.classifier.sentence_classifier_base_farm import SentenceClassifier
-from funcverbnet.utils import load_pdata, LogsUtil
+from funcverbnet.utils import load_tmp, LogsUtil
 
 logger = LogsUtil.get_log_util()
 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     sent_classifier_bert = SentenceClassifier()
     net = FuncVerbNet()
     collect_sent = []
-    with open(load_pdata("sentences.csv"), 'r') as f:
+    with open(load_tmp("sentences.csv"), 'r') as f:
         df = pd.read_csv(f)
     for i, text in enumerate(df['single_description'][0:100]):
         try:
@@ -43,5 +43,5 @@ if __name__ == '__main__':
                 })
         except Exception as e:
             logger.info('id: ' + df['id'][i] + ' | ' + text, e.__class__.__name__, e)
-    with open(load_pdata('conflict_sentences.json'), 'w') as f:
+    with open(load_tmp('conflict_sentences.json'), 'w') as f:
         json.dump(collect_sent, f)

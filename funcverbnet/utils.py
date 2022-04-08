@@ -22,6 +22,10 @@ def load_pdata(filename):
     return str(ROOT_PATH / 'data' / filename)
 
 
+def load_tmp(filename):
+    return str(ROOT_PATH / 'tmp' / filename)
+
+
 def save_logs(ml_tag=None):
     path = ROOT_PATH / 'logs'
     path.mkdir(parents=True, exist_ok=True)
@@ -66,3 +70,12 @@ class LogsUtil:
     def info(self, *msgs):
         for _ in msgs:
             self.logger.info(_)
+
+
+class CustomError(Exception):
+    def __init__(self, info):
+        super().__init__(self)
+        self.info = info
+
+    def __str__(self):
+        return self.info

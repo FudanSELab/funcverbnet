@@ -19,7 +19,6 @@
 -1	n	n	PROPN
 -1	string	string	NOUN
 -1	offset	offset	NOUN
--1	set	set	NOUN
 -1	byte	byte	NOUN
 -1	bytes	bytes	NOUN
 -1	true	true	NOUN

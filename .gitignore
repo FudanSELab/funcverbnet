@@ -109,3 +109,4 @@ ENV/
 
 funcverbnet/logs
 funcverbnet/classifier/model
+funcverbnet/tmp

@@ -15,8 +15,9 @@ import pandas as pd
 
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
 from funcverbnet.data_handler.template_extractor import TemplateExtractor
+from funcverbnet.utils import CustomError
 
-from funcverbnet.utils import load_pdata
+from funcverbnet.utils import load_tmp
 
 SPLIT_STR = ' - '
 
@@ -25,13 +26,15 @@ class TSlot:
     def __init__(
         self,
         slot_str: str,
-        priority: int
+        tokens: list,
+        priority: int,
     ):
         self.slot_str = slot_str
+        self.tokens = [_.text for _ in tokens]
         self.priority = priority
 
     def __str__(self):
-        return '<TSlot %s> priority [%s]' % (self.slot_str, str(self.priority))
+        return '<TSlot %s>' % self.slot_str
 
 
 class PSlot:
@@ -40,7 +43,7 @@ class PSlot:
         slot_str: str,
         role: str,
         preps: set,
-        semantic: str
+        semantic: str,
     ):
         if not semantic:
             semantic = '.predicate' if role == 'V' else '.patient'
@@ -50,28 +53,23 @@ class PSlot:
         self.semantic = semantic
 
     def __str__(self):
-        if not self.preps:
-            return '<PSlot %s> [role %s] {} <semantic>{%s}' % (
-                self.slot_str, self.role, self.semantic
-            )
-        return '<PSlot %s> [role %s] %s <semantic>{%s}' % (
-            self.slot_str, self.role, str(self.preps), self.semantic
-        )
+        return '<PSlot %s>' % self.slot_str
 
 
 class SentencePattern:
     def __init__(
         self,
         pattern: str,
-        p_slots_dic: dict
+        p_slots_dic: dict,
     ):
         self.pattern = pattern
         self.p_slots_dic = p_slots_dic
 
     def __str__(self):
-        return '<SentencePattern %s>\n' % self.pattern + '\n'.join(
-            [str(p_slot) for i, p_slot in sorted(self.p_slots_dic.items(), key=lambda x: str(x[0]))]
-        )
+        # return '<SentencePattern %s> #SLOTS# ' % self.pattern + ', '.join(
+        #     [str(_) for i, _ in sorted(self.p_slots_dic.items(), key=lambda x: str(x[0]))]
+        # )
+        return '<SentencePattern %s>' % self.pattern
 
     def __eq__(self, other):
         return self.pattern == other.pattern
@@ -148,9 +146,8 @@ class Pattern:
 
 class PatternMatcher:
     def __init__(self):
-        pass
-        # self.funcverbnet = FuncVerbNet()
-        # self.template_extractor = TemplateExtractor()
+        self.funcverbnet = FuncVerbNet()
+        self.template_extractor = TemplateExtractor()
 
     @staticmethod
     def construct_sentence_pattern(pattern: str) -> SentencePattern or None:
@@ -188,37 +185,46 @@ class PatternMatcher:
     def generate_template_slots(template):
         if not template:
             return None
-        t_slots = template.split(SPLIT_STR)
+        t_slots = template['template'].split(SPLIT_STR)
+        tokens_pos_list = template['tokens_pos_list']
+        # print('TOKEN_POS_LIST', tokens_pos_list)
         # print('T_SLOTS:', t_slots)
         t_slots_dic = {}
         pos = 0
         t_slot_compound = []
+        tokens_pos_group = []
         for i in range(len(t_slots)):
             if t_slots[i] == 'VERB':
-                t_slots_dic[pos] = TSlot(t_slots[i], 0)
+                t_slots_dic[pos] = TSlot(t_slots[i], tokens_pos_list[i][0], 0)
                 pos += 1
                 t_slot_compound = []
+                tokens_pos_group = []
             elif t_slots[i] == 'NOUN':
                 if t_slots[i - 1] == 'VERB':
-                    t_slots_dic[pos] = TSlot(t_slots[i], 0)
+                    t_slots_dic[pos] = TSlot(t_slots[i], tokens_pos_list[i][0], 0)
                     pos += 1
                     t_slot_compound = []
+                    tokens_pos_group = []
                 else:
                     t_slot_compound.append(t_slots[i])
+                    tokens_pos_group.extend(tokens_pos_list[i][0])
             elif t_slots[i] == 'doing':
                 t_slot_compound.append(t_slots[i])
+                tokens_pos_group.extend(tokens_pos_list[i][0])
             elif i + 1 < len(t_slots) and t_slots[i] == 'to' and t_slots[i + 1] == 'do':
                 t_slot_compound.extend([t_slots[i], t_slots[i + 1]])
+                tokens_pos_group.extend(tokens_pos_list[i][0] + tokens_pos_list[i + 1][0])
                 i += 1
             else:
                 if t_slot_compound:
                     # core_word = t_slot_compound[0]
-                    t_slots_dic[pos] = TSlot(SPLIT_STR.join(t_slot_compound), 0)
+                    t_slots_dic[pos] = TSlot(SPLIT_STR.join(t_slot_compound), tokens_pos_group, 0)
                     pos += 1
                 t_slot_compound = [t_slots[i]]
+                tokens_pos_group = tokens_pos_list[i][0]
         if t_slot_compound:
             # core_word = t_slot_compound[0]
-            t_slots_dic[pos] = TSlot(SPLIT_STR.join(t_slot_compound), 0)
+            t_slots_dic[pos] = TSlot(SPLIT_STR.join(t_slot_compound), tokens_pos_group, 0)
         # print('T_SLOTS_DIC:', t_slots_dic)
         # for i in range(len(t_slots_dic)):
         #     print(t_slots_dic[i])
@@ -283,9 +289,34 @@ class PatternMatcher:
         # print(aligned_list[-1][1].pattern)
         return aligned_pattern_mapping_list, aligned_list[-1][1]
 
+    def mapping_template(self, sentence):
+        template = self.template_extractor.generate_sentence_template(sentence)
+        if not template:
+            return None
+        category = self.funcverbnet.find_cate_by_id(template['cate_id'])
+        slot_mapping, aligned_pattern = self.aligned_with_sentence_pattern(
+            template, self.encapsulate_sentence_patterns(category.included_pattern)
+        )
+        mapped_template = {
+            'category': category.name,
+            'core_verb': template['core_verb'],
+            'roles': []
+        }
+        if not slot_mapping:
+            raise CustomError('PatternError')
+        for p_slot, t_slot in slot_mapping:
+            mapped_template['roles'].append({
+                'role': p_slot.role,
+                'semantic': p_slot.semantic,
+                'value': ' '.join(t_slot.tokens)
+            })
+        return mapped_template
+
 
 if __name__ == '__main__':
-    # pm = PatternMatcher()
+    funcverbnet = FuncVerbNet()
+    template_extractor = TemplateExtractor()
+    pattern_matcher = PatternMatcher()
     # text = "Version of onCreateView(String, Context, AttributeSet) that also supplies the parent that the view created view will be placed in."
     # text = 'Use this function to retrieve the number.'
     # text = 'Prints a string representation of this digest output stream and its associated message digest object.'
@@ -308,7 +339,20 @@ if __name__ == '__main__':
     # text = "disables file access within Service Workers, see setAllowFileAccess(boolean)."
     # text = 'Use this function to retrieve the number.'
     # text = "End the scope of a prefix-URI mapping."
-    # text = "open or create a file to write"
+    text = "open or create a file to write"
+    # text = "Set a reference to task that caused this task to be run."
+    # text = "Returns the list of currently running tasks on the node"
+    # temp = template_extractor.generate_sentence_template(text)
+    # print(temp)
+    # cate = funcverbnet.find_cate_by_id(temp['cate_id'])
+    # mapping, ap = pattern_matcher.aligned_with_sentence_pattern(
+    #     temp, pattern_matcher.encapsulate_sentence_patterns(cate.included_pattern)
+    # )
+    # for p_slot, t_slot in mapping:
+    #     print(p_slot, t_slot, t_slot.tokens)
+    # print('-' * 60)
+    # print(ap)
+    pattern_matcher.mapping_template(text)
     # temp_dic = pm.template_extractor.generate_sentence_template(text)
     # temp = temp_dic['template']
     # cate = pm.funcverbnet.find_cate_by_id(temp_dic['cate_id'])
@@ -409,20 +453,18 @@ if __name__ == '__main__':
     # print(sub_prep.group(1))
     # print(enprocess_pattern("V out {patient}"))
     # print(deprocess_pattern("V,PP(out){.patient}"))
-    funcverbnet = FuncVerbNet()
-    template_extractor = TemplateExtractor()
-    pattern_matcher = PatternMatcher()
-    with open(load_pdata("sentences.csv"), 'r') as f:
-        df = pd.read_csv(f)
-    for i, text in enumerate(df['single_description'][1000:2000]):
-        try:
-            temp = template_extractor.generate_sentence_template(text)
-            # print(temp['cate_id'], text)
-            cate = funcverbnet.find_cate_by_id(temp['cate_id'])
-            _, aligned_pattern = pattern_matcher.aligned_with_sentence_pattern(
-                temp['template'], pattern_matcher.encapsulate_sentence_patterns(cate.included_pattern)
-            )
-            Pattern.deprocess_pattern(aligned_pattern.pattern)
-        except Exception as e:
-            print(df['id'][i], text)
-            print(e, e.__class__.__name__)
+
+    # with open(load_pdata("sentences.csv"), 'r') as f:
+    #     df = pd.read_csv(f)
+    # for i, text in enumerate(df['single_description'][1000:2000]):
+    #     try:
+    #         temp = template_extractor.generate_sentence_template(text)
+    #         # print(temp['cate_id'], text)
+    #         cate = funcverbnet.find_cate_by_id(temp['cate_id'])
+    #         _, aligned_pattern = pattern_matcher.aligned_with_sentence_pattern(
+    #             temp['template'], pattern_matcher.encapsulate_sentence_patterns(cate.included_pattern)
+    #         )
+    #         Pattern.deprocess_pattern(aligned_pattern.pattern)
+    #     except Exception as e:
+    #         print(df['id'][i], text)
+    #         print(e, e.__class__.__name__)

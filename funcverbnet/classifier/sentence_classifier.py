@@ -64,6 +64,7 @@ class FuncSentenceClassifier:
         """
         try:
             label = self.classifier.predict(sentence)
+            # print('probability', label[1][0])
             if len(str(label[0][0])) > 10:
                 label = str(label[0][0][9]) + str(label[0][0][10])
             else:

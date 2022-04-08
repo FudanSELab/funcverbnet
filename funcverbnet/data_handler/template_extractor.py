@@ -12,12 +12,13 @@
 """
 import spacy
 from spacy.tokens import Doc, Token
+from spacy import displacy
 import textdistance
-from tqdm import tqdm
 import pandas as pd
+from nltk.tree import Tree
 
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
-from funcverbnet.utils import load_pdata
+from funcverbnet.utils import load_pdata, load_tmp, CustomError
 from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
 
 HEURISTIC_RULES_PATH = load_pdata("heuristic_rules.txt")
@@ -93,11 +94,13 @@ class TemplateExtractor:
                 heuristic_rule_2_custom_patterns[cate_id] = [{
                     "patterns": [[{'ORTH': word}]],
                     "attrs": {'LEMMA': lemma, "POS": pos, 'TAG': pos}
+                    # "attrs": {'LEMMA': lemma, "POS": pos, 'TAG': pos, 'DEP': 'ROOT'}
                 }]
                 continue
             heuristic_rule_2_custom_patterns[cate_id].append({
                 "patterns": [[{'ORTH': word}]],
                 "attrs": {'LEMMA': lemma, "POS": pos, 'TAG': pos}
+                # "attrs": {'LEMMA': lemma, "POS": pos, 'TAG': pos, 'DEP': 'ROOT'}
             })
         return heuristic_rule_2_custom_patterns
 
@@ -139,38 +142,56 @@ class TemplateExtractor:
     def list_token_with_pos(doc: Doc):
         return [(token, token.pos_, token.dep_) for token in doc]
 
+    @staticmethod
+    def visualize_dependency(doc: Doc):
+        displacy.serve(doc, style='dep', port=5010)
+
+    def __convert_2_nltk_tree(self, node):
+        if node.n_lefts + node.n_rights > 0:
+            return Tree(node.orth_, [self.__convert_2_nltk_tree(child) for child in node.children])
+        else:
+            return node.orth_
+
+    def visualize_nltk_tree(self, doc: Doc):
+        [self.__convert_2_nltk_tree(sent.root).pretty_print() for sent in doc.sents]
+
     def construct_sentence_dependency(self, doc: Doc, f_category_incl_verbs: list):
         assert isinstance(doc, Doc)
         sentence_structure = []
         if not f_category_incl_verbs:
             return sentence_structure
-        print(self.list_token_with_pos(doc))
+        # print(self.list_token_with_pos(doc))
+        # self.visualize_nltk_tree(doc)
+        # self.visualize_dependency(doc)
         root: Token = [token for token in doc if token.head == token][0]
         if not root:
             return sentence_structure
         flag = False
         # print('ROOT:', root, root.pos_, root.dep_)
+        root_rights = None
         # >>> update root if root's pos_ is NOUN, traverse lefts (maybe in NOUN lefts
         if root.pos_ == 'NOUN' or not self.__is_in_categories(root, f_category_incl_verbs):
+            root_rights = [root] + [_ for _ in root.rights] if root.pos_ == 'NOUN' else None
             for left in [_ for _ in root.lefts]:
                 if self.__is_in_categories(left, f_category_incl_verbs):
                     root = left
                     flag = True
                     break
-        # >>> update root if root's pos_ is not VERB or NOUN, traverse rights
-        if root.pos_ != 'VERB' and not flag:
+        # >>> update root if root's pos_ is not VERB or not in category verbs, traverse rights
+        if root.pos_ != 'VERB' and not flag or not self.__is_in_categories(root, f_category_incl_verbs):
             for right in [_ for _ in root.rights]:
                 if self.__is_in_categories(right, f_category_incl_verbs):
                     root = right
                     break
+        # print('ROOT:', root)
         # >>> no root, return []
         if root.pos_ != 'VERB':
-            print('ROOT POS NOT VALID')
-            return sentence_structure
+            raise ValueError('RootError')
+            # return sentence_structure
         # >>> construct sentence dependency
         sentence_structure.append(root)
         # >>> verb usually the root of sentence, traverse rights for parsing.
-        for right in [_ for _ in root.rights]:
+        for right in root_rights if root_rights else [_ for _ in root.rights]:
             # print('RIGHT:', right, right.pos_, right.dep_)
             # >>> filter some non-conforming right(Token)
             if right.pos_ == 'PUNCT' or right.dep_ == 'punct':
@@ -179,7 +200,9 @@ class TemplateExtractor:
             #     continue
             if right.dep_ == 'amod':
                 continue
-            if right.pos_ not in ['NOUN', 'VERB', 'AUX', 'PROPN', 'PART', 'NUM', 'DET'] and right.dep_ != 'prep':
+            # if right.pos_ not in ['NOUN', 'VERB', 'AUX', 'PROPN', 'PART', 'NUM', 'DET'] and right.dep_ != 'prep':
+            # if right.pos_ not in ['NOUN', 'VERB', 'AUX', 'PROPN', 'PART', 'NUM', 'DET'] and right.dep_ not in ['prep', 'agent']:
+            if right.pos_ not in ['NOUN', 'VERB', 'AUX', 'PROPN', 'PART', 'NUM', 'DET', 'ADP'] and right.dep_ != 'prep':
                 continue
             # >>> process rights now
             # print('RIGHT:', right, right.pos_, right.dep_)
@@ -205,15 +228,19 @@ class TemplateExtractor:
                     # print('RIGHT_LEFT:', rl, rl.pos_, rl.dep_)
                     if rl.dep_ == 'mark':
                         sentence_structure.append(rl)
+                        # TODO: process mark sentence
+                        # ancestor = [_ for _ in rl.ancestors][0]
+                        # print([_ for _ in ancestor.subtree])
                         break
                     if rl.pos_ == 'ADV' and rl.dep_ == 'advmod' and rl.text == 'when':
                         sentence_structure.append(rl)
                         break
-                if right.dep_ not in ['prep', 'acl', 'xcomp', 'pcomp', 'ccomp'] and 'advcl' not in right.dep_:
+                # if right.dep_ not in ['prep', 'acl', 'xcomp', 'pcomp', 'ccomp'] and 'advcl' not in right.dep_:
+                if right.dep_ not in ['prep', 'acl', 'pcomp'] and 'advcl' not in right.dep_:
                     sentence_structure.append(right)
             elif right not in sentence_structure:
                 sentence_structure.append(right)
-        # print('HALF_SENTENCE:', sentence)
+        # print('HALF_SENTENCE:', sentence_structure)
         last = sentence_structure[-1]
         # print('LASE:', last, last.pos_, last.dep_)
         last_lefts = [_ for _ in last.rights]
@@ -235,8 +262,7 @@ class TemplateExtractor:
         # print('FINAL_SENTENCE:', sentence_structure)
         return sentence_structure
 
-    @staticmethod
-    def structure_token_pos_verb(sentence_structure):
+    def structure_token_pos_verb(self, sentence_structure):
         token_pos_list = []
         core_verb = None
         if not sentence_structure:
@@ -264,19 +290,28 @@ class TemplateExtractor:
             cc_compound = []
             for (token, pos) in token_pos_list:
                 token_rights = [_ for _ in token.rights]
+                # print(token.text + '_RIGHTS:', token_rights)
                 if cc not in token_rights:
                     continue
-                # print('TOKEN_RIGHTS:', token_rights)
                 cc_in_rights_index = token_rights.index(cc)
                 if cc_in_rights_index == -1:
                     continue
+                # print('TOKEN_RIGHTS:', token_rights)
                 cc_compound.append(token)
-                cc_compound.extend(token_rights[:cc_in_rights_index + 1])
+                # >>> process of
+                for child in token_rights[:cc_in_rights_index + 1]:
+                    if child.text == 'of':
+                        cc_compound.append(child)
+                        cc_compound.extend([_ for _ in child.rights if _ not in token_rights[:cc_in_rights_index + 1]])
+                        continue
+                    cc_compound.append(child)
+                # cc_compound.extend(token_rights[:cc_in_rights_index + 1])
                 children_queue = token_rights[cc_in_rights_index + 1:][::-1]
                 while len(children_queue) > 0:
                     child = children_queue.pop()
                     if child.dep_ == 'conj' or child in sentence_structure:
                         cc_compound.append(child)
+                        # print('CHILD_RIGHTS:',[_ for _ in child.rights])
                         children_queue.extend([_ for _ in child.rights][::-1])
                 # print('CC_COMPOUND:', cc_compound)
             cc_compound_list.append(cc_compound)
@@ -338,22 +373,29 @@ class TemplateExtractor:
                 else:
                     tokens_pos_list[i][1] = 'NOUN'
             tokens_pos_list[i][0] = token if type(token) == list else [token]
-        # print('HALF_TOKENS_POS:', tokens_pos_list)
-        # >>> combine the continuous tokens with the same pos to form a phrase
-        final_tokens_pos_list = []
-        pre_pos = tokens_pos_list[0]
-        pos_group = pre_pos
+        # print('FINAL_TOKENS_POS:', tokens_pos_list)
+        return self.__merge_similar_pos(tokens_pos_list), core_verb
+
+    @staticmethod
+    def __merge_similar_pos(tokens_pos_list):
+        # >>> merge the continuous tokens with the same pos to form a phrase
+        merged_tokens_pos_list = []
+        if not tokens_pos_list:
+            return tokens_pos_list
+        pre_tokens_pos = tokens_pos_list[0]
+        similar_pos_group = pre_tokens_pos
         for i, (tokens, pos) in enumerate(tokens_pos_list[1:]):
-            if pos == pre_pos[1]:
-                pos_group[0].extend(tokens)
+            pos = pos.split('_')[-1]
+            # if pos == pre_tokens_pos[1].split('_')[-1]:
+            if pos == pre_tokens_pos[1].split('_')[-1] and pos != 'VERB':
+                similar_pos_group[0].extend(tokens)
                 continue
-            final_tokens_pos_list.append(pos_group)
-            pre_pos = tokens_pos_list[i + 1]
-            pos_group = pre_pos
-        if not final_tokens_pos_list or pos_group[1] != final_tokens_pos_list[-1][1]:
-            final_tokens_pos_list.append(pos_group)
-        # print('FINAL_TOKENS_POS:', final_tokens_pos_list)
-        return final_tokens_pos_list, core_verb
+            merged_tokens_pos_list.append(similar_pos_group)
+            pre_tokens_pos = tokens_pos_list[i + 1]
+            similar_pos_group = pre_tokens_pos
+        merged_tokens_pos_list.append(similar_pos_group)
+        # print('MERGED_TOKENS_POS:', merged_tokens_pos_list)
+        return merged_tokens_pos_list
 
     def structure_sentence(self, sentence, nlp, f_category_incl_verbs: list):
         """
@@ -387,8 +429,7 @@ class TemplateExtractor:
                 return True
         return False
 
-    @staticmethod
-    def construct_of_in_phrase(tokens_pos_list: list):
+    def construct_of_in_phrase(self, tokens_pos_list: list):
         """
         :param tokens_pos_list: List[Tuple[List[Token], str]]
         :return:
@@ -438,7 +479,7 @@ class TemplateExtractor:
         if i < len(tokens_pos_list):
             final_tokens_pos_list.extend(tokens_pos_list[i:])
         # print('FINAL_TOKENS_POS:', final_tokens_pos_list)
-        return final_tokens_pos_list
+        return self.__merge_similar_pos(final_tokens_pos_list)
 
     def process_noun(self, tokens: list, tokens_pos_list: list):
         stop_words = ['a', 'an', 'the', 'that', 'these', 'those']
@@ -448,6 +489,9 @@ class TemplateExtractor:
             return noun_sequence, [new_tokens, 'COMPOUND_NOUN']
         # print('TOKENS:', tokens)
         if len(tokens) == 1:
+            # >>> preprocess if noun is root
+            if tokens[0].dep_ == 'ROOT':
+                return noun_sequence, [tokens, 'NOUN']
             # >>> traverse lefts
             for left in [_ for _ in tokens[0].lefts]:
                 if left.text in stop_words:
@@ -482,8 +526,12 @@ class TemplateExtractor:
                         new_tokens.append(right_child)
             # print('FINAL_TOKENS', new_tokens)
         else:
+            # print('ORIG_TOKENS', tokens)
             for token in tokens:
                 # print('EVERY_TOKEN', token)
+                if token.pos_ == 'VERB':
+                    new_tokens.append(token)
+                    continue
                 for left in token.lefts:
                     if left.text in stop_words:
                         continue
@@ -501,7 +549,11 @@ class TemplateExtractor:
                     noun_sequence += right.text + ' '
                     new_tokens.append(right)
             # print('FINAL_TOKENS', new_tokens)
-        return noun_sequence.strip(), [new_tokens, 'COMPOUND_NOUN']
+        if len(new_tokens) == 1:
+            new_tokens_pos = [new_tokens, 'NOUN']
+        else:
+            new_tokens_pos = [new_tokens, 'COMPOUND_NOUN']
+        return noun_sequence.strip(), new_tokens_pos
 
     def generate_sentence_template(self, sentence) -> dict:
         """
@@ -513,6 +565,7 @@ class TemplateExtractor:
             return {}
         cate_id = self.classifier.predict(sentence)
         custom_nlp = self.__run_heuristic_rules(cate_id, self.nlp)
+        # print('CATE_NAME', self.net.find_cate_by_id(cate_id).name)
         f_category_incl_verbs = self.net.find_cate_by_id(cate_id).included_verb
         preprocessed_sentence = self.preprocess_sentence(sentence)
         tokens_pos_list, core_verb = self.structure_sentence(preprocessed_sentence, custom_nlp, f_category_incl_verbs)
@@ -529,7 +582,15 @@ class TemplateExtractor:
             final_tokens_pos_list.append([tokens, pos])
         # print('INPUT_TOKENS_POS:', final_tokens_pos_list)
         template, tokens_pos_list = self.construct_template(final_tokens_pos_list)
-        return {'cate_id': cate_id, 'sentence': sentence, 'template': template, 'tokens_pos_list': tokens_pos_list}
+        if len(template.split(SPLIT_STR)) != len(tokens_pos_list):
+            raise CustomError('Conflict Length!')
+        return {
+            'cate_id': cate_id,
+            'sentence': sentence,
+            'core_verb': core_verb,
+            'template': template,
+            'tokens_pos_list': tokens_pos_list
+        }
 
     @staticmethod
     def construct_template(tokens_pos_list: list):
@@ -545,18 +606,21 @@ class TemplateExtractor:
                 template.append('NOUN')
             elif pos in ['PART', 'ADV', 'SCONJ', 'PREP']:
                 template.append(tokens[0].text)
-            elif pos in ['VERB', 'VERB-NOUN']:
+            elif pos in ['VERB', 'VERB - NOUN']:
                 # >>> VERB after PREP
-                # print('VERB after PREP')
-                if tokens_pos_list[i][1] == 'PREP':
+                # print(tokens_pos_list[i][1])
+                # if tokens_pos_list[i][1] == 'PREP':
+                if tokens_pos_list[i][1] in ['PREP', 'VERB']:
+                    # print('VERB after PREP')
                     template.extend(['doing', 'NOUN'] if 'NOUN' in pos else ['doing'])
                     continue
                 flag = True
                 # >>> VERB after PART
-                print('VERB after PART')
+                # print('VERB after PART')
                 # print([(_, _.pos_) for _ in tokens[0].lefts])
                 for left in [_ for _ in tokens[0].lefts]:
                     if left.pos_ == 'PART' and left.dep_ == 'aux':
+                        tokens_pos_list.insert(i + 1, [[left], 'PART'])
                         template.extend(['to', 'do', 'NOUN'] if 'NOUN' in pos else ['to', 'do'])
                         flag = False
                         break
@@ -572,16 +636,14 @@ class TemplateExtractor:
 if __name__ == '__main__':
     template_extractor = TemplateExtractor()
     # text = 'Use this function to retrieve the number.'
+    # text = 'retrieve the number.'
     # text = 'Prints a string representation of this digest output stream and its associated message digest object.'
     # text = "End the scope of a prefix-URI mapping."
     # text = "How can I send an email by Java application using Gmail, Yahoo?"
     # text = "How can I send an SMTP message from Java"
     # text = "open or create a file and write in file"
-    # text = "Version of onCreateView(String, Context, AttributeSet) that also supplies the parent that the view created view will be placed in."
     # text = 'Stops an action event and using this EventQueue.'
     # text = "Prints a long and then terminate the line"
-    # text = "Propagates all row update, insert and delete changes to the data source backing this CachedRowSet object using the specified Connection object to establish a connection to the data source."
-    # text = "This method is part of the SurfaceHolder. Callback2 interface, and is not normally called or subclassed by clients of GLSurfaceView."
     # text = "Called immediately before commiting the transaction."
     # text = "Called whenever a change of unknown type has occurred, such as the entire list being set to new values."
     # text = "Invoked before sending the specified notification to the listener."
@@ -590,15 +652,35 @@ if __name__ == '__main__':
     # text = "This is called whenever the current window attributes change."
     # text = "Notifies this component that it now has a parent component."
     # text = "disables file access within Service Workers, see setAllowFileAccess(boolean)."
-    text = "Stops dispatching events using this EventQueue."
-    temp = template_extractor.generate_sentence_template(text)
-    print(temp)
-    # with open(read_data("sentences.csv"), 'r') as f:
-    #     df = pd.read_csv(f)
-    # for i, text in enumerate(df['single_description'][2000:3000]):
-    #     try:
-    #         temp = template_extractor.generate_sentence_template(text)
-    #         print(temp['sentence'], temp['template'])
-    #     except Exception as e:
-    #         print(df['id'][i])
-    #         print(e, e.__class__.__name__)
+    # text = "Stops dispatching events using this EventQueue."
+    # >>>
+    # text = "Prints information about this thread group to the standard output."
+    # text = "Records the Expression so that the Encoder will produce the actual output when the stream is flushed."
+    # text = "Record that this token has been acquired immediately."
+    # text = "Draws as much of the specified image as is currently available."
+    # text = "Draws as much of the specified image as has already been scaled to fit inside the specified rectangle."
+    # text = "Paints the popup menu's border if the borderPainted property is true."
+    # text = "Paints the menubar's border if BorderPainted property is true."
+    # text = "Allow the application to resolve external resources."
+    # text = "Requests that the framework use VOIP audio mode for this connection."
+    # text = "Requests that this Component gets the input focus."
+    # text = "Not called directly by applications."
+    # text = "Called to request data from the given position."
+    # text = "Returns the list of currently running tasks on the node"
+    # text = "Set a reference to task that caused this task to be run."
+    # text = "A failure caused by an exception at some phase of the task."
+    # text = "Set the ingest pipeline to set on index requests made by this action."
+    # text = "Explicitly set the analyzer to use. Defaults to use explicit mapping config for the field"
+    # temp = template_extractor.generate_sentence_template(text)
+    # print(temp)
+    with open(load_tmp("error.csv"), 'r') as f:
+        df = pd.read_csv(f)
+    for i, text in enumerate(df['full_description'][1:]):
+        try:
+            temp = template_extractor.generate_sentence_template(text)
+            # print(temp['template'], temp['tokens_pos_list'])
+            if len(temp['template'].split(SPLIT_STR)) != len(temp['tokens_pos_list']):
+                print(text, temp['template'], temp['tokens_pos_list'])
+        except Exception as e:
+            # print(df['id'][i], text)
+            print(e, e.__class__.__name__)
