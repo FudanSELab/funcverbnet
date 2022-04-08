@@ -24,7 +24,7 @@ if __name__ == '__main__':
     pattern_matcher = PatternMatcher()
     count = 0
     data = []
-    with open(load_tmp('error.csv'), 'r') as f:
+    with open(load_tmp('clean_method_desc.csv'), 'r') as f:
         f_csv = csv.reader(f)
         next(f_csv)
         for item in tqdm(f_csv):
