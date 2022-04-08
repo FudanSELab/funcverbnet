@@ -35,7 +35,7 @@ def save_logs(ml_tag=None):
 
 
 class LogsUtil:
-    __is_console = True
+    __is_console = False
     __log_level = logging.INFO
     __log_file = save_logs()
 
