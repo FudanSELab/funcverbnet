@@ -56,7 +56,7 @@ def eliminate_csv(filename, chunksize):
 
 
 if __name__ == '__main__':
-    count_csv('method_desc')
-    count_csv('clean_method_desc')
-    eliminate_csv('method_desc', 10000)
+    # count_csv('method_desc')
+    # count_csv('clean_method_desc')
+    # eliminate_csv('method_desc', 10000)
     count_csv('eliminate_method_desc')

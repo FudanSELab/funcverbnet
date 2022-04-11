@@ -674,6 +674,7 @@ if __name__ == '__main__':
     # text = "A failure caused by an exception at some phase of the task."
     # text = "Set the ingest pipeline to set on index requests made by this action."
     # text = "Explicitly set the analyzer to use. Defaults to use explicit mapping config for the field"
+    # text = "返回autoDetectCreators"
     # temp = template_extractor.generate_sentence_template(text)
     # print(temp)
     # with open(load_tmp("error.csv"), 'r') as f:
