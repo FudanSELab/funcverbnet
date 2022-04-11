@@ -12,35 +12,51 @@
 """
 import json
 import csv
+import pandas as pd
 
 from funcverbnet.utils import load_tmp
 
-if __name__ == '__main__':
-    # with open(load_tmp('api_desc.json'), 'r') as f:
-    #     data_list = json.load(f)
-    # with open(load_tmp('api_desc.csv'), 'w') as f:
-    #     writer = csv.writer(f)
-    #     writer.writerow(['id', 'full_description'])
-    #     for item in data_list:
-    #         writer.writerow([item['id'], item['full_description']])
 
-    # with open(load_tmp('error.csv'), 'r') as f:
-    #     f_csv = csv.reader(f)
-    #     # for item in f_csv:
-    #     #     print(item[0], item[1])
-    #     with open(load_tmp('clean_error.csv'), 'w') as wf:
-    #         writer = csv.writer(wf)
-    #         writer.writerow(['id', 'full_description'])
-    #         for item in f_csv:
-    #             writer.writerow([int(item[0]), item[1]])
+def count_csv(filename):
+    with open(load_tmp(f'{filename}.csv'), 'r') as rf:
+        print(len(rf.readlines()))
 
-    with open(load_tmp('method_desc.csv'), 'r') as f:
-        f_csv = csv.reader(f)
-        next(f_csv)
-        with open(load_tmp('clean_method_desc.csv'), 'w') as wf:
+
+def clean_csv(filename):
+    with open(load_tmp(f'{filename}.csv'), 'r') as rf:
+        reader = csv.reader(rf)
+        next(reader)
+        with open(load_tmp(f'clean{filename}.csv'), 'w') as wf:
             writer = csv.writer(wf)
             writer.writerow(['id', 'description'])
-            for item in f_csv:
-                if not item[1]:
+            for row in reader:
+                if not row[1]:
                     continue
-                writer.writerow([int(item[0]), item[1]])
+                writer.writerow([int(row[0]), row[1]])
+
+
+def eliminate_csv(filename, chunksize):
+    reader = pd.read_csv(load_tmp(f'clean_{filename}.csv'), iterator=True, chunksize=chunksize)
+    count = 0
+    with open(load_tmp(f'eliminate_{filename}.csv'), 'w') as wf:
+        writer = csv.writer(wf)
+        writer.writerow(['id', 'description'])
+    for chunk in reader:
+        count += len(chunk)
+        print(count)
+        with open(load_tmp(f'eliminate_{filename}.csv'), 'a') as wf:
+            writer = csv.writer(wf)
+            pre_text = None
+            for index, row in chunk.iterrows():
+                if row[1] == pre_text:
+                    continue
+                pre_text = row[1]
+                writer.writerow([row[0], row[1]])
+    print(count)
+
+
+if __name__ == '__main__':
+    count_csv('method_desc')
+    count_csv('clean_method_desc')
+    eliminate_csv('method_desc', 10000)
+    count_csv('eliminate_method_desc')
