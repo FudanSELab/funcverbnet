@@ -43,7 +43,8 @@ class TemplateExtractor:
     def __init__(self):
         self.net = FuncVerbNet()
         self.classifier = FuncSentenceClassifier()
-        self.nlp = spacy.load('en_core_web_sm')
+        # self.nlp = spacy.load('en_core_web_sm')
+        self.custom_nlp = self.__run_all_heuristic_rules(spacy.load('en_core_web_sm'), 88)
 
     def preprocess_sentence(self, sentence: str) -> str:
         """
@@ -119,6 +120,14 @@ class TemplateExtractor:
             return nlp
         ruler = nlp.get_pipe('attribute_ruler')
         ruler.add_patterns(heuristic_rule_2_custom_patterns[cate_id] + heuristic_rule_2_custom_patterns[-1])
+        return nlp
+
+    def __run_all_heuristic_rules(self, nlp, cate_num):
+        heuristic_rule_2_custom_patterns = self.__load_heuristic_rules(HEURISTIC_RULES_PATH)
+        ruler = nlp.get_pipe('attribute_ruler')
+        for cate_id in range(1, cate_num + 1):
+            ruler.add_patterns(heuristic_rule_2_custom_patterns[cate_id])
+        ruler.add_patterns(heuristic_rule_2_custom_patterns[-1])
         return nlp
 
     @staticmethod
@@ -567,11 +576,11 @@ class TemplateExtractor:
         if not sentence:
             return {}
         cate_id = self.classifier.predict(sentence)
-        custom_nlp = self.__run_heuristic_rules(cate_id, self.nlp)
         # print('CATE_NAME', self.net.find_cate_by_id(cate_id).name)
         f_category_incl_verbs = self.net.find_cate_by_id(cate_id).included_verb
-        preprocessed_sentence = self.preprocess_sentence(sentence)
-        tokens_pos_list, core_verb = self.structure_sentence(preprocessed_sentence, custom_nlp, f_category_incl_verbs)
+        tokens_pos_list, core_verb = self.structure_sentence(
+            self.preprocess_sentence(sentence), self.custom_nlp, f_category_incl_verbs
+        )
         if not tokens_pos_list:
             return {}
         if self.__has_of_in_sentence(tokens_pos_list):

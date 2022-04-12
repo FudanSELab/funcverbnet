@@ -34,6 +34,16 @@ def save_logs(ml_tag=None):
     return str(path)
 
 
+def tmp_folder():
+    return str(ROOT_PATH / 'tmp')
+
+
+def walk_dir(folder):
+    for dir_path, dirs, files in os.walk(folder):
+        for filename_ext in files:
+            yield filename_ext
+
+
 class LogsUtil:
     __is_console = False
     __log_level = logging.INFO

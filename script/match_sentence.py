@@ -17,7 +17,7 @@ from tqdm import tqdm
 
 from funcverbnet.data_handler.template_extractor import CustomError
 from funcverbnet.data_handler.pattern_matcher import PatternMatcher
-from funcverbnet.utils import load_tmp, LogsUtil
+from funcverbnet.utils import load_tmp, LogsUtil, walk_dir, tmp_folder
 
 logger = LogsUtil.get_log_util()
 
@@ -60,9 +60,14 @@ def run2(filename, chunksize):
     reader = pd.read_csv(load_tmp(f'eliminate_{filename}.csv'), iterator=True, chunksize=chunksize)
     count = 0
     tag = 0
+    tags = list_tags(filename)
     for chunk in reader:
         count += len(chunk)
         data = []
+        tag += 1
+        if tag in tags:
+            print(f'already processed {count} rows')
+            continue
         print(f'processing {count} rows now')
         for index, row in tqdm(chunk.iterrows()):
             try:
@@ -78,10 +83,18 @@ def run2(filename, chunksize):
             except Exception as e:
                 logger.info(e)
         print(f'already processed {count} rows')
-        tag += 1
         with open(load_tmp(f'{filename}_functionality_1,{tag}.json'), 'w') as json_f:
             json.dump(data, json_f)
 
 
+def list_tags(filename):
+    match_file = f'{filename}_functionality_1,'
+    tags = []
+    for filename_ext in walk_dir(tmp_folder()):
+        if match_file in filename_ext:
+            tags.append(int(filename_ext[:-5].split(match_file)[-1]))
+    return tags
+
+
 if __name__ == '__main__':
-    run2('method_desc', 10000)
+    run2('method_desc', 5000)
