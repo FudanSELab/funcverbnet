@@ -14,7 +14,7 @@ import json
 import csv
 import pandas as pd
 
-from funcverbnet.utils import load_tmp
+from funcverbnet.utils import load_tmp, walk_dir, tmp_folder
 
 
 def count_csv(filename):
@@ -55,8 +55,25 @@ def eliminate_csv(filename, chunksize):
     print(count)
 
 
+def combine_json(filename, sun):
+    data = []
+    count = 0
+    for tag in range(1, sun + 1):
+        try:
+            with open(load_tmp(f'{filename}_functionality_1,{tag}.json'), 'r') as file:
+                tmp = json.load(file)
+                data.extend(tmp)
+                count += len(tmp)
+        except FileNotFoundError as e:
+            print(e)
+    with open(load_tmp(f'{filename}_functionality_1.json'), 'w') as file:
+        json.dump(data, file)
+    print(count)
+
+
 if __name__ == '__main__':
     # count_csv('method_desc')
     # count_csv('clean_method_desc')
     # eliminate_csv('method_desc', 10000)
-    count_csv('eliminate_method_desc')
+    # count_csv('eliminate_method_desc')
+    combine_json('method_desc', 1420)
