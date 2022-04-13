@@ -13,8 +13,9 @@
 import json
 import csv
 import pandas as pd
+from tqdm import tqdm
 
-from funcverbnet.utils import load_tmp, walk_dir, tmp_folder
+from funcverbnet.utils import load_tmp
 
 
 def count_csv(filename):
@@ -58,7 +59,7 @@ def eliminate_csv(filename, chunksize):
 def combine_json(filename, sun):
     data = []
     count = 0
-    for tag in range(1, sun + 1):
+    for tag in tqdm(range(1, sun + 1)):
         try:
             with open(load_tmp(f'{filename}_functionality_1,{tag}.json'), 'r') as file:
                 tmp = json.load(file)
