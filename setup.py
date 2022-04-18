@@ -10,8 +10,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0',
-                'pandas', 'fasttext~=0.9.2',]
+requirements = ['click>=7.0', 'pandas', 'fasttext~=0.9.2', 'spacy', 'textdistance']
 
 setup_requirements = ['pytest-runner', ]
 
@@ -44,15 +43,14 @@ setup(
     # include_package_data=True,
     package_data={
         # If any package contains *.json files, include them:
-        'funcverbnet': ['data/*.json', "data/*.zip", "data/*.csv", "model/*.model"],
+        'funcverbnet': ['data/*.json', "data/*.zip", "data/*.csv", "classifier/model/*.model"],
     },
     keywords='funcverbnet',
     name='funcverbnet',
-
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/FudanSELab/funcverbnet',
-    version='0.2.2',
+    version='0.2.3',
     zip_safe=False,
 )

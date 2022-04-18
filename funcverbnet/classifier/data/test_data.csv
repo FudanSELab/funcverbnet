@@ -1,0 +1,501 @@
+sentence	label
+Sets the data for a single pixel in the specified DataBuffer from a primitive array of type TransferType.	__label__77
+Sets the username used for authentication.	__label__77
+Sets the value to the given index from the entry values.	__label__77
+Sets whether the key will remain authorized only until the device is removed from the user's body up to the limit of the authentication validity period (see setUserAuthenticationValidityDurationSeconds(int) and setUserAuthenticationRequired(boolean)).	__label__77
+Sets this process builder's standard output destination.	__label__77
+Sets the designated parameter to the given String object.	__label__77
+Sets video scaling mode.	__label__77
+Sets the default FocusTraversalPolicy.	__label__77
+Sets the TableCellRenderer used to draw the TableColumn's header to headerRenderer.	__label__77
+Sets the JFormattedTextField.AbstractFormatter to use as a last resort, eg in case a display, edit or null JFormattedTextField.AbstractFormatter has not been specified.	__label__77
+Sets the size of the view.	__label__77
+Sets the location of the text insertion point (zero width cursor) as a rectangle in local coordinates.	__label__77
+Sets the designated parameter in this RowSet object's command with the given java.sql.Timestamp value.	__label__77
+Set the retrieved Locale.	__label__77
+Sets whether the designated column is a cash value.	__label__77
+Sets the selection start to the specified position.	__label__77
+Sets the designated parameter to a Reader object.	__label__77
+Eventually sets to the given value.	__label__77
+Set the crop rectangle associated with this frame.	__label__77
+Set the icon displayed on this tab.	__label__77
+Set a message to be sent when the dialog is dismissed.	__label__77
+Sets whether parent changes will be tracked by the ChangeTransform.	__label__77
+This sets the user object of the TreeNode identified by path and posts a node changed.	__label__77
+Set the title of this toolbar.	__label__77
+Sets the type of this RowSet object to the given type.	__label__77
+Optionally set the package name of the app being installed.	__label__77
+Sets the designated column's table name, if any, to the given String.	__label__77
+Sets performance preferences for this socket.	__label__77
+Sets whether this window should receive focus on subsequently being shown (with a call to setVisible(true)), or being moved to the front (with a call to toFront()).	__label__77
+Sets the designated parameter to the given Java float value.	__label__77
+Sets the text to be displayed using a string resource identifier.	__label__77
+Sets whether the component's visibility is considered for sizing and positioning.	__label__77
+Set the transmission power level for the advertising.	__label__77
+Sets the given catalog name in order to select a subspace of this Connection object's database in which to work.	__label__77
+Sets the listener to be called when the window is dismissed.	__label__77
+Sets the current position to index.	__label__77
+Sets the location and size of the framing rectangle of this Shape to the specified rectangular values.	__label__77
+Sets if the content of this node is invalid.	__label__77
+Set the value of a property.	__label__77
+Set the stored value.	__label__77
+Set a list of items to be displayed in the dialog as the content, you will be notified of the selected item via the supplied listener.	__label__77
+Sets the designated parameter in this RowSet object's command with the given Blob value.	__label__77
+Set the number of minutes in the timezone offset.	__label__77
+Sets the RoundingMode used in this DecimalFormat.	__label__77
+Sets the current notification policy.	__label__77
+Sets the keyUsage criterion.	__label__77
+Atomically sets the field of the given object managed by this updater to the given value and returns the old value.	__label__77
+Sets the color to use for the border.	__label__77
+Sets the read timeout to a specified timeout, in milliseconds.	__label__77
+Starts an asynchronous load of the contacts list data.	__label__78
+Starts a new page.	__label__78
+Starts the loaders.	__label__78
+Starts loading all images tracked by this media tracker with the specified identifier.	__label__78
+Starts the add account session to authenticate user to an account of the specified accountType.	__label__78
+Starts this animation.	__label__78
+Start a new write operation on the file.	__label__78
+Starts production of the filtered image.	__label__78
+Start sampling-based method tracing, specifying the trace log file name, the buffer size, and the sampling interval.	__label__78
+Starts the monitor.	__label__78
+Starts the service under test, in the same way as if it were started by Context.bindService(Intent, ServiceConnection, flags) with an Intent that identifies a service.	__label__78
+Start receiving onAppWidgetChanged calls for your AppWidgets.	__label__78
+Starts an asynchronous filtering operation.	__label__78
+Starts the print job.	__label__78
+Start timestamp of the bucket's time interval.	__label__78
+Start Bluetooth LE scan with default parameters and no filters.	__label__78
+Starts the currently pending property animations immediately.	__label__78
+Launch a new activity.	__label__78
+Start an activity in this task.	__label__78
+Utility method for launching an activity.	__label__78
+Launch a new activity.	__label__78
+Launches the mail composing window of the user default mail client, filling the message fields specified by a mailto: URI.	__label__78
+Launch a new activity.	__label__78
+Start a drag, given the DragGestureEvent that initiated the drag, the initial Cursor to use, the Transferable subject data of the drag, and the DragSourceListener.	__label__78
+Launch search UI.	__label__78
+Special version of starting an activity, for use when you are replacing other activity components.	__label__78
+Starts a Main activity in the specified profile.	__label__78
+This method will start profiling if isProfiling() returns true.	__label__78
+Start an action mode with the default type TYPE_PRIMARY.	__label__78
+Start executing an Instrumentation class.	__label__78
+Starts playing this audio clip.	__label__78
+Launch multiple new activities.	__label__78
+Starts the editing timer.	__label__78
+Starts recognition for the associated keyphrase.	__label__78
+Starts the muxer.	__label__78
+Start bluetooth SCO audio connection.	__label__78
+Start a drag, given the DragGestureEvent that initiated the drag, the initial Cursor to use, the Image to drag, the offset of the Image origin from the hotspot of the Cursor at the instant of the trigger, the subject data of the drag, and the DragSourceListener.	__label__78
+Start tracking the key code associated with the given event.	__label__78
+Start an asynchronous sync operation.	__label__78
+Prepare to start making calls to the currently registered callbacks.	__label__78
+Starts recording from the AudioRecord instance when the specified synchronization event occurs on the specified audio session.	__label__78
+Starts playing this audio clip in a loop.	__label__78
+Starts recording from the AudioRecord instance.	__label__78
+Starts the reconversion operation.	__label__78
+Called by the context initiator to start the context creation phase and process any tokens generated by the peer's acceptSecContext method.	__label__78
+Start a new activity and wait for it to begin running before returning.	__label__78
+Wakes up all waiting threads.	__label__78
+Wakes up all threads that are waiting on this object's monitor.	__label__78
+Launch multiple new activities.	__label__78
+Starts a shortcut.	__label__78
+Starts loading all images tracked by this media tracker with the specified identifier.	__label__78
+Start an action mode of the default type TYPE_PRIMARY.	__label__78
+Start the specified animation now.	__label__78
+Starts looping playback from the current position.	__label__78
+Starts a new Activity from the given fragment.	__label__78
+Starts work on behalf of a transaction branch specified in xid.	__label__78
+Start an action mode of a specific type for the specified view.	__label__78
+Starts the drag given the initial Cursor to display, the Transferable object, and the DragSourceListener to use.	__label__78
+Starts a drag and drop operation.	__label__78
+Start rewinding.	__label__78
+Starts Safe Browsing initialization.	__label__78
+Start a new fragment containing a preference panel.	__label__78
+Start monitoring for changes in the focus state of the window.	__label__78
+Starts the counter monitor.	__label__78
+Starts a core thread, causing it to idly wait for work.	__label__78
+Starts a new or restarts an existing Loader in this manager, registers the callbacks to it, and (if the activity/fragment is currently started) starts loading it.	__label__78
+Start an action mode for the specified view with the default type TYPE_PRIMARY.	__label__78
+Starts TV program recording in the current recording session.	__label__78
+Launches an Activity for the user to select the alias for a private key and certificate pair for authentication.	__label__78
+Enables the combo box so that items can be selected.	__label__78
+Launches the associated editor application and opens a file for editing.	__label__78
+Enables debugging of web contents (HTML / CSS / JavaScript) loaded into any WebViews of this application.	__label__78
+Enable foreground dispatch to the given Activity.	__label__78
+Used to enable periodic advertising.	__label__78
+This method is used to enable streaming of a HTTP request body without internal buffering, when the content length is not known in advance.	__label__78
+Enable I/O operations to the tag from this TagTechnology object.	__label__78
+Enables the duplication of the parent's state into this view.	__label__78
+Enable TCP_NODELAY.	__label__78
+Enables diagnostic information about every graphics operation performed within the component or one of its children.	__label__78
+Enables the OrientationEventListener so it will monitor the sensor and call onOrientationChanged(int) when the device orientation changes.	__label__78
+Enables context clicking for this view.	__label__78
+Enables the cross fade of the drawables.	__label__78
+Enables thread CPU time measurement.	__label__78
+Enable I/O operations to the tag from this TagTechnology object.	__label__78
+Enables matching all of the subjectAlternativeNames specified in the setSubjectAlternativeNames or addSubjectAlternativeName methods.	__label__78
+Enables the children's drawing cache during a scroll.	__label__78
+Enables double buffering in this RepaintManager.	__label__78
+This method begins an asynchronous delete.	__label__78
+This method begins an asynchronous update.	__label__78
+Launch an activity for which you would like a result when it finished.	__label__78
+Enable special cache behavior that treats this directory and its contents as an entire group.	__label__78
+If the input method is currently connected to the given view, restart it with its new contents.	__label__78
+Called when a user has activated an affordance to launch voice assist from the Keyguard.	__label__78
+Enable detection of network operations.	__label__78
+Enable qemu tracing.	__label__78
+Begins the insertion of a new image with undefined pixel values into an existing image stream.	__label__78
+Re-enable pinned shortcuts that were previously disabled.	__label__78
+Enable local loopback of multicast datagrams	__label__78
+enable Nagle's algorithm.	__label__78
+Enables or disables the drawing cache.	__label__78
+Begins encoding a new array.	__label__78
+Begins encoding a new object.	__label__78
+Begins encoding a new array.	__label__78
+Restarts this print job.	__label__78
+Enables scrolling in response to movement of the mouse wheel.	__label__78
+Enables all the attribute change notifications the attribute name of which equals the specified name to be sent to the listener.	__label__78
+Enable I/O operations to the tag from this TagTechnology object.	__label__78
+Enables this component, depending on the value of the parameter b.	__label__78
+Enable the default shutter sound when taking a picture.	__label__78
+Enable detected violations log a stacktrace and timing data to the DropBox on policy violation.	__label__78
+Enable TDLS on a specific local route.	__label__78
+enables decorations for this frame.	__label__78
+enables decorations for this dialog.	__label__78
+This method enables parallel execution of queries from multiple threads on the same database.	__label__78
+Whether to enable the zoom in control.	__label__78
+Enables or disables thread contention monitoring.	__label__78
+Enables a preset on the reverb.	__label__78
+Enables or disables input method support for this text component.	__label__78
+Enables or disables the use of write-ahead logging for the database.	__label__78
+Begins encoding a new object.	__label__78
+Launches the associated application to open the file.	__label__78
+Enable or disable Wi-Fi.	__label__78
+Enables video stabilization.	__label__78
+Enables or disables file access within WebView.	__label__78
+Enables the button.	__label__78
+Enables the events from JLayer and all its descendants defined by the specified event mask parameter to be delivered to the LayerUI.eventDispatched(AWTEvent, JLayer) method.	__label__78
+Enables the verbose output for the class loading system.	__label__78
+Enables multiple file selection for the file dialog.	__label__78
+Enables file access within Service Workers, see setAllowFileAccess(boolean).	__label__78
+Enables MBeanServerNotifications concerning given ObjectName.	__label__78
+Enable I/O operations to the tag from this TagTechnology object.	__label__78
+Enables the caption.	__label__78
+Enables the menu item.	__label__78
+Enables the OrientationListener so it will monitor the sensor and call onOrientationChanged(int) when the device orientation changes.	__label__78
+Enables the type filter window.	__label__78
+Enable stracing of method calls.	__label__78
+Enable I/O operations to the tag from this TagTechnology object.	__label__78
+Enable the recommended StrictMode defaults, with violations just being logged.	__label__78
+Enable I/O operations to the tag from this TagTechnology object.	__label__78
+Enables scrolling in response to movement of the mouse wheel.	__label__78
+Binds the created View to the data for this Preference.	__label__79
+Binds a datagram socket to a local port and address.	__label__79
+Bind a new application environment in to the input method, so that it can later start and stop input processing.	__label__79
+Binds views in the content View of the dialog to data.	__label__79
+Given an array of String bindArgs, this method binds all of them in one single call.	__label__79
+Bind an existing view to the group data pointed to by cursor.	__label__79
+Binds the specified Socket to this Network.	__label__79
+Bind an existing view to the child data pointed to by cursor	__label__79
+Binds the socket to a local address.	__label__79
+Binds a name to an object, overwriting any existing binding.	__label__79
+Binds the specified FileDescriptor to this Network.	__label__79
+Binds a URI to the default namespace This URI is bound in the scope of the current START_ELEMENT / END_ELEMENT pair.	__label__79
+"Reassigns the \standard\"" error output stream."""	__label__79
+Binds the created View to the data for this Preference.	__label__79
+Binds the ServerSocket to a specific address (IP address and port number).	__label__79
+Binds a new name to the object bound to an old name, and unbinds the old name.	__label__79
+Binds the channel's socket to a local address and configures the socket to listen for connections.	__label__79
+Binds the channel's socket to a local address and configures the socket to listen for connections.	__label__79
+"Reassigns the \standard\"" input stream."""	__label__79
+Re-attach a fragment after it had previously been detached from the UI with detach(Fragment).	__label__79
+Sets the Format objects to use for the format elements in the previously set pattern string.	__label__79
+"Specifies that the character argument is \ordinary\"" in this tokenizer."""	__label__79
+"Specifies method parameter types and retrieves \in\"" and \""inout\"" argument values."""	__label__79
+Binds a new name to the object bound to an old name, and unbinds the old name.	__label__79
+Binds a ListView to the preferences contained in this PreferenceScreen via getRootAdapter().	__label__79
+Binds the ServerSocket to a specific address (IP address and port number).	__label__79
+Attach the bread crumbs to their activity.	__label__79
+Bind a long value to this statement.	__label__79
+Binds the channel's socket to a local address.	__label__79
+Attaches an incoming call to this call object.	__label__79
+Attaches an auxiliary effect to the player.	__label__79
+Attaches the given object to this key.	__label__79
+Attach a custom Factory interface for creating views while using this LayoutInflater.	__label__79
+Attaches listeners to the JTable.	__label__79
+Attach the specified markup object to the range start鈥nd of the text, or move the object to that range if it was already attached elsewhere.	__label__79
+This will attach the popup window to the decor frame of the parent window to avoid overlaping with screen decorations like the navigation bar.	__label__79
+Attach to the Wi-Fi Aware service - enabling the application to create discovery sessions or create connections to peers.	__label__79
+Attach to the Wi-Fi Aware service - enabling the application to create discovery sessions or create connections to peers.	__label__79
+Attach a MediaSession.Token to this Notification to provide additional playback information and control to the SystemUI.	__label__79
+Bind an existing view to the data pointed to by cursor	__label__79
+Attach to list view once the view hierarchy has been created.	__label__79
+Bind the value to an index.	__label__79
+Binds the channel's socket to a local address and configures the socket to listen for connections.	__label__79
+Bind an existing view to the group data pointed to by cursor.	__label__79
+Binds the Cursor column defined by the specified index to the specified view.	__label__79
+Binds a name to an object.	__label__79
+Bind a byte array value to this statement.	__label__79
+Bind the value to an index.	__label__79
+Binds a name to an object, along with associated attributes, overwriting any existing binding.	__label__79
+Bind a NULL value to this statement.	__label__79
+Binds the created View to the data for this Preference.	__label__79
+Binds a name to an object, along with associated attributes.	__label__79
+Binds a URI to the default namespace This URI is bound in the scope of the current START_ELEMENT / END_ELEMENT pair.	__label__79
+Bind the value to an index.	__label__79
+Copy the ColorChannel offsets into the destination vector.	__label__80
+Copies the components of this vector into the specified array.	__label__80
+Copies the specified array, truncating or padding with false (if necessary) so the copy has the specified length.	__label__80
+Copies a byte array into the field at the specified row and column index.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copy from an array into a rectangular region in this Allocation.	__label__80
+Copy a 1D region of this Allocation into an array.	__label__80
+Copy a file to a target file.	__label__80
+Copies all of the mappings from the specified Map to this RenderingHints.	__label__80
+Copy the vector into the destination in the order [R, Geven, Godd, B].	__label__80
+Copy from a rectangular region in this Allocation into an array.	__label__80
+Copy from a rectangular region in this Allocation into an array.	__label__80
+Copies the key/values in elements AttributeSet into set.	__label__80
+Copy from a rectangular region in this Allocation into an array.	__label__80
+Copies all of the mappings from the specified map to this hashtable.	__label__80
+Copy from an array into a rectangular region in this Allocation.	__label__80
+Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.	__label__80
+Copy an array into a 1D region of this Allocation.	__label__80
+Copy a rectangular region from an Allocation into a rectangular region in this Allocation.	__label__80
+Copies the data for an object from a file descriptor.	__label__80
+Copy from a value block to the temporary block.	__label__80
+Copy a 1D region of this Allocation into an array.	__label__80
+Copies the specified range of the specified array into a new array.	__label__80
+Copies the specified range of the specified array into a new array.	__label__80
+Copies into the specified array every active thread in the current thread's thread group and its subgroups.	__label__80
+Copies the data for an object to a file in external storage.	__label__80
+Copies the primaries of this color space in specified array.	__label__80
+Copies the inverse transform of this color space in specified array.	__label__80
+Copy into an Allocation from a Bitmap.	__label__80
+Copies the specified array, truncating or padding with zeros (if necessary) so the copy has the specified length.	__label__80
+Creates a copy of the editor kit.	__label__80
+Copies the spans from the region start...end in source to the region destoff...destoff+end-start in dest.	__label__80
+Copy from the temporary block to a value block.	__label__80
+Copy a 1D region of this Allocation into an array.	__label__80
+Copy from a rectangular region in this Allocation into an array.	__label__80
+Copy the pixels from the buffer, beginning at the current position, overwriting the bitmap's pixels.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copy an array into a 1D region of this Allocation.	__label__80
+Copy an entire Attributes object.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copies characters from this object into the destination character array.	__label__80
+Copies cursor data into the window.	__label__80
+Copies pixels from Raster srcRaster to this WritableRaster.	__label__80
+Exactly like String.getChars(): copy chars start through end - 1 from this CharSequence into dest beginning at offset destoff.	__label__80
+Copies all of the mappings from the specified map to this map.	__label__80
+Copy a 1D region of this Allocation into an array.	__label__80
+Copies an array from the specified source array, beginning at the specified position, to the specified position of the destination array.	__label__80
+Copy from an array into a 3D region in this Allocation.	__label__80
+Copy an entire Attributes object.	__label__80
+Copy a file to a target file.	__label__80
+Copies into the specified array every active thread in this thread group.	__label__80
+Copies the components of this vector into the specified array.	__label__80
+Copy a rectangular region into the allocation from another allocation.	__label__80
+Copy the Rational elements in row-major order from this matrix into the destination.	__label__80
+Copy from a rectangular region in this Allocation into an array.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copies all of the mappings from the specified map to this map.	__label__80
+Copies a substring of this object, retaining metadata.	__label__80
+Copy an array into a 1D region of this Allocation.	__label__80
+Copy all extras in 'src' in to this intent.	__label__80
+returns a copy of this object.	__label__80
+returns a copy of this object.	__label__80
+Returns a copy of this OffsetDateTime with the specified number of weeks subtracted.	__label__80
+Returns a copy of this ZonedDateTime with the specified number of minutes subtracted.	__label__80
+Returns a copy of this LocalDate with the specified number of weeks added.	__label__80
+Returns a copy of this OffsetTime with the specified number of nanoseconds added.	__label__80
+Returns a copy of this duration with the specified duration added.	__label__80
+Retrieves a copy of the specified substring in the CLOB value designated by this Clob object.	__label__80
+Makes a copy of the registered callbacks and returns it.	__label__80
+Makes a copy of this CertSelector.	__label__80
+Makes a copy of this PageFormat with the same contents as this PageFormat.	__label__80
+Makes a copy of this PKIXParameters object.	__label__80
+Makes a copy of the highlights.	__label__80
+returns a copy of this object.	__label__80
+Makes a copy of this CertStoreParameters.	__label__80
+Returns a copy of this date-time with a different time-zone, retaining the local date-time if possible.	__label__80
+Returns a copy of this set.	__label__80
+Returns a shallow clone of this instance.	__label__80
+Returns a copy of this date-time changing the zone offset to the later of the two valid offsets at a local time-line overlap.	__label__80
+Creates a clone of this RenderingHints object that has the same contents as this RenderingHints object.	__label__80
+Creates a copy of this object.	__label__80
+Creates a copy of this object.	__label__80
+Creates a copy of the editor kit.	__label__80
+Creates a copy of this JobAttributes.	__label__80
+Creates a copy of this object.	__label__80
+Creates a copy of this object.	__label__80
+Creates a copy of this object.	__label__80
+Copies the specified number of bytes, starting at the given position, from this SerialBlob object to another array of bytes.	__label__80
+Returns a copy of this time with the specified amount subtracted.	__label__80
+returns a copy of this JobAttributes.	__label__80
+Copy a 1D region of this Allocation into an array.	__label__80
+returns a copy of this object.	__label__80
+returns a copy of this object.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copies the array of green color components into the specified array.	__label__80
+Copy from the Allocation into a Bitmap.	__label__80
+Copies all bytes from a file to an output stream.	__label__80
+Copies the text of the field at the specified row and column index into a CharArrayBuffer.	__label__80
+Copies all of the mappings from the specified map to this map (optional operation).	__label__80
+Copies the specified array, truncating or padding with null characters (if necessary) so the copy has the specified length.	__label__80
+Copies the key/values in elements AttributeSet into set.	__label__80
+Copies into the specified array every active thread in this thread group and its subgroups.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copy the color curve for a single color channel from this tonemap curve into the destination.	__label__80
+(deep) copy the src matrix into this matrix.	__label__80
+Copy 9 values from the matrix into the array.	__label__80
+Copies all of the mappings from the specified map to this map.	__label__80
+Copies this color's components in the supplied array.	__label__80
+Clones this ACL entry.	__label__80
+Clones the AbstractFormatter.	__label__80
+Clones this object.	__label__80
+Clone a thawed version of this class, according to the Freezable interface.	__label__80
+Clone the entire object to be used in the UI thread by clients of WebView.	__label__80
+Copies the array of alpha transparency components into the specified array.	__label__80
+Clone this object.	__label__80
+Clone this Format object polymorphically.	__label__80
+Clones the current PersistableBundle.	__label__80
+Copy an array of RS objects to the Allocation.	__label__80
+Copies all of the mappings from the specified map to this map.	__label__80
+Copy an array into a 1D region of this Allocation.	__label__80
+Copy the coordinates from src into this rectangle.	__label__80
+Marks the end of an I/O operation that might block indefinitely.	__label__81
+Marks a position in the stream to be returned to by a subsequent call to reset.	__label__81
+Mark the present position in the stream.	__label__81
+Mark the start of an optional section.	__label__81
+Mark the beginning of one record in the backup data stream.	__label__81
+Marks the present position in the stream.	__label__81
+Marks the end of an I/O operation that might block indefinitely.	__label__81
+Marks the beginning of an I/O operation that might block indefinitely.	__label__81
+Marks this thread as either a daemon thread or a user thread.	__label__81
+Marks the present position in the stream.	__label__81
+Marks the current position in this input stream.	__label__81
+Mark a certain region of text as composing text.	__label__81
+Marks the current position in this input stream.	__label__81
+Mark a component completely clean.	__label__81
+Marks the present position in the stream.	__label__81
+Marks this dream as interactive to receive input events.	__label__81
+Mark the area defined by dirty as needing to be drawn.	__label__81
+Mark the area defined by the rect (l,t,r,b) as needing to be drawn.	__label__81
+Marks the specified region of content as having contained original prior to AutoText replacement.	__label__81
+Marks the current position in this input stream.	__label__81
+Mark in the editor that a preference value should be removed, which will be done in the actual preferences once commit() is called.	__label__81
+Speaks the text using the specified queuing strategy and speech parameters, the text may be spanned with TtsSpans.	__label__82
+Cumulates, in parallel, each element of the given array in place, using the supplied function.	__label__83
+Cumulates, in parallel, each element of the given array in place, using the supplied function.	__label__83
+Span a string using this UnicodeSet.	__label__84
+Cancel the dialog.	__label__85
+Unlocks Wifi Multicast, restoring the filter of packets not addressed specifically to this device and saving power.	__label__85
+Unlocks the SlidingDrawer so that touch events are processed.	__label__85
+Unsets the designated columns as the match columns for this RowSet object.	__label__85
+Unloads all instruments contained in the specified Soundbank.	__label__85
+Unload Sound effects.	__label__85
+Undoes a change.	__label__85
+Undoes the appropriate edits.	__label__85
+Undoes all changes from the index of the next edit to edit, updating the index of the next edit appropriately.	__label__85
+Unbinds the named object.	__label__85
+Cancels the operation and signals the cancellation listener.	__label__85
+Unbind an application environment, called when the information previously set by bindInput(InputBinding) is no longer valid for this input method.	__label__85
+Deselect a track.	__label__85
+Deselects the columns from index0 to index1, inclusive.	__label__85
+Deregisters all service provider object currently registered under the given category.	__label__85
+Deregisters a server object from the runtime, allowing the object to become available for garbage collection.	__label__85
+Deny knowledge of a default event.	__label__85
+This method cancels the thumbnail request so clients waiting for getThumbnail will be interrupted and return immediately.	__label__85
+Cancel a previously shown notification.	__label__85
+Cancel all previously shown notifications.	__label__85
+Cancel this active request.	__label__85
+Unregister an observer that has previously been registered with this cursor via registerContentObserver(ContentObserver).	__label__85
+Deselects the rows from index0 to index1, inclusive.	__label__85
+Unregisters a listener for the sensors with which it is registered.	__label__85
+Unregister an observer that has previously been registered with this cursor via registerContentObserver(ContentObserver).	__label__85
+Unsets the preferred service for the specified Activity.	__label__85
+Unsets the designated column as the match column for this RowSet object.	__label__85
+Unregisters callbacks on data usage.	__label__85
+Unregisters a previous callback.	__label__85
+Unregisters a previously registered callback.	__label__85
+Unregisters a GNSS Navigation Message callback.	__label__85
+Unregisters default key actions.	__label__85
+Unregisters an input device listener.	__label__85
+Unregister the SubscriptionManager.OnSubscriptionsChangedListener.	__label__85
+Unregister an application configuration that has been registered using registerSinkAppConfiguration(String, int, BluetoothHealthCallback) Requires BLUETOOTH permission.	__label__85
+Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).	__label__85
+unregister this DragGestureRecognizer's Listeners with the Component, subclasses must override this method	__label__85
+Cancels a pending long press.	__label__85
+Unregisters the supplied transformer.	__label__85
+Unregister a previously registered BroadcastReceiver.	__label__85
+Unregister an observer that has previously been registered with this cursor via registerContentObserver(ContentObserver).	__label__85
+Unregisters the existing TvInputManager.TvInputCallback.	__label__85
+Unregisters a callback previously registered via registerNetworkCallback(NetworkRequest, android.app.PendingIntent).	__label__85
+Unregisters the given observer from the notification list so it will no longer receive updates.	__label__85
+Unregisters a AutofillManager.AutofillCallback to receive autofill events.	__label__85
+Unregister an audio playback callback previously registered with registerAudioPlaybackCallback(AudioPlaybackCallback, Handler).	__label__85
+unregister the current DragGestureListener	__label__85
+Unregisters an AudioDeviceCallback object which has been previously registered to receive notifications of changes to the set of connected audio devices.	__label__85
+This method cancels the thumbnail request so clients waiting for getThumbnail will be interrupted and return immediately.	__label__85
+Cancels the speech recognition.	__label__85
+Tells the editor to cancel editing and not accept any partially edited value.	__label__85
+Have the text editor finish whatever composing text is currently active.	__label__85
+"Introspect on a Java bean and learn all about its properties, exposed methods, below a given \stop\"" point."""	__label__85
+Attempts to cancel execution of this task.	__label__85
+"The \contentPane\"" is the primary container for application specific components."""	__label__85
+"Synonym for openOutputStream(uri, \w\"")."""	__label__85
+"This default implementation of the initialize method assumes all state held in objects of this type is exposed via the matching pairs of \setter\"" and \""getter\"" methods in the order they are returned by the Introspector."""	__label__85
+reject the Drag.	__label__85
+Unsubscribes for changes to the children of the specified media id through a callback.	__label__85
+"Throws an org.omg.CORBA.NO_IMPLEMENT exception with the message \This is a locally constrained object.\"""""	__label__85
+"Throws an org.omg.CORBA.NO_IMPLEMENT exception with the message \This is a locally constrained object.\"""""	__label__85
+"Throws an org.omg.CORBA.NO_IMPLEMENT exception with the message \This is a locally constrained object.\"""""	__label__85
+"Throws an org.omg.CORBA.NO_IMPLEMENT exception with the message \This is a locally constrained object.\"""""	__label__85
+"Throws an org.omg.CORBA.NO_IMPLEMENT exception with the message \This is a locally constrained object.\"""""	__label__85
+Unregister an observer that has previously been registered with this cursor via registerContentObserver(ContentObserver).	__label__85
+Unregisters all the bindings in the first tier InputMaps and ActionMap.	__label__85
+Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).	__label__85
+Undoes all changes made in the current transaction and releases any database locks currently held by this Connection object.	__label__85
+Undoes all changes made in the current transaction.	__label__85
+"The \selectionForeground\"" is the color of the text when it is painted over a filled area of the progress bar."""	__label__85
+"The \selectionBackground\"" is the color of the text when it is painted over an unfilled area of the progress bar."""	__label__85
+"Programmatically perform a \click\""."""	__label__85
+Unless you provide binding for your service, you don't need to implement this method, because the default implementation returns null.	__label__85
+This gives list of endpoints in an application.	__label__85
+Unblock multicast datagrams from the given source address that was previously blocked using the block method.	__label__85
+This allows the model to be safely rendered in the presence of currency, if the model supports being updated asynchronously.	__label__85
+Attempts to cancel execution of this task.	__label__85
+Attempts to cancel execution of this task.	__label__85
+Attempts to cancel execution of this task.	__label__85
+Attempts to cancel operation that has not already started.	__label__85
+Cancels the deletion of the current row and notifies listeners that a row has changed.	__label__85
+DTPSV solves one of the systems of equations A*x = b or A**T*x = b Details: http://www.netlib.org/lapack/explore-html/d9/d84/dtpsv_8f.html Note: For a N*N matrix, the input Allocation should be a 1D allocation of size dimX = N*(N+1)/2, The following subroutine can is an example showing how to convert a UPPER trianglar matrix 'a' to packed matrix 'b'.	__label__85
+Cancels the current editing session.	__label__85
+Cancels a print job that is in progress.	__label__85
+Cancels this timer task.	__label__85
+Cancels any auto-focus function in progress.	__label__85
+Cancel any ongoing p2p group negotiation The function call immediately returns after sending a connection cancellation request to the framework.	__label__85
+Cancels the animation.	__label__85
+This method cancels the thumbnail request so clients waiting for getThumbnail will be interrupted and return immediately.	__label__85
+Cancel pending and running spell check tasks	__label__85
+Unregisters listener so that it will no longer receive AncestorEvents.	__label__85
+Ascertains whether the last value read from this SQLInputImpl object was null.	__label__85
+Instructs the WebView to cancel the authentication request.	__label__85
+Cancels the current editing session.	__label__85
+"Throws an org.omg.CORBA.NO_IMPLEMENT exception with the message \This is a locally constrained object.\"""""	__label__85
+Cancel the countdown.	__label__85
+Cancel a currently active PendingIntent.	__label__85
+Cancels this print job.	__label__85
+Cancels the animation.	__label__85
+Cancels an ongoing drag and drop operation.	__label__85
+Compiles the script (source read from Reader) for later execution.	__label__86
+Compiles the given regular expression into a pattern with the given flags.	__label__86
+Tunes to a given channel for TV program recording.	__label__87
+Tunes to a given channel.	__label__87
+Tunes to a given channel.	__label__87
+This method toggles the input method window display.	__label__88
+Toggles the drawer open and close.	__label__88
+Toggles the Underline attribute.	__label__88
+Toggles the INVERSE state of the filltype	__label__88
+Toggle the soft input window.	__label__88

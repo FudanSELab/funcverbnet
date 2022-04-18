@@ -436,7 +436,7 @@ id,api_entity_with_single_des_id,qualified_name,single_description,final_annotat
 2247,40220,android.graphics.drawable.VectorDrawable.draw(android.graphics.Canvas),Draw in its bounds (set via setBounds) respecting optional effects such as alpha (set via setAlpha) and color filter (set via setColorFilter).,4,draw
 2248,39802,android.graphics.drawable.ColorDrawable.draw(android.graphics.Canvas),Draw in its bounds (set via setBounds) respecting optional effects such as alpha (set via setAlpha) and color filter (set via setColorFilter).,4,draw
 2249,40250,"android.graphics.drawable.shapes.RectShape.draw(android.graphics.Canvas,android.graphics.Paint)","Draws this shape into the provided Canvas, with the provided Paint.",4,draw
-2250,39020,"android.graphics.Canvas.drawPoints(float[],android.graphics.Paint)",Helper for drawPoints() that assumes you want to draw the entire array,4,draw
+2250,39020,"android.graphics.Canvas.drawPoints(float[],android.graphics.Paint)","Helper for drawPoints() that assumes you want to draw the entire array",4,draw
 2251,40239,"android.graphics.drawable.shapes.ArcShape.draw(android.graphics.Canvas,android.graphics.Paint)","Draws this shape into the provided Canvas, with the provided Paint.",4,draw
 2252,39282,"android.graphics.NinePatch.draw(android.graphics.Canvas,android.graphics.Rect)",Draws the NinePatch.,4,draw
 2256,39013,"android.graphics.Canvas.drawOval(android.graphics.RectF,android.graphics.Paint)",Draw the specified oval using the specified paint.,4,draw
@@ -4525,7 +4525,7 @@ id,api_entity_with_single_des_id,qualified_name,single_description,final_annotat
 12794,12642,java.time.Duration.subtractFrom(java.time.temporal.Temporal),Subtracts this duration from the specified temporal object.,37,subtract
 13145,5139,java.awt.geom.Area.subtract(java.awt.geom.Area),Subtracts the shape of the specified Area from the shape of this Area.,37,subtract
 13456,49612,"android.test.SyncBaseInstrumentation.syncProvider(android.net.Uri,java.lang.String,java.lang.String)",Syncs the specified provider.,38,\N
-13279,22170,"javax.sound.sampled.Mixer.synchronize(javax.sound.sampled.Line[],boolean)",Synchronizes two or more lines.,38,synchronize 
+13279,22170,"javax.sound.sampled.Mixer.synchronize(javax.sound.sampled.Line[],boolean)",Synchronizes two or more lines.,38,synchronize
 12163,29536,"javax.swing.text.html.InlineView.breakView(int,int,float,float)",Tries to break this view on the given axis.,39,break
 13137,33431,org.w3c.dom.Text.splitText(int),"Breaks this node into two nodes at the specified offset, keeping both in the tree as siblings.",39,break
 13385,29088,"javax.swing.text.ParagraphView.breakView(int,float,java.awt.Shape)",Breaks this view on the given axis at the given length.,39,break

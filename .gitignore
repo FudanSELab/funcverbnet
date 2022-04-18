@@ -104,3 +104,9 @@ ENV/
 # IDE settings
 .vscode/
 .idea/
+
+.DS_Store
+
+funcverbnet/logs
+funcverbnet/classifier/model
+funcverbnet/tmp

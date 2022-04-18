@@ -1,0 +1,690 @@
+sentence	label
+Support for reporting bound property changes.	__label__-1
+The base elevation of this view relative to its parent, in pixels.	__label__-1
+A utility method used by the event listeners.	__label__-1
+Whether the device is currently on a technology (e.g.	__label__-1
+Implement the Parcelable interface	__label__-1
+The View associated with this ViewPropertyAnimator will have its layer type set to LAYER_TYPE_HARDWARE for the duration of the next animation.	__label__-1
+The method is overridden to take into account caret width.	__label__-1
+Processes hierarchy event occurring on the JLayer or any of its subcomponents.	__label__-1
+Getter for a region specific style property.	__label__-1
+Amount by which to extend the left fading region.	__label__-1
+Shuts down the input side of the socket.	__label__1
+Stops the monitor.	__label__1
+Stops the animation at the current frame.	__label__1
+Stop the service if the most recent time it was started was startId.	__label__1
+Stops the smooth zoom.	__label__1
+Stop a nested scroll in progress.	__label__1
+Stops an ongoing Bluetooth LE scan started using a PendingIntent.	__label__1
+Stops the animation thread.	__label__1
+Stops the face detection.	__label__1
+Stops a playing ringtone.	__label__1
+Writes an SQL REF value to the stream.	__label__2
+Log a message, with an array of object arguments.	__label__2
+Log a FINEST message, which is only to be constructed if the logging level is such that the message will actually be logged.	__label__2
+Log a WARNING message, which is only to be constructed if the logging level is such that the message will actually be logged.	__label__2
+Outputs this date-time as a String.	__label__2
+Outputs this year as a String.	__label__2
+Outputs this chronology as a String, using the chronology ID.	__label__2
+Outputs this zone as a String, using the ID.	__label__2
+Outputs this date as a String.	__label__2
+Prints a message of the specified kind at the location of the annotation value inside the annotation mirror of the annotated element.	__label__2
+Postpone the entering Fragment transition until startPostponedEnterTransition() or executePendingTransactions() has been called.	__label__3
+Sorts the specified array into ascending numerical order.	__label__4
+"Writes a namespace to the output stream If the prefix argument to this method is the empty string, \xmlns\"""	__label__4
+Sorts the specified range of the specified array of objects according to the order induced by the specified comparator.	__label__4
+Sorts the specified array into ascending numerical order.	__label__4
+Sorts the specified array into ascending numerical order.	__label__4
+Sorts the specified range of the specified array of objects into ascending order, according to the natural ordering of its elements.	__label__4
+Sorts the specified array into ascending numerical order.	__label__4
+Sorts this list according to the order induced by the specified Comparator.	__label__4
+Sorts the specified array into ascending numerical order.	__label__4
+Sorts the specified array into ascending numerical order.	__label__4
+Paints the drop line.	__label__5
+Paints the background of a panel.	__label__5
+Paints the border.	__label__5
+Paints the border of a tool bar.	__label__5
+Paints the border of a radio button.	__label__5
+Paints the specified component.	__label__5
+Paints the specified component according to the Look and Feel.	__label__5
+Paints the foreground of the divider of a split pane.	__label__5
+Paints the background of a progress bar.	__label__5
+Paints the background of a slider.	__label__5
+Samples the gesture spatially by rendering the gesture into a 2D grayscale bitmap.	__label__6
+Requests permissions to be granted to this application.	__label__7
+Request to apply the given window insets to this view or another view in its subtree.	__label__7
+Requests that this Component gets the input focus.	__label__7
+Request authentication of a crypto object.	__label__7
+Allows this receiver to select the alias for a private key and certificate pair for authentication.	__label__7
+This allows clients to request an explicit refresh of content identified by uri.	__label__7
+Allows the interceptor to process service context information.	__label__7
+Allows an Interceptor to query reply information and modify the reply service context after the target operation has been invoked and before the reply is returned to the client.	__label__7
+Ask the resource manager to prepare for a transaction commit of the transaction specified in xid.	__label__7
+Ask the authenticator for a localized label for the given authTokenType.	__label__7
+Visits an executable element.	__label__8
+Visits a FIELD variable element by calling defaultAction.	__label__8
+Visits a FLOAT primitive type by calling defaultAction.	__label__8
+Visits an array value in an annotation.	__label__8
+Visits a boolean value in an annotation.	__label__8
+Visits a UnionType element by calling visitUnknown.	__label__8
+Visits a LONG primitive type by calling defaultAction.	__label__8
+Visits a RESOURCE_VARIABLE variable element by calling defaultAction.	__label__8
+Visits an executable type.	__label__8
+Visits a type value in an annotation.	__label__8
+Plays the ringtone.	__label__9
+Plays the audio clip at the specified absolute URL.	__label__9
+"Requests that the argument string be displayed in the \status window\""."""	__label__9
+Play an item with a specific id in the play queue.	__label__9
+Plays the earcon using the specified queueing mode and parameters.	__label__9
+Call by the MenuSelectionManager when the MenuElement is added or remove from the menu selection.	__label__10
+Called whenever items in the list have been moved.	__label__10
+This method is called when the selection has changed, in case any subclasses would like to know.	__label__10
+Is called by the ORB runtime while in the process of unmarshaling a value type.	__label__10
+Called from layout when this view should assign a size and position to each of its children.	__label__10
+This hook is called whenever an item in a context menu is selected.	__label__10
+Called by overScrollBy(int, int, int, int, int, int, int, int, boolean) to respond to the results of an over-scroll operation.	__label__10
+Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.	__label__10
+Called when the virtual display video projection has been paused by the system or when the surface has been detached by the application by calling setSurface(null).	__label__10
+Called when the captioning user style changes.	__label__10
+Asserts that two Strings are equal.	__label__11
+Asserts that two objects refer to the same object.	__label__11
+Assert that two views are top aligned, that is that their top edges are on the same y location, with respect to the specified margin.	__label__11
+Asserts that two chars are equal.	__label__11
+Consumes the next token from the JSON stream and asserts that it is the end of the current array.	__label__11
+Asserts that two sets contain the same elements.	__label__11
+Asserts that array actual is the same size and every element is the same as those in array expected.	__label__11
+Assert that two views are bottom aligned, that is that their bottom edges are on the same y location.	__label__11
+Assert that two views are bottom aligned, that is that their bottom edges are on the same y location, with respect to the specified margin.	__label__11
+Asserts that two ints are equal.	__label__11
+Simulate touching a view and dragging it to a specified location.	__label__12
+Simulate touching in the center of the screen and dragging one quarter of the way up	__label__12
+Simulate touching the center of a view and releasing quickly (before the tap timeout).	__label__12
+Call this method after you handle a keypress so that the meta state will be reset to unshifted (if it is not still down) or primed to be reset to unshifted (once it is released).	__label__12
+This is called immediately after any structural changes (format or size) have been made to the surface.	__label__12
+The service should call this method when all the synthesized audio for a request has been passed to audioAvailable(byte[], int, int).	__label__12
+"Called by the UI when the user hits the Approve button (labeled \Open\"" or \""Save\"""	__label__12
+Called by the Java Virtual Machine when a thread in this thread group stops because of an uncaught exception, and the thread does not have a specific Thread.UncaughtExceptionHandler installed.	__label__12
+The service should call this method if the speech synthesis fails.	__label__12
+"This is called for activities that set launchMode to \singleTop\"" in their package"	__label__12
+Parses the specified URL as a schema and returns it as a Schema.	__label__13
+Parse the given XML file as a header description, adding each parsed Header into the target list.	__label__13
+Flatten this object in to a Parcel.	__label__13
+Flatten the Parcelable object into the parcel.	__label__13
+Flatten this object in to a Parcel.	__label__13
+Flatten this object in to a Parcel.	__label__13
+Flatten a PersistableBundle into the parcel at the current dataPosition(), growing dataCapacity() if needed.	__label__13
+Flatten this object in to a Parcel.	__label__13
+Parses the given ranges to generate a Language Priority List, and then customizes the list using the given map.	__label__13
+Flatten this object in to a Parcel.	__label__13
+Export the activatable remote object to the RMI runtime to make the object available to receive incoming calls.	__label__14
+Exports this RMI object.	__label__14
+Finishes writing compressed data to the output stream without closing the underlying stream.	__label__15
+Finalize inflating a view from XML.	__label__15
+Finishes a multiple-part encryption or decryption operation, depending on how this cipher was initialized.	__label__15
+Finishes a multiple-part encryption or decryption operation, depending on how this cipher was initialized.	__label__15
+Finishes the session started by startAddAccountSession(String, String, String[], Bundle, Activity, AccountManagerCallback, Handler) or startUpdateCredentialsSession(Account, String, Bundle, Activity, AccountManagerCallback, Handler).	__label__15
+Force finish another activity that you had previously started with startActivityForResult(Intent, int).	__label__15
+Called by a preference panel fragment to finish itself.	__label__15
+Finish the broadcast.	__label__15
+Finish making changes that will not be reported to the client.	__label__15
+Finish this session and allow TextServicesManagerService to disconnect the bound spell checker.	__label__15
+Creates a single string with all the parameters set in this Parameters object.	__label__16
+Create a job which can print a multiDoc.	__label__16
+Creates a new Area object that contains the same geometry as this Area transformed by the specified AffineTransform.	__label__16
+Creates a position within the content that will track change as the content is mutated.	__label__16
+Creates the default editor that will be used in editable combo boxes.	__label__16
+Create a new default Namespace	__label__16
+Creates a Spliterator over the elements in this set.	__label__16
+Create a new MotionEvent, filling in all of the basic values that define the motion.	__label__16
+Creates a Raster based on a packed SampleModel with the specified data type, width, height, number of bands, and bits per band.	__label__16
+Create a new ETC1Texture from an input stream containing a PKM formatted compressed texture.	__label__16
+Inflate a new view hierarchy from the specified xml node.	__label__17
+Inflate a view from an XML resource.	__label__17
+Inflate this Drawable from an XML resource optionally styled by a theme.	__label__17
+Inflate this Drawable from an XML resource optionally styled by a theme.	__label__17
+Inflate this Drawable from an XML resource optionally styled by a theme.	__label__17
+Inflate this Drawable from an XML resource optionally styled by a theme.	__label__17
+Inflate a new view hierarchy from the specified xml resource.	__label__17
+Inflate this Drawable from an XML resource optionally styled by a theme.	__label__17
+Inflate a new view hierarchy from the specified xml resource.	__label__17
+Inflates the given XML resource and adds the preference hierarchy to the current preference hierarchy.	__label__17
+Closes the stream.	__label__18
+Close the shared instance of the icon database.	__label__18
+Closes the socket.	__label__18
+Closes this random access file stream and releases any system resources associated with the stream.	__label__18
+Close the current output stream.	__label__18
+Closes the device, indicating that the device should now release any system resources it is using.	__label__18
+Closes this socket.	__label__18
+Close the connection of the profile proxy to the Service.	__label__18
+Closes the stream and releases any system resources associated with it.	__label__18
+Closes this URLClassLoader, so that it can no longer be used to load new classes or resources that are defined by this loader.	__label__18
+Intersect the current clip with the specified rectangle, which is expressed in local coordinates.	__label__19
+Intersect the current clip with the specified path.	__label__19
+Intersect the current clip with the specified rectangle, which is expressed in local coordinates.	__label__19
+Intersect the current clip with the specified rectangle, which is expressed in local coordinates.	__label__19
+Sends a notification (RelationNotification) for a role update in the given relation.	__label__20
+Send a key press to the listener.	__label__20
+Send raw NFC-F commands to the tag and receive the response.	__label__20
+Send a key event to the currently focused window/view and wait for it to be processed.	__label__20
+Sends a generic command to the session.	__label__20
+Send a notification or indication that a local characteristic has been updated.	__label__20
+Send a custom action back for the MediaSession to perform.	__label__20
+Send a proprietary event to all MediaControllers listening to this Session.	__label__20
+Send a simulated key event for a media button to be received by the current client.	__label__20
+Send a received EMM packet to the CA system.	__label__20
+Match this filter against an Intent's action.	__label__21
+Try to match against the path in a url.	__label__21
+Attempt to match the text at a given position against an array of quarter strings.	__label__21
+Processes key stroke events such as mnemonics and accelerators.	__label__22
+Processes a click on the preference.	__label__22
+Processes a set of annotation types on type elements originating from the prior round and returns whether or not these annotation types are claimed by this processor.	__label__22
+Processes the given array of bytes and finishes the MAC operation.	__label__22
+Processes events on this scrolling list.	__label__22
+Process the Source into a Templates object, which is a a compiled representation of the source.	__label__22
+Processes events on this scroll bar.	__label__22
+Process a raw XML qualified name, after all declarations in the current context have been handled by declarePrefix().	__label__22
+Processes a key event forwarded from the MenuSelectionManager and changes the menu selection, if necessary, by using MenuSelectionManager's API.	__label__22
+Processes a click on the preference.	__label__22
+Reallocate this objects internal structures to take up the least possible space, without changing this object's value.	__label__23
+Allocates a new double buffer.	__label__23
+Allocates a new byte buffer.	__label__23
+Allocates a new long buffer.	__label__23
+Allocate the requested number of bytes for your application to use in the given open file.	__label__23
+Allocate an array to store items of the type appropriate (which is determined by the subclass).	__label__23
+Allocates an NVList with (probably) enough space for the specified number of NamedValue objects.	__label__23
+Allocates a new direct byte buffer.	__label__23
+Pin shortcuts on a package.	__label__24
+"Handles scrolling in response to a \home/end\"" shortcut press."""	__label__24
+"Handles scrolling in response to a \home/end\"" shortcut press."""	__label__24
+Pins a contact at a provided position, or unpins a contact.	__label__24
+Formats a date or a time according to the local conventions.	__label__25
+Formats the specified phoneNumber to the RFC3966 representation.	__label__25
+Format according to RFC 2445 DATE-TIME type.	__label__25
+Format the given message to XML.	__label__25
+Formats the string necessary for grammatically correct pluralization of the given resource ID for the given quantity, using the given arguments.	__label__25
+Formats a number	__label__25
+Formats an object to produce a string.	__label__25
+Format a phone number.	__label__25
+Format an object to produce a string.	__label__25
+Format and publish a LogRecord.	__label__25
+Publish the changes in preferences upward to the parent view.	__label__26
+Publish the list of shortcuts.	__label__26
+"Formats an elapsed time in a format like \MM:SS\"" or \""H:MM:SS\"" (using a form suited to the current locale)"	__label__27
+Normalize a sequence of char values.	__label__27
+Normalizes this URI's path.	__label__27
+"Returns true if this URI is opaque like \mailto:nobody@google.com\""."""	__label__27
+"Returns an int value with at most a single one-bit, in the position of the highest-order (\leftmost\"") one-bit in the specified int value."""	__label__27
+"Returns the number of color components in the \input\"" color space of this profile."""	__label__27
+"Returns an XMLSignatureFactory that supports the specified XML processing mechanism and representation type (ex: \DOM\"")."""	__label__27
+"Returns the Part.Type of the i-th pattern \part\""."""	__label__27
+"Returns an XMLSignatureFactory that supports the requested XML processing mechanism and representation type (ex: \DOM\"")"	__label__27
+"Formats an elapsed time in the form \MM:SS\"" or \""H:MM:SS\"" for display on the call-in-progress screen."""	__label__27
+Imports the specified parameters and decodes them according to the primary decoding format for parameters.	__label__28
+Imports all of the preferences represented by the XML document on the specified input stream.	__label__28
+Instructs this STATE_RINGING RemoteConnection to reject.	__label__29
+Instructs this Call to enter a conference.	__label__29
+This method instructs the bean that it is OK to use the Gui.	__label__29
+This method instructs the bean that it should not use the Gui.	__label__29
+Instructs this RemoteConnection to continue playing a post-dial DTMF string.	__label__29
+Instructs the WebView to proceed with the authentication with the given credentials.	__label__29
+Makes the upper 2x2 a rotation matrix of the given angle	__label__29
+Make this message like o.	__label__29
+Makes the view at most this many pixels wide	__label__29
+Make the device lock immediately, as if the lock screen timeout has expired at the point of this call.	__label__29
+Removes all of the mappings from this map.	__label__30
+Removes all of this collection's elements that are also contained in the specified collection (optional operation).	__label__30
+Removes all spans from the Editable, as if by calling removeSpan(Object) on each of them.	__label__30
+Removes all available elements from this queue and adds them to the given collection.	__label__30
+Removes all of the elements from this list.	__label__30
+Removes all the mappings from this object.	__label__30
+Removes all attributes from this attribute set.	__label__30
+Removes all of the elements of this collection that satisfy the given predicate.	__label__30
+Remove all records about this host from the AppWidget manager.	__label__30
+Removes all of the preferences (key-value associations) in this preference node.	__label__30
+Hides the popup if it is showing and shows the popup if it is hidden.	__label__31
+Collapse a group in the grouped list view	__label__31
+Hide the overflow items from the associated menu.	__label__31
+Close/hide the input method's soft input area, so the user no longer sees it or can interact with it.	__label__31
+Converts an unpacked complex data value holding a dimension to its final floating point value.	__label__32
+Converts a float value into a string.	__label__32
+Converts the buffer's contents into a string decoding bytes using the platform's default character set.	__label__32
+Converts this BigDecimal to a long.	__label__32
+Converts the string argument into a short value.	__label__32
+Converts the string argument into an int value.	__label__32
+During object input, convert this deserialized enumeration instance to the proper enumeration value defined in the enumeration attribute class.	__label__32
+Converts a segment into a String.	__label__32
+Convert the ARGB color to its HSV components.	__label__32
+Convert the lexical XSD string argument into a String value.	__label__32
+Waits a given number of milliseconds (of uptimeMillis) before returning.	__label__33
+Waits for the result of a queue(ByteBuffer) operation Note that this may return requests queued on multiple UsbEndpoints.	__label__33
+Waits at most millis milliseconds plus nanos nanoseconds for this thread to die.	__label__33
+Synchronously wait for the application to be idle.	__label__33
+Waits if necessary for at most the given time for the computation to complete, and then retrieves its result.	__label__33
+Waits for the result of a queue(ByteBuffer) operation	__label__33
+If this task has not completed, attempts to process at most the given number of other unprocessed tasks for which this task is on the completion path, if any are known to exist.	__label__33
+Waits if necessary for the computation to complete, and then retrieves its result.	__label__33
+Sleeps for the specified time.	__label__33
+Arrives at this phaser and awaits others.	__label__33
+Call Drawable.jumpToCurrentState() on all Drawable objects associated with this view.	__label__34
+Invokes the getAccessibleChild method on each UI handled by this object.	__label__34
+Performs the given action for each non-null transformation of each entry.	__label__34
+Perform a query by combining all current settings and the information passed into this method.	__label__34
+Perform a service discovery on the remote device to get the UUIDs supported.	__label__34
+Performs an action for each element of this stream.	__label__34
+Performs a line-end movement action.	__label__34
+Performs the text completion by replacing the current text by the selected item.	__label__34
+Default implementation of KeyEvent.Callback.onKeyDown(): perform press of the view when KEYCODE_DPAD_CENTER or KEYCODE_ENTER is released, if the view is enabled and clickable.	__label__34
+Perform a remove(Object) of all values in array	__label__34
+Joins a multicast group.	__label__35
+Reconnect to the currently active access point, even if we are already connected.	__label__35
+Connect back to remote device.	__label__35
+Connects to the media browser service.	__label__35
+Connect to an application service, creating it if needed.	__label__35
+Connects this socket to the server.	__label__35
+Connects this channel's socket.	__label__35
+Connects this channel's socket.	__label__35
+Connects the socket to a remote address for this socket.	__label__35
+Connects this stub to an ORB.	__label__35
+Shows the context menu for the specified view or its ancestors.	__label__36
+Show or hide all menu items that are in the given group.	__label__36
+Shows the popup	__label__36
+Shows the context menu for this view.	__label__36
+Shows the context menu for this view anchored to the specified view-relative coordinate.	__label__36
+Manually shows the previous child.	__label__36
+Used to show a dialog.	__label__36
+Show the controller on screen.	__label__36
+Shows a question-message dialog requesting input from the user, with the input value initialized to initialSelectionValue.	__label__36
+Shows the context menu for the specified view or its ancestors anchored to the specified view-relative coordinate.	__label__36
+Validates the object.	__label__37
+Validates and parses an argument name or argument number string.	__label__37
+Revalidates the component hierarchy up to the nearest validate root.	__label__37
+Invalidates the layout, indicating that if the layout manager has cached information it should be discarded.	__label__37
+Authenticate a sector with key B.	__label__37
+Authenticates the MBeanServerConnection client with the given client credentials.	__label__37
+Invalidates the layout and resizes the cache of requests/allocations.	__label__37
+Invalidates the layout, indicating that if the layout manager has cached information it should be discarded.	__label__37
+Invalidates the layout, indicating that if the layout manager has cached information it should be discarded.	__label__37
+Calculates a hash code value for the object.	__label__38
+Calculates the desired shape of the list.	__label__38
+Calculates the size requirements for the minor axis axis.	__label__38
+Calculates the period between this date and another date as a ChronoPeriod.	__label__38
+Calculate the requirements of the block along the major axis (i.e.	__label__38
+Calculates the amount of time until another year-month in terms of the specified unit.	__label__38
+Calculates the period between this date and another date as a Period.	__label__38
+Calculates the size requirements for this BoxView by examining the size of each child view.	__label__38
+Calculates the amount of time until another date-time in terms of the specified unit.	__label__38
+Takes a number of weeks since the epoch and calculates the Julian day of the Monday for that week.	__label__38
+Syncs the specified provider.	__label__39
+Synchronizes two or more lines.	__label__39
+Splits the given input sequence around matches of this pattern.	__label__40
+Breaks this view on the given axis at the given length.	__label__40
+Splits a string on a pattern.	__label__40
+Splits this string around matches of the given regular expression.	__label__40
+Breaks this view on the given axis at the given length.	__label__40
+"Return root of the \system\"" partition holding the core Android OS."""	__label__40
+"Returns calendar zodiac name strings if the calendar has them, for example: \Rat\"""	__label__40
+Splits this string around matches of the given regular expression.	__label__40
+Tries to break this view on the given axis.	__label__40
+Breaks this node into two nodes at the specified offset, keeping both in the tree as siblings.	__label__40
+Destroys a DynAny object.	__label__41
+Destroys the internal state of this WebView.	__label__41
+Destroy this ScriptGroup and all Closures in it	__label__41
+Destroys a DynAny object.	__label__41
+Destroys this key.	__label__41
+Tears down the Connection object.	__label__41
+Tears down the environment for the test fixture.	__label__41
+Tears down the fixture, for example, close a network connection.	__label__41
+Destroys the named context and removes it from the namespace.	__label__41
+Kills the subprocess.	__label__41
+Presses one or more mouse buttons.	__label__42
+Simulate touching the center of a view and releasing.	__label__42
+Selects all the text in this text component.	__label__43
+Selects the text between the specified start and end positions.	__label__43
+Selects the phrase for the given keyword.	__label__43
+Selects the specified object from the list.	__label__43
+Selects the nodes corresponding to each of the specified rows in the display.	__label__43
+Selects or deselects the button.	__label__43
+Selects a track.	__label__43
+Selects the text between the specified start and end positions.	__label__43
+Selects the nodes identified by the specified array of paths.	__label__43
+Selects or deselects the internal frame if it's showing.	__label__43
+Reads in a Java object tree from the given XML input.	__label__44
+Read and return a new Parcelable from the parcel.	__label__44
+Reads a 32 bit int.	__label__44
+Reads a 16 bit char.	__label__44
+Reads one input byte and returns true if that byte is nonzero, false if that byte is zero.	__label__44
+Read a FileDescriptor from the parcel at the current dataPosition().	__label__44
+Reads the access control list.	__label__44
+Read a fixed point value from the input stream and store it in the value member.	__label__44
+Reads a Long out of a column in a Cursor and writes it to a ContentValues.	__label__44
+Reads up to len bytes of data from the input stream into an array of bytes.	__label__44
+Responds to a request for a TopDownLeftRight (TDLR) ordered resend of the pixel data from an ImageConsumer.	__label__45
+Responds to the beginning of a scaling gesture.	__label__45
+Restores the frame back to its size and position prior to a maximizeFrame call.	__label__46
+Recover a list of active notifications: ones that have been posted by the calling app that have not yet been dismissed by the user or cancel(String, int)ed by the app.	__label__46
+Recovers the unique single-method interface type for which this wrapper instance was created.	__label__46
+Restore one record [representing a single file] from the restore dataset.	__label__46
+Resumes recording.	__label__46
+Restores this DataFlavor from a Serialized state.	__label__46
+The application is being restored from backup and should replace any existing data with the contents of the backup.	__label__46
+The object implements the readExternal method to restore its contents by calling the methods of DataInput for primitive types and readObject for objects, strings and arrays.	__label__46
+Restore the calling application from backup.	__label__46
+Restores the saved state, if any.	__label__46
+Open the atomic file for reading.	__label__47
+Opens the line with the specified format and suggested buffer size, causing the line to acquire any required system resources and become operational.	__label__47
+Opens a MIDI device for reading and writing.	__label__47
+Open a private file associated with this Context's application package for reading.	__label__47
+Called to open a MidiInputPort for the specified port number.	__label__47
+Open an asset using an explicit access mode, returning an InputStream to read its contents.	__label__47
+Open a private file associated with this Context's application package for writing.	__label__47
+Opens a server-socket channel.	__label__47
+Open a private file associated with this Context's application package for reading.	__label__47
+Opens the directory identified by the given path, returning a SecureDirectoryStream to iterate over the entries in the directory.	__label__47
+"Stores the x,y origin of this component into \return value\"" rv and return rv."""	__label__48
+Lists all the alias names of this keystore.	__label__48
+Lists all the locales that are supported.	__label__48
+Lists all file objects matching the given criteria in the given location.	__label__48
+Lists all the alias names of this keystore.	__label__48
+Enumerates the names bound in the named context, along with the class names of objects bound to them.	__label__48
+List all available CA plugins on the device.	__label__48
+Provides a string representation of the control	__label__49
+Provide a status report about the application.	__label__49
+Provides a formatted prompt, then reads a single line of text from the console.	__label__49
+Provides a reference to the orb associated with its parameter.	__label__49
+Provides a hint to the look and feel as to the KeyEvent.VK constant that can be used as a mnemonic to access the panel.	__label__49
+Provides a hint as to whether or not this JComponent should get focus.	__label__49
+Provides a way to determine the next visually represented model location that one might place a caret.	__label__49
+Provide the cursor for the list view.	__label__49
+Provides a new quota, specified in bytes.	__label__49
+provide optional type information about the associated event.	__label__49
+Redoes the appropriate edits.	__label__50
+Redoes all changes from the index of the next edit to edit, updating the index of the next edit appropriately.	__label__50
+Flash the screen during a violation.	__label__51
+Re-locks the camera to prevent other processes from accessing it.	__label__52
+Locks the Wi-Fi radio on until release() is called.	__label__52
+Locks the SlidingDrawer so that touch events are ignores.	__label__52
+Transposes a 4 x 4 matrix.	__label__53
+Swaps the elements at the specified positions in the specified list.	__label__53
+Flips to the next card of the specified container.	__label__53
+Flips to the first card of the container.	__label__53
+Randomly permutes the specified list using a default source of randomness.	__label__53
+Rotates the elements in the specified list by the specified distance.	__label__53
+Swap top/bottom or left/right if there are flipped (i.e.	__label__53
+Returns the notification channel settings for a given channel id.	__label__54
+Returns an IIOMetadataFormat object describing the given stream metadata format, or null if no description is available.	__label__54
+Returns the current animation used to animate a View that exits the screen.	__label__54
+Returns a string representation of the object.	__label__54
+Returns all of the root elements that are defined.	__label__54
+Returns the numeric value of the character ch in the specified radix.	__label__54
+Returns an OptionalDouble describing the arithmetic mean of elements of this stream, or an empty optional if this stream is empty.	__label__54
+Returns the names of the children of this preference node, relative to this node.	__label__54
+Returns the cryptographic algorithm constraints.	__label__54
+Returns the value mapped by name if it exists, coercing it if necessary, or throws if no such mapping exists.	__label__54
+Filter an ignorable whitespace event.	__label__55
+Filters the information provided in the setPixels method of the ImageConsumer interface which takes an array of bytes.	__label__55
+Filter a warning event.	__label__55
+Filter a notation declaration event.	__label__55
+Filters the information provided in the setPixels method of the ImageConsumer interface which takes an array of bytes.	__label__55
+Filter key up events.	__label__55
+Filter key down events.	__label__55
+Filters the information provided in the imageComplete method of the ImageConsumer interface.	__label__55
+Filter the information provided in the setColorModel method of the ImageConsumer interface.	__label__55
+Filter a character data event.	__label__55
+Refreshes this info with the latest state of the view it represents, and request new data be added by the View.	__label__56
+Refreshes/reloads the policy configuration.	__label__56
+If addStatesFromChildren() is true, refreshes this group's drawable state (to include the states from its children).	__label__56
+Reinitializes the insets parameter with this border's current insets.	__label__56
+Reinitialize the insets parameter with this Border's current Insets.	__label__56
+Reinitialize the insets parameter with this Border's current Insets.	__label__56
+Initialize the state.	__label__56
+Reinitialize the insets parameter with this Border's current Insets.	__label__56
+Reinitialize the insets parameter with this Border's current Insets.	__label__56
+Repositions this stream to the position at the time the mark method was last called on this input stream.	__label__56
+Updates the designated column with a character stream value, which will have the specified number of bytes.	__label__57
+Updates the designated column with a short value.	__label__57
+Updates (replace) the access control list.	__label__57
+Update any cached values that come from attributes.	__label__57
+Atomically updates the field of the given object managed by this updater with the results of applying the given function, returning the previous value.	__label__57
+Updates the designated column with a RowId value.	__label__57
+Updates the checksum with the bytes from the specified buffer.	__label__57
+Updates the target method of this call site, according to the behavior defined by this call site's specific class.	__label__57
+Updates the button's state in response to property changes in the associated action.	__label__57
+Update any cached values that come from attributes.	__label__57
+Saves composed text around the specified position.	__label__58
+Saves the current caret position.	__label__58
+Store a name/value pair into the database.	__label__58
+"Sets abbreviated weekday strings; for example: \Sun\"""	__label__58
+Stash the HTML render for the given text into the client properties of the given JComponent.	__label__58
+Stores this keystore using the given KeyStore.LoadStoreParmeter.	__label__58
+Store a color to use whenever this Icon is drawn.	__label__58
+Store this view hierarchy's frozen state into the given container.	__label__58
+Stores the latitude and longitude value in a float array.	__label__58
+This method must be called by onMeasure(int, int) to store the measured width and measured height.	__label__58
+Used to package this object into a Parcel.	__label__59
+Used to package this object into a Parcel.	__label__59
+Used to package this object into a Parcel.	__label__59
+Packs the sRGB color defined by the specified red, green and blue component values into an RGBA color long in the sRGB color space.	__label__59
+Marshals the algorithm-specific parameters.	__label__59
+Marshal the content tree rooted at jaxbElement into an output stream.	__label__59
+Marshals to output the value in the Holder.	__label__59
+Marshal the content tree rooted at jaxbElement into a file.	__label__59
+Marshals to output the value in this ShortHolder object.	__label__59
+Marshals a value type to the output stream.	__label__59
+Cuts the text between two indices into the system clipboard.	__label__60
+"Dump \hprof\"" data to the specified file."""	__label__60
+Serialize the specified node as described above in the general description of the LSSerializer interface.	__label__60
+Inserts all of the elements in the specified collection into this list at the specified position (optional operation).	__label__61
+Inserts a short value into the DynAny.	__label__61
+Inserts the given java.io.Serializable object into this Any object's value field.	__label__61
+Inserts a char value into the DynAny.	__label__61
+Inserts a long value into the DynAny.	__label__61
+Inserts a TypeCode object into the DynAny.	__label__61
+Inserts the string representation of the long argument into this sequence.	__label__61
+Inserts the specified element into the queue represented by this deque (in other words, at the tail of this deque), waiting if necessary for space to become available.	__label__61
+Inserts the specified element into this delay queue.	__label__61
+Inserts a long value into the DynAny.	__label__61
+Retrieves the address at index posn.	__label__62
+Retrieves the next attribute in this SQLInputImpl object as a boolean in the Java programming language.	__label__62
+Retrieves the DBMS-specific type name for values stored in the designated column.	__label__62
+Retrieves the context at which to continue the method using environment properties.	__label__62
+Retrieve all of the information we know about a particular package/application.	__label__62
+Retrieve the current graphical logo associated with this item.	__label__62
+Retrieves the next attribute in this SQLInputImpl object as an array of bytes.	__label__62
+Retrieves the value of the designated JDBC NCLOB parameter as a java.sql.NClob object in the Java programming language.	__label__62
+Retrieves the first warning reported by calls on this Connection object.	__label__62
+Retrieves a component of this composite name.	__label__62
+Blocks the execution of the current thread and enters a new secondary event loop on the event dispatch thread.	__label__63
+"add Collection to set of Children (Unsupported) implementations must synchronized on the hierarchy lock and \children\"" protected field"""	__label__63
+This operation enters an association between the specified Object Id and the specified servant in the Active Object Map.	__label__63
+Retrieves the label for the activity.	__label__64
+Retrieves whether this database supports the given concurrency type in combination with the given result set type.	__label__64
+Retrieves whether this database supports the ODBC Extended SQL grammar.	__label__64
+Retrieves whether this database supports named parameters to callable statements.	__label__64
+Retrieves the index of the character following the last character in the requested field.	__label__64
+Retrieves the attributes associated with an entry.	__label__64
+Retrieves the message description associated with this object.	__label__64
+Retrieves the log writer for this DataSource object.	__label__64
+Retrieves whether this database supports using columns not included in the SELECT statement in a GROUP BY clause provided that all of the columns in the SELECT statement are included in the GROUP BY clause.	__label__64
+Retrieve the list of all currently configured preferred packages.	__label__64
+Returns true if new SSL sessions may be established by this socket.	__label__65
+Return whether this constant state can have a theme applied.	__label__65
+Returns true if getExtras() has been used to create extra content.	__label__65
+Returns true if the maximum size has been set to a non-null value otherwise returns false.	__label__65
+Returns true if this lock has fairness set true.	__label__65
+Retrieves whether values for the designated parameter can be signed numbers.	__label__65
+Retrieves whether the last OUT parameter read had the value of SQL NULL.	__label__65
+Uses streams to verify the cryptographic MIC, contained in the token parameter, over the supplied message.	__label__65
+Returns whether this SortingFocusTraversalPolicy transfers focus down- cycle implicitly.	__label__65
+Retrieves whether a catalog name can be used in a privilege definition statement.	__label__65
+Messaged to relayout the JSplitPane based on the preferred size of the children components.	__label__66
+Report that we have been modified to any interested listeners.	__label__66
+Lays out the columns to fit within the given target span.	__label__66
+Lays out the JSplitPane layout based on the preferred size of the children components.	__label__66
+Lays out the specified container.	__label__66
+Lays out the specified container using this grid bag layout.	__label__66
+Lays out the slider.	__label__66
+Lays out the specified container using this card layout.	__label__66
+"Indicates whether some other object is \equal to\"" this one."""	__label__67
+"Indicates whether some other object is \equal to\"" this one."""	__label__67
+"Indicates whether some other object is \equal to\"" this one."""	__label__67
+"Indicates whether some other object is \equal to\"" this one."""	__label__67
+"Indicates whether some other object is \equal to\"" this one."""	__label__67
+"Indicates whether some other object is \equal to\"" this one."""	__label__67
+"Indicates whether some other object is \equal to\"" this OptionalInt."""	__label__67
+"Indicates whether some other object is \equal to\"" this one."""	__label__67
+"Indicates whether some other object is \equal to\"" this comparator."""	__label__67
+"Indicates whether an authenticated user is included in the specified logical \role\""."""	__label__67
+Removes any installed subcomponents from the JTabbedPane.	__label__68
+Removes a previously registered handshake completion listener.	__label__68
+Removes the row at the index row from the current selection.	__label__68
+Removes the attribute with the specified qname.	__label__68
+Removes a field from the descriptor.	__label__68
+Remove any pending posts of Runnable r that are in the message queue.	__label__68
+Removes any attribute for this category from this attribute set if present.	__label__68
+Removes the specified image from this media tracker.	__label__68
+Removes the mapping for this key from this TreeMap if present.	__label__68
+Removes the specified TextWatcher from the list of those whose methods are called whenever this TextView's text changes.	__label__68
+Notifies all listeners that have registered interest for notification on this event type.	__label__69
+Notify the host application that the scale applied to the WebView has changed.	__label__69
+Notify registered observers that a row was updated.	__label__69
+Notify registered observers that a row was updated and attempt to sync changes to the network.	__label__69
+Notifies the Conference when the child calls should be merged.	__label__69
+Notifies the input context that a client component has been removed from its containment hierarchy, or that input method support has been disabled for the component.	__label__69
+Notifies the LayerUI when any of its property are changed and enables updating every JLayer this LayerUI instance is set to.	__label__69
+Notify the event when the user tapped or clicked the text view.	__label__69
+Notify the host application of a resource request and allow the application to return the data.	__label__69
+If this object has changed, as indicated by the hasChanged method, then notify all of its observers and then call the clearChanged method to indicate that this object has no longer changed.	__label__69
+Applies a tint to the foreground drawable.	__label__70
+Applies the AttributeValueExp on an MBean.	__label__70
+Applies this function to the given argument.	__label__70
+Applies a tint to the image drawable.	__label__70
+Applies this function to the given arguments.	__label__70
+Applies this function to the given argument.	__label__70
+Applies the specified theme to this Drawable and its children.	__label__70
+Applies this operator to the given operand.	__label__70
+Apply this matrix to the array of 2D points, and write the transformed points back into the array	__label__70
+Applies the specified theme to this Drawable and its children.	__label__70
+Increases the capacity of this list, if necessary, to ensure that it can hold at least the number of components specified by the minimum capacity argument.	__label__71
+Ensure that the array map can hold at least minimumCapacity items.	__label__71
+Ensures that the expandable list view has been created before Activity restores all of the view states.	__label__71
+Ensure that any outstanding data for given stream has been committed to disk.	__label__71
+Ensures that the current MetalTheme is non-null.	__label__71
+Ensures that the values in each field are in range.	__label__71
+Ensures that this collection contains the specified element (optional operation).	__label__71
+Ensure that each field is within its valid range by calling validateField(int) on each field that has been set.	__label__71
+Ensures that all buffered data is written to the underlying Writer and flushes that writer.	__label__71
+Ensure that the duration that this animation will run is not longer than durationMillis.	__label__71
+Negate the point's coordinates	__label__72
+Completely replace the extras in the Intent with the extras in the given Intent.	__label__73
+Replaces the entry for a key only if currently mapped to a given value.	__label__73
+Replaces the first subsequence of the input sequence that matches the pattern with the given replacement string.	__label__73
+Replaces the entry for the specified key only if it is currently mapped to some value.	__label__73
+Replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception.	__label__73
+Replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception.	__label__73
+Replaces all the extras associated with this Conference.	__label__73
+Replaces the children of the given element with the contents specified as an HTML string.	__label__73
+Replaces an existing component with a new one.	__label__73
+Replaces the entry for the specified key only if it is currently mapped to some value.	__label__73
+Compares this object against the specified object.	__label__74
+Compares this LinkAddress instance against obj.	__label__74
+Compares this offset to another offset in descending order.	__label__74
+Compares this UUID with the specified UUID.	__label__74
+Compares this Method against the specified object.	__label__74
+Compares two URLs, excluding the fragment component.	__label__74
+Compares two digests for equality.	__label__74
+Compares this enum with the specified object for order.	__label__74
+Compare this VMID to another, and return true if they are the same identifier.	__label__74
+Compares obj to this area.	__label__74
+Moves all Fragments managed by the controller's FragmentManager into the activity created state.	__label__75
+Move the cursor to the last row.	__label__75
+Move an existing database file from the given source storage context to this context.	__label__75
+Move or rename a file to a target file.	__label__75
+Move the cursor to the first row.	__label__75
+Move the cursor to the previous row.	__label__75
+Moves the focus down one focus traversal cycle.	__label__75
+Move the selection end to the buffer offset physically to the left of the current selection end.	__label__75
+Moves the visible location of the frame being dragged to the location specified.	__label__75
+Moves the cursor down from its current position to the next row that contains a conflict value.	__label__75
+Submits a Runnable task for execution and returns a Future representing that task.	__label__76
+Submit a request for an image to be captured by the camera device.	__label__76
+Submit a new VoiceInteractor.Request to the voice interaction service.	__label__76
+Commits this transaction synchronously.	__label__76
+Commit a correction automatically performed on the raw user's input.	__label__76
+Commit a correction automatically performed on the raw user's input.	__label__76
+Commit a completion the user has selected from the possible ones previously reported to InputMethodSession#displayCompletions(CompletionInfo[]) or InputMethodManager#displayCompletions(View, CompletionInfo[]).	__label__76
+Commit text to the text box and set the new cursor position.	__label__76
+Commit a completion the user has selected from the possible ones previously reported to InputMethodSession#displayCompletions(CompletionInfo[]) or InputMethodManager#displayCompletions(View, CompletionInfo[]).	__label__76
+Sets the designated parameter to the given Java boolean value.	__label__77
+Set the count for this timer.	__label__77
+Sets the callback to be invoked when this Preference is clicked.	__label__77
+Sets a URIDereferencer that is used to dereference URIReferences.	__label__77
+Set the icon to use for the overflow button.	__label__77
+Sets the timestamp of the most recent message in an unread conversation.	__label__77
+Sets the feature name of the address to the given String, which may be null	__label__77
+Sets whether this Window should appear at the default location for the native windowing system or at the current location (returned by getLocation) the next time the Window is made visible.	__label__77
+Sets the link resolved object field of this exception.	__label__77
+Sets an attribute value in the ordered list of attribute values.	__label__77
+Starts an asynchronous load of the contacts list data.	__label__78
+Starts a new page.	__label__78
+Starts the loaders.	__label__78
+Starts loading all images tracked by this media tracker with the specified identifier.	__label__78
+Starts the add account session to authenticate user to an account of the specified accountType.	__label__78
+Starts this animation.	__label__78
+Start a new write operation on the file.	__label__78
+Starts production of the filtered image.	__label__78
+Start sampling-based method tracing, specifying the trace log file name, the buffer size, and the sampling interval.	__label__78
+Starts the monitor.	__label__78
+Binds the created View to the data for this Preference.	__label__79
+Binds a datagram socket to a local port and address.	__label__79
+Bind a new application environment in to the input method, so that it can later start and stop input processing.	__label__79
+Binds views in the content View of the dialog to data.	__label__79
+Given an array of String bindArgs, this method binds all of them in one single call.	__label__79
+Bind an existing view to the group data pointed to by cursor.	__label__79
+Binds the specified Socket to this Network.	__label__79
+Bind an existing view to the child data pointed to by cursor	__label__79
+Binds the socket to a local address.	__label__79
+Binds a name to an object, overwriting any existing binding.	__label__79
+Copy the ColorChannel offsets into the destination vector.	__label__80
+Copies the components of this vector into the specified array.	__label__80
+Copies the specified array, truncating or padding with false (if necessary) so the copy has the specified length.	__label__80
+Copies a byte array into the field at the specified row and column index.	__label__80
+Copy into this Allocation from an array.	__label__80
+Copy from an array into a rectangular region in this Allocation.	__label__80
+Copy a 1D region of this Allocation into an array.	__label__80
+Copy a file to a target file.	__label__80
+Copies all of the mappings from the specified Map to this RenderingHints.	__label__80
+Copy the vector into the destination in the order [R, Geven, Godd, B].	__label__80
+Marks the end of an I/O operation that might block indefinitely.	__label__81
+Marks a position in the stream to be returned to by a subsequent call to reset.	__label__81
+Mark the present position in the stream.	__label__81
+Mark the start of an optional section.	__label__81
+Mark the beginning of one record in the backup data stream.	__label__81
+Marks the present position in the stream.	__label__81
+Marks the end of an I/O operation that might block indefinitely.	__label__81
+Marks the beginning of an I/O operation that might block indefinitely.	__label__81
+Marks this thread as either a daemon thread or a user thread.	__label__81
+Marks the present position in the stream.	__label__81
+Speaks the text using the specified queuing strategy and speech parameters, the text may be spanned with TtsSpans.	__label__82
+Cumulates, in parallel, each element of the given array in place, using the supplied function.	__label__83
+Cumulates, in parallel, each element of the given array in place, using the supplied function.	__label__83
+Span a string using this UnicodeSet.	__label__84
+Cancel the dialog.	__label__85
+Unlocks Wifi Multicast, restoring the filter of packets not addressed specifically to this device and saving power.	__label__85
+Unlocks the SlidingDrawer so that touch events are processed.	__label__85
+Unsets the designated columns as the match columns for this RowSet object.	__label__85
+Unloads all instruments contained in the specified Soundbank.	__label__85
+Unload Sound effects.	__label__85
+Undoes a change.	__label__85
+Undoes the appropriate edits.	__label__85
+Undoes all changes from the index of the next edit to edit, updating the index of the next edit appropriately.	__label__85
+Unbinds the named object.	__label__85
+Compiles the script (source read from Reader) for later execution.	__label__86
+Compiles the given regular expression into a pattern with the given flags.	__label__86
+Tunes to a given channel for TV program recording.	__label__87
+Tunes to a given channel.	__label__87
+Tunes to a given channel.	__label__87
+This method toggles the input method window display.	__label__88
+Toggles the drawer open and close.	__label__88
+Toggles the Underline attribute.	__label__88
+Toggles the INVERSE state of the filltype	__label__88
+Toggle the soft input window.	__label__88
