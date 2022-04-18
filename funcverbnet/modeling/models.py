@@ -17,9 +17,20 @@
 
 class FuncCategory:
     def __init__(
-        self, id, name, create_time, definition, description, modified_time, representative_verb,
-        antisense_category, antisense_category_id,
-        included_verb, included_pattern, version, example
+        self,
+        id,
+        name,
+        create_time,
+        definition,
+        description,
+        modified_time,
+        representative_verb,
+        antisense_category,
+        antisense_category_id,
+        included_verb,
+        included_pattern,
+        version,
+        example
     ):
         self.id = id
         self.name = name
@@ -34,83 +45,67 @@ class FuncCategory:
         self.included_pattern = included_pattern
         self.version = version
         self.example = example
-        pass
 
     def __str__(self):
-        # f_category = {
-        #     "id": self.id,
-        #     "name": self.name,
-        #     "create_time": self.create_time,
-        #     "definition": self.definition,
-        #     "description": self.description,
-        #     "modified_time": self.modified_time,
-        #     "representative_verb": self.representative_verb,
-        #     "included_verb": self.included_verb,
-        #     "included_pattern": self.included_pattern,
-        #     "version": self.version,
-        #     "example": self.example
-        # }
-        return "<FuncCategory>" + str(self.id)
+        return f"<FuncCategory: id={self.id}>"
 
     def __eq__(self, other):
-        if self.__dict__ == other.__dict__:
-            return True
-        else:
-            return False
+        return self.__dict__ == other.__dict__
 
     def __hash__(self):
-        return hash("<FuncCategory>" + self.id)
+        return hash(str(self.id) + self.name)
 
     def __repr__(self):
-        return "{id:" + str(
-            self.id) + ", name:" + self.name + ", create_time:" + self.create_time + ", definition:" + self.definition + ", description:" + self.description + ", modified_time:" + self.modified_time + ", representative_verb:" + self.representative_verb + ", antisense_category:" + str(
-            self.antisense_category) + ", antisense_category_id:" + str(
-            self.antisense_category_id) + ", included_verb:" + str(
-            self.included_verb) + ", included_pattern:" + str(
-            self.included_pattern) + ", version:" + self.version + ", example:" + self.example + "}"
+        return str(self.to_dict())
 
-    def get_funcCategory_id(self):
+    def to_dict(self):
+        return self.__dict__
+
+    def get_id(self):
         return self.id
-        pass
 
-    def get_funcCategory_name(self):
+    def get_name(self):
         return self.name
-        pass
 
-    def get_funccategory_create_time(self):
+    def get_create_time(self):
         return self.create_time
-        pass
 
-    def get_funccategory_definition(self):
+    def get_definition(self):
         return self.definition
-        pass
 
-    def get_funccategory_description(self):
+    def get_description(self):
         return self.description
-        pass
 
-    def get_funccategory_modified_time(self):
+    def get_modified_time(self):
         return self.modified_time
 
-    def get_funccategory_representative_verb(self):
+    def get_representative_verb(self):
         return self.representative_verb
-        pass
 
-    def get_funccategory_included_verb(self):
+    def get_included_verb(self):
         return self.included_verb
 
-    def get_funccategory_all_verbs(self):
+    def get_all_verbs(self):
         return self.included_verb
 
-    def get_funccategory_included_pattern(self):
+    def get_included_pattern(self):
         return self.included_pattern
 
-    def get_funccategory_version(self):
+    def get_version(self):
         return self.version
 
 
 class FuncVerb:
-    def __init__(self, id, qualified_name, name, description, example, create_time, version):
+    def __init__(
+        self,
+        id,
+        qualified_name,
+        name,
+        description,
+        example,
+        create_time,
+        version
+    ):
         self.id = id
         self.qualified_name = qualified_name
         self.name = name
@@ -118,48 +113,53 @@ class FuncVerb:
         self.example = example
         self.create_time = create_time
         self.version = version
-        pass
 
     def __str__(self):
-        return "<FuncVerb>" + str(self.id)
+        return f"<FuncVerb: id={self.id}>"
 
     def __eq__(self, other):
-        if self.__dict__ == other.__dict__:
-            return True
-        else:
-            return False
+        return self.__dict__ == other.__dict__
 
     def __hash__(self):
-        return hash("<FuncVerb>" + self.id)
+        return hash(str(self.id) + self.name)
 
     def __repr__(self):
-        return "{id:" + str(
-            self.id) + ", qualified_name:" + self.qualified_name + ", name:" + self.name + ", description:" + self.description + ", example:" + self.example + ", create_time:" + self.create_time + ", version:" + self.version + "} "
+        return str(self.to_dict())
 
-    def get_funcverb_id(self):
+    def to_dict(self):
+        return self.__dict__
+
+    def get_id(self):
         return self.id
 
-    def get_funcverb_qualified_name(self):
+    def get_qualified_name(self):
         return self.qualified_name
 
-    def get_funcverb_name(self):
+    def get_name(self):
         return self.name
 
-    def get_funcverb_description(self):
+    def get_description(self):
         return self.description
 
-    def get_funcverb_example(self):
+    def get_example(self):
         return self.example
 
-    def get_funcverb_create_time(self):
+    def get_create_time(self):
         return self.create_time
 
-    def get_funcverb_version(self):
+    def get_version(self):
         return self.version
 
 
 class Verb:
-    def __init__(self, id, name, description, create_time, version):
+    def __init__(
+        self,
+        id,
+        name,
+        description,
+        create_time,
+        version
+    ):
         self.id = id
         self.name = name
         self.description = description
@@ -167,39 +167,47 @@ class Verb:
         self.version = version
 
     def __str__(self):
-        return "<Verb>" + str(self.id)
+        return f"<Verb: id={self.id}>"
 
     def __eq__(self, other):
-        if self.__dict__ == other.__dict__:
-            return True
-        else:
-            return False
+        return self.__dict__ == other.__dict__
 
     def __hash__(self):
-        return hash("<Verb>" + self.id)
+        return hash(str(self.id) + self.name)
 
     def __repr__(self):
-        return "{id:" + str(
-            self.id) + ", name:" + self.name + ", description:" + self.description + ", create_time:" + self.create_time + ", version:" + self.version + "} "
+        return str(self.to_dict())
 
-    def get_verb_id(self):
+    def to_dict(self):
+        return self.__dict__
+
+    def get_id(self):
         return self.id
 
-    def get_verb_name(self):
+    def get_name(self):
         return self.name
 
-    def get_verb_description(self):
+    def get_description(self):
         return self.description
 
-    def get_verb_create_time(self):
+    def get_create_time(self):
         return self.create_time
 
-    def get_verb_version(self):
+    def get_version(self):
         return self.version
 
 
 class FuncPattern:
-    def __init__(self, id, qualified_name, example, description, included_roles, create_time, version):
+    def __init__(
+        self,
+        id,
+        qualified_name,
+        example,
+        description,
+        included_roles,
+        create_time,
+        version
+    ):
         self.id = id
         self.qualified_name = qualified_name
         self.example = example
@@ -209,42 +217,50 @@ class FuncPattern:
         self.version = version
 
     def __str__(self):
-        return "<FuncPattern>" + str(self.id)
+        return f"<FuncPattern: id={self.id}>"
 
     def __eq__(self, other):
-        if self.__dict__ == other.__dict__:
-            return True
-        else:
-            return False
+        return self.__dict__ == other.__dict__
 
     def __hash__(self):
-        return hash("<FuncPattern>" + self.id)
+        return hash(str(self.id) + self.qualified_name)
 
     def __repr__(self):
-        return "{id:" + str(
-            self.id) + ", qualified_name:" + self.qualified_name + ", description:" + self.description + ", example:" + self.example + ", create_time:" + self.create_time + ", version:" + self.version + "} "
+        return str(self.to_dict())
 
-    def get_funcpattern_id(self):
+    def to_dict(self):
+        return self.__dict__
+
+    def get_id(self):
         return self.id
 
-    def get_funcpattern_qualified_name(self):
+    def get_qualified_name(self):
         return self.qualified_name
 
-    def get_funcpattern_example(self):
+    def get_example(self):
         return self.example
 
-    def get_funcpattern_description(self):
+    def get_description(self):
         return self.description
 
-    def get_funcpattern_create_time(self):
+    def get_create_time(self):
         return self.create_time
 
-    def get_funcpattern_version(self):
+    def get_version(self):
         return self.version
 
 
-class PhasePattern:
-    def __init__(self, id, syntax, example, description, included_roles, create_time, version):
+class Pattern:
+    def __init__(
+        self,
+        id,
+        syntax,
+        example,
+        description,
+        included_roles,
+        create_time,
+        version
+    ):
         self.id = id
         self.syntax = syntax
         self.example = example
@@ -252,119 +268,123 @@ class PhasePattern:
         self.included_roles = included_roles
         self.create_time = create_time
         self.version = version
-        pass
 
     def __str__(self):
-        return "<PhasePattern>" + str(self.id)
+        return f"<PhasePattern: id={self.id}>"
 
     def __eq__(self, other):
-        if self.__dict__ == other.__dict__:
-            return True
-        else:
-            return False
+        return self.__dict__ == other.__dict__
 
     def __hash__(self):
-        return hash("<PhasePattern>" + self.id)
+        return hash(str(self.id) + self.syntax)
 
     def __repr__(self):
-        return "{id:" + str(
-            self.id) + ", syntax:" + self.syntax + ", description:" + self.description + ", example:" + self.example + \
-               ", create_time:" + self.create_time + ", version:" + self.version + "} "
+        return str(self.to_dict())
 
-    def get_phrase_pattern_id(self):
+    def to_dict(self):
+        return self.__dict__
+
+    def get_id(self):
         return self.id
 
-    def get_phrase_pattern_syntax(self):
+    def get_syntax(self):
         return self.syntax
 
-    def get_phrase_pattern_example(self):
+    def get_example(self):
         return self.example
 
-    def get_phrase_pattern_description(self):
+    def get_description(self):
         return self.description
 
-    def get_phrase_pattern_create_time(self):
+    def get_create_time(self):
         return self.create_time
 
-    def get_phrase_pattern_version(self):
+    def get_version(self):
         return self.version
 
 
-class Role:
-    def __init__(self, id, name, definition, create_time, version):
+class Semantic:
+    def __init__(
+        self,
+        id,
+        name,
+        definition,
+        create_time,
+        version
+    ):
         self.id = id
         self.name = name
         self.definition = definition
         self.create_time = create_time
         self.version = version
-        pass
 
     def __str__(self):
-        return "<Role>" + str(self.id)
+        return f"<Role: id={self.id}>"
 
     def __eq__(self, other):
-        if self.__dict__ == other.__dict__:
-            return True
-        else:
-            return False
+        return self.__dict__ == other.__dict__
 
     def __hash__(self):
-        return hash("<Role>" + self.id)
+        return hash(str(self.id) + self.name)
 
     def __repr__(self):
-        return "{id:" + str(
-            self.id) + ", name:" + self.name + ", definition:" + self.definition + \
-               ", create_time:" + self.create_time + ", version:" + self.version + "} "
+        return str(self.to_dict())
 
-    def get_role_id(self):
+    def to_dict(self):
+        return self.__dict__
+
+    def get_id(self):
         return self.id
 
-    def get_role_name(self):
+    def get_name(self):
         return self.name
 
-    def get_role_definition(self):
+    def get_definition(self):
         return self.definition
 
-    def get_role_create_time(self):
+    def get_create_time(self):
         return self.create_time
 
-    def get_role_version(self):
+    def get_version(self):
         return self.version
 
 
 class Sentence:
-    def __init__(self, single_description, category, create_time, version):
+    def __init__(
+        self,
+        single_description,
+        category,
+        create_time,
+        version
+    ):
         self.single_description = single_description
         self.category = category
         self.create_time = create_time
         self.version = version
-        pass
 
     def __str__(self):
-        return "<Sentence>" + str(self.single_description)
+        return f"<Sentence: id={self.single_description}>"
 
     def __eq__(self, other):
-        if self.__dict__ == other.__dict__:
-            return True
-        else:
-            return False
+        return self.__dict__ == other.__dict__
 
     def __hash__(self):
-        return hash("<Sentence>" + self.single_description)
+        return hash(self.single_description)
 
     def __repr__(self):
-        return "{single_description:" + str(
-            self.single_description) + ", category:" + self.category + \
-               ", create_time:" + self.create_time + ", version:" + self.version + "} "
+        return str(self.to_dict())
 
-    def get_sentence_single_description(self):
+    def to_dict(self):
+        return self.__dict__
+
+    def get_single_description(self):
         return self.single_description
 
-    def get_sentence_category(self):
+    def get_category(self):
         return self.category
 
-    def get_sentence_create_time(self):
+    def get_create_time(self):
         return self.create_time
 
-    def get_sentence_version(self):
+    def get_version(self):
         return self.version

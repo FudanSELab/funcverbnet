@@ -51,14 +51,14 @@
             "block"
         ],
         "included_pattern": [
-            "V {patient}",
             "V S_ING",
-            "V {patient} if/when S",
+            "V from {source}",
+            "V {patient}",
             "V {patient} by S_ING",
             "V {patient} for S_ING",
-            "V from {source}",
-            "V {patient} from {source}",
             "V {patient} for {beneficiary}",
+            "V {patient} from {source}",
+            "V {patient} if/when S",
             "V {patient} in/on/at {location}",
             "V {patient} in/on/at {location} with {instrument}"
         ],
@@ -95,22 +95,22 @@
             "output"
         ],
         "included_pattern": [
-            "V {patient}",
+            "V out {patient}",
             "V that S",
             "V to {goal}",
+            "V {patient}",
             "V {patient} about {topic}",
-            "V {patient} from {source}",
-            "V {patient} with {instrument}",
-            "V {patient} at/on/in {location}",
-            "V {patient} as/to/into/onto {goal}",
-            "V {patient} from {source} for {beneficiary}",
-            "V {patient} as/into/to {goal} via {instrument}",
-            "V {patient} from {source} as/to/into/onto {goal}",
             "V {patient} as/into/to {goal} at/in/on {location}",
+            "V {patient} as/into/to {goal} via {instrument}",
+            "V {patient} as/to/into/onto {goal}",
+            "V {patient} as/to/into/onto {goal} at/on {location}",
             "V {patient} as/to/into/onto {goal} for {beneficiary}",
+            "V {patient} at/on/in {location}",
+            "V {patient} from {source}",
+            "V {patient} from {source} as/to/into/onto {goal}",
+            "V {patient} from {source} for {beneficiary}",
             "V {patient} from {source} for {beneficiary} to {goal}",
-            "V out {patient}",
-            "V {patient} as/to/into/onto {goal} at/on {location}"
+            "V {patient} with {instrument}"
         ],
         "version": "1.0",
         "example": "Write a line of text to the output."
@@ -183,17 +183,17 @@
             "repaint"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V {patient} if S",
-            "V to {goal}",
-            "V {patient} by S_ING",
             "V in {location}",
-            "V {patient} within {time}",
-            "V {patient} with {instrument}",
-            "V {patient} into/to/as {goal}",
-            "V {patient} for {beneficiary}",
+            "V to {goal}",
+            "V {patient}",
             "V {patient} at/on/in {location}",
-            "V {patient} for {beneficiary} with {instrument}"
+            "V {patient} by S_ING",
+            "V {patient} for {beneficiary}",
+            "V {patient} for {beneficiary} with {instrument}",
+            "V {patient} if S",
+            "V {patient} into/to/as {goal}",
+            "V {patient} with {instrument}",
+            "V {patient} within {time}"
         ],
         "version": "1.0",
         "example": "Draw the specified Rect using the specified paint."
@@ -242,15 +242,15 @@
             "allow"
         ],
         "included_pattern": [
-            "V {patient}",
             "V S_INF",
-            "V {patient} if S",
-            "V {patient} S_INF",
-            "V that/whether/if S",
-            "V {patient} from {source}",
-            "V {patient} for {beneficiary}",
             "V for {beneficiary} S_INF",
-            "V {patient} at {location} from {source}"
+            "V that/whether/if S",
+            "V {patient}",
+            "V {patient} S_INF",
+            "V {patient} at {location} from {source}",
+            "V {patient} for {beneficiary}",
+            "V {patient} from {source}",
+            "V {patient} if S"
         ],
         "version": "1.0",
         "example": "Requests a copy of the pixels from a Window to be copied into a provided Bitmap."
@@ -278,13 +278,13 @@
             "access"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V to {theme}",
-            "V {patient} by S_ING",
-            "V {patient} as {goal}",
             "V over {patient}",
-            "V {patient} in {location}",
             "V through {instrument} in {location}",
+            "V to {theme}",
+            "V {patient}",
+            "V {patient} as {goal}",
+            "V {patient} by S_ING",
+            "V {patient} in {location}",
             "V {patient} through {instrument} in {location}"
         ],
         "version": "1.0",
@@ -310,8 +310,8 @@
         "included_pattern": [
             "V {patient}",
             "V {patient} in/at {location}",
-            "V {patient} with {instrument} in/at {location}",
-            "V {patient} with {instrument}"
+            "V {patient} with {instrument}",
+            "V {patient} with {instrument} in/at {location}"
         ],
         "version": "1.0",
         "example": "Play an item with a specific id in the play queue."
@@ -337,11 +337,11 @@
             "notify"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V by {agent}",
             "V after S",
+            "V by {agent}",
+            "V from {source} when S",
             "V when S",
-            "V from {source} when S"
+            "V {patient}"
         ],
         "version": "1.0",
         "example": "This method gets called when a bound property is changed."
@@ -360,8 +360,8 @@
             "assert"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V that S"
+            "V that S",
+            "V {patient}"
         ],
         "version": "1.0",
         "example": "Asserts that map is not empty."
@@ -412,11 +412,11 @@
         ],
         "included_pattern": [
             "V {patient}",
-            "V {patient} by S_ING",
-            "V {patient} at/on {location}",
             "V {patient} as/to/into {goal}",
-            "V {patient} from/against/out of {source}",
+            "V {patient} at/on {location}",
+            "V {patient} by S_ING",
             "V {patient} for {beneficiary} as {goal}",
+            "V {patient} from/against/out of {source}",
             "V {patient} from/against/out of {source} as/to/into {goal}"
         ],
         "version": "1.0",
@@ -467,8 +467,8 @@
             "complement"
         ],
         "included_pattern": [
-            "V {patient}",
             "V S_ING",
+            "V {patient}",
             "V {patient} by S_ING",
             "V {patient} in/at/on {location}"
         ],
@@ -509,18 +509,17 @@
             "set up"
         ],
         "included_pattern": [
+            "V from {material}",
+            "V {material} into/to/as/onto {product}",
             "V {patient}",
             "V {patient} by S_ING",
             "V {patient} for S_ING",
-            "V from {material}",
             "V {patient} for {beneficiary}",
-            "V {patient} in/on/within/at {location}",
-            "V {patient} from/with/by/over/out of {material}",
-            "V {patient} from {source} with {instrument}",
-            "V {material} into/to/as/onto {product}",
-            "V {patient} for {beneficiary} with {material}",
             "V {patient} for {beneficiary} from/with/by/over/out of {material}",
-            "V {patient} from/with/by/over/out of {material} in/on/within {location}"
+            "V {patient} from {source} with {instrument}",
+            "V {patient} from/with/by/over/out of {material}",
+            "V {patient} from/with/by/over/out of {material} in/on/within {location}",
+            "V {patient} in/on/within/at {location}"
         ],
         "version": "1.0",
         "example": "Create an RFCOMM BluetoothSocket socket ready to start an insecure outgoing connection to this remote device using SDP lookup of uuid."
@@ -580,17 +579,17 @@
             "turn off"
         ],
         "included_pattern": [
-            "V {patient} on/in {location}",
+            "V S_ING",
+            "V in {location}",
             "V up {patient}",
             "V {patient}",
-            "V S_ING",
-            "V {patient} if S",
-            "V in {location}",
             "V {patient} about {topic}",
-            "V {patient} to {co-patient}",
-            "V {patient} with {attribute}",
             "V {patient} for {beneficiary}",
-            "V {patient} on/in/within {location}"
+            "V {patient} if S",
+            "V {patient} on/in {location}",
+            "V {patient} on/in/within {location}",
+            "V {patient} to {co-patient}",
+            "V {patient} with {attribute}"
         ],
         "version": "1.0",
         "example": "Close this object and release any resources associated with it."
@@ -644,19 +643,18 @@
             "signal"
         ],
         "included_pattern": [
-            "V {patient} down {location}",
-            "V {patient} for {beneficiary} in {location}",
-            "V {patient}",
             "V that S",
-            "V {patient} that S",
+            "V {patient}",
             "V {patient} by S_ING",
-            "V {patient} to {goal}",
-            "V {patient} from {source}",
-            "V {patient} for {beneficiary}",
             "V {patient} down/on {location}",
-            "V {patient} through {instrument}",
-            "V {patient} to {goal} by S_ING",
+            "V {patient} for {beneficiary}",
+            "V {patient} for {beneficiary} in {location}",
+            "V {patient} from {source}",
             "V {patient} from {source} to {goal}",
+            "V {patient} that S",
+            "V {patient} through {instrument}",
+            "V {patient} to {goal}",
+            "V {patient} to {goal} by S_ING",
             "V {patient} to {goal} in/on {location}"
         ],
         "version": "1.0",
@@ -676,10 +674,10 @@
             "match"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V {patient} against/with {co-patient} at/in {location}",
             "V against {co-patient}",
+            "V {patient}",
             "V {patient} against/with {co-patient}",
+            "V {patient} against/with {co-patient} at/in {location}",
             "V {patient} at/in {location} against/with {co-patient}"
         ],
         "version": "1.0",
@@ -702,9 +700,9 @@
         "included_pattern": [
             "V {patient}",
             "V {patient} by S_ING",
+            "V {patient} by {instrument}",
             "V {patient} for S_ING",
             "V {patient} from {source}",
-            "V {patient} by {instrument}",
             "V {patient} on/in {location}",
             "V {source} as/into {goal}"
         ],
@@ -772,10 +770,10 @@
         ],
         "included_pattern": [
             "V {patient}",
-            "V {patient} from {source}",
-            "V {patient} with {instrument}",
             "V {patient} for {beneficiary}",
-            "V {patient} to/into/in {goal}"
+            "V {patient} from {source}",
+            "V {patient} to/into/in {goal}",
+            "V {patient} with {instrument}"
         ],
         "version": "1.0",
         "example": "Creates a MessageFormat with the given pattern and uses it to format the given arguments."
@@ -861,12 +859,12 @@
             "V {patient}",
             "V {patient} ADJ",
             "V {patient} ADJ by S_ING",
-            "V {patient} for {beneficiary}",
-            "V {patient} at {location} ADJ",
-            "V {patient} in/at/on {location}",
-            "V {patient} with/by {instrument}",
             "V {patient} ADJ for {beneficiary}",
-            "V {patient} from {source} to {goal}"
+            "V {patient} at {location} ADJ",
+            "V {patient} for {beneficiary}",
+            "V {patient} from {source} to {goal}",
+            "V {patient} in/at/on {location}",
+            "V {patient} with/by {instrument}"
         ],
         "version": "1.0",
         "example": "Makes a set from a multicharacter string."
@@ -896,14 +894,14 @@
             "empty"
         ],
         "included_pattern": [
-            "V {patient} from {source} by {instrument}",
             "V {patient}",
-            "V {patient} by S_ING",
-            "V {patient} from {source}",
-            "V {patient} in {location}",
-            "V {patient} for {beneficiary}",
             "V {patient} about {topic} from {source}",
-            "V {patient} by {instrument} from {source}"
+            "V {patient} by S_ING",
+            "V {patient} by {instrument} from {source}",
+            "V {patient} for {beneficiary}",
+            "V {patient} from {source}",
+            "V {patient} from {source} by {instrument}",
+            "V {patient} in {location}"
         ],
         "version": "1.0",
         "example": "Tells this WebView to clear its internal back/forward list."
@@ -960,22 +958,21 @@
         ],
         "included_pattern": [
             "V from {source}",
-            "V {source} to/as/into {goal} by {instrument}",
             "V from {source} to/into/as {goal}",
-            "V {patient} from {source} to/into/as {goal}",
-            "V to/as/into {goal} in/at {location}",
-            "V {patient}",
             "V to {goal}",
+            "V to/as/into {goal} in/at {location}",
             "V {goal} from {source}",
+            "V {patient}",
+            "V {patient} as/into/to {goal} from {source}",
             "V {patient} by {instrument}",
+            "V {patient} from {source} to/as/into {goal} in/at {location}",
+            "V {patient} from {source} to/into/as {goal}",
             "V {patient} in/at {location}",
             "V {source} to/as/into {goal}",
             "V {source} to/as/into {goal} by S_ING",
-            "V {patient} as/into/to {goal} from {source}",
             "V {source} to/as/into {goal} by/with {instrument}",
-            "V {source} to/as/into {goal} in/at {location}",
             "V {source} to/as/into {goal} for {beneficiary}",
-            "V {patient} from {source} to/as/into {goal} in/at {location}"
+            "V {source} to/as/into {goal} in/at {location}"
         ],
         "version": "1.0",
         "example": "Gets a value and converts it to an Integer."
@@ -1000,8 +997,8 @@
             "sleep"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V for {patient}"
+            "V for {patient}",
+            "V {patient}"
         ],
         "version": "1.0",
         "example": "Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed."
@@ -1033,20 +1030,20 @@
             "occur"
         ],
         "included_pattern": [
-            "V {patient}",
             "V when/that S",
-            "V {patient} when/that S",
-            "V {patient} by S_ING",
-            "V {patient} over {theme}",
-            "V {patient} from {source}",
+            "V {patient}",
             "V {patient} around {topic}",
-            "V {patient} to {co-patient}",
-            "V {patient} on/in {location}",
-            "V {patient} with {instrument}",
-            "V {patient} for {beneficiary}",
             "V {patient} as/to {goal} on/in {location}",
+            "V {patient} by S_ING",
+            "V {patient} for {beneficiary}",
+            "V {patient} from {source}",
+            "V {patient} on/in {location}",
+            "V {patient} on/in {location} for {beneficiary}",
             "V {patient} on/in {location} with {instrument}",
-            "V {patient} on/in {location} for {beneficiary}"
+            "V {patient} over {theme}",
+            "V {patient} to {co-patient}",
+            "V {patient} when/that S",
+            "V {patient} with {instrument}"
         ],
         "version": "1.0",
         "example": "Performs an action when method ForkJoinTask.completeExceptionally(Throwable) is invoked or method compute() throws an exception, and this task has not already otherwise completed normally."
@@ -1077,16 +1074,16 @@
             "group"
         ],
         "included_pattern": [
-            "V {patient}",
             "V to {theme}",
-            "V {patient} to/into {goal}",
-            "V {patient} with {instrument}",
-            "V {patient} within {location}",
+            "V {patient}",
             "V {patient} in {location} into {goal}",
-            "V {patient} to/into {goal} on/in {location}",
+            "V {patient} to/into {goal}",
             "V {patient} to/into {goal} for {beneficiary}",
+            "V {patient} to/into {goal} on/in {location}",
             "V {patient} to/into {goal} with {instrument}",
-            "V {patient} with {instrument} on/in {location}"
+            "V {patient} with {instrument}",
+            "V {patient} with {instrument} on/in {location}",
+            "V {patient} within {location}"
         ],
         "version": "1.0",
         "example": "Connects this piped output stream to a receiver."
@@ -1112,13 +1109,12 @@
             "bring"
         ],
         "included_pattern": [
-            "V {patient} to/as {goal}",
             "V {patient}",
-            "V {source} to/as {goal}",
-            "V {patient} from {source}",
-            "V {patient} with {co-theme}",
+            "V {patient} at/on/in {location}",
             "V {patient} for {beneficiary}",
-            "V {patient} at/on/in {location}"
+            "V {patient} from {source}",
+            "V {patient} to/as {goal}",
+            "V {patient} with {co-theme}"
         ],
         "version": "1.0",
         "example": "A convenience method that displays a printing dialog, and then prints this JTable in mode PrintMode.FIT_WIDTH, with no header or footer text."
@@ -1174,15 +1170,15 @@
             "increment"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V whether S",
             "V by {instrument}",
-            "V {patient} in {location}",
-            "V {patient} into/to {goal}",
+            "V whether S",
+            "V {patient}",
             "V {patient} for {beneficiary}",
+            "V {patient} for {beneficiary} as/into/to {goal}",
             "V {patient} for {beneficiary} by S_ING",
             "V {patient} from/within/on/between/with {source}",
-            "V {patient} for {beneficiary} as/into/to {goal}"
+            "V {patient} in {location}",
+            "V {patient} into/to {goal}"
         ],
         "version": "1.0",
         "example": "Computes the week number according to ISO 8601."
@@ -1232,10 +1228,10 @@
             "divide"
         ],
         "included_pattern": [
-            "V {patient} for {beneficiary}",
-            "V {patient}",
-            "V {patient} on {co-patient}",
             "V {material} into/to {product}",
+            "V {patient}",
+            "V {patient} for {beneficiary}",
+            "V {patient} on {co-patient}",
             "V {patient} on {co-patient} at {location}"
         ],
         "version": "1.0",
@@ -1260,11 +1256,11 @@
             "tear"
         ],
         "included_pattern": [
-            "V {patient} for {beneficiary}",
-            "V {patient}",
             "V down {patient}",
-            "V {patient} in/at {location}",
-            "V down {patient} for {beneficiary}"
+            "V down {patient} for {beneficiary}",
+            "V {patient}",
+            "V {patient} for {beneficiary}",
+            "V {patient} in/at {location}"
         ],
         "version": "1.0",
         "example": "Destroys the named context and removes it from the namespace."
@@ -1305,10 +1301,10 @@
         ],
         "included_pattern": [
             "V {patient}",
-            "V {patient} from {source}",
+            "V {patient} as {goal} at/in {location}",
             "V {patient} at/in {location}",
             "V {patient} for {beneficiary}",
-            "V {patient} as {goal} at/in {location}"
+            "V {patient} from {source}"
         ],
         "version": "1.0",
         "example": "Choose an alias to authenticate the server side of a secure socket given the public key type and the list of certificate issuer authorities recognized by the peer (if any)."
@@ -1337,23 +1333,21 @@
             "reload"
         ],
         "included_pattern": [
-            "V {patient} in {location}",
-            "V {patient} out of {location}",
-            "V {patient}",
-            "V in {theme}",
-            "V into {goal}",
             "V from {source}",
-            "V {patient} from {source}",
-            "V {patient} to/into/as {goal}",
-            "V {patient} with {instrument}",
-            "V {patient} for {beneficiary}",
-            "V in {theme} from {source}",
             "V from {source} into {goal}",
-            "V {patient} in/on/at/out of {location}",
-            "V {patient} from {source} for S_ING",
+            "V in {theme}",
+            "V in {theme} from {source}",
+            "V into {goal}",
+            "V {patient}",
+            "V {patient} for {beneficiary}",
+            "V {patient} for {beneficiary} with {instrument}",
+            "V {patient} from {source}",
             "V {patient} from {source} at {location}",
+            "V {patient} from {source} for S_ING",
             "V {patient} from {source} for {beneficiary}",
-            "V {patient} for {beneficiary} with {instrument}"
+            "V {patient} in/on/at/out of {location}",
+            "V {patient} to/into/as {goal}",
+            "V {patient} with {instrument}"
         ],
         "version": "1.0",
         "example": "Reads b.length bytes from the stream, and stores them into b starting at index 0."
@@ -1376,8 +1370,8 @@
             "respond"
         ],
         "included_pattern": [
-            "V to {goal}",
-            "V to {co-theme} for {goal}"
+            "V to {co-theme} for {goal}",
+            "V to {goal}"
         ],
         "version": "1.0",
         "example": "Responds to a request for a TopDownLeftRight (TDLR) ordered resend of the pixel data from an ImageConsumer."
@@ -1402,8 +1396,8 @@
             "resume"
         ],
         "included_pattern": [
-            "V {patient}",
             "V S_ING",
+            "V {patient}",
             "V {patient} by S_ING",
             "V {patient} from {source}"
         ],
@@ -1431,9 +1425,9 @@
         "included_pattern": [
             "V {patient}",
             "V {patient} for S_ING",
+            "V {patient} for/to {beneficiary}",
             "V {patient} on {location}",
-            "V {patient} with {instrument}",
-            "V {patient} for/to {beneficiary}"
+            "V {patient} with {instrument}"
         ],
         "version": "1.0",
         "example": "Opens or creates a file, returning a seekable byte channel to access the file."
@@ -1475,13 +1469,13 @@
             "supply"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V {patient} that S",
-            "V {patient} to/as {goal}",
-            "V {patient} about {theme}",
-            "V {patient} from {source}",
             "V for {beneficiary}",
-            "V {patient} for {beneficiary}"
+            "V {patient}",
+            "V {patient} about {theme}",
+            "V {patient} for {beneficiary}",
+            "V {patient} from {source}",
+            "V {patient} that S",
+            "V {patient} to/as {goal}"
         ],
         "version": "1.0",
         "example": "Provides a way to determine the next visually represented model location that one might place a caret."
@@ -1568,10 +1562,10 @@
             "shuffle"
         ],
         "included_pattern": [
-            "V {patient}",
             "V to {goal}",
-            "V {patient} by {instrument}",
-            "V {patient} at/in {location}"
+            "V {patient}",
+            "V {patient} at/in {location}",
+            "V {patient} by {instrument}"
         ],
         "version": "1.0",
         "example": "Flips to the next card of the specified container."
@@ -1609,34 +1603,34 @@
             "extract"
         ],
         "included_pattern": [
+            "V S",
+            "V in {location}",
+            "V to {goal}",
+            "V why/where/whether S",
+            "V {patient}",
+            "V {patient} about {theme}",
+            "V {patient} as/to {goal}",
+            "V {patient} as/to {goal} at/in/on/within {location}",
+            "V {patient} as/to {goal} for {beneficiary}",
+            "V {patient} as/to {goal} from {source}",
+            "V {patient} at/in/on/within {location}",
             "V {patient} by {instrument}",
-            "V {patient} for {beneficiary} from/over {source}",
+            "V {patient} for S_ING",
+            "V {patient} for {beneficiary}",
             "V {patient} for {beneficiary} as/to {goal}",
+            "V {patient} for {beneficiary} at {time}",
+            "V {patient} for {beneficiary} at/in/on/within {location}",
+            "V {patient} for {beneficiary} from/over {source}",
+            "V {patient} for {beneficiary} with {instrument}",
+            "V {patient} from/over {source}",
+            "V {patient} from/over {source} at/in/on/within {location}",
+            "V {patient} from/over {source} for {beneficiary}",
+            "V {patient} from/over {source} to/as {goal}",
+            "V {patient} from/over {source} with {instrument}",
+            "V {patient} if S",
             "V {patient} with {instrument}",
             "V {patient} with {instrument} from/over {source}",
-            "V S",
-            "V {patient}",
-            "V {patient} if S",
-            "V to {goal}",
-            "V {patient} for S_ING",
-            "V in {location}",
-            "V {patient} as/to {goal}",
-            "V why/where/whether S",
-            "V {patient} about {theme}",
-            "V {patient} for {beneficiary}",
-            "V {patient} from/over {source}",
-            "V {patient} with/via/by {instrument}",
-            "V {patient} at/in/on/within {location}",
-            "V {patient} as/to {goal} from {source}",
-            "V {patient} for {beneficiary} at {time}",
-            "V {patient} as/to {goal} for {beneficiary}",
-            "V {patient} from/over {source} to/as {goal}",
-            "V {patient} for {beneficiary} with {instrument}",
-            "V {patient} from/over {source} for {beneficiary}",
-            "V {patient} from/over {source} with {instrument}",
-            "V {patient} as/to {goal} at/in/on/within {location}",
-            "V {patient} for {beneficiary} at/in/on/within {location}",
-            "V {patient} from/over {source} at/in/on/within {location}"
+            "V {patient} with/via/by {instrument}"
         ],
         "version": "1.0",
         "example": "Returns a new PermissionCollection object for storing FilePermission objects."
@@ -1681,19 +1675,19 @@
             "reposition"
         ],
         "included_pattern": [
-            "V {patient} for/to {goal}",
-            "V {patient} from {source} for/to {goal}",
-            "V {patient} for/to {goal} in/on/at {location}",
             "V {patient}",
-            "V {patient} by S_ING",
             "V {patient} as/to/for {goal}",
-            "V {patient} from {source}",
-            "V {patient} with {instrument}",
-            "V {patient} in/on/at {location}",
-            "V {patient} by/with {instrument}",
             "V {patient} as/to/for {goal} from {source}",
-            "V {patient} with {instrument} about {theme}",
-            "V {patient} as/to/for {goal} in/on/at {location}"
+            "V {patient} as/to/for {goal} in/on/at {location}",
+            "V {patient} by S_ING",
+            "V {patient} by/with {instrument}",
+            "V {patient} for/to {goal}",
+            "V {patient} for/to {goal} in/on/at {location}",
+            "V {patient} from {source}",
+            "V {patient} from {source} for/to {goal}",
+            "V {patient} in/on/at {location}",
+            "V {patient} with {instrument}",
+            "V {patient} with {instrument} about {theme}"
         ],
         "version": "1.0",
         "example": "Prepares the player for playback, synchronously."
@@ -1728,22 +1722,22 @@
             "resize"
         ],
         "included_pattern": [
-            "V {patient}",
             "V in {patient}",
-            "V whether S",
             "V to {goal}",
-            "V {patient} by S_ING",
-            "V {patient} to {goal}",
+            "V whether S",
+            "V {patient}",
             "V {patient} as {theme}",
-            "V {patient} from {source}",
-            "V {patient} with {instrument}",
+            "V {patient} by S_ING",
             "V {patient} for {beneficiary}",
-            "V {patient} in/within {location}",
-            "V {patient} with {instrument} in {location}",
-            "V {patient} with {instrument} from {source}",
             "V {patient} for {beneficiary} in {location}",
+            "V {patient} from {source}",
+            "V {patient} in/within {location}",
+            "V {patient} to {goal}",
+            "V {patient} with {instrument}",
             "V {patient} with {instrument} for {beneficiary}",
-            "V {patient} with {instrument} from {source} to {goal}"
+            "V {patient} with {instrument} from {source}",
+            "V {patient} with {instrument} from {source} to {goal}",
+            "V {patient} with {instrument} in {location}"
         ],
         "version": "1.0",
         "example": "Invokes the update method on each UI handled by this object."
@@ -1775,14 +1769,13 @@
         ],
         "included_pattern": [
             "V {patient}",
-            "V {patient} if S",
-            "V {patient} from {source}",
-            "V {patient} into/to {goal}",
-            "V {patient} for {beneficiary}",
             "V {patient} around/in {location}",
+            "V {patient} for {beneficiary}",
             "V {patient} for {beneficiary} into/to {goal}",
+            "V {patient} from {source}",
+            "V {patient} if S",
             "V {patient} in {location}",
-            "V {patient} around {location}"
+            "V {patient} into/to {goal}"
         ],
         "version": "1.0",
         "example": "Save this MLet's contents to the given ObjectOutput."
@@ -1815,12 +1808,12 @@
             "escape"
         ],
         "included_pattern": [
-            "V {patient}",
             "V S_INF",
             "V {material}",
             "V {material} in {location}",
-            "V {material} into/as/to {product}",
             "V {material} in {location} into/as/to {product}",
+            "V {material} into/as/to {product}",
+            "V {patient}",
             "V {patient} from {material} to/as/into {product}"
         ],
         "version": "1.0",
@@ -1874,37 +1867,36 @@
             "enqueue"
         ],
         "included_pattern": [
-            "V to S_INF",
-            "V {patient} at {location}",
-            "V {patient} on {location}",
-            "V {patient} at {location} in/to/into/onto/as {goal}",
-            "V {patient} by {instrument}",
-            "V {patient} with {instrument}",
-            "V {patient} for {beneficiary} at {location}",
-            "V {patient}",
             "V S_INF",
-            "V {patient} S_INF",
-            "V {patient} from {source}",
             "V for {beneficiary}",
-            "V {patient} for {beneficiary}",
-            "V {patient} by S_ING",
-            "V {patient} in/on/at {location}",
-            "V {patient} with/by {instrument}",
+            "V to S_INF",
+            "V {patient}",
+            "V {patient} S_INF",
+            "V {patient} at {location}",
+            "V {patient} at {location} in/to/into/onto/as {goal}",
             "V {patient} between {co-patient}",
-            "V {patient} in/to/into/onto/as {goal}",
-            "V {patient} to {co-theme} into {goal}",
-            "V {patient} from {source} on {location}",
-            "V {patient} in {location} to/into {goal}",
-            "V {patient} for {beneficiary} in {location}",
-            "V {patient} in/to/into/onto/as {goal} by S_ING",
-            "V {patient} from {source} in/to/into/onto {goal}",
+            "V {patient} by S_ING",
+            "V {patient} by {instrument}",
+            "V {patient} for {beneficiary}",
+            "V {patient} for {beneficiary} at {location}",
             "V {patient} for {beneficiary} by/with {instrument}",
-            "V {patient} in/on/at {location} into/as/onto/to {goal}",
-            "V {patient} in/to/into/onto/as {goal} for {beneficiary}",
-            "V {patient} with/by {instrument} into/as/onto/to {goal}",
+            "V {patient} for {beneficiary} in {location}",
             "V {patient} for {beneficiary} in/to/into/onto/as {goal}",
+            "V {patient} from {source}",
+            "V {patient} from {source} in/to/into/onto {goal}",
+            "V {patient} from {source} on {location}",
+            "V {patient} in/on/at {location}",
+            "V {patient} in/on/at {location} into/as/onto/to {goal}",
+            "V {patient} in/to/into/onto/as {goal}",
             "V {patient} in/to/into/onto/as {goal} at/in/on {location}",
-            "V {patient} in/to/into/onto/as {goal} by/with {instrument}"
+            "V {patient} in/to/into/onto/as {goal} by S_ING",
+            "V {patient} in/to/into/onto/as {goal} by/with {instrument}",
+            "V {patient} in/to/into/onto/as {goal} for {beneficiary}",
+            "V {patient} on {location}",
+            "V {patient} to {co-theme} into {goal}",
+            "V {patient} with {instrument}",
+            "V {patient} with/by {instrument}",
+            "V {patient} with/by {instrument} into/as/onto/to {goal}"
         ],
         "version": "1.0",
         "example": "Appends the specified element to the end of this list (optional operation)."
@@ -1933,26 +1925,26 @@
             "look up"
         ],
         "included_pattern": [
-            "V for {theme} in {source}",
-            "V {patient} for {theme} in {source}",
-            "V {patient} from/in {source}",
-            "V {patient} from/in {source} as {goal}",
-            "V {patient} at {location}",
-            "V {patient} as {goal}",
-            "V {patient}",
-            "V if/whether S",
-            "V to {patient}",
-            "V out if S",
             "V for {theme}",
-            "V {patient} for {theme}",
-            "V {patient} from {source}",
-            "V {patient} about {topic}",
-            "V {patient} on/in/at {location}",
-            "V {patient} by/with {instrument}",
             "V for {theme} in {location}",
+            "V for {theme} in {source}",
+            "V if/whether S",
+            "V out if S",
+            "V to {patient}",
+            "V {patient}",
+            "V {patient} about {topic}",
+            "V {patient} as {goal}",
             "V {patient} as {goal} from {source}",
             "V {patient} as {goal} in {location}",
+            "V {patient} at {location}",
+            "V {patient} by/with {instrument}",
+            "V {patient} for {theme}",
+            "V {patient} for {theme} in {source}",
+            "V {patient} from {source}",
+            "V {patient} from/in {source}",
+            "V {patient} from/in {source} as {goal}",
             "V {patient} in {location} for {theme}",
+            "V {patient} on/in/at {location}",
             "V {patient} on/in/at {location} by/with {instrument}"
         ],
         "version": "1.0",
@@ -1976,8 +1968,8 @@
             "enter"
         ],
         "included_pattern": [
-            "V {patient} on {co-patient}",
-            "V {patient} between {attribute}"
+            "V {patient} between {attribute}",
+            "V {patient} on {co-patient}"
         ],
         "version": "1.0",
         "example": "This operation enters an association between the specified Object Id and the specified servant in the Active Object Map."
@@ -2035,14 +2027,14 @@
         ],
         "included_pattern": [
             "V S",
-            "V {patient}",
             "V for {theme}",
-            "V {patient} if/whether S",
-            "V {patient} for {theme}",
-            "V {patient} in {location}",
-            "V whether/if/that/when S",
             "V for {theme} between/on {patient}",
-            "V whether/if/that S"
+            "V whether/if/that S",
+            "V whether/if/that/when S",
+            "V {patient}",
+            "V {patient} for {theme}",
+            "V {patient} if/whether S",
+            "V {patient} in {location}"
         ],
         "version": "1.0",
         "example": "Tests for equality between the specified object and this timestamp."
@@ -2087,14 +2079,14 @@
             "navigate"
         ],
         "included_pattern": [
+            "V from {source} to {goal}",
+            "V over {patient} from {source}",
+            "V over/to {patient}",
             "V {patient}",
-            "V {patient} to {goal}",
             "V {patient} from {source}",
             "V {patient} in {location}",
-            "V over/to {patient}",
-            "V from {source} to {goal}",
-            "V {patient} to {goal} in {location}",
-            "V over {patient} from {source}"
+            "V {patient} to {goal}",
+            "V {patient} to {goal} in {location}"
         ],
         "version": "1.0",
         "example": "Redirect clicks to the IME for handling there."
@@ -2131,22 +2123,21 @@
             "peek"
         ],
         "included_pattern": [
-            "V {patient} as {goal}",
-            "V {patient} for {beneficiary} from {source}",
-            "V {patient}",
-            "V {patient} if S",
             "V at {location}",
             "V from {source}",
+            "V {patient}",
             "V {patient} as/to {goal}",
-            "V {patient} from {source}",
-            "V {patient} with {instrument}",
-            "V {patient} for {beneficiary}",
             "V {patient} at/in/on {location}",
-            "V {patient} from {source} at {location}",
-            "V {patient} with {instrument} from {source}",
+            "V {patient} at/in/on {location} from {source}",
+            "V {patient} for {beneficiary}",
             "V {patient} for {beneficiary} at {location}",
+            "V {patient} for {beneficiary} from {source}",
+            "V {patient} from {source}",
+            "V {patient} from {source} at {location}",
             "V {patient} from {source} for {beneficiary}",
-            "V {patient} at/in/on {location} from {source}"
+            "V {patient} if S",
+            "V {patient} with {instrument}",
+            "V {patient} with {instrument} from {source}"
         ],
         "version": "1.0",
         "example": "Removes all cancelled tasks from this timer's task queue."
@@ -2169,18 +2160,18 @@
             "prompt"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V that S",
-            "V {patient} S_INF",
-            "V {patient} to {goal}",
             "V from {source}",
-            "V {patient} to {co-theme}",
+            "V that S",
+            "V to {co-theme} that S",
+            "V {patient}",
+            "V {patient} S_INF",
             "V {patient} about {topic}",
+            "V {patient} for {beneficiary}",
+            "V {patient} for {beneficiary} in {location}",
             "V {patient} in {location}",
             "V {patient} that/when/whether S",
-            "V {patient} for {beneficiary}",
-            "V to {co-theme} that S",
-            "V {patient} for {beneficiary} in {location}"
+            "V {patient} to {co-theme}",
+            "V {patient} to {goal}"
         ],
         "version": "1.0",
         "example": "Reports whether or not this DropTarget is currently active (ready to accept drops)."
@@ -2224,8 +2215,8 @@
             "determine"
         ],
         "included_pattern": [
-            "V {patient}",
             "V that S",
+            "V {patient}",
             "V {patient} for {beneficiary}"
         ],
         "version": "1.0",
@@ -2265,13 +2256,13 @@
         ],
         "included_pattern": [
             "V {patient}",
+            "V {patient} at/in/on {location} with {instrument}",
+            "V {patient} for {beneficiary} with {instrument}",
+            "V {patient} for {co-theme}",
             "V {patient} if S",
             "V {patient} in {location}",
             "V {patient} with {instrument}",
-            "V {patient} for {beneficiary} with {instrument}",
-            "V {patient} with {instrument} at/in/on {location}",
-            "V {patient} at/in/on {location} with {instrument}",
-            "V {patient} for {co-theme}"
+            "V {patient} with {instrument} at/in/on {location}"
         ],
         "version": "1.0",
         "example": "Causes this character sequence to be replaced by the reverse of the sequence."
@@ -2291,13 +2282,13 @@
             "return"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V {patient} if S",
             "V if S",
-            "V {patient} for {theme}",
+            "V {patient}",
             "V {patient} against/with/to {co-patient}",
+            "V {patient} against/with/to {co-patient} in {location}",
+            "V {patient} for {theme}",
             "V {patient} for {theme} against/with/to {co-patient}",
-            "V {patient} against/with/to {co-patient} in {location}"
+            "V {patient} if S"
         ],
         "version": "1.0",
         "example": "Compares the specified object with this set for equality."
@@ -2319,17 +2310,17 @@
             "advance"
         ],
         "included_pattern": [
-            "V {patient}",
             "V to {goal}",
-            "V {patient} by S_ING",
-            "V {patient} from {source}",
             "V up/down {patient}",
-            "V {patient} to/down {goal}",
+            "V {patient}",
+            "V {patient} by S_ING",
             "V {patient} by {instrument}",
-            "V {patient} over {duration}",
+            "V {patient} from {source}",
+            "V {patient} from {source} to/down {goal}",
             "V {patient} in/within {location}",
+            "V {patient} over {duration}",
             "V {patient} to {goal} by S_ING",
-            "V {patient} from {source} to/down {goal}"
+            "V {patient} to/down {goal}"
         ],
         "version": "1.0",
         "example": "Moves one or more rows from the inclusive range start to end to the to position in the model."
@@ -2350,8 +2341,8 @@
         ],
         "included_pattern": [
             "V {patient}",
-            "V {patient} to {theme}",
-            "V {patient} for {co-patient}"
+            "V {patient} for {co-patient}",
+            "V {patient} to {theme}"
         ],
         "version": "1.0",
         "example": "Called by the input method to commit content such as a PNG image to the editor."
@@ -2387,35 +2378,35 @@
         ],
         "included_pattern": [
             "V S",
+            "V for {beneficiary}",
+            "V if/whether/that/when S",
+            "V if/whether/that/when/where S",
+            "V on/in/at {location}",
+            "V to {goal}",
             "V {patient}",
             "V {patient} S_INF",
-            "V {patient} when S",
-            "V to {goal}",
-            "V {patient} by S_ING",
-            "V {patient} if/whether S",
-            "V if/whether/that/when S",
-            "V {patient} for S_ING",
             "V {patient} about {topic}",
-            "V for {beneficiary}",
-            "V on/in/at {location}",
-            "V {patient} for {beneficiary}",
-            "V {patient} as/to/into {goal}",
-            "V {patient} between {attribute}",
-            "V if/whether/that/when/where S",
-            "V {patient} with/from {instrument}",
-            "V {patient} on/in/at/within {location}",
             "V {patient} as/to {goal} for {beneficiary}",
-            "V {patient} for {beneficiary} as/to {goal}",
-            "V {patient} with {instrument} about {topic}",
-            "V {patient} with/from {instrument} as/to {goal}",
-            "V {patient} for {beneficiary} on/in/at {location}",
+            "V {patient} as/to {goal} with/from {instrument}",
+            "V {patient} as/to/into {goal}",
             "V {patient} as/to/into {goal} on/in/at {location}",
+            "V {patient} between {attribute}",
+            "V {patient} by S_ING",
+            "V {patient} for S_ING",
+            "V {patient} for {beneficiary}",
+            "V {patient} for {beneficiary} as/to {goal}",
+            "V {patient} for {beneficiary} on/in/at {location}",
             "V {patient} for {beneficiary} with/from {instrument}",
-            "V {patient} on/in/at {location} with/from {instrument}",
-            "V {patient} on/in/at {location} as/to {goal}",
+            "V {patient} if/whether S",
             "V {patient} on/in/at {location}",
+            "V {patient} on/in/at {location} as/to {goal}",
             "V {patient} on/in/at {location} for {beneficiary}",
-            "V {patient} as/to {goal} with/from {instrument}"
+            "V {patient} on/in/at {location} with/from {instrument}",
+            "V {patient} on/in/at/within {location}",
+            "V {patient} when S",
+            "V {patient} with {instrument} about {topic}",
+            "V {patient} with/from {instrument}",
+            "V {patient} with/from {instrument} as/to {goal}"
         ],
         "version": "1.0",
         "example": "Set the dst integer Rect by rounding \\out\\\" this rectangle"
@@ -2452,17 +2443,17 @@
             "re-enable"
         ],
         "included_pattern": [
-            "V {patient}",
             "V S_ING",
-            "V {patient} to {goal}",
+            "V {patient}",
             "V {patient} about {topic}",
-            "V {patient} from {source}",
-            "V {patient} with {instrument}",
             "V {patient} for {beneficiary}",
-            "V {patient} within {co-patient}",
+            "V {patient} for {beneficiary} with {instrument}",
+            "V {patient} from {source}",
             "V {patient} in/on/into {co-patient}",
+            "V {patient} to {goal}",
             "V {patient} to {goal} from {source}",
-            "V {patient} for {beneficiary} with {instrument}"
+            "V {patient} with {instrument}",
+            "V {patient} within {co-patient}"
         ],
         "version": "1.0",
         "example": "A test started."
@@ -2488,12 +2479,12 @@
             "reattach"
         ],
         "included_pattern": [
-            "V {patient} in {location} to {co-patient}",
             "V {patient}",
             "V {patient} for S_ING",
-            "V {patient} in {location}",
-            "V {patient} to {co-patient}",
             "V {patient} in {instrument}",
+            "V {patient} in {location}",
+            "V {patient} in {location} to {co-patient}",
+            "V {patient} to {co-patient}",
             "V {patient} to {co-patient} for {beneficiary}"
         ],
         "version": "1.0",
@@ -2514,19 +2505,19 @@
             "clone"
         ],
         "included_pattern": [
-            "V {patient}",
-            "V {patient} to/into {goal}",
-            "V to/into {goal} in {location}",
-            "V from/at {source} to/into {goal}",
-            "V to/into {goal} in/at {location}",
-            "V {patient} in/at {location} into/to {goal}",
-            "V {patient} to/into {goal} from/at {source}",
-            "V {patient} for {beneficiary} to/into {goal}",
-            "V {patient} for {beneficiary} from/at {source}",
-            "V {patient} to/into {goal} in/at {location}",
             "V from/at {source}",
-            "V {patient} to/into/in {goal}",
-            "V {patient} from/at {source} to/into {goal}"
+            "V from/at {source} to/into {goal}",
+            "V to/into {goal} in {location}",
+            "V to/into {goal} in/at {location}",
+            "V {patient}",
+            "V {patient} for {beneficiary} from/at {source}",
+            "V {patient} for {beneficiary} to/into {goal}",
+            "V {patient} from/at {source} to/into {goal}",
+            "V {patient} in/at {location} into/to {goal}",
+            "V {patient} to/into {goal}",
+            "V {patient} to/into {goal} from/at {source}",
+            "V {patient} to/into {goal} in/at {location}",
+            "V {patient} to/into/in {goal}"
         ],
         "version": "1.0",
         "example": "Copy an array of RS objects to the Allocation."
@@ -2545,9 +2536,9 @@
             "mark"
         ],
         "included_pattern": [
+            "V in {patient}",
             "V {patient}",
             "V {patient} as S_ING",
-            "V in {patient}",
             "V {patient} as {goal}",
             "V {patient} in {location}"
         ],
@@ -2645,12 +2636,12 @@
         ],
         "included_pattern": [
             "V {patient}",
-            "V {patient} from {source}",
-            "V {patient} in/on {location}",
-            "V {patient} with {instrument}",
+            "V {patient} as {goal} for {beneficiary}",
             "V {patient} for {beneficiary}",
+            "V {patient} from {source}",
             "V {patient} from {source} to {goal}",
-            "V {patient} as {goal} for {beneficiary}"
+            "V {patient} in/on {location}",
+            "V {patient} with {instrument}"
         ],
         "version": "1.0",
         "example": "Cancels the speech recognition."

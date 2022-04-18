@@ -172,30 +172,3 @@ class FuncSentenceClassifier:
     #     return {"1": {"precision": precision_p, "recall": recall_p, "f1": f_1_p, "support": num_tp + num_fn},
     #             "0": {"precision": precision_n, "recall": recall_n, "f1": f_1_n, "support": num_fp + num_tn}
     #             }
-
-
-if __name__ == "__main__":
-    save_list = []
-    # for scenario_type in range(1, SCENARIO_NUM + 1):
-    #     scenario_type_text = ScenarioType.scenario_id_2_text[scenario_type]
-    #     print(scenario_type_text, "#" * 10)
-    classifier_1 = FuncSentenceClassifier()
-    # classifier_1.train_model()
-    # print(classifier_1.predict(
-    #     "Determines this file dialog's filename filter."))
-    # print(classifier_1.predict(
-    #     "Prints a string representation of this digest output stream and its associated message digest object."))
-    _, p = classifier_1.new_predict(
-        "Prints a string representation of this digest output stream and its associated message digest object.")
-    print(p)
-    # train_set_test = classifier_1.cal_experiment_indexes(classifier_1.train_data_path, "train_data")
-    # test_set_test = classifier_1.cal_experiment_indexes(classifier_1.test_data_path, "test_data")
-    # save_list.append({
-    #     "scenario_type": scenario_type_text,
-    #     "train_set": train_set_test,
-    #     "test_set": test_set_test
-    # })
-    # import json
-    #
-    # with open("./scenario_classifier_result.json", "w", encoding="utf8") as f:
-    #     json.dump(save_list, f, indent=4)

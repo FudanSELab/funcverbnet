@@ -15,19 +15,17 @@ from spacy.tokens import Doc, Token
 from spacy import displacy
 import textdistance
 from nltk.tree import Tree
-import pandas as pd
 
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
-from funcverbnet.utils import load_pdata, load_tmp, CustomError
+from funcverbnet.utils import load_data
 from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
+from funcverbnet.errors import DataHandlerError
 
-HEURISTIC_RULES_PATH = load_pdata("heuristic_rules.txt")
+HEURISTIC_RULES_PATH = load_data("heuristic_rules.txt")
 SPLIT_STR = ' - '
 
 
 # import time
-
-
 # def cal_time(func):
 #     def wrapper(*args, **kwargs):
 #         t1 = time.perf_counter()
@@ -577,7 +575,7 @@ class TemplateExtractor:
             return {}
         cate_id = self.classifier.predict(sentence)
         # print('CATE_NAME', self.net.find_cate_by_id(cate_id).name)
-        f_category_incl_verbs = self.net.find_cate_by_id(cate_id).included_verb
+        f_category_incl_verbs = self.net.find_f_category_by_id(cate_id).included_verb
         tokens_pos_list, core_verb = self.structure_sentence(
             self.preprocess_sentence(sentence), self.custom_nlp, f_category_incl_verbs
         )
@@ -595,7 +593,7 @@ class TemplateExtractor:
         # print('INPUT_TOKENS_POS:', final_tokens_pos_list)
         template, tokens_pos_list = self.construct_template(final_tokens_pos_list)
         if len(template.split(SPLIT_STR)) != len(tokens_pos_list):
-            raise CustomError('Conflict Length!')
+            raise DataHandlerError('Conflict Length!')
         return {
             'cate_id': cate_id,
             'sentence': sentence,
@@ -643,57 +641,3 @@ class TemplateExtractor:
         # print('FINAL_TEMP:', SPLIT_STR.join(template))
         # print('FINAL_TOKENS_POS:', tokens_pos_list)
         return SPLIT_STR.join(template), tokens_pos_list
-
-
-if __name__ == '__main__':
-    template_extractor = TemplateExtractor()
-    # text = 'Use this function to retrieve the number.'
-    # text = 'retrieve the number.'
-    # text = 'Prints a string representation of this digest output stream and its associated message digest object.'
-    # text = "End the scope of a prefix-URI mapping."
-    # text = "How can I send an email by Java application using Gmail, Yahoo?"
-    # text = "How can I send an SMTP message from Java"
-    # text = "open or create a file and write in file"
-    # text = 'Stops an action event and using this EventQueue.'
-    # text = "Prints a long and then terminate the line"
-    # text = "Called immediately before commiting the transaction."
-    # text = "Called whenever a change of unknown type has occurred, such as the entire list being set to new values."
-    # text = "Invoked before sending the specified notification to the listener."
-    # text = "This method is invoked with this node locked."
-    # text = "Report an intermediate result of the request, without completing it (the request is still active and the app is waiting for the final result), resulting in a call to VoiceInteractor.CommandRequest.onCommandResult with false for isCompleted."
-    # text = "This is called whenever the current window attributes change."
-    # text = "Notifies this component that it now has a parent component."
-    # text = "disables file access within Service Workers, see setAllowFileAccess(boolean)."
-    # text = "Stops dispatching events using this EventQueue."
-    # >>>
-    # text = "Prints information about this thread group to the standard output."
-    # text = "Records the Expression so that the Encoder will produce the actual output when the stream is flushed."
-    # text = "Record that this token has been acquired immediately."
-    # text = "Draws as much of the specified image as is currently available."
-    # text = "Draws as much of the specified image as has already been scaled to fit inside the specified rectangle."
-    # text = "Paints the popup menu's border if the borderPainted property is true."
-    # text = "Paints the menubar's border if BorderPainted property is true."
-    # text = "Allow the application to resolve external resources."
-    # text = "Requests that the framework use VOIP audio mode for this connection."
-    # text = "Requests that this Component gets the input focus."
-    # text = "Not called directly by applications."
-    # text = "Called to request data from the given position."
-    # text = "Returns the list of currently running tasks on the node"
-    # text = "Set a reference to task that caused this task to be run."
-    # text = "A failure caused by an exception at some phase of the task."
-    # text = "Set the ingest pipeline to set on index requests made by this action."
-    # text = "Explicitly set the analyzer to use. Defaults to use explicit mapping config for the field"
-    # text = "返回autoDetectCreators"
-    # temp = template_extractor.generate_sentence_template(text)
-    # print(temp)
-    # with open(load_tmp("error.csv"), 'r') as f:
-    #     df = pd.read_csv(f)
-    # for i, text in enumerate(df['full_description'][1:]):
-    #     try:
-    #         temp = template_extractor.generate_sentence_template(text)
-    #         # print(temp['template'], temp['tokens_pos_list'])
-    #         if len(temp['template'].split(SPLIT_STR)) != len(temp['tokens_pos_list']):
-    #             print(text, temp['template'], temp['tokens_pos_list'])
-    #     except Exception as e:
-    #         # print(df['id'][i], text)
-    #         print(e, e.__class__.__name__)

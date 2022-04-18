@@ -11,74 +11,15 @@
 @Description:
 """
 import re
-import pandas as pd
-
+from funcverbnet.modeling.slot import TSlot, PSlot, SentencePattern
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
 from funcverbnet.data_handler.template_extractor import TemplateExtractor
-from funcverbnet.utils import CustomError
-
-from funcverbnet.utils import load_tmp
+from funcverbnet.errors import DataHandlerError
 
 SPLIT_STR = ' - '
 
 
-class TSlot:
-    def __init__(
-        self,
-        slot_str: str,
-        tokens: list,
-        priority: int,
-    ):
-        self.slot_str = slot_str
-        self.tokens = [_.text for _ in tokens]
-        self.priority = priority
-
-    def __str__(self):
-        return '<TSlot %s>' % self.slot_str
-
-
-class PSlot:
-    def __init__(
-        self,
-        slot_str: str,
-        role: str,
-        preps: set,
-        semantic: str,
-    ):
-        if not semantic:
-            semantic = '.predicate' if role == 'V' else '.patient'
-        self.slot_str = slot_str
-        self.role = role
-        self.preps = preps
-        self.semantic = semantic
-
-    def __str__(self):
-        return '<PSlot %s>' % self.slot_str
-
-
-class SentencePattern:
-    def __init__(
-        self,
-        pattern: str,
-        p_slots_dic: dict,
-    ):
-        self.pattern = pattern
-        self.p_slots_dic = p_slots_dic
-
-    def __str__(self):
-        # return '<SentencePattern %s> #SLOTS# ' % self.pattern + ', '.join(
-        #     [str(_) for i, _ in sorted(self.p_slots_dic.items(), key=lambda x: str(x[0]))]
-        # )
-        return '<SentencePattern %s>' % self.pattern
-
-    def __eq__(self, other):
-        return self.pattern == other.pattern
-
-    def __hash__(self):
-        return hash(self.pattern)
-
-
-class Pattern:
+class PatternProcess:
     @staticmethod
     def deprocess_pattern(pattern):
         """
@@ -151,7 +92,7 @@ class PatternMatcher:
 
     @staticmethod
     def construct_sentence_pattern(pattern: str) -> SentencePattern or None:
-        pattern = Pattern.enprocess_pattern(pattern)
+        pattern = PatternProcess.enprocess_pattern(pattern)
         if not pattern:
             return None
         p_slots_dic = {}
@@ -177,7 +118,7 @@ class PatternMatcher:
             return None
         verb_sentence_patterns = []
         for pattern in patterns:
-            verb_sentence_pattern = self.construct_sentence_pattern(Pattern.enprocess_pattern(pattern))
+            verb_sentence_pattern = self.construct_sentence_pattern(PatternProcess.enprocess_pattern(pattern))
             verb_sentence_patterns.append(verb_sentence_pattern)
         return verb_sentence_patterns
 
@@ -285,26 +226,24 @@ class PatternMatcher:
                 slot,
                 template_slots_dic[slot_pos][1] if slot_pos < len(template_slots_dic) else None
             ))
-        # print(aligned_pattern_mapping_list)
-        # print(aligned_list[-1][1].pattern)
         return aligned_pattern_mapping_list, aligned_list[-1][1]
 
     def mapping_template(self, sentence):
         template = self.template_extractor.generate_sentence_template(sentence)
         if not template:
             return None
-        category = self.funcverbnet.find_cate_by_id(template['cate_id'])
+        category = self.funcverbnet.find_f_category_by_id(template['cate_id'])
         slot_mapping, aligned_pattern = self.aligned_with_sentence_pattern(
             template, self.encapsulate_sentence_patterns(category.included_pattern)
         )
         mapped_template = {
             'category': category.name,
-            'pattern': Pattern.deprocess_pattern(aligned_pattern.pattern),
+            'pattern': PatternProcess.deprocess_pattern(aligned_pattern.pattern),
             'core_verb': template['core_verb'],
             'roles': []
         }
         if not slot_mapping:
-            raise CustomError('PatternError')
+            raise DataHandlerError('PatternError')
         for p_slot, t_slot in slot_mapping:
             mapped_template['roles'].append({
                 'role': p_slot.role,
@@ -312,160 +251,3 @@ class PatternMatcher:
                 'value': ' '.join(t_slot.tokens)
             })
         return mapped_template
-
-
-if __name__ == '__main__':
-    funcverbnet = FuncVerbNet()
-    template_extractor = TemplateExtractor()
-    pattern_matcher = PatternMatcher()
-    # text = "Version of onCreateView(String, Context, AttributeSet) that also supplies the parent that the view created view will be placed in."
-    # text = 'Use this function to retrieve the number.'
-    # text = 'Prints a string representation of this digest output stream and its associated message digest object.'
-    # text = "End the scope of a prefix-URI mapping."
-    # text = "How can I send an email by Java application using Gmail, Yahoo?"
-    # text = "How can I send an SMTP message from Java"
-    # text = "open or create a file and write in file"
-    # text = "Version of onCreateView(String, Context, AttributeSet) that also supplies the parent that the view created view will be placed in."
-    # text = 'Stops an action event and using this EventQueue.'
-    # text = "Prints a long and then terminate the line"
-    # text = "Propagates all row update, insert and delete changes to the data source backing this CachedRowSet object using the specified Connection object to establish a connection to the data source."
-    # text = "This method is part of the SurfaceHolder. Callback2 interface, and is not normally called or subclassed by clients of GLSurfaceView."
-    # text = "Called immediately before commiting the transaction."
-    # text = "Called whenever a change of unknown type has occurred, such as the entire list being set to new values."
-    # text = "Invoked before sending the specified notification to the listener."
-    # text = "This method is invoked with this node locked."
-    # text = "Report an intermediate result of the request, without completing it (the request is still active and the app is waiting for the final result), resulting in a call to VoiceInteractor.CommandRequest.onCommandResult with false for isCompleted."
-    # text = "This is called whenever the current window attributes change."
-    # text = "Notifies this component that it now has a parent component."
-    # text = "disables file access within Service Workers, see setAllowFileAccess(boolean)."
-    # text = 'Use this function to retrieve the number.'
-    # text = "End the scope of a prefix-URI mapping."
-    text = "open or create a file to write"
-    # text = "Set a reference to task that caused this task to be run."
-    # text = "Returns the list of currently running tasks on the node"
-    # temp = template_extractor.generate_sentence_template(text)
-    # print(temp)
-    # cate = funcverbnet.find_cate_by_id(temp['cate_id'])
-    # mapping, ap = pattern_matcher.aligned_with_sentence_pattern(
-    #     temp, pattern_matcher.encapsulate_sentence_patterns(cate.included_pattern)
-    # )
-    # for p_slot, t_slot in mapping:
-    #     print(p_slot, t_slot, t_slot.tokens)
-    # print('-' * 60)
-    # print(ap)
-    pattern_matcher.mapping_template(text)
-    # temp_dic = pm.template_extractor.generate_sentence_template(text)
-    # temp = temp_dic['template']
-    # cate = pm.funcverbnet.find_cate_by_id(temp_dic['cate_id'])
-    # pm.aligned_with_sentence_pattern(temp, pm.encapsulate_sentence_patterns(cate.included_pattern))
-    # pm.find_aligned_sentence_pattern(temp, pm.encapsulation(patterns, cateid))
-    # pm.sentence_pattern_construction2("")
-    # a = pm.encapsulate_sentence_patterns(patterns)
-    # print(a)
-    # net = FuncVerbNet()
-    # with open(read_data("patterns.bin"), "rb") as f:
-    #     data = pickle.load(f)
-    # for key, value in data.items():
-    #     # print(value)
-    #     n_pattern = net.find_cate_by_id(key).included_pattern
-    #     if len(n_pattern) != len(set(n_pattern)):
-    #         print(key)
-    #     if len(value) != len(n_pattern):
-    #         print(key)
-    # for key, value in data.items():
-    #     print(key)
-    #     for item in iterate_patterns(data[key]):
-    #         print(item)
-    # for item in iterate_patterns(data[7]):
-    #     print(item)
-    # for key, value in data.items():
-    #     cate = net.find_cate_by_id(key)
-    #     if len(value) != len(cate.included_pattern):
-    #         print(key)
-    #     # a = [_ for _ in iterate_patterns(value, deprocess_pattern)]
-    #     # b = cate.included_pattern
-    #     # c = set(a) - set(b)
-    #     # if c:
-    #     #     print('-' * 50)
-    #     #     print(key, [_ for _ in iterate_patterns(c, enprocess_pattern)])
-    #         # data[key].extend([_ for _ in iterate_patterns(c, enprocess_pattern)])
-    #     a = [_ for _ in iterate_patterns(cate.included_pattern, enprocess_pattern)]
-    #     b = value
-    #     c = set(b) - set(a)
-    #     if c:
-    #         print(key)
-    # print(a)
-    # print(b)
-    # # print(data[59])
-    # # ps = ['V,S_INF', 'V,NP{.material}', 'V,NP{.material},PP(into/as/to){.product}', 'V,NP{.material},PP(in){.location}', 'V,NP{.material},PP(in){.location},PP(into/as/to){.product}', 'V,NP,PP(from){.material},PP(to/as/into){.product}', '']
-    # a = [_ for _ in iterate_patterns(data[59], deprocess_pattern)]
-    # iterate_patterns(data[59], deprocess_pattern)
-    # for key, value in data.items():
-    #     cate = net.find_cate_by_id(key)
-    #     if len(cate.included_pattern) != len(value):
-    #         # print([_ for _ in iterate_patterns(value, deprocess_pattern)])
-    #         for pattern in iterate_patterns(value, deprocess_pattern):
-    #             if pattern not in cate.included_pattern:
-    #                 print("\"" + pattern + "\",")
-    #         print(len(cate.included_pattern), len(value))
-    #         for pattern in iterate_patterns(cate.included_pattern, enprocess_pattern):
-    #             if pattern not in value:
-    #                 print(pattern)
-    #                 data[key].append(pattern)
-    #         # print([_ for _ in iterate_patterns(value, deprocess_pattern)])
-    # with open(read_data("patterns.bin"), "wb") as f:
-    #     pickle.dump(data, f)
-    # for i in range(1, 89):
-    #     patterns = net.find_cate_by_id(i).included_pattern
-    #     print('-' * 60)
-    #     for item in iterate_patterns(patterns, enprocess_pattern):
-    #         print(item)
-    # result = {}
-    # with open(read_data("sentence_pattern.txt"), 'r') as f:
-    #     lines_str = f.read()
-    # verb_category_pattern_str_list = lines_str.split('\n\n')
-    # for each in verb_category_pattern_str_list:
-    #     sentence_pattern_list = each.split('\n')
-    #     cateid = net.find_cate_by_name(sentence_pattern_list[0].split('/')[0]).id
-    #     for pattern in sentence_pattern_list[1:]:
-    #         if not pattern:
-    #             continue
-    #         reg = re.compile(r'\(.+?\)')
-    #         semantics = reg.findall(pattern)
-    #         for i, semantic in enumerate(semantics):
-    #             pattern = pattern.replace(semantic, str(i))
-    #         pattern = ','.join(pattern.split(' '))
-    #         for i, semantic in enumerate(semantics):
-    #             pattern = pattern.replace(str(i), semantic)
-    #         result.setdefault(cateid, []).append(pattern)
-    # with open(read_data("patterns.bin"), "wb") as f:
-    #     pickle.dump(data, f)
-    # print(deprocess_pattern("V,NP,PP(by),S_ING"))
-    # print("V,NP,PP(by),S_ING")
-    # print("V {patient} by S_ING")
-    # print(enprocess_pattern("'V {patient} for S_ING'"))
-    # print(enprocess_pattern("V {patient} by S_ING"))
-    # print("V {patient} from {material} to/as/into {product}")
-    # print(deprocess_pattern("V,NP{.patient},PP(from){.material},PP(to/as/into){.product}"))
-    # print("V,NP{.patient},PP(from){.material},PP(to/as/into){.product}")
-    # print(enprocess_pattern("V {patient} from {material} to/as/into {product}"))
-    # print(enprocess_pattern("V {patient} for {beneficiary}"))
-    # sub_prep = re.match(r'\s([a-z\s/]+)\sS_ING', " by S_ING")
-    # print(sub_prep.group(1))
-    # print(enprocess_pattern("V out {patient}"))
-    # print(deprocess_pattern("V,PP(out){.patient}"))
-
-    # with open(load_pdata("sentences.csv"), 'r') as f:
-    #     df = pd.read_csv(f)
-    # for i, text in enumerate(df['single_description'][1000:2000]):
-    #     try:
-    #         temp = template_extractor.generate_sentence_template(text)
-    #         # print(temp['cate_id'], text)
-    #         cate = funcverbnet.find_cate_by_id(temp['cate_id'])
-    #         _, aligned_pattern = pattern_matcher.aligned_with_sentence_pattern(
-    #             temp['template'], pattern_matcher.encapsulate_sentence_patterns(cate.included_pattern)
-    #         )
-    #         Pattern.deprocess_pattern(aligned_pattern.pattern)
-    #     except Exception as e:
-    #         print(df['id'][i], text)
-    #         print(e, e.__class__.__name__)

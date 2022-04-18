@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.metrics import f1_score
+import fasttext
 
 # 转换为FastText需要的格式
 train_df = pd.read_csv('../funcverbnet/data/sentences.csv')
@@ -36,7 +37,6 @@ train_df[['single_description', 'label_ft']].iloc[-500:].to_csv('./data/test_dat
 # df_2 = pd.read_csv('./data/add_train_data.csv')
 # pd.concat([df_1,df_2]).to_csv('./data/final_train_data.csv', index=None, header=None, sep='\t')
 
-import fasttext
 
 model = fasttext.train_supervised('./data/final_train_data.csv', lr=1, wordNgrams=2,
                                   verbose=2, minCount=1, epoch=25, loss="hs")

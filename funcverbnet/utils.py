@@ -14,12 +14,17 @@ import os
 from pathlib import Path
 import time
 import logging
+import re
 
 ROOT_PATH = Path(os.path.abspath(os.path.dirname(__file__)))
 
 
-def load_pdata(filename):
+def load_data(filename):
     return str(ROOT_PATH / 'data' / filename)
+
+
+def tmp_folder():
+    return str(ROOT_PATH / 'tmp')
 
 
 def load_tmp(filename):
@@ -32,10 +37,6 @@ def save_logs(ml_tag=None):
     timestamp = time.strftime("%Y%m%d%H", time.localtime())
     path = path / f'mlruns_{ml_tag}_{timestamp}' if ml_tag else path / f'{timestamp}.log'
     return str(path)
-
-
-def tmp_folder():
-    return str(ROOT_PATH / 'tmp')
 
 
 def walk_dir(folder):
@@ -80,12 +81,3 @@ class LogsUtil:
     def info(self, *msgs):
         for _ in msgs:
             self.logger.info(_)
-
-
-class CustomError(Exception):
-    def __init__(self, info):
-        super().__init__(self)
-        self.info = info
-
-    def __str__(self):
-        return self.info

@@ -35,10 +35,10 @@ if __name__ == '__main__':
                 # print(cate_id, '|', result, '|', text)
                 logger.info('conflict: ' + cate_id + ' | ' + result + ' | ' + text)
             if p <= 0.8:
-                cate = net.find_cate_by_id(cate_id)
+                cate = net.find_f_category_by_id(cate_id)
                 collect_sent.append({
-                    'from_fasttext': net.find_cate_by_id(cate_id).name,
-                    'from_bert': net.find_cate_by_id(int(result)).name,
+                    'from_fasttext': net.find_f_category_by_id(cate_id).name,
+                    'from_bert': net.find_f_category_by_id(int(result)).name,
                     'sentence': text
                 })
         except Exception as e:
