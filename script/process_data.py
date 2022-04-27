@@ -44,7 +44,6 @@ def eliminate_csv(filename, chunksize=10000):
         writer.writerow(['id', 'description'])
     for chunk in reader:
         count += len(chunk)
-        print(count)
         with open(load_tmp(f'eliminate_{filename}.csv'), 'a') as wf:
             writer = csv.writer(wf)
             pre_text = None

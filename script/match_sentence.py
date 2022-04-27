@@ -15,7 +15,7 @@ import json
 import pandas as pd
 from tqdm import tqdm
 
-from funcverbnet.data_handler.template_extractor import CustomError
+from funcverbnet.errors import DataHandlerError
 from funcverbnet.data_handler.pattern_matcher import PatternMatcher
 from funcverbnet.utils import load_tmp, LogsUtil, walk_dir, tmp_folder
 
@@ -44,7 +44,7 @@ def run1(filename):
                 with open(load_tmp(f'{filename}_functionality_{tag}.json'), 'w') as json_f:
                     json.dump(data, json_f)
                 data = []
-            except CustomError as ce:
+            except DataHandlerError as ce:
                 logger.info(ce, item[1])
             except Exception as e:
                 logger.info(e)
@@ -78,7 +78,7 @@ def run2(filename, chunksize):
                     'id': row[0],
                     'functionality': mapped_template
                 })
-            except CustomError as ce:
+            except DataHandlerError as ce:
                 logger.info(ce, row[1])
             except Exception as e:
                 logger.info(e)
