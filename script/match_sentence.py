@@ -83,12 +83,12 @@ def run2(filename, chunksize):
             except Exception as e:
                 logger.info(e)
         print(f'already processed {count} rows')
-        with open(load_tmp(f'{filename}_functionality_1,{tag}.json'), 'w') as json_f:
+        with open(load_tmp(f'{filename}_functionality_2,{tag}.json'), 'w') as json_f:
             json.dump(data, json_f)
 
 
 def list_tags(filename):
-    match_file = f'{filename}_functionality_1,'
+    match_file = f'{filename}_functionality_2,'
     tags = []
     for filename_ext in walk_dir(tmp_folder()):
         if match_file in filename_ext:
@@ -97,4 +97,4 @@ def list_tags(filename):
 
 
 if __name__ == '__main__':
-    run2('method_desc', 5000)
+    run2('method_desc', 100000)
