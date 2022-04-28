@@ -71,7 +71,7 @@ def run2(filename, chunksize):
         print(f'processing {count} rows now')
         for index, row in tqdm(chunk.iterrows()):
             try:
-                mapped_template = pattern_matcher.mapping_template(row[1])
+                mapped_template = pattern_matcher.mapping_template_copy(row[1])
                 if not mapped_template:
                     continue
                 data.append({
