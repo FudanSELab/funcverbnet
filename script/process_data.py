@@ -27,7 +27,7 @@ def clean_csv(filename):
     with open(load_tmp(f'{filename}.csv'), 'r') as rf:
         reader = csv.reader(rf)
         next(reader)
-        with open(load_tmp(f'clean{filename}.csv'), 'w') as wf:
+        with open(load_tmp(f'clean_{filename}.csv'), 'w') as wf:
             writer = csv.writer(wf)
             writer.writerow(['id', 'description'])
             for row in reader:
@@ -74,7 +74,7 @@ def combine_json(filename, sun):
 if __name__ == '__main__':
     # count_csv('method_desc')
     # clean_csv('method_desc')
-    # count_csv('clean_method_desc')
-    # eliminate_csv('method_desc')
-    # count_csv('eliminate_method_desc')
-    combine_json('method_desc', 71)
+    count_csv('clean_method_desc')
+    eliminate_csv('method_desc')
+    count_csv('eliminate_method_desc')
+    # combine_json('method_desc', 71)
