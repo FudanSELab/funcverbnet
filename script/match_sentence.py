@@ -74,10 +74,8 @@ def run2(filename, chunksize):
                 mapped_template = pattern_matcher.mapping_template_copy(row[1])
                 if not mapped_template:
                     continue
-                data.append({
-                    'id': row[0],
-                    'functionality': mapped_template
-                })
+                mapped_template['id'] = row[0]
+                data.append(mapped_template)
             except DataHandlerError as ce:
                 logger.info(ce, row[1])
             except Exception as e:
@@ -97,4 +95,4 @@ def list_tags(filename):
 
 
 if __name__ == '__main__':
-    run2('method_desc', 100000)
+    run2('method_desc', 100)

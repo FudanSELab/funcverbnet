@@ -101,3 +101,11 @@ History
 0.2.3 (2022-4-22)
 -------------------
 * [add] add template extractor and pattern matcher
+
+0.2.4 (2022-4-29)
+-------------------
+* [update] modify patter matcher
+
+0.2.5 (2022-4-30)
+-------------------
+* [update] fix some bugs
