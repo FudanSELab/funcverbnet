@@ -1,5 +1,6 @@
 """Main module."""
 import json
+import pickle
 import time
 import pandas as pd
 
@@ -12,6 +13,7 @@ F_VERB_DATA_PATH = load_data("f_verb.json")
 VERB_DATA_PATH = load_data("verbs.json")
 F_PATTERN_DATA_PATH = load_data("f_pattern.json")
 PATTERN_DATA_PATH = load_data("patterns.json")
+PATTERN_MAP_PATH = load_data("patterns.bin")
 SEMANTIC_DATA_PATH = load_data("semantics.json")
 SENTENCE_DATA_PATH = load_data("sentences.csv")
 
@@ -24,6 +26,7 @@ class FuncVerbNet:
         verb_data_path=VERB_DATA_PATH,
         f_pattern_data_path=F_PATTERN_DATA_PATH,
         pattern_data_path=PATTERN_DATA_PATH,
+        pattern_map_path=PATTERN_MAP_PATH,
         semantic_data_path=SEMANTIC_DATA_PATH,
         sentence_data_path=SENTENCE_DATA_PATH
     ):
@@ -32,6 +35,7 @@ class FuncVerbNet:
         self.verbs = []
         self.f_patterns = []
         self.patterns = []
+        self.patterns_map = {}
         self.semantics = []
         self.sentences = []
         # >>> init list
@@ -39,7 +43,7 @@ class FuncVerbNet:
         self.init_f_verbs(f_verb_data_path)
         self.init_verbs(verb_data_path)
         self.init_f_patterns(f_pattern_data_path)
-        self.init_patterns(pattern_data_path)
+        self.init_patterns(pattern_data_path, pattern_map_path)
         self.init_semantics(semantic_data_path)
         self.init_sentences(sentence_data_path)
         # >>> cache
@@ -109,7 +113,7 @@ class FuncVerbNet:
                 version=f_pattern['version']
             ))
 
-    def init_patterns(self, pattern_data_path=PATTERN_DATA_PATH):
+    def init_patterns(self, pattern_data_path=PATTERN_DATA_PATH, pattern_map_path=PATTERN_MAP_PATH):
         with open(pattern_data_path, 'r', encoding='utf-8') as pattern_file:
             pattern_data = json.load(pattern_file)
         for pattern in pattern_data:
@@ -122,6 +126,8 @@ class FuncVerbNet:
                 create_time=pattern['create_time'],
                 version=pattern['version']
             ))
+        with open(pattern_map_path, 'rb') as pattern_file:
+            self.patterns_map = pickle.load(pattern_file)
 
     def init_semantics(self, semantic_data_path=SEMANTIC_DATA_PATH):
         with open(semantic_data_path, 'r', encoding='utf-8') as semantic_data_file:
@@ -441,12 +447,19 @@ class FuncVerbNet:
 
     def is_valid_pattern(self, syntax):
         if isinstance(syntax, str):
-            for pattern in self.patterns:
-                if pattern.syntax == syntax:
-                    return True
+            if syntax in self.patterns_map:
+                return True
+            # for pattern in self.patterns:
+            #     if pattern.syntax == syntax:
+            #         return True
             return False
         else:
             return False
+
+    def get_pattern_id_by_syntax(self, syntax):
+        if not self.is_valid_pattern(syntax):
+            return None
+        return self.patterns_map[syntax]
 
     def get_pattern_number(self):
         return len(self.patterns)

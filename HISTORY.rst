@@ -97,3 +97,23 @@ History
 0.2.2 (2021-1-19)
 -------------------
 * [add] add cache
+
+0.2.3 (2022-4-22)
+-------------------
+* [add] add template extractor and pattern matcher
+
+0.2.4 (2022-4-29)
+-------------------
+* [update] modify patter matcher
+
+0.2.5 (2022-4-30)
+-------------------
+* [update] fix some bugs
+
+0.2.6 (2022-6-16)
+-------------------
+* [update] add method's qualified name match
+
+0.2.7 (2022-6-20)
+-------------------
+* [update] fix some bugs

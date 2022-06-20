@@ -15,6 +15,7 @@ from funcverbnet.modeling.slot import TSlot, PSlot, SentencePattern
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
 from funcverbnet.data_handler.template_extractor import TemplateExtractor
 from funcverbnet.errors import DataHandlerError
+from funcverbnet.utils import CodeUtil
 
 SPLIT_STR = ' - '
 
@@ -251,3 +252,37 @@ class PatternMatcher:
                 'value': ' '.join(t_slot.tokens)
             })
         return mapped_template
+
+    def mapping_template_copy(self, sentence):
+        template = self.template_extractor.generate_sentence_template(sentence)
+        if not template:
+            return None
+        category = self.funcverbnet.find_f_category_by_id(template['cate_id'])
+        slot_mapping, aligned_pattern = self.aligned_with_sentence_pattern(
+            template, self.encapsulate_sentence_patterns(category.included_pattern)
+        )
+        syntax = PatternProcess.deprocess_pattern(aligned_pattern.pattern)
+        mapped_template = {
+            'category': category.name,
+            'category_id': template['cate_id'],
+            'pattern': syntax,
+            'pattern_id': self.funcverbnet.get_pattern_id_by_syntax(syntax),
+            'core_verb': template['core_verb'],
+            'roles': []
+        }
+        if not slot_mapping:
+            raise DataHandlerError('PatternError')
+        for p_slot, t_slot in slot_mapping:
+            mapped_template['roles'].append({
+                'role': p_slot.role,
+                'semantic': p_slot.semantic[1:],
+                'value': ' '.join(t_slot.tokens) if not p_slot.preps else ' '.join(t_slot.tokens[1:])
+            })
+        return mapped_template
+
+    def mapping_template_from_qualified_name(self, qualified_name: str):
+        if not qualified_name:
+            return None
+        parent, unqualified_name = CodeUtil.simplify_method_qualified_name(qualified_name)
+        decamelized_name = CodeUtil.decamelize_by_substitute_verb(parent, unqualified_name[0])
+        return self.mapping_template_copy(decamelized_name)

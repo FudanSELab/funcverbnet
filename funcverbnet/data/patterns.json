@@ -6136,5 +6136,419 @@
         ],
         "create_time": "2020-11-09 14:21:42",
         "version": "1.0"
+    },
+    {
+        "id": 524,
+        "syntax": "V {patient} for/to {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 525,
+        "syntax": "V if S",
+        "example": "null",
+        "description": "null",
+        "included_roles": [],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 526,
+        "syntax": "V {patient} at/in/on {location} with {instrument}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "location",
+            "instrument"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 527,
+        "syntax": "V whether/if/that S",
+        "example": "null",
+        "description": "null",
+        "included_roles": [],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 528,
+        "syntax": "V {patient} in {location} to {co-patient}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "location",
+            "co-patient"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 529,
+        "syntax": "V {patient} for {co-theme}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "co-theme"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 530,
+        "syntax": "V {patient} with {instrument} from/over {source}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "instrument",
+            "source"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 531,
+        "syntax": "V for {theme} in {source}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "theme",
+            "source"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 532,
+        "syntax": "V {patient} on/in/at {location} as/to {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "location",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 533,
+        "syntax": "V {patient} from/in {source} as {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "source",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 534,
+        "syntax": "V from/at {source}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "source"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 535,
+        "syntax": "V from {source} to/into/as {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "source",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 536,
+        "syntax": "V out {patient}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 537,
+        "syntax": "V {patient} for {beneficiary} from/over {source}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "beneficiary",
+            "source"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 538,
+        "syntax": "V {patient} from {source} for/to {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "source",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 539,
+        "syntax": "V {patient} from/in {source}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "source"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 540,
+        "syntax": "V {patient} at {location}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "location"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 541,
+        "syntax": "V up {patient}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 542,
+        "syntax": "V to S_INF",
+        "example": "null",
+        "description": "null",
+        "included_roles": [],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 543,
+        "syntax": "V {patient} from {source} to/into/as {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "source",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 544,
+        "syntax": "V {patient} to/into {goal} in/at {location}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "goal",
+            "location"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 545,
+        "syntax": "V {patient} for {beneficiary} from {source}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "beneficiary",
+            "source"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 546,
+        "syntax": "V {patient} against/with {co-patient} at/in {location}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "co-patient",
+            "location"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 547,
+        "syntax": "V {patient} at {location} in/to/into/onto/as {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "location",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 548,
+        "syntax": "V {patient} on/in/at {location} for {beneficiary}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "location",
+            "beneficiary"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 549,
+        "syntax": "V {patient} from {source} by {instrument}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "source",
+            "instrument"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 550,
+        "syntax": "V {patient} from/at {source} to/into {goal}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "source",
+            "goal"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 551,
+        "syntax": "V to/as/into {goal} in/at {location}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "goal",
+            "location"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 552,
+        "syntax": "V {patient} as/to {goal} with/from {instrument}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "goal",
+            "instrument"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 553,
+        "syntax": "V if/whether/that/when S",
+        "example": "null",
+        "description": "null",
+        "included_roles": [],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 554,
+        "syntax": "V {patient} for {theme} in {source}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "theme",
+            "source"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 555,
+        "syntax": "V {patient} for/to {goal} in/on/at {location}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "goal",
+            "location"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 556,
+        "syntax": "V {patient} as/to/into/onto {goal} at/on {location}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "goal",
+            "location"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
+    },
+    {
+        "id": 557,
+        "syntax": "V {patient} in/on/at {location} with {instrument}",
+        "example": "null",
+        "description": "null",
+        "included_roles": [
+            "patient",
+            "location",
+            "instrument"
+        ],
+        "create_time": "2022-04-28 23:30:12",
+        "version": "1.0"
     }
 ]
+

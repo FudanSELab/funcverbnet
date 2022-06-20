@@ -15,7 +15,7 @@ import json
 import pandas as pd
 from tqdm import tqdm
 
-from funcverbnet.data_handler.template_extractor import CustomError
+from funcverbnet.errors import DataHandlerError
 from funcverbnet.data_handler.pattern_matcher import PatternMatcher
 from funcverbnet.utils import load_tmp, LogsUtil, walk_dir, tmp_folder
 
@@ -44,7 +44,7 @@ def run1(filename):
                 with open(load_tmp(f'{filename}_functionality_{tag}.json'), 'w') as json_f:
                     json.dump(data, json_f)
                 data = []
-            except CustomError as ce:
+            except DataHandlerError as ce:
                 logger.info(ce, item[1])
             except Exception as e:
                 logger.info(e)
@@ -71,24 +71,22 @@ def run2(filename, chunksize):
         print(f'processing {count} rows now')
         for index, row in tqdm(chunk.iterrows()):
             try:
-                mapped_template = pattern_matcher.mapping_template(row[1])
+                mapped_template = pattern_matcher.mapping_template_copy(row[1])
                 if not mapped_template:
                     continue
-                data.append({
-                    'id': row[0],
-                    'functionality': mapped_template
-                })
-            except CustomError as ce:
+                mapped_template['id'] = row[0]
+                data.append(mapped_template)
+            except DataHandlerError as ce:
                 logger.info(ce, row[1])
             except Exception as e:
                 logger.info(e)
         print(f'already processed {count} rows')
-        with open(load_tmp(f'{filename}_functionality_1,{tag}.json'), 'w') as json_f:
+        with open(load_tmp(f'{filename}_functionality_2,{tag}.json'), 'w') as json_f:
             json.dump(data, json_f)
 
 
 def list_tags(filename):
-    match_file = f'{filename}_functionality_1,'
+    match_file = f'{filename}_functionality_2,'
     tags = []
     for filename_ext in walk_dir(tmp_folder()):
         if match_file in filename_ext:
@@ -97,4 +95,4 @@ def list_tags(filename):
 
 
 if __name__ == '__main__':
-    run2('method_desc', 5000)
+    run2('method_desc', 100)

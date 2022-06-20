@@ -43,7 +43,14 @@ setup(
     # include_package_data=True,
     package_data={
         # If any package contains *.json files, include them:
-        'funcverbnet': ['data/*.json', "data/*.zip", "data/*.csv", "classifier/model/*.model"],
+        'funcverbnet': [
+            "data/*.json",
+            "data/*.bin",
+            "data/*.zip",
+            "data/*.csv",
+            "data/*.txt",
+            "classifier/model/*.model"
+        ],
     },
     keywords='funcverbnet',
     name='funcverbnet',
@@ -51,6 +58,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/FudanSELab/funcverbnet',
-    version='0.2.3',
+    version='0.2.6',
     zip_safe=False,
 )

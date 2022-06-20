@@ -766,7 +766,8 @@
         "antisense_category_id": [],
         "included_verb": [
             "format",
-            "return"
+            "return",
+            "get"
         ],
         "included_pattern": [
             "V {patient}",
