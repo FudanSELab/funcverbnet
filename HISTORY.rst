@@ -113,3 +113,7 @@ History
 0.2.6 (2022-6-16)
 -------------------
 * [update] add method's qualified name match
+
+0.2.7 (2022-6-20)
+-------------------
+* [update] fix some bugs
