@@ -117,3 +117,7 @@ History
 0.2.7 (2022-6-20)
 -------------------
 * [update] fix some bugs
+
+0.2.8 (2022-6-20)
+-------------------
+* [update] modify exception handle

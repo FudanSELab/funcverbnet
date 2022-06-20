@@ -255,29 +255,37 @@ class PatternMatcher:
 
     def mapping_template_copy(self, sentence):
         template = self.template_extractor.generate_sentence_template(sentence)
-        if not template:
-            return None
         category = self.funcverbnet.find_f_category_by_id(template['cate_id'])
-        slot_mapping, aligned_pattern = self.aligned_with_sentence_pattern(
-            template, self.encapsulate_sentence_patterns(category.included_pattern)
-        )
-        syntax = PatternProcess.deprocess_pattern(aligned_pattern.pattern)
         mapped_template = {
+            'sentence': sentence,
             'category': category.name,
             'category_id': template['cate_id'],
-            'pattern': syntax,
-            'pattern_id': self.funcverbnet.get_pattern_id_by_syntax(syntax),
-            'core_verb': template['core_verb'],
+            'pattern': None,
+            'pattern_id': None,
+            'core_verb': None,
             'roles': []
         }
-        if not slot_mapping:
-            raise DataHandlerError('PatternError')
-        for p_slot, t_slot in slot_mapping:
-            mapped_template['roles'].append({
-                'role': p_slot.role,
-                'semantic': p_slot.semantic[1:],
-                'value': ' '.join(t_slot.tokens) if not p_slot.preps else ' '.join(t_slot.tokens[1:])
-            })
+        if not template['template']:
+            return mapped_template
+        included_pattern = category.included_pattern
+        if template['cate_id'] == -1:
+            included_pattern = list(self.funcverbnet.patterns_map.keys())
+        slot_mapping, aligned_pattern = self.aligned_with_sentence_pattern(
+            template, self.encapsulate_sentence_patterns(included_pattern)
+        )
+        if not aligned_pattern:
+            return mapped_template
+        syntax = PatternProcess.deprocess_pattern(aligned_pattern.pattern)
+        mapped_template['pattern'] = syntax
+        mapped_template['pattern_id'] = self.funcverbnet.get_pattern_id_by_syntax(syntax)
+        mapped_template['core_verb'] = template['core_verb']
+        if slot_mapping:
+            for p_slot, t_slot in slot_mapping:
+                mapped_template['roles'].append({
+                    'role': p_slot.role,
+                    'semantic': p_slot.semantic[1:],
+                    'value': ' '.join(t_slot.tokens) if not p_slot.preps else ' '.join(t_slot.tokens[1:])
+                })
         return mapped_template
 
     def mapping_template_from_qualified_name(self, qualified_name: str):
