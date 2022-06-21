@@ -17,12 +17,14 @@ import textdistance
 from nltk.tree import Tree
 
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
-from funcverbnet.utils import load_data
+from funcverbnet.utils import load_data, LogsUtil
 from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
 from funcverbnet.errors import DataHandlerError
 
 HEURISTIC_RULES_PATH = load_data("heuristic_rules.txt")
 SPLIT_STR = ' - '
+
+logger = LogsUtil.get_log_util()
 
 
 # import time
@@ -565,7 +567,7 @@ class TemplateExtractor:
             new_tokens_pos = [new_tokens, 'COMPOUND_NOUN']
         return noun_sequence.strip(), new_tokens_pos
 
-    def generate_sentence_template(self, sentence) -> dict:
+    def generate_sentence_template(self, sentence):
         """
         Main function to generate sentence template
         :param sentence:
@@ -576,11 +578,15 @@ class TemplateExtractor:
         cate_id = self.classifier.predict(sentence)
         # print('CATE_NAME', self.net.find_cate_by_id(cate_id).name)
         f_category_incl_verbs = self.net.find_f_category_by_id(cate_id).included_verb
-        tokens_pos_list, core_verb = self.structure_sentence(
-            self.preprocess_sentence(sentence), self.custom_nlp, f_category_incl_verbs
-        )
+        try:
+            tokens_pos_list, core_verb = self.structure_sentence(
+                self.preprocess_sentence(sentence), self.custom_nlp, f_category_incl_verbs
+            )
+        except Exception as e:
+            logger.info(e.__class__.__name__ + ', can not structure sentence for ' + sentence + '.')
+            return {'cate_id': cate_id, 'template': None}
         if not tokens_pos_list:
-            return {}
+            return {'cate_id': cate_id, 'template': None}
         if self.__has_of_in_sentence(tokens_pos_list):
             tokens_pos_list = self.construct_of_in_phrase(tokens_pos_list)
         final_tokens_pos_list = []
@@ -593,7 +599,8 @@ class TemplateExtractor:
         # print('INPUT_TOKENS_POS:', final_tokens_pos_list)
         template, tokens_pos_list = self.construct_template(final_tokens_pos_list)
         if len(template.split(SPLIT_STR)) != len(tokens_pos_list):
-            raise DataHandlerError('Conflict Length!')
+            return {'cate_id': cate_id, 'template': None}
+            # raise DataHandlerError('Conflict Length!')
         return {
             'cate_id': cate_id,
             'sentence': sentence,
