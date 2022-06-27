@@ -2,6 +2,10 @@
 FuncVerbNet
 ===========
 
+.. image:: https://raw.githubusercontent.com/FudanSELab/funcverbnet/dev-duyi/logo.png
+        :height: 100px
+        :scale: 100%
+        :align: left
 
 .. image:: https://img.shields.io/pypi/v/funcverbnet.svg
         :target: https://pypi.python.org/pypi/funcverbnet
