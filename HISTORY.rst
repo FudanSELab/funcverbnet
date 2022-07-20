@@ -121,3 +121,7 @@ History
 0.2.8 (2022-6-20)
 -------------------
 * [update] modify exception handle
+
+0.2.9 (2022-7-20)
+-------------------
+* [update] modify sentence preprocess
