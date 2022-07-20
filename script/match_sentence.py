@@ -17,6 +17,7 @@ from tqdm import tqdm
 
 from funcverbnet.errors import DataHandlerError
 from funcverbnet.data_handler.pattern_matcher import PatternMatcher
+from funcverbnet.data_handler.template_extractor import TemplateExtractor
 from funcverbnet.utils import load_tmp, LogsUtil, walk_dir, tmp_folder
 
 logger = LogsUtil.get_log_util()
@@ -95,4 +96,8 @@ def list_tags(filename):
 
 
 if __name__ == '__main__':
-    run2('method_desc', 100)
+    # run2('method_desc', 100)
+    # pattern_matcher = PatternMatcher()
+    # print(pattern_matcher.mapping_template_copy('Same as <noun>Object,</noun> but without the trouble of relations or date-specific options..'))
+    text = 'Add dynamic <noun>SocketPermission</noun> for the specified port range.'
+    print(TemplateExtractor.preprocess_sentence(text))

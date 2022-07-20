@@ -10,6 +10,7 @@
 ------------------------------------------
 @Description:
 """
+import re
 import spacy
 from spacy.tokens import Doc, Token
 from spacy import displacy
@@ -46,7 +47,8 @@ class TemplateExtractor:
         # self.nlp = spacy.load('en_core_web_sm')
         self.custom_nlp = self.__run_all_heuristic_rules(spacy.load('en_core_web_sm'), 88)
 
-    def preprocess_sentence(self, sentence: str) -> str:
+    @staticmethod
+    def preprocess_sentence(sentence: str) -> str:
         """
         Preprocess sentence, remove '[icu]', '-', replace 'in to' with 'into'
         :param sentence:
@@ -57,7 +59,8 @@ class TemplateExtractor:
         sentence = sentence.split(';')[0].replace('[icu]', '').replace('-', '').replace(' in to ', ' into ').strip()
         if sentence[0].isupper():
             sentence = sentence[0].lower() + sentence[1:]
-        sentence = self.eliminate_bracket(sentence)
+        # sentence = self.eliminate_bracket(sentence)
+        sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
         return sentence
 
     @staticmethod
