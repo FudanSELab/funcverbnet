@@ -19,7 +19,8 @@ from funcverbnet.utils import load_tmp, CodeUtil
 
 from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
 
-from funcverbnet.data_handler.pattern_matcher import PatternMatcher
+
+# from funcverbnet.data_handler.pattern_matcher import PatternMatcher
 
 
 # from funcverbnet.nodes.funcverbnet import FuncVerbNet
@@ -37,7 +38,7 @@ def load_jl(jl_file_path):
 
 if __name__ == '__main__':
     classifier = FuncSentenceClassifier()
-    pattern_matcher = PatternMatcher()
+    # pattern_matcher = PatternMatcher()
     # reader = pd.read_csv(load_tmp('method_qualified_name_data.csv'), iterator=True, chunksize=1000)
     # for chunk in tqdm(reader):
     #     for index, row in chunk.iterrows():
@@ -50,18 +51,18 @@ if __name__ == '__main__':
     #         data = pattern_matcher.mapping_template_from_qualified_name(row[1])
     #         # print(data)
 
-    data = load_jl(load_tmp('node_info.jl'))
+    # data = load_jl(load_tmp('node_info.jl'))
 
-    for item in data:
-        # print(json.dumps(item, indent=4))
-        for relation in item['relation_end_node_info_list']:
-            if 'has_functionality' not in relation['relation_name']:
-                continue
-            sentence = relation['end_node_info']['sentence']
-            sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
-            print(relation['end_node_info']['sentence'])
-            cate_id = classifier.predict(sentence)
-            print(relation['end_node_info']['category_id'], relation['end_node_info']['category'], cate_id)
+    # for item in data:
+    #     # print(json.dumps(item, indent=4))
+    #     for relation in item['relation_end_node_info_list']:
+    #         if 'has_functionality' not in relation['relation_name']:
+    #             continue
+    #         sentence = relation['end_node_info']['sentence']
+    #         sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
+    #         print(relation['end_node_info']['sentence'])
+    #         cate_id = classifier.predict(sentence)
+    #         print(relation['end_node_info']['category_id'], relation['end_node_info']['category'], cate_id)
 
     # sent_set = set()
     # with open(load_tmp('node.csv'), 'w') as wf:
@@ -93,3 +94,5 @@ if __name__ == '__main__':
     #             writer.writerow([row[0], '__label__' + row[1]])
     # print(classifier.predict('get URI'))
     # print(pattern_matcher.mapping_template_from_qualified_name('setName'))
+    sent = 'Returns a copy of the given iterable sorted by this ordering. The input is not modified. The returned list is modifiable, serializable, and has random access. Unlike Sets#newTreeSet, this method does not collapse elements that compare as zero, and the resulting collection does not maintain its own sort order.'
+    classifier.multi_predict(sent, 5)

@@ -97,7 +97,11 @@ def list_tags(filename):
 
 if __name__ == '__main__':
     # run2('method_desc', 100)
-    # pattern_matcher = PatternMatcher()
+    pattern_matcher = PatternMatcher()
     # print(pattern_matcher.mapping_template_copy('Same as <noun>Object,</noun> but without the trouble of relations or date-specific options..'))
-    text = 'Add dynamic <noun>SocketPermission</noun> for the specified port range.'
+    # text = 'Aborts this http request. Any active execution of this method should return immediately. If the request has not started, it will abort after the next execution. Aborting this request will cause all subsequent executions with this request to fail.'
+    # text = "gets value"
+    # text = "Returns the URI this request uses, such as <noun>http://example.org/path/to/file</noun>. Note that the URI may be absolute URI (as above) or may be a relative URI. Implementations are encouraged to return the URI that was initially requested. To find the final URI after any redirects have been processed, please see the section entitled HTTP execution context in the "
+    text = "convenience method to get this element as a primitive integer."
     print(TemplateExtractor.preprocess_sentence(text))
+    print(pattern_matcher.mapping_template_copy(text))

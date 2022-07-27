@@ -76,6 +76,12 @@ class FuncSentenceClassifier:
             print(e, sentence)
             return 0
 
+    # def multi_predict(self, sentence, top_k):
+    #     try:
+    #         labels = self.classifier.predict(sentence, k=top_k)
+    #     except Exception as e:
+    #         print(e, sentence)
+
     def new_predict(self, sentence):
         try:
             label = self.classifier.predict(sentence)

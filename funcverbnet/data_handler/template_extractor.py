@@ -197,8 +197,10 @@ class TemplateExtractor:
             for right in [_ for _ in root.rights]:
                 if self.__is_in_categories(right, f_category_incl_verbs):
                     root = right
+                    root_rights = None
                     break
         # print('ROOT:', root)
+        # print('ROOT_RIGHT', root_rights)
         # >>> no root, return []
         if root.pos_ != 'VERB':
             raise ValueError('RootError')
