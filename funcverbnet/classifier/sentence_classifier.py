@@ -6,7 +6,8 @@ from fasttext import FastText
 
 root_path = os.path.abspath(os.path.dirname(__file__)).split('model.py')[0]
 path = Path(root_path)
-DATA_PATH = str(path / "data" / "final_train_data.csv")
+# DATA_PATH = str(path / "data" / "final_train_data.csv")
+DATA_PATH = str(path / "data" / "new_train_data.csv")
 TEST_DATA_PATH = str(path / "data" / "test_data.csv")
 
 
@@ -15,7 +16,7 @@ class FuncSentenceClassifier:
         self.classifier = None
         self.train_data_path = DATA_PATH
         self.test_data_path = TEST_DATA_PATH
-        self.model_path = str(path / "model" / "sentence_classification.model")
+        self.model_path = str(path / "model" / "sentence_classification_new.model")
         self.load_model()
         # self.train_model()
 
@@ -64,6 +65,7 @@ class FuncSentenceClassifier:
         """
         try:
             label = self.classifier.predict(sentence)
+            # print(self.classifier.predict(sentence, k=5))
             # print('probability', label[1][0])
             if len(str(label[0][0])) > 10:
                 label = str(label[0][0][9]) + str(label[0][0][10])
