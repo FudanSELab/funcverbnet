@@ -246,10 +246,11 @@ class PatternMatcher:
         if not slot_mapping:
             raise DataHandlerError('PatternError')
         for p_slot, t_slot in slot_mapping:
+            t_slot_tokens = t_slot.tokens if not p_slot.preps else t_slot.tokens[1:]
             mapped_template['roles'].append({
                 'role': p_slot.role,
                 'semantic': p_slot.semantic,
-                'value': ' '.join(t_slot.tokens)
+                'value': ' '.join([_.lemma_ for _ in t_slot_tokens])
             })
         return mapped_template
 
@@ -281,10 +282,12 @@ class PatternMatcher:
         mapped_template['core_verb'] = template['core_verb']
         if slot_mapping:
             for p_slot, t_slot in slot_mapping:
+                t_slot_tokens = t_slot.tokens if not p_slot.preps else t_slot.tokens[1:]
                 mapped_template['roles'].append({
                     'role': p_slot.role,
                     'semantic': p_slot.semantic[1:],
-                    'value': ' '.join(t_slot.tokens) if not p_slot.preps else ' '.join(t_slot.tokens[1:])
+                    'value': ' '.join([_.lemma_ for _ in t_slot_tokens]),
+                    'clean_value': ' '.join([_.lemma_ for _ in t_slot_tokens if _.pos_ not in ['DET']])
                 })
         return mapped_template
 

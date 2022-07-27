@@ -20,7 +20,7 @@ class TSlot:
         priority: int,
     ):
         self.slot_str = slot_str
-        self.tokens = [_.text for _ in tokens]
+        self.tokens = tokens
         self.priority = priority
 
     def __str__(self):

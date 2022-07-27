@@ -103,5 +103,5 @@ if __name__ == '__main__':
     # text = "gets value"
     # text = "Returns the URI this request uses, such as <noun>http://example.org/path/to/file</noun>. Note that the URI may be absolute URI (as above) or may be a relative URI. Implementations are encouraged to return the URI that was initially requested. To find the final URI after any redirects have been processed, please see the section entitled HTTP execution context in the "
     text = "convenience method to get this element as a primitive integer."
-    print(TemplateExtractor.preprocess_sentence(text))
+    # print(TemplateExtractor.preprocess_sentence(text))
     print(pattern_matcher.mapping_template_copy(text))
