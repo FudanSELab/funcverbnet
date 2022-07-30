@@ -560,7 +560,7 @@ class TemplateExtractor:
                 new_tokens.append(token)
                 # print('STEP_TOKENS_FOR_' + token.text, new_tokens)
                 for right in token.rights:
-                    if right in tokens:
+                    if right in tokens or right.pos_ in ['ADP']:
                         continue
                     # print('RIGHT:', right)
                     noun_sequence += right.text + ' '
@@ -572,7 +572,7 @@ class TemplateExtractor:
             new_tokens_pos = [new_tokens, 'COMPOUND_NOUN']
         return noun_sequence.strip(), new_tokens_pos
 
-    def generate_sentence_template(self, sentence):
+    def generate_sentence_template(self, sentence: str):
         """
         Main function to generate sentence template
         :param sentence:
@@ -580,7 +580,8 @@ class TemplateExtractor:
         """
         if not sentence:
             return {}
-        cate_id = self.classifier.predict(sentence)
+        classified_sentence = re.split(r'(\.\s|\!\s|\?\s|;\s|,\s)', sentence)[0]
+        cate_id = self.classifier.predict(classified_sentence)
         # print('CATE_NAME', self.net.find_cate_by_id(cate_id).name)
         f_category_incl_verbs = self.net.find_f_category_by_id(cate_id).included_verb
         try:

@@ -14772,7 +14772,6 @@ Toggles the drawer open and close.	__label__88
 Toggles the Underline attribute.	__label__88
 Toggles the INVERSE state of the filltype	__label__88
 Toggle the soft input window.	__label__88
-sentence	__label__label
 Specifies the delegate maps going in each direction. Called by the constructor and by subclasses during deserialization.	__label__10
 put	__label__61
 Creates the collection of values for an explicitly provided key. By default, it simply calls createCollection, which is the correct behavior for most implementations. The LinkedHashMultimap class overrides it.	__label__16
@@ -14784,7 +14783,7 @@ join	__label__35
 Returns a string containing the string representation of each of parts, using the previously configured separator between each.	__label__54
 Creates an empty multiset containing the given initial elements, sorted according to the elements' natural order. The type specification is , instead of the more specific >, to support classes defined without generics.	__label__16
 create	__label__16
-Creates an empty multiset containing the given initial elements, sorted according to the elements' natural order. This implementation is highly efficient when elements is itself a Multiset. The type specification is , instead of the more specific >, to support classes defined without generics.	__label__38
+Creates an empty multiset containing the given initial elements, sorted according to the elements' natural order. This implementation is highly efficient when elements is itself a Multiset. The type specification is , instead of the more specific >, to support classes defined without generics.	__label__16
 Returns a copy of the given iterable sorted by this ordering. The input is not modified. The returned list is modifiable, serializable, and has random access. Unlike Sets#newTreeSet, this method does not collapse elements that compare as zero, and the resulting collection does not maintain its own sort order.	__label__54
 sorted Copy	__label__4
 Returns the k greatest elements from the given iterator according to this ordering, in order from greatest to least. If there are fewer than k elements present, all will be included. The implementation does not necessarily use a stable sorting algorithm; when multiple elements are equivalent, it is undefined which will come first. Java 8 users: Use Streams.stream.collect) instead.	__label__54
@@ -14816,7 +14815,7 @@ It can be gotten the URI character sequence.	__label__54
 get URI	__label__54
 Returns the URI this request uses, such as http://example.org/path/to/file. Note that the URI may be absolute URI  or may be a relative URI. Implementations are encouraged to return the URI that was initially requested. To find the final URI after any redirects have been processed, please see the section entitled HTTP execution context in the 	__label__54
 Adds the specified request header, not overwriting any previous value. If the same header is added multiple times, perhaps with different values, multiple instances of that header will be sent in the HTTP request. Note that header-name matching is case insensitive.	__label__61
-add Request Header	__label__68
+add Request Header	__label__61
 Creates a mutable wrapper of the original request.	__label__16
 add Header	__label__61
 Creates an instance of HttpClient using default parameter.	__label__16
@@ -15011,3 +15010,20 @@ Fails the test if there are any expectations that have not been met.	__label__65
 assert Is Satisfied	__label__11
 Allows verifying exact number of invocations. E.g:  verify).someMethod;  See examples in javadoc for Mockito class	__label__7
 times	__label__-1
+Returns a request header identifying what version of the state management specification is understood.	__label__54
+write Header	__label__2
+Post a notification	__label__20
+Post a notification (RelationNotification) for a role update in the given relation.	__label__20
+Post a key press to the listener.	__label__20
+Post raw NFC-F commands to the tag and receive the response.	__label__20
+Post a key event to the currently focused window/view and wait for it to be processed.	__label__20
+Post a generic command to the session.	__label__20
+post a notification	__label__20
+post a notification or indication that a local characteristic has been updated.	__label__20
+post a custom action back for the MediaSession to perform.	__label__20
+post a proprietary event to all MediaControllers listening to this Session.	__label__20
+post a simulated key event for a media button to be received by the current client.	__label__20
+post a received EMM packet to the CA system.	__label__20
+post one byte of urgent data on the socket.	__label__20
+post a WARN log message and log the exception.	__label__20
+post Deregister	__label__20

@@ -11,6 +11,8 @@
 @Description:
 """
 import re
+from typing import List
+
 from funcverbnet.modeling.slot import TSlot, PSlot, SentencePattern
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
 from funcverbnet.data_handler.template_extractor import TemplateExtractor
@@ -169,7 +171,7 @@ class PatternMatcher:
             t_slots_dic[pos] = TSlot(SPLIT_STR.join(t_slot_compound), tokens_pos_group, 0)
         # print('T_SLOTS_DIC:', t_slots_dic)
         # for i in range(len(t_slots_dic)):
-        #     print(t_slots_dic[i])
+        #     print(t_slots_dic[i].slot_str, t_slots_dic[i].tokens)
         return t_slots_dic
 
     def aligned_with_sentence_pattern(self, template, verb_sentence_patterns):
@@ -221,7 +223,8 @@ class PatternMatcher:
         if len(aligned_list) == 0:
             return None, None
         aligned_pattern = sorted(aligned_list[-1][0].items(), key=lambda x: x[1])
-        # print(aligned_pattern)
+        # for _ in aligned_pattern:
+        #     print(_[0].slot_str, _[0].preps, _[0].role, _[0].semantic)
         for slot, slot_pos in aligned_pattern:
             aligned_pattern_mapping_list.append((
                 slot,
@@ -283,12 +286,27 @@ class PatternMatcher:
         if slot_mapping:
             for p_slot, t_slot in slot_mapping:
                 t_slot_tokens = t_slot.tokens if not p_slot.preps else t_slot.tokens[1:]
+                clean_value = []
+                # for i in range(len(t_slot_tokens) - 1, -1, -1):
+                #     if t_slot_tokens[i].pos_ in ['PREP', 'ADP'] and t_slot_tokens[i].text == 'of':
+                #         t_slot_tokens.pop(i)
+                #         t_slot_tokens.reverse()
+                #         break
+                for token in t_slot_tokens:
+                    # print(token.text, token.pos_, token.dep_)
+                    if token.pos_ in ['DET']:
+                        continue
+                    if token.pos_ in ['NOUN'] or token.dep_ in ['amod']:
+                        clean_value.append(token.text)
+                        continue
+                    clean_value.append(token.lemma_)
                 mapped_template['roles'].append({
                     'role': p_slot.role,
                     'semantic': p_slot.semantic[1:],
                     'value': ' '.join([_.lemma_ for _ in t_slot_tokens]),
-                    'clean_value': ' '.join([_.lemma_ for _ in t_slot_tokens if _.pos_ not in ['DET']])
+                    'clean_value': ' '.join(clean_value)
                 })
+                # print(' '.join(clean_value))
         return mapped_template
 
     def mapping_template_from_qualified_name(self, qualified_name: str):

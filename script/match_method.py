@@ -15,7 +15,7 @@ import csv
 import re
 import pandas as pd
 from tqdm import tqdm
-from funcverbnet.utils import load_tmp, CodeUtil
+from funcverbnet.utils import load_tmp
 
 from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     #         data = pattern_matcher.mapping_template_from_qualified_name(row[1])
     #         # print(data)
 
-    data = load_jl(load_tmp('node_info_2.jl'))
+    data = load_jl(load_tmp('node_info_3.jl'))
 
     # for item in data:
     #     print(json.dumps(item, indent=4))
@@ -79,13 +79,14 @@ if __name__ == '__main__':
             node_info = relation['relation_node']['node_info']
             sentence = node_info['sentence']
             sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
-            # cate_id = classifier.predict(sentence)
-            # cate = net.find_f_category_by_id(cate_id).name
-            # print(sentence, node_info['category_id'], node_info['category'], '#', cate_id, cate)
-            for sub_relation in relation['relation_node']['relations']:
-                if 'functionality' not in sub_relation['relation_name']:
-                    continue
-                print(sub_relation['relation_node'])
+            cate_id = classifier.predict(sentence)
+            cate = net.find_f_category_by_id(cate_id).name
+            print(sentence, node_info['category_id'], node_info['category'], '#', cate_id, cate)
+            # print(pattern_matcher.mapping_template_copy(sentence))
+            # for sub_relation in relation['relation_node']['relations']:
+            #     if 'functionality' not in sub_relation['relation_name']:
+            #         continue
+            #     print(sub_relation['relation_node'])
 
     # sent_set = set()
     # with open(load_tmp('node.csv'), 'w') as wf:
@@ -113,7 +114,13 @@ if __name__ == '__main__':
     #             writer.writerow([row[0], row[1]])
     #     with open(load_tmp('node_train_data.csv'), 'r') as rf:
     #         reader = csv.reader(rf)
+    #         next(reader)
     #         for row in reader:
     #             writer.writerow([row[0], '__label__' + row[1]])
-    # print(classifier.predict('get URI'))
-    # print(pattern_matcher.mapping_template_from_qualified_name('setName'))
+
+    # with open(load_tmp('new_test_data.csv'), 'w') as wf:
+    #     writer = csv.writer(wf, delimiter='\t')
+    #     with open(load_tmp('test_data.csv'), 'r') as rf:
+    #         reader = csv.reader(rf, delimiter='\t')
+    #         for row in reader:
+    #             writer.writerow([row[0].lower(), row[1]])

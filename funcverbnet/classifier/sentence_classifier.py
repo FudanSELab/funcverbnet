@@ -45,8 +45,7 @@ class FuncSentenceClassifier:
         :return:
         """
         classifier = FastText.train_supervised(input=self.train_data_path, lr=1, ws=4, loss="hs", epoch=25)
-        # classifier = FastText.train_supervised(input=self.train_data_path, lr=1, wordNgrams=2,
-        #                                        verbose=2, minCount=1, epoch=25, loss="hs")
+        # classifier = FastText.train_supervised(input=self.train_data_path, lr=1, wordNgrams=2, verbose=2, minCount=1, epoch=25, loss="hs")
 
         classifier.save_model(self.model_path)
         self.classifier = classifier

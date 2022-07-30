@@ -102,6 +102,14 @@ if __name__ == '__main__':
     # text = 'Aborts this http request. Any active execution of this method should return immediately. If the request has not started, it will abort after the next execution. Aborting this request will cause all subsequent executions with this request to fail.'
     # text = "gets value"
     # text = "Returns the URI this request uses, such as <noun>http://example.org/path/to/file</noun>. Note that the URI may be absolute URI (as above) or may be a relative URI. Implementations are encouraged to return the URI that was initially requested. To find the final URI after any redirects have been processed, please see the section entitled HTTP execution context in the "
-    text = "convenience method to get this element as a primitive integer."
+    # text = "convenience method to get this element as a primitive integer."
     # print(TemplateExtractor.preprocess_sentence(text))
+    # text = "Returns a copy of the specified iterable sorted by this ordering. The input is not modified. The returned list is modifiable, serializable, and has random access. Unlike <noun>Sets#newTreeSet(Iterable)</noun>, this method does not collapse elements that compare as zero, and the resulting collection does not maintain its own sort order."
+    # text = "Get the number of elements in the JSONArray, included nulls."
+    # text = "Get the long value associated with a key."
+    text = "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header."
+    # text = "Returns a request header identifying what version of the state management specification is understood."
+    # text = "May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header."
+    # text = "write Header"
+    # text = "post Deregister"
     print(pattern_matcher.mapping_template_copy(text))

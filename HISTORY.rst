@@ -137,3 +137,7 @@ History
 0.2.12 (2022-7-27)
 -------------------
 * [update] add clean value
+
+0.2.13 (2022-7-31)
+-------------------
+* [update] add concept extractor
