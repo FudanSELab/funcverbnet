@@ -16,6 +16,11 @@ import time
 import logging
 import re
 
+# import nltk
+# from nltk.corpus import wordnet as wn
+# nltk.download('wordnet')
+# nltk.download('omw-1.4')
+
 ROOT_PATH = Path(os.path.abspath(os.path.dirname(__file__)))
 
 
@@ -128,7 +133,11 @@ class CodeUtil:
         elif unqualified_name.startswith('to'):
             return cls.decamelize(unqualified_name).replace('to', 'convert to', 1)
         else:
-            return cls.decamelize(unqualified_name)
+            decamelized_name = cls.decamelize(unqualified_name)
+            if len(decamelized_name.split(' ')) == 1:
+                if decamelized_name in ['size', 'length', 'name', 'value', 'key']:
+                    return 'get ' + decamelized_name
+            return decamelized_name
 
     @staticmethod
     def count_parameter_num(split_code: str):

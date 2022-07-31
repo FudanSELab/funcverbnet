@@ -10,6 +10,7 @@
 ------------------------------------------
 @Description:
 """
+import re
 import spacy
 from spacy.tokens import Doc, Token
 from spacy import displacy
@@ -46,7 +47,8 @@ class TemplateExtractor:
         # self.nlp = spacy.load('en_core_web_sm')
         self.custom_nlp = self.__run_all_heuristic_rules(spacy.load('en_core_web_sm'), 88)
 
-    def preprocess_sentence(self, sentence: str) -> str:
+    @staticmethod
+    def preprocess_sentence(sentence: str) -> str:
         """
         Preprocess sentence, remove '[icu]', '-', replace 'in to' with 'into'
         :param sentence:
@@ -57,7 +59,8 @@ class TemplateExtractor:
         sentence = sentence.split(';')[0].replace('[icu]', '').replace('-', '').replace(' in to ', ' into ').strip()
         if sentence[0].isupper():
             sentence = sentence[0].lower() + sentence[1:]
-        sentence = self.eliminate_bracket(sentence)
+        # sentence = self.eliminate_bracket(sentence)
+        sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
         return sentence
 
     @staticmethod
@@ -194,8 +197,10 @@ class TemplateExtractor:
             for right in [_ for _ in root.rights]:
                 if self.__is_in_categories(right, f_category_incl_verbs):
                     root = right
+                    root_rights = None
                     break
         # print('ROOT:', root)
+        # print('ROOT_RIGHT', root_rights)
         # >>> no root, return []
         if root.pos_ != 'VERB':
             raise ValueError('RootError')
@@ -555,7 +560,7 @@ class TemplateExtractor:
                 new_tokens.append(token)
                 # print('STEP_TOKENS_FOR_' + token.text, new_tokens)
                 for right in token.rights:
-                    if right in tokens:
+                    if right in tokens or right.pos_ in ['ADP']:
                         continue
                     # print('RIGHT:', right)
                     noun_sequence += right.text + ' '
@@ -567,7 +572,7 @@ class TemplateExtractor:
             new_tokens_pos = [new_tokens, 'COMPOUND_NOUN']
         return noun_sequence.strip(), new_tokens_pos
 
-    def generate_sentence_template(self, sentence):
+    def generate_sentence_template(self, sentence: str):
         """
         Main function to generate sentence template
         :param sentence:
@@ -575,7 +580,8 @@ class TemplateExtractor:
         """
         if not sentence:
             return {}
-        cate_id = self.classifier.predict(sentence)
+        classified_sentence = re.split(r'(\.\s|\!\s|\?\s|;\s|,\s)', sentence)[0]
+        cate_id = self.classifier.predict(classified_sentence)
         # print('CATE_NAME', self.net.find_cate_by_id(cate_id).name)
         f_category_incl_verbs = self.net.find_f_category_by_id(cate_id).included_verb
         try:

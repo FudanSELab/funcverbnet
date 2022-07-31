@@ -74,7 +74,7 @@ def combine_json(filename, sun):
 if __name__ == '__main__':
     # count_csv('method_desc')
     # clean_csv('method_desc')
-    count_csv('clean_method_desc')
-    eliminate_csv('method_desc')
+    # count_csv('clean_method_desc')
+    # eliminate_csv('method_desc')
     count_csv('eliminate_method_desc')
     # combine_json('method_desc', 71)
