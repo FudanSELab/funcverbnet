@@ -86,7 +86,7 @@ if __name__ == '__main__':
             # for sub_relation in relation['relation_node']['relations']:
             #     if 'functionality' not in sub_relation['relation_name']:
             #         continue
-            #     print(sub_relation['relation_node'])
+            #     print(sub_relation)
 
     # sent_set = set()
     # with open(load_tmp('node.csv'), 'w') as wf:

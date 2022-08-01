@@ -141,3 +141,7 @@ History
 0.2.13 (2022-7-31)
 -------------------
 * [update] add concept extractor
+
+0.2.14 (2022-8-1)
+-------------------
+* [update] update classifier model

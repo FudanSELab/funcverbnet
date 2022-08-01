@@ -108,5 +108,6 @@ ENV/
 .DS_Store
 
 funcverbnet/logs
-funcverbnet/classifier/model
 funcverbnet/tmp
+funcverbnet/classifier/model/sentence_classifier_base_farm_bert-base-cased
+funcverbnet/classifier/model/sentence_classifier_base_farm_bert-base-uncased
