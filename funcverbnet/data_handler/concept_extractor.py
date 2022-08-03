@@ -67,4 +67,4 @@ class ConceptExtractor:
                 noun_chunk_tokens.append(token)
             if noun_chunk_tokens:
                 noun_chunks.add(' '.join([_.lemma_ for _ in noun_chunk_tokens]))
-        return noun_chunks
+        return set([_.lower() for _ in noun_chunks])

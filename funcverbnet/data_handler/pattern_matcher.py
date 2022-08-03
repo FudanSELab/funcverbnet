@@ -304,7 +304,7 @@ class PatternMatcher:
                     'role': p_slot.role,
                     'semantic': p_slot.semantic[1:],
                     'value': ' '.join([_.lemma_ for _ in t_slot_tokens]),
-                    'clean_value': ' '.join(clean_value)
+                    'clean_value': ' '.join(clean_value).lower()
                 })
                 # print(' '.join(clean_value))
         return mapped_template
