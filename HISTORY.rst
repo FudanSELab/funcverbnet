@@ -150,6 +150,6 @@ History
 -------------------
 * [update] bug fix
 
-0.2.14 (2022-8-4)
+0.2.16 (2022-8-4)
 -------------------
 * [update] update concept extractor
