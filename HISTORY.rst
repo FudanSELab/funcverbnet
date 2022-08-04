@@ -149,3 +149,7 @@ History
 0.2.15 (2022-8-3)
 -------------------
 * [update] bug fix
+
+0.2.14 (2022-8-4)
+-------------------
+* [update] update concept extractor

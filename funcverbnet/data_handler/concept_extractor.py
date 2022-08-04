@@ -24,12 +24,28 @@ class ConceptExtractor:
     def preprocess_sentence(sentence: str) -> str:
         if not sentence:
             return sentence
-        sentence = sentence.replace('\n', '').replace('-', '').strip()
+        sentence = sentence.replace('I/O', 'I#O').replace('name/IP', 'name, IP')
+        sentence = sentence.replace('\n', '').replace('-', ' ').replace('_', ' ').replace("'s", '').replace('/', ' ')
+        sentence = sentence.replace('I#O', 'I/O').strip()
         if sentence[0].isupper():
             sentence = sentence[0].lower() + sentence[1:]
-        sentence = re.sub(' +', " ", sentence)
         sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
+        sentence = re.sub(' +', " ", sentence)
         return sentence
+
+    @staticmethod
+    def filter_irrelevant_noun_chunk(noun_chunks):
+        filter_noun_chunks = []
+        for noun_chunk in noun_chunks:
+            noun_chunk = noun_chunk.lower().strip()
+            if not noun_chunk:
+                continue
+            if noun_chunk.isdigit():
+                continue
+            if re.search(r"[^a-zA-Z0-9_\.\s]", noun_chunk):
+                continue
+            filter_noun_chunks.append(noun_chunk)
+        return set(filter_noun_chunks)
 
     def extract_noun_chunks(self, sentence):
         sentence = self.preprocess_sentence(sentence)
@@ -67,4 +83,4 @@ class ConceptExtractor:
                 noun_chunk_tokens.append(token)
             if noun_chunk_tokens:
                 noun_chunks.add(' '.join([_.lemma_ for _ in noun_chunk_tokens]))
-        return set([_.lower() for _ in noun_chunks])
+        return self.filter_irrelevant_noun_chunk(noun_chunks)
