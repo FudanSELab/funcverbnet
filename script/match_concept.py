@@ -54,9 +54,10 @@ if __name__ == '__main__':
     #         #         continue
     #         #     print(sub_relation['relation_node'])
 
-    # data = load_jl(load_tmp('class_with_description.jl'))
-    # for item in data:
-    #     print(item)
+    data = load_jl(load_tmp('class_with_description.jl'))
+    for item in data:
+        # print(item['description'])
+        print(concept_extractor.extract_noun_chunks(item['description']))
 
     # text = 'the returned logger will be named after clazz'
     # text = 'A key string.'
@@ -89,5 +90,5 @@ if __name__ == '__main__':
     # text = "The {@link UIComponent} (if any) to which this element corresponds. <span class='changed_added_2_2'> This component is inspected for its pass through attributes as described in the standard HTML_BASIC {@code RenderKit} specification.</span>"
     # text = "A string representation of an Amazon S3 permission, eg. <code>FULL_CONTROL</code>"
     # text = "Effective property base type to use; may differ from actual type of property; for structured types it is content (value) type and NOT structured type."
-    text = "the host name/IP"
-    print(concept_extractor.extract_noun_chunks(text))
+    # text = "the host name/IP"
+    # print(concept_extractor.extract_noun_chunks(text))

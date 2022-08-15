@@ -153,3 +153,7 @@ History
 0.2.16 (2022-8-4)
 -------------------
 * [update] update concept extractor
+
+0.2.17 (2022-8-15)
+-------------------
+* [update] add lru cache

@@ -10,6 +10,7 @@
 ------------------------------------------
 @Description:
 """
+import functools
 import re
 from typing import List
 
@@ -257,6 +258,7 @@ class PatternMatcher:
             })
         return mapped_template
 
+    @functools.lru_cache(maxsize=128)
     def mapping_template_copy(self, sentence):
         template = self.template_extractor.generate_sentence_template(sentence)
         category = self.funcverbnet.find_f_category_by_id(template['cate_id'])
@@ -309,6 +311,7 @@ class PatternMatcher:
                 # print(' '.join(clean_value))
         return mapped_template
 
+    @functools.lru_cache(maxsize=128)
     def mapping_template_from_qualified_name(self, qualified_name: str):
         if not qualified_name:
             return None

@@ -107,9 +107,29 @@ if __name__ == '__main__':
     # text = "Returns a copy of the specified iterable sorted by this ordering. The input is not modified. The returned list is modifiable, serializable, and has random access. Unlike <noun>Sets#newTreeSet(Iterable)</noun>, this method does not collapse elements that compare as zero, and the resulting collection does not maintain its own sort order."
     # text = "Get the number of elements in the JSONArray, included nulls."
     # text = "Get the long value associated with a key."
-    text = "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header."
+    # text = "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header."
     # text = "Returns a request header identifying what version of the state management specification is understood."
     # text = "May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header."
     # text = "write Header"
     # text = "post Deregister"
-    print(pattern_matcher.mapping_template_copy(text))
+    texts = [
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "write Header",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "write Header",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    ]
+    for text in texts:
+        print(pattern_matcher.mapping_template_copy(text))
