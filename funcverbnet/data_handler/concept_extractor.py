@@ -10,6 +10,7 @@
 ------------------------------------------
 @Description:
 """
+import functools
 import re
 import spacy
 from spacy.tokens import Doc
@@ -24,11 +25,11 @@ class ConceptExtractor:
     def preprocess_sentence(sentence: str) -> str:
         if not sentence:
             return sentence
+        if sentence[0].isupper():
+            sentence = sentence[0].lower() + sentence[1:]
         sentence = sentence.replace('I/O', 'I#O').replace('name/IP', 'name, IP')
         sentence = sentence.replace('\n', '').replace('-', ' ').replace('_', ' ').replace("'s", '').replace('/', ' ')
         sentence = sentence.replace('I#O', 'I/O').strip()
-        if sentence[0].isupper():
-            sentence = sentence[0].lower() + sentence[1:]
         sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
         sentence = re.sub(' +', " ", sentence)
         return sentence
@@ -47,6 +48,7 @@ class ConceptExtractor:
             filter_noun_chunks.append(noun_chunk)
         return set(filter_noun_chunks)
 
+    @functools.lru_cache(maxsize=128)
     def extract_noun_chunks(self, sentence):
         sentence = self.preprocess_sentence(sentence)
         doc: Doc = self.nlp(sentence)

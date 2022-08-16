@@ -11,6 +11,7 @@
 @Description:
 """
 import json
+import time
 import re
 from funcverbnet.utils import load_tmp
 
@@ -25,6 +26,17 @@ def load_jl(jl_file_path):
             data_list.append(json.loads(line))
             line = file.readline()
     return data_list
+
+
+def cal_time(func):
+    def wrapper(*args, **kwargs):
+        t1 = time.perf_counter()
+        result = func(*args, **kwargs)
+        t2 = time.perf_counter()
+        print("%s running time: %s sec." % (func.__name__, t2 - t1))
+        return result
+
+    return wrapper
 
 
 if __name__ == '__main__':
@@ -54,10 +66,10 @@ if __name__ == '__main__':
     #         #         continue
     #         #     print(sub_relation['relation_node'])
 
-    data = load_jl(load_tmp('class_with_description.jl'))
-    for item in data:
-        # print(item['description'])
-        print(concept_extractor.extract_noun_chunks(item['description']))
+    # data = load_jl(load_tmp('class_with_description.jl'))
+    # for item in data:
+    # print(item['description'])
+    # print(concept_extractor.extract_noun_chunks(item['description']))
 
     # text = 'the returned logger will be named after clazz'
     # text = 'A key string.'
@@ -91,4 +103,47 @@ if __name__ == '__main__':
     # text = "A string representation of an Amazon S3 permission, eg. <code>FULL_CONTROL</code>"
     # text = "Effective property base type to use; may differ from actual type of property; for structured types it is content (value) type and NOT structured type."
     # text = "the host name/IP"
-    # print(concept_extractor.extract_noun_chunks(text))
+    text = "("
+    print(concept_extractor.extract_noun_chunks(text))
+
+    # texts = [
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP",
+    #     "the host name/IP"
+    # ]
+    #
+    #
+    # @cal_time
+    # def run(data):
+    #     for item in data:
+    #         concept_extractor.extract_noun_chunks(item)
+    #
+    #
+    # run(texts)
