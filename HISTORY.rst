@@ -158,6 +158,6 @@ History
 -------------------
 * [update] add lru cache
 
-0.2.17 (2022-8-15)
+0.2.18 (2022-8-16)
 -------------------
 * [update] add lru cache for extract noun chunks
