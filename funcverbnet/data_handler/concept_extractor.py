@@ -48,7 +48,7 @@ class ConceptExtractor:
             filter_noun_chunks.append(noun_chunk)
         return set(filter_noun_chunks)
 
-    @functools.lru_cache(maxsize=128)
+    @functools.lru_cache(maxsize=10000)
     def extract_noun_chunks(self, sentence):
         sentence = self.preprocess_sentence(sentence)
         doc: Doc = self.nlp(sentence)
