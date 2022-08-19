@@ -161,3 +161,7 @@ History
 0.2.18 (2022-8-16)
 -------------------
 * [update] add lru cache for extract noun chunks
+
+0.2.19 (2022-8-19)
+-------------------
+* [update] bug fix

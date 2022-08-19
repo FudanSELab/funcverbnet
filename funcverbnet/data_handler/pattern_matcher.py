@@ -13,6 +13,7 @@
 import functools
 import re
 from typing import List
+from nltk.corpus import stopwords
 
 from funcverbnet.modeling.slot import TSlot, PSlot, SentencePattern
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
@@ -21,6 +22,9 @@ from funcverbnet.errors import DataHandlerError
 from funcverbnet.utils import CodeUtil
 
 SPLIT_STR = ' - '
+
+stopwords = set(stopwords.words('english'))
+stopwords = stopwords.union(['given', 'specified'])
 
 
 class PatternProcess:
@@ -289,16 +293,18 @@ class PatternMatcher:
             for p_slot, t_slot in slot_mapping:
                 t_slot_tokens = t_slot.tokens if not p_slot.preps else t_slot.tokens[1:]
                 clean_value = []
-                # for i in range(len(t_slot_tokens) - 1, -1, -1):
-                #     if t_slot_tokens[i].pos_ in ['PREP', 'ADP'] and t_slot_tokens[i].text == 'of':
-                #         t_slot_tokens.pop(i)
-                #         t_slot_tokens.reverse()
-                #         break
+                for i in range(len(t_slot_tokens) - 1, -1, -1):
+                    if t_slot_tokens[i].pos_ in ['PREP', 'ADP'] and t_slot_tokens[i].text == 'of':
+                        t_slot_tokens.pop(i)
+                        t_slot_tokens = t_slot_tokens[i:] + t_slot_tokens[:i]
+                        break
                 for token in t_slot_tokens:
                     # print(token.text, token.pos_, token.dep_)
+                    if token.text in stopwords:
+                        continue
                     if token.pos_ in ['DET']:
                         continue
-                    if token.pos_ in ['NOUN'] or token.dep_ in ['amod']:
+                    if token.text in ['data']:
                         clean_value.append(token.text)
                         continue
                     clean_value.append(token.lemma_)
@@ -316,5 +322,5 @@ class PatternMatcher:
         if not qualified_name:
             return None
         parent, unqualified_name = CodeUtil.simplify_method_qualified_name(qualified_name)
-        decamelized_name = CodeUtil.decamelize_by_substitute_verb(parent, unqualified_name[0])
-        return self.mapping_template_copy(decamelized_name)
+        decamelized_name = CodeUtil.decamelize_by_substitute_verb(parent, unqualified_name)
+        return self.mapping_template_copy(decamelized_name.lower())

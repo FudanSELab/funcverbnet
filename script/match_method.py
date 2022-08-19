@@ -15,7 +15,7 @@ import csv
 import re
 import pandas as pd
 from tqdm import tqdm
-from funcverbnet.utils import load_tmp
+from funcverbnet.utils import load_tmp, CodeUtil
 
 from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
@@ -35,20 +35,34 @@ def load_jl(jl_file_path):
 
 
 if __name__ == '__main__':
-    classifier = FuncSentenceClassifier()
-    net = FuncVerbNet()
+    # classifier = FuncSentenceClassifier()
+    # net = FuncVerbNet()
     pattern_matcher = PatternMatcher()
-    reader = pd.read_csv(load_tmp('method_qualified_name_data.csv'), iterator=True, chunksize=1000)
-    for chunk in tqdm(reader):
-        for index, row in chunk.iterrows():
-            # try:
-            #     data = pattern_matcher.mapping_template_from_qualified_name(row[1])
-            #     print(data)
-            # except Exception as e:
-            #     # print(e, traceback.print_exc())
-            #     print(e.__class__.__name__, row[1])
-            data = pattern_matcher.mapping_template_from_qualified_name(row[1])
-            print(data)
+    # reader = pd.read_csv(load_tmp('method_qualified_name_data.csv'), iterator=True, chunksize=1000)
+    # for chunk in tqdm(reader):
+    #     for index, row in chunk.iterrows():
+    #         # try:
+    #         #     data = pattern_matcher.mapping_template_from_qualified_name(row[1])
+    #         #     print(data)
+    #         # except Exception as e:
+    #         #     # print(e, traceback.print_exc())
+    #         #     print(e.__class__.__name__, row[1])
+    #         data = pattern_matcher.mapping_template_from_qualified_name(row[1])
+    #         print(data)
+
+    text = 'setMd5Hash'
+    text = 'getAsInt'
+    text = 'assertNull'
+    text = 'assertNotNull'
+    text = 'assertTrue'
+    text = 'deleteDirectoryContents'
+    text = 'checkNotEmpty'
+    text = 'notNull'
+    text = 'array'
+    # print(CodeUtil.simplify_method_qualified_name(text))
+    parent, unqualified_name = CodeUtil.simplify_method_qualified_name(text)
+    print(CodeUtil.decamelize_by_substitute_verb(parent, unqualified_name))
+    print(pattern_matcher.mapping_template_from_qualified_name(text))
 
     # data = load_jl(load_tmp('node_info_3.jl'))
 

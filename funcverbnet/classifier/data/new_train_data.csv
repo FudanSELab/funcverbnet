@@ -15027,3 +15027,13 @@ post a received EMM packet to the CA system.	__label__20
 post one byte of urgent data on the socket.	__label__20
 post a WARN log message and log the exception.	__label__20
 post Deregister	__label__20
+a convenient method to return a copy of the given Iterable object.   __label__54
+get as Int   __label__54
+This method is used to output log4j internal debug statements.  __label__2
+This method is used to output log4j internal warning statements.    __label__2
+assert Not Null __label__11
+Make a directory.   __label__16
+delete Directory Contents   __label__68
+Validate that the specified argument is not null    __label__65
+End an array   __label__1
+Asserts that two object arrays are equal   __label__11

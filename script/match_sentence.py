@@ -112,24 +112,42 @@ if __name__ == '__main__':
     # text = "May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header."
     # text = "write Header"
     # text = "post Deregister"
-    texts = [
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "write Header",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "write Header",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-        "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
-    ]
-    for text in texts:
-        print(pattern_matcher.mapping_template_copy(text))
+    # text = "The toJSONString method allows a class to produce its own JSON serialization."
+    text = "a convenient method to return a copy of the given Iterable object"
+    # text = "Set the MD5 hash value of this object's data."
+    # text = "get as data"
+    # text = "The toJSONString method allows a class to produce its own JSON serialization."
+    # text = "This method is used to output log4j internal debug statements."
+    # text = "This method is used to output log4j internal error statements. There is no way to disable error statements. Output goes to System.err."
+    # text = "This method is used to output log4j internal warning statements. There is no way to disable warning statements. Output goes to System.err."
+    # text = "Asserts that two object arrays are equal. If they are not, an <noun>AssertionError</noun> is thrown. If expected and actual are null, they are considered equal."
+    # text = "Get the contents of a Reader as a String. This method buffers the input internally, so there is no need to use a BufferedReader."
+    # text = "Reads all characters from a <noun>Readable</noun> object into a <noun>String</noun>. Does not close the <noun>Readable</noun>."
+    # text = "Make a directory, including any necessary but nonexistent parent directories. If there already exists a file with specified name or the directory cannot be created then an exception is thrown."
+    # text = "Ensures that an object reference passed as a parameter to the calling method is not null."
+    # text = "Validate that the specified argument is not null"
+    # text = "End an array. This method most be called to balance calls to array."
+    # text = "Set the MD5 hash value of this object's data. The hash value is stored as metadata under Content-MD5 (Base64-encoded) and the JetS3t-specific md5-hash (Hex-encoded)."
+    text = "Get the contents of a Reader as a String. This method buffers the input internally, so there is no need to use a BufferedReader."
+    # texts = [
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "write Header",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "write Header",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
+    # ]
+    # for text in texts:
+    #     print(pattern_matcher.mapping_template_copy(text))
+    print(pattern_matcher.mapping_template_copy(text))
