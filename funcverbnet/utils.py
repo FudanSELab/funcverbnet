@@ -17,11 +17,13 @@ import logging
 import re
 
 # import nltk
-# from nltk.corpus import wordnet as wn
+from nltk.corpus import wordnet as wn
+
 # nltk.download('wordnet')
 # nltk.download('omw-1.4')
 
 ROOT_PATH = Path(os.path.abspath(os.path.dirname(__file__)))
+nouns = {x.name().split('.', 1)[0] for x in wn.all_synsets('n')}
 
 
 def load_data(filename):
@@ -53,7 +55,8 @@ def walk_dir(folder):
 class CodeUtil:
     PATTERN_24 = re.compile(r'([A-Za-z])([24])([A-CE-Za-ce-z])')
     PATTERN_SPLIT = re.compile(r'([A-Z]+)([A-Z][a-z]+)')
-    PATTERN_NUM = re.compile(r'([0-9]?[A-Z]+)')
+    # PATTERN_NUM = re.compile(r'([A-Z]+[0-9]?)')
+    PATTERN_NUM = re.compile(r'([A-Z]+)')
 
     PATTERN_SENT = re.compile(r'(?<=[.!?])\s+')
 
@@ -71,8 +74,8 @@ class CodeUtil:
         qualified_name = qualified_name.replace('\n', ' ')
         unqualified_name = qualified_name.strip('.').split(' ')[-1].split('(')[0].split('<')[0].split('.')
         if len(unqualified_name) > 1:
-            return unqualified_name[-2].strip(), [unqualified_name[-1].strip()]
-        return None, [unqualified_name[-1].strip()]
+            return unqualified_name[-2].strip(), unqualified_name[-1].strip()
+        return None, unqualified_name[-1].strip()
 
     @staticmethod
     def simplify_method_qualified_name(qualified_name: str):
@@ -80,8 +83,8 @@ class CodeUtil:
             return None
         unqualified_name = qualified_name.strip('.').split('(')[0].split('<')[0].split(' ')[-1].split('.')
         if len(unqualified_name) > 1:
-            return unqualified_name[-2].strip(), [unqualified_name[-1].strip(), unqualified_name[-1].strip() + '()']
-        return None, [unqualified_name[-1].strip(), unqualified_name[-1].strip() + '()']
+            return unqualified_name[-2].strip(), unqualified_name[-1].strip()
+        return None, unqualified_name[-1].strip()
 
     @staticmethod
     def process_qualified_name(name: str):
@@ -124,20 +127,30 @@ class CodeUtil:
 
     @classmethod
     def decamelize_by_substitute_verb(cls, parent: str, unqualified_name: str):
+        print(unqualified_name)
         if not unqualified_name:
             return None
         if unqualified_name == parent or unqualified_name[0].isupper():
-            return 'create ' + cls.decamelize(unqualified_name)
+            decamelized_name = 'create ' + cls.decamelize(unqualified_name)
         elif unqualified_name.startswith('is'):
-            return cls.decamelize(unqualified_name.replace('is', 'check', 1))
+            decamelized_name = cls.decamelize(unqualified_name.replace('is', 'check', 1))
+        elif unqualified_name.startswith('notNull'):
+            decamelized_name = cls.decamelize(unqualified_name.replace('notNull', 'checkNotNull'))
         elif unqualified_name.startswith('to'):
-            return cls.decamelize(unqualified_name).replace('to', 'convert to', 1)
+            decamelized_name = cls.decamelize(unqualified_name).replace('to', 'convert to', 1)
         else:
+            flag = False
             decamelized_name = cls.decamelize(unqualified_name)
             if len(decamelized_name.split(' ')) == 1:
-                if decamelized_name in ['size', 'length', 'name', 'value', 'key']:
-                    return 'get ' + decamelized_name
-            return decamelized_name
+                if decamelized_name in ['size', 'length', 'name', 'value', 'key', 'array', 'hash']:
+                    flag = True
+                    decamelized_name = 'get ' + decamelized_name
+            for word in decamelized_name.split(' '):
+                if flag or not word.lower() in nouns:
+                    flag = True
+            if not flag:
+                decamelized_name = 'get ' + decamelized_name
+        return decamelized_name.replace(' Not Null', ' NotNull')
 
     @staticmethod
     def count_parameter_num(split_code: str):

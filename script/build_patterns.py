@@ -58,5 +58,16 @@ if __name__ == '__main__':
     # with open(load_data('patterns.bin'), 'rb') as rf:
     #     print(pickle.load(rf))
 
-    net = FuncVerbNet()
-    print(net.get_pattern_id_by_syntax('V {patient} with {instrument}'))
+    # net = FuncVerbNet()
+    # print(net.get_pattern_id_by_syntax('V {patient} with {instrument}'))
+
+    with open(F_CATEGORY_DATA_PATH, 'r', encoding='utf-8') as f_category_data_file:
+        category_data = json.load(f_category_data_file)
+    f_verbs = set()
+    for item in category_data:
+        # print(item['included_pattern'])
+        for verb in item['included_verb']:
+            f_verbs.add(verb)
+    print(len(f_verbs))
+    for f_verb in f_verbs:
+        print(f'"{f_verb}",')

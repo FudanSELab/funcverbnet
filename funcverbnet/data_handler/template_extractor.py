@@ -194,6 +194,7 @@ class TemplateExtractor:
                     break
         # >>> update root if root's pos_ is not VERB or not in category verbs, traverse rights
         if root.pos_ != 'VERB' and not flag or not self.__is_in_categories(root, f_category_incl_verbs):
+            # print([_ for _ in root.rights])
             for right in [_ for _ in root.rights]:
                 if self.__is_in_categories(right, f_category_incl_verbs):
                     root = right
@@ -580,9 +581,9 @@ class TemplateExtractor:
         """
         if not sentence:
             return {}
-        classified_sentence = re.split(r'(\.\s|\!\s|\?\s|;\s|,\s)', sentence)[0]
+        classified_sentence = re.split(r'(\.\s+|\!\s+|\?\s+|;\s+|,\s+)', sentence)[0]
         cate_id = self.classifier.predict(classified_sentence)
-        # print('CATE_NAME', self.net.find_cate_by_id(cate_id).name)
+        # print('CATE_NAME', self.net.find_f_category_by_id(cate_id).name)
         f_category_incl_verbs = self.net.find_f_category_by_id(cate_id).included_verb
         try:
             tokens_pos_list, core_verb = self.structure_sentence(

@@ -141,3 +141,27 @@ History
 0.2.13 (2022-7-31)
 -------------------
 * [update] add concept extractor
+
+0.2.14 (2022-8-1)
+-------------------
+* [update] update classifier model
+
+0.2.15 (2022-8-3)
+-------------------
+* [update] bug fix
+
+0.2.16 (2022-8-4)
+-------------------
+* [update] update concept extractor
+
+0.2.17 (2022-8-15)
+-------------------
+* [update] add lru cache
+
+0.2.18 (2022-8-16)
+-------------------
+* [update] add lru cache for extract noun chunks
+
+0.2.19 (2022-8-19)
+-------------------
+* [update] bug fix
