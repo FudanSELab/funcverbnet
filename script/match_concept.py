@@ -103,7 +103,9 @@ if __name__ == '__main__':
     # text = "A string representation of an Amazon S3 permission, eg. <code>FULL_CONTROL</code>"
     # text = "Effective property base type to use; may differ from actual type of property; for structured types it is content (value) type and NOT structured type."
     # text = "the host name/IP"
-    text = "("
+    # text = "("
+    text = "names of columns be of own entity"
+    text = "Locate an object in {@literal JNDI} by name"
     print(concept_extractor.extract_noun_chunks(text))
 
     # texts = [

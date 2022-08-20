@@ -30,8 +30,12 @@ class ConceptExtractor:
         sentence = sentence.replace('I/O', 'I#O').replace('name/IP', 'name, IP')
         sentence = sentence.replace('\n', '').replace('-', ' ').replace('_', ' ').replace("'s", '').replace('/', ' ')
         sentence = sentence.replace('I#O', 'I/O').strip()
-        sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
-        sentence = re.sub(' +', " ", sentence)
+        sentence = re.sub(r'\{@.*?\s+(.+?)\}', r'\1', sentence)
+        sentence = re.sub(r'<\w+[^>]*>(.+?)</\w+[^>]*>', r'\1', sentence)
+        sentence = re.sub(r'<([^>]*)>', r'\1', sentence)
+        # sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
+        sentence = re.sub(r'\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', '', sentence)
+        sentence = re.sub(r'\s+', ' ', sentence)
         return sentence
 
     @staticmethod
@@ -48,7 +52,7 @@ class ConceptExtractor:
             filter_noun_chunks.append(noun_chunk)
         return set(filter_noun_chunks)
 
-    @functools.lru_cache(maxsize=128)
+    @functools.lru_cache(maxsize=10000)
     def extract_noun_chunks(self, sentence):
         sentence = self.preprocess_sentence(sentence)
         doc: Doc = self.nlp(sentence)

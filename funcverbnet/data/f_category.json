@@ -2299,6 +2299,7 @@
             "V {patient} as {goal} from {source}",
             "V {patient} as {goal} in {location}",
             "V {patient} at {location}",
+            "V {patient} on/in/at {location} by/with {instrument}",
             "V {patient} by/with {instrument}",
             "V {patient} for {theme}",
             "V {patient} for {theme} in {source}",
@@ -2306,8 +2307,7 @@
             "V {patient} from/in {source}",
             "V {patient} from/in {source} as {goal}",
             "V {patient} in {location} for {theme}",
-            "V {patient} on/in/at {location}",
-            "V {patient} on/in/at {location} by/with {instrument}"
+            "V {patient} on/in/at {location}"
         ],
         "version": "1.0",
         "example": "A query for LocalDate returning null if not found."
