@@ -61,7 +61,10 @@ class TemplateExtractor:
             sentence = sentence[0].lower() + sentence[1:]
         # sentence = self.eliminate_bracket(sentence)
         sentence = re.sub(r'\{@.*?\s+(.+?)\}', r'\1', sentence)
-        sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
+        sentence = re.sub(r'<\w+[^>]*>(.+?)</\w+[^>]*>', r'\1', sentence)
+        sentence = re.sub(r'<([^>]*)>', r'\1', sentence)
+        # sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
+        sentence = re.sub(r'\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', '', sentence)
         sentence = re.sub(r'\s+', ' ', sentence)
         return sentence
 

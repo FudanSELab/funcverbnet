@@ -31,7 +31,10 @@ class ConceptExtractor:
         sentence = sentence.replace('\n', '').replace('-', ' ').replace('_', ' ').replace("'s", '').replace('/', ' ')
         sentence = sentence.replace('I#O', 'I/O').strip()
         sentence = re.sub(r'\{@.*?\s+(.+?)\}', r'\1', sentence)
-        sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
+        sentence = re.sub(r'<\w+[^>]*>(.+?)</\w+[^>]*>', r'\1', sentence)
+        sentence = re.sub(r'<([^>]*)>', r'\1', sentence)
+        # sentence = re.compile(r'<[^>]*>|\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', re.S).sub('', sentence)
+        sentence = re.sub(r'\([^\)]*\)|\[[^\]]*\]|\{[^\}]*\}', '', sentence)
         sentence = re.sub(r'\s+', ' ', sentence)
         return sentence
 
