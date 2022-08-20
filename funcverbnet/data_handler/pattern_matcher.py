@@ -314,7 +314,6 @@ class PatternMatcher:
                     'value': ' '.join([_.lemma_ for _ in t_slot_tokens]),
                     'clean_value': ' '.join(clean_value).lower()
                 })
-                # print(' '.join(clean_value))
         return mapped_template
 
     @functools.lru_cache(maxsize=10000)

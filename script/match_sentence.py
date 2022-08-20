@@ -113,7 +113,7 @@ if __name__ == '__main__':
     # text = "write Header"
     # text = "post Deregister"
     # text = "The toJSONString method allows a class to produce its own JSON serialization."
-    text = "a convenient method to return a copy of the given Iterable object"
+    # text = "a convenient method to return a copy of the given Iterable object"
     # text = "Set the MD5 hash value of this object's data."
     # text = "get as data"
     # text = "The toJSONString method allows a class to produce its own JSON serialization."
@@ -128,7 +128,12 @@ if __name__ == '__main__':
     # text = "Validate that the specified argument is not null"
     # text = "End an array. This method most be called to balance calls to array."
     # text = "Set the MD5 hash value of this object's data. The hash value is stored as metadata under Content-MD5 (Base64-encoded) and the JetS3t-specific md5-hash (Hex-encoded)."
-    text = "Get the contents of a Reader as a String. This method buffers the input internally, so there is no need to use a BufferedReader."
+    # text = "Get the contents of a Reader as a String. This method buffers the input internally, so there is no need to use a BufferedReader."
+    # text = "Returns the type adapter for {@code} type."
+    # text = "Get the cascade style of this (subclass closure) property"
+    # text = "Locate an object in {@literal JNDI} by name"
+    text = "Adds the specified listener to the given {@literal JNDI} namespace."
+    # text = " Creates a monitor with a non-fair (but fast) ordering policy. Equivalent to <noun>Monitor(false)</noun>."
     # texts = [
     #     "Returns a request header identifying what version of the state management specification is understood. May be <noun>null</noun> if the cookie specification does not support <noun>Cookie2</noun> header.",
     #     "write Header",
