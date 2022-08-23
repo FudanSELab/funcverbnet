@@ -21,7 +21,7 @@ from funcverbnet.classifier.sentence_classifier import FuncSentenceClassifier
 from funcverbnet.nodes.funcverbnet import FuncVerbNet
 
 
-from funcverbnet.data_handler.pattern_matcher import PatternMatcher
+# from funcverbnet.data_handler.pattern_matcher import PatternMatcher
 
 
 def load_jl(jl_file_path):
@@ -37,7 +37,7 @@ def load_jl(jl_file_path):
 if __name__ == '__main__':
     # classifier = FuncSentenceClassifier()
     # net = FuncVerbNet()
-    pattern_matcher = PatternMatcher()
+    # pattern_matcher = PatternMatcher()
     # reader = pd.read_csv(load_tmp('method_qualified_name_data.csv'), iterator=True, chunksize=1000)
     # for chunk in tqdm(reader):
     #     for index, row in chunk.iterrows():
@@ -57,12 +57,22 @@ if __name__ == '__main__':
     text = 'assertTrue'
     text = 'deleteDirectoryContents'
     text = 'checkNotEmpty'
-    text = 'notNull'
-    text = 'array'
+    text = 'readValue'
+    # text = 'org.apache.commons.httpclient.MultiThreadedHttpConnectionManager.HttpConnectionAdapter.getRequestOutputStream()'
+    # text = 'copy'
+    text = 'com.fasterxml.jackson.databind.deser.std.MapDeserializer.getValueType()'
+    text = 'setShortValue'
+    text = 'org.hibernate.mapping.Collection.getColumnIterator()'
+    text = 'hashCode'
+    text = 'size'
+    # text = 'getCollection'
+    text = 'longValue'
+    text = 'endArray'
+    text = 'name'
     # print(CodeUtil.simplify_method_qualified_name(text))
     parent, unqualified_name = CodeUtil.simplify_method_qualified_name(text)
     print(CodeUtil.decamelize_by_substitute_verb(parent, unqualified_name))
-    print(pattern_matcher.mapping_template_from_qualified_name(text))
+    # print(pattern_matcher.mapping_template_from_qualified_name(text))
 
     # data = load_jl(load_tmp('node_info_3.jl'))
 

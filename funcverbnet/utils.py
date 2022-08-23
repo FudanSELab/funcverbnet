@@ -15,6 +15,7 @@ from pathlib import Path
 import time
 import logging
 import re
+import pickle
 
 # import nltk
 from nltk.corpus import wordnet as wn
@@ -24,6 +25,9 @@ from nltk.corpus import wordnet as wn
 
 ROOT_PATH = Path(os.path.abspath(os.path.dirname(__file__)))
 nouns = {x.name().split('.', 1)[0] for x in wn.all_synsets('n')}
+with open(str(ROOT_PATH / 'data' / 'f_verbs.bin'), 'rb') as file:
+    f_verbs = pickle.load(file)
+nouns -= f_verbs
 
 
 def load_data(filename):
@@ -127,7 +131,6 @@ class CodeUtil:
 
     @classmethod
     def decamelize_by_substitute_verb(cls, parent: str, unqualified_name: str):
-        print(unqualified_name)
         if not unqualified_name:
             return None
         if unqualified_name == parent or unqualified_name[0].isupper():
@@ -148,6 +151,7 @@ class CodeUtil:
             for word in decamelized_name.split(' '):
                 if flag or not word.lower() in nouns:
                     flag = True
+                    break
             if not flag:
                 decamelized_name = 'get ' + decamelized_name
         return decamelized_name.replace(' Not Null', ' NotNull')
