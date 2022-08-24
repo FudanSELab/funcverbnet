@@ -106,6 +106,8 @@ if __name__ == '__main__':
     # text = "("
     text = "names of columns be of own entity"
     text = "Locate an object in {@literal JNDI} by name"
+    text = "GsonBuilder"
+    text = "return column iterator"
     print(concept_extractor.extract_noun_chunks(text))
 
     # texts = [

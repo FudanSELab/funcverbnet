@@ -587,6 +587,7 @@ class TemplateExtractor:
         if not sentence:
             return {}
         classified_sentence = re.split(r'(\.\s+|\!\s+|\?\s+|;\s+|,\s+)', sentence)[0]
+        classified_sentence = classified_sentence[0].upper() + classified_sentence[1:]
         cate_id = self.classifier.predict(classified_sentence)
         # print('CATE_NAME', self.net.find_f_category_by_id(cate_id).name)
         f_category_incl_verbs = self.net.find_f_category_by_id(cate_id).included_verb

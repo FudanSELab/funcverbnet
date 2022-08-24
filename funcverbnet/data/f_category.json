@@ -1497,6 +1497,7 @@
         ],
         "included_pattern": [
             "V {patient}",
+            "V that",
             "V {patient} with {instrument}"
         ],
         "version": "1.0",
@@ -2396,7 +2397,8 @@
             "V {patient}",
             "V {patient} for {theme}",
             "V {patient} if/whether S",
-            "V {patient} in {location}"
+            "V {patient} in {location}",
+            "V that"
         ],
         "version": "1.0",
         "example": "Tests for equality between the specified object and this timestamp."

@@ -64,10 +64,16 @@ if __name__ == '__main__':
     with open(F_CATEGORY_DATA_PATH, 'r', encoding='utf-8') as f_category_data_file:
         category_data = json.load(f_category_data_file)
     f_verbs = set()
-    for item in category_data:
+    d_verbs = set()
+    for item in category_data[1:]:
         # print(item['included_pattern'])
         for verb in item['included_verb']:
+            # print(verb[0].upper() + verb[1:] + '\t' + '__label__' + str(item['id']))
+            if verb in f_verbs:
+                d_verbs.add(verb)
+                continue
             f_verbs.add(verb)
-    print(len(f_verbs))
-    for f_verb in f_verbs:
-        print(f'"{f_verb}",')
+    print(d_verbs)
+    # print(len(f_verbs))
+    # for f_verb in f_verbs:
+    #     print(f'"{f_verb}",')
